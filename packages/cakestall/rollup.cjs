@@ -9,13 +9,6 @@ module.exports = (config, b) => {
 		external: [],
 		output: {
 			...config.output,
-			entryFileNames: () => {
-				if (config.output.format === 'cjs') {
-					return `index.cjs`;
-				} else {
-					return `index.mjs`;
-				}
-			},
 			plugins: [
 				getBabelOutputPlugin({
 					presets: [

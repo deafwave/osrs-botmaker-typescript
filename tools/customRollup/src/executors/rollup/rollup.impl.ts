@@ -78,88 +78,101 @@ export async function* rollupExecutor(
 		.filter((d) => d.target.startsWith('npm:'))
 		.map((d) => d.target.slice(4));
 
-	const rollupOptions = await createRollupOptions(
-		options,
-		dependencies,
-		context,
-		packageJson,
-		sourceRoot,
-		npmDeps,
-	);
-
-	const outfile = resolveOutfile(context, options);
-
-	if (options.watch) {
-		const watcher = rollup.watch(rollupOptions);
-		return yield* eachValueFrom(
-			new Observable<RollupExecutorEvent>((obs) => {
-				watcher.on('event', (data) => {
-					if (data.code === 'START') {
-						logger.info(`Bundling ${context.projectName}...`);
-					} else if (data.code === 'END') {
-						updatePackageJson(options, packageJson);
-						logger.info(
-							'Bundle complete. Watching for file changes...',
-						);
-						obs.next({ success: true, outfile });
-					} else if (data.code === 'ERROR') {
-						logger.error(
-							`Error during bundle: ${data.error.message}`,
-						);
-						obs.next({ success: false });
-					}
-				});
-				// Teardown logic. Close watcher when unsubscribed.
-				return () => watcher.close();
-			}),
+	let hasDeleted = false;
+	const entryPoints = [
+		options.main,
+		...(options.additionalEntryPoints ?? []),
+	];
+	for (const entryPoint of entryPoints) {
+		const tweakedOptions = {
+			...options,
+			main: entryPoint,
+		} as NormalizedRollupExecutorOptions;
+		const rollupOptions = await createRollupOptions(
+			tweakedOptions,
+			dependencies,
+			context,
+			packageJson,
+			sourceRoot,
+			npmDeps,
 		);
-	} else {
-		logger.info(`Bundling ${context.projectName}...`);
 
-		// Delete output path before bundling
-		if (options.deleteOutputPath) {
-			deleteOutputDir(context.root, options.outputPath);
-		}
+		const outfile = resolveOutfile(context, options);
 
-		const start = process.hrtime.bigint();
-
-		return from(rollupOptions)
-			.pipe(
-				concatMap((opts) =>
-					runRollup(opts).pipe(
-						catchError((e) => {
-							logger.error(`Error during bundle: ${e}`);
-							return of({ success: false });
-						}),
-					),
-				),
-				scan<RollupExecutorEvent, RollupExecutorEvent>(
-					(acc, result) => {
-						if (!acc.success) return acc;
-						return result;
-					},
-					{ success: true, outfile },
-				),
-				last(),
-				tap({
-					next: (result) => {
-						if (result.success) {
-							const end = process.hrtime.bigint();
-							const duration = `${(
-								Number(end - start) / 1_000_000_000
-							).toFixed(2)}s`;
-
+		if (options.watch) {
+			const watcher = rollup.watch(rollupOptions);
+			return yield* eachValueFrom(
+				new Observable<RollupExecutorEvent>((obs) => {
+					watcher.on('event', (data) => {
+						if (data.code === 'START') {
+							logger.info(`Bundling ${context.projectName}...`);
+						} else if (data.code === 'END') {
 							updatePackageJson(options, packageJson);
-							logger.info(`⚡ Done in ${duration}`);
-						} else {
-							logger.error(
-								`Bundle failed: ${context.projectName}`,
+							logger.info(
+								'Bundle complete. Watching for file changes...',
 							);
+							obs.next({ success: true, outfile });
+						} else if (data.code === 'ERROR') {
+							logger.error(
+								`Error during bundle: ${data.error.message}`,
+							);
+							obs.next({ success: false });
 						}
-					},
+					});
+					// Teardown logic. Close watcher when unsubscribed.
+					return () => watcher.close();
 				}),
-			)
-			.toPromise();
+			);
+		} else {
+			logger.info(`Bundling ${context.projectName}...`);
+
+			// Delete output path before bundling
+			if (options.deleteOutputPath && !hasDeleted) {
+				deleteOutputDir(context.root, options.outputPath);
+				hasDeleted = true;
+			}
+
+			const start = process.hrtime.bigint();
+
+			const result = await from(rollupOptions)
+				.pipe(
+					concatMap((opts) =>
+						runRollup(opts).pipe(
+							catchError((e) => {
+								logger.error(`Error during bundle: ${e}`);
+								return of({ success: false });
+							}),
+						),
+					),
+					scan<RollupExecutorEvent, RollupExecutorEvent>(
+						(acc, result) => {
+							if (!acc.success) return acc;
+							return result;
+						},
+						{ success: true, outfile },
+					),
+					last(),
+					tap({
+						next: (result) => {
+							if (result.success) {
+								const end = process.hrtime.bigint();
+								const duration = `${(
+									Number(end - start) / 1_000_000_000
+								).toFixed(2)}s`;
+
+								updatePackageJson(options, packageJson);
+								logger.info(`⚡ Done in ${duration}`);
+							} else {
+								logger.error(
+									`Bundle failed: ${context.projectName}`,
+								);
+							}
+						},
+					}),
+				)
+				.toPromise();
+			yield result;
+		}
 	}
 }
 
@@ -307,9 +320,6 @@ export async function createRollupOptions(
 		const mainEntryFileName = options.outputFileName || options.main;
 		const input: Record<string, string> = {};
 		input[parse(mainEntryFileName).name] = options.main;
-		options.additionalEntryPoints.forEach((entry) => {
-			input[parse(entry).name] = entry;
-		});
 
 		const rollupConfig = {
 			input,
