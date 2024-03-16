@@ -23,7 +23,7 @@
 		},
 		"@nx/rollup:rollup": {
 			"cache": true,
-			"dependsOn": ["^rollup"],
+			"dependsOn": ["^build"],
 			"inputs": ["production", "^production"]
 		}
 	},

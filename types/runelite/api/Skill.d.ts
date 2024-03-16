@@ -1,28 +1,28 @@
 /**
  * An enumeration of skills that a player can level.
  */
-declare enum Skill {
-	ATTACK = 'Attack',
-	DEFENCE = 'Defence',
-	STRENGTH = 'Strength',
-	HITPOINTS = 'Hitpoints',
-	RANGED = 'Ranged',
-	PRAYER = 'Prayer',
-	MAGIC = 'Magic',
-	COOKING = 'Cooking',
-	WOODCUTTING = 'Woodcutting',
-	FLETCHING = 'Fletching',
-	FISHING = 'Fishing',
-	FIREMAKING = 'Firemaking',
-	CRAFTING = 'Crafting',
-	SMITHING = 'Smithing',
-	MINING = 'Mining',
-	HERBLORE = 'Herblore',
-	AGILITY = 'Agility',
-	THIEVING = 'Thieving',
-	SLAYER = 'Slayer',
-	FARMING = 'Farming',
-	RUNECRAFT = 'Runecraft',
-	HUNTER = 'Hunter',
-	CONSTRUCTION = 'Construction',
+interface Skill {
+	ATTACK: 'ATTACK';
+	DEFENCE: 'DEFENCE';
+	STRENGTH: 'STRENGTH';
+	HITPOINTS: 'HITPOINTS';
+	RANGED: 'RANGED';
+	PRAYER: 'PRAYER';
+	MAGIC: 'MAGIC';
+	COOKING: 'COOKING';
+	WOODCUTTING: 'WOODCUTTING';
+	FLETCHING: 'FLETCHING';
+	FISHING: 'FISHING';
+	FIREMAKING: 'FIREMAKING';
+	CRAFTING: 'CRAFTING';
+	SMITHING: 'SMITHING';
+	MINING: 'MINING';
+	HERBLORE: 'HERBLORE';
+	AGILITY: 'AGILITY';
+	THIEVING: 'THIEVING';
+	SLAYER: 'SLAYER';
+	FARMING: 'FARMING';
+	RUNECRAFT: 'RUNECRAFT';
+	HUNTER: 'HUNTER';
+	CONSTRUCTION: 'CONSTRUCTION';
 }
