@@ -17,7 +17,7 @@ Take one on, submit a [Pull Request](https://docs.github.com/en/pull-requests/co
 ## Usage
 ### Install
 - [pnpm](https://pnpm.io/installation)
-- [nvm](https://github.com/nvm-sh/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows) or npm 
+- [node & npm](https://nodejs.org/en)
 1. `git clone https://github.com/ChandlerFerry/osrs-botmaker-typescript`
 2. `pnpm i`
 3. `npm i -g nx typescript ts-patch`
@@ -62,6 +62,19 @@ NO! `.d.ts` files are meant for external dependencies that do not have typings, 
 
 All `.ts` files automatically generate declaration files.
 
+### Referenced project 'tsconfig.lib.json' must have setting "composite": true.
+I'm still learning about this one as it's new to TypeScript >5.0.
+
+For now, do not set composite: true, and ignore the error.
+
+### NX Console "We couldn't find any projects in this workspace"
+1. Run `pnpm i` inside of the `osrs-botmaker-typescript` folder
+2. Reload VSCode window
+
+### nx.ps1 cannot be loaded because running scripts is disabled on this system.
+1. Open Powershell as Admin
+2. Run `Set-ExecutionPolicy RemoteSigned`
+3. Restart VSCode
 
 ### How do I make ESLint/TSC more strict so I encounter fewer edge cases?
 1. Update `tsconfig.base.json`:
@@ -97,9 +110,3 @@ Resources:
     - Used solely because it supports Babel, preferred is [esbuild](https://esbuild.github.io/)
 - [Compiler - Babel](https://babeljs.io/)
     - Used solely because it supports Rhino 1.7.14, preferred is [tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
-
-
-### Referenced project 'tsconfig.lib.json' must have setting "composite": true.
-I'm still learning about this one as it's new to TypeScript >5.0.
-
-For now, do not set composite: true, and ignore the error.
