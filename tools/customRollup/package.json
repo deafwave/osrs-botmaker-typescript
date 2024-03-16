@@ -8,8 +8,5 @@
   "author": "Victor Savkin",
   "license": "MIT",
   "homepage": "https://nx.dev",
-  "executors": "./executors.json",
-  "scripts": {
-    "lint": "echo skipped"
-  }
+  "executors": "./executors.json"
 }

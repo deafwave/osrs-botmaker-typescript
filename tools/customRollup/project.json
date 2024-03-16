@@ -62,7 +62,6 @@
 		},
 		"add-extra-dependencies": {
 			"command": "node ./scripts/add-dependency-to-build.js rollup @nrwl/rollup"
-		},
-		"lint": {}
+		}
 	}
 }

@@ -90,7 +90,7 @@ export default [
 			'**/tsconfig.json',
 			'**/tsconfig.*.json',
 			'**/rollup.cjs',
-			'**/tools/customRollup',
+			'**/tools/customRollup/src',
 		],
 	},
 ];
