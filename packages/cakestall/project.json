@@ -19,9 +19,7 @@
 				"main": "packages/cakestall/src/index.ts",
 				"outputPath": "dist/packages/cakestall",
 				"tsConfig": "packages/cakestall/tsconfig.lib.json",
-				"compiler": "babel",
 				"project": "packages/cakestall/package.json",
-				"format": ["esm"],
 				"rollupConfig": "packages/cakestall/rollup.cjs",
 				"assets": []
 			}

@@ -24,12 +24,20 @@
 		"@nx/rollup:rollup": {
 			"cache": true,
 			"dependsOn": ["^build"],
-			"inputs": ["production", "^production"]
+			"inputs": ["production", "^production"],
+			"options": {
+				"format": ["esm"],
+				"compiler": "babel"
+			}
 		},
 		"customRollup:rollup": {
 			"cache": true,
 			"dependsOn": ["^build"],
-			"inputs": ["production", "^production"]
+			"inputs": ["production", "^production"],
+			"options": {
+				"format": ["esm"],
+				"compiler": "babel"
+			}
 		}
 	},
 	"plugins": [
