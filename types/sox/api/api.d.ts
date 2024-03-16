@@ -32,7 +32,7 @@ interface SoxApi {
 	localPlayerMoving: () => boolean;
 	lootItemsWithIds: (lootIds: number[], maxDistance: number) => void;
 	lootItemsWithNames: (lootNames: string[], maxDistance: number) => void;
-	printDebugMessage: (message: string) => void; // Deprecated
+	PrintDebugMessage: (message: string) => void; // Deprecated
 	printGameMessage: (message: string) => void;
 	setCounter: (name: string, value: number) => void;
 	setVariable: (variableName: string, value: string) => void;
