@@ -1,0 +1,1 @@
+type SoundEffectID = any;

@@ -1,0 +1,1 @@
+type WidgetModalMode = any;

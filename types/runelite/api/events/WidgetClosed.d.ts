@@ -1,0 +1,1 @@
+type WidgetClosed = any;

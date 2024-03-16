@@ -1,0 +1,1 @@
+type WidgetUtil = any;

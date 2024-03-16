@@ -1,0 +1,1 @@
+type OverlayIndex = any;

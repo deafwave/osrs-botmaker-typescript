@@ -1,0 +1,1 @@
+type HitsplatApplied = any;

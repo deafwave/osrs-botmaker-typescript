@@ -1,0 +1,1 @@
+type VisibleForExternalPlugins = any;

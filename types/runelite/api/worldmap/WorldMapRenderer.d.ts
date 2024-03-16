@@ -1,0 +1,1 @@
+type WorldMapRenderer = any;

@@ -1,0 +1,1 @@
+type Varbit = any;

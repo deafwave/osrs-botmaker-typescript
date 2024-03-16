@@ -1,0 +1,1 @@
+type SimplePolygon = any;

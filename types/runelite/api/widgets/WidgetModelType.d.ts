@@ -1,0 +1,1 @@
+type WidgetModelType = any;

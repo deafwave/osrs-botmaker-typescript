@@ -1,0 +1,18 @@
+# Other Languages
+CHANGELOG.md
+*.md
+*.yaml
+
+# Linters & Test
+coverage
+
+# xstate
+*.typegen.ts
+p3d.queries.ts
+
+# Build
+dist
+tmp
+package.json
+
+.nx/cache

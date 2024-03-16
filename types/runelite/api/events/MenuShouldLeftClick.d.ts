@@ -1,0 +1,1 @@
+type MenuShouldLeftClick = any;

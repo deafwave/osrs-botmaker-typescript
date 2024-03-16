@@ -1,0 +1,1 @@
+type ParamHolder = any;

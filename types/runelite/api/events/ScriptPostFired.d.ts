@@ -1,0 +1,1 @@
+type ScriptPostFired = any;

@@ -1,0 +1,1 @@
+type PostHealthBar = any;

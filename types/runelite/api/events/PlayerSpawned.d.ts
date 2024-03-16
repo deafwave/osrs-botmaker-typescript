@@ -1,0 +1,1 @@
+type PlayerSpawned = any;

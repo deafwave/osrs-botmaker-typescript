@@ -1,0 +1,1 @@
+type MenuEntryAdded = any;
