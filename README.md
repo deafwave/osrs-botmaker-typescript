@@ -56,6 +56,15 @@ ESLint and TypeScript will tell you when you're doing something improper. Follow
 
 [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/) is a valuable 'raw' resource.
 
+## How do I add multiple output bundles for a package?
+Update the `packages/<PackageName>/project.json`, adding `additionalEntryPoints` of every bundle that you would like to create:
+```
+"main": "packages/cakestall/src/index.ts",
+"additionalEntryPoints": [
+	"packages/cakestall/src/quest1/quest1.ts",
+	"packages/cakestall/src/quest2/quest2.ts"
+],
+```
 
 ### Do I need to write my own .d.ts files?
 NO! `.d.ts` files are meant for external dependencies that do not have typings, such as Runelite & Sox.
