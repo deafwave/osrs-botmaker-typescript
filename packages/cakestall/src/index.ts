@@ -1,5 +1,5 @@
-import { apiVariables } from '@packages/api';
+import { onGameTick as ImportedOnGameTick } from './lib/on-game-tick';
 
-export const xxx = () => {
-	return apiVariables.test;
-};
+export function onGameTick() {
+	ImportedOnGameTick();
+}
