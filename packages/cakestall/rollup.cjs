@@ -1,14 +1,10 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable unicorn/prefer-ternary */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 const { getBabelOutputPlugin } = require('@rollup/plugin-babel');
 const cleanup = require('rollup-plugin-cleanup');
+const alias = require('@rollup/plugin-alias');
 
 module.exports = (config, b) => {
 	return {
+		treeshake: false,
 		...config,
 		output: {
 			...config.output,
@@ -29,6 +25,14 @@ module.exports = (config, b) => {
 		},
 		plugins: [
 			...config.plugins,
+			alias({
+				entries: [
+					{
+						find: /^@packages\/(.+)$/,
+						replacement: process.cwd() + '/dist/packages/$1',
+					},
+				],
+			}),
 			cleanup({
 				comments: 'none',
 				sourcemap: false,

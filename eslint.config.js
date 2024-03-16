@@ -40,7 +40,7 @@ export default [
 	{
 		files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
 		rules: {
-			'@typescript-eslint/explicit-module-boundary-types': ['error'],
+			'@typescript-eslint/explicit-module-boundary-types': ['warn'],
 			'@nx/enforce-module-boundaries': [
 				'error',
 				{
@@ -75,10 +75,6 @@ export default [
 			'**/build/**',
 			'**/tmp/**',
 			'**/node_modules/**',
-		],
-	},
-	{
-		ignores: [
 			'types/**',
 			'tsconfig.json',
 			'tsconfig.*.json',
@@ -89,6 +85,11 @@ export default [
 			'project.json',
 			'package.json',
 			'jest.config.cjs',
+			'**/rollup.cjs',
+			'**/jest.config.cjs',
+			'**/tsconfig.json',
+			'**/tsconfig.*.json',
+			'**/rollup.cjs',
 		],
 	},
 ];

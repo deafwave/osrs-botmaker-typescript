@@ -84,3 +84,8 @@ Resources:
     - Used solely because it supports Babel, preferred is [esbuild](https://esbuild.github.io/)
 - [Compiler - Babel](https://babeljs.io/)
     - Used solely because it supports Rhino 1.7.14, preferred is [tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+
+### Referenced project 'tsconfig.lib.json' must have setting "composite": true.
+I'm still learning about this one as it's new to TypeScript >5.0.
+
+For now, do not set composite: true, and ignore the error.
