@@ -16,11 +16,12 @@ Take one on, submit a [Pull Request](https://docs.github.com/en/pull-requests/co
 
 ## Usage
 ### Install
+- [pnpm](https://pnpm.io/installation)
+- [nvm](https://github.com/nvm-sh/nvm) or [nvm-windows](https://github.com/coreybutler/nvm-windows) or npm 
 1. `git clone https://github.com/ChandlerFerry/osrs-botmaker-typescript`
-2. https://pnpm.io/installation
-3. `pnpm i`
-4. `npm i -g nx typescript ts-patch`
-5. Install VSCode Extensions (ESLint, TypeScript, Prettier, Prettier-ESLint, Jest, Nx Console)
+2. `pnpm i`
+3. `npm i -g nx typescript ts-patch`
+4. Install VSCode Extensions (ESLint, TypeScript, Prettier, Prettier-ESLint, Jest, Nx Console)
 
 
 ### Build
