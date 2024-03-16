@@ -4,8 +4,9 @@ const alias = require('@rollup/plugin-alias');
 
 module.exports = (config, b) => {
 	return {
-		treeshake: false,
+		treeshake: true,
 		...config,
+		external: [],
 		output: {
 			...config.output,
 			entryFileNames: () => {
@@ -32,11 +33,30 @@ module.exports = (config, b) => {
 						replacement: process.cwd() + '/dist/packages/$1',
 					},
 				],
+				extensions: [
+					'.mjs',
+					'.js',
+					'.jsx',
+					'.json',
+					'.sass',
+					'.scss',
+					'.ts',
+					'.tsx',
+				],
 			}),
 			cleanup({
 				comments: 'none',
 				sourcemap: false,
-				extensions: ['.js', '.jsx', '.ts', '.tsx'],
+				extensions: [
+					'.mjs',
+					'.js',
+					'.jsx',
+					'.json',
+					'.sass',
+					'.scss',
+					'.ts',
+					'.tsx',
+				],
 				include: '**',
 			}),
 		],
