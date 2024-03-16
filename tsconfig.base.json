@@ -14,7 +14,8 @@
 		"baseUrl": ".",
 		"paths": {
 			"@packages/api": ["packages/api/src/index.ts"],
-			"@packages/cakestall": ["packages/cakestall/src/index.ts"]
+			"@packages/cakestall": ["packages/cakestall/src/index.ts"],
+			"customRollup": ["tools/customRollup/src/index.ts"]
 		},
 		"checkJs": false,
 		"allowJs": false,

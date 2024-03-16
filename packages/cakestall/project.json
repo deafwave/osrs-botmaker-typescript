@@ -9,27 +9,19 @@
 			"command": "node tools/scripts/postbuild.mjs cakestall {args.ver} {args.tag}"
 		},
 		"build": {
-			"executor": "@nx/rollup:rollup",
+			"executor": "customRollup:rollup",
 			"outputs": ["{options.outputPath}"],
-			"defaultConfiguration": "production",
 			"options": {
+				"additionalEntryPoints": [
+					"packages/cakestall/src/quest1/quest1.ts",
+					"packages/cakestall/src/quest2/quest2.ts"
+				],
 				"main": "packages/cakestall/src/index.ts",
 				"outputPath": "dist/packages/cakestall",
 				"tsConfig": "packages/cakestall/tsconfig.lib.json",
-				"compiler": "babel",
 				"project": "packages/cakestall/package.json",
-				"format": ["esm"],
 				"rollupConfig": "packages/cakestall/rollup.cjs",
 				"assets": []
-			},
-			"configurations": {
-				"production": {
-					"optimization": true,
-					"sourceMap": false,
-					"namedChunks": false,
-					"extractLicenses": true,
-					"vendorChunk": false
-				}
 			}
 		}
 	},
