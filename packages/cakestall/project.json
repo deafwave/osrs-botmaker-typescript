@@ -9,7 +9,7 @@
 			"command": "node tools/scripts/postbuild.mjs cakestall {args.ver} {args.tag}"
 		},
 		"build": {
-			"executor": "@nx/rollup:rollup",
+			"executor": "customRollup:rollup",
 			"outputs": ["{options.outputPath}"],
 			"options": {
 				"additionalEntryPoints": [
