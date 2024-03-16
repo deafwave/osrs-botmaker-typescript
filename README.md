@@ -32,6 +32,13 @@ Take one on, submit a [Pull Request](https://docs.github.com/en/pull-requests/co
 - `nx run api:test`
 - `nx run cakestall:test`
 
+### Create New Package
+_This process will become easier once [#1](https://github.com/ChandlerFerry/osrs-botmaker-typescript/issues/1) is solved._
+
+1. Duplicate the `cakestall` folder & rename it to `<NewPackageName>`
+2. Find and replace `cakestall` inside of the newly folder with `<NewPackageName>` 
+3. Update `tsconfig.base.json` `compilerOptions.paths`, adding `"@packages/<NewPackageName>": ["packages/<NewPackageName>/src/index.ts"]`
+
 ## FAQ
 ### How do I write TypeScript?
 With proper extensions, this repository will twist your programming style to its opinions to make this easy.
