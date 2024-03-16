@@ -1,6 +1,4 @@
-import { readFileSync, writeFileSync } from 'fs';
-import path from 'path';
-
+import { readFileSync, writeFileSync } from 'node:fs';
 import devkit from '@nx/devkit';
 const { readCachedProjectGraph } = devkit;
 
@@ -21,18 +19,18 @@ invariant(
 	`Could not find project "${name}" in the workspace. Is the project.json configured correctly?`,
 );
 
-const outputPath = project.data?.targets?.rollup?.options?.outputPath;
+const outputPath = project.data?.targets?.build?.options?.outputPath;
 invariant(
 	outputPath,
-	`Could not find "rollup.options.outputPath" of project "${name}". Is project.json configured  correctly?`,
+	`Could not find "build.options.outputPath" of project "${name}". Is project.json configured  correctly?`,
 );
 
 process.chdir(outputPath);
 
 try {
-	const data = readFileSync('index.js').toString();
+	const data = readFileSync('index.mjs').toString();
 	const result = data.replace(/export\s*{\s*([^}]*)\s*};/g, '');
-	writeFileSync('index.js', result);
+	writeFileSync('index.mjs', result);
 } catch (e) {
 	console.error(`Error reading package.json file from library build output.`);
 }
