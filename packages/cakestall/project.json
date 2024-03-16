@@ -6,7 +6,7 @@
 	"targets": {
 		"prepublish": {
 			"dependsOn": ["build"],
-			"command": "node tools/scripts/postbuild.mjs recruitment-drive {args.ver} {args.tag}"
+			"command": "node tools/scripts/postbuild.mjs cakestall {args.ver} {args.tag}"
 		},
 		"build": {
 			"executor": "@nx/rollup:rollup",
