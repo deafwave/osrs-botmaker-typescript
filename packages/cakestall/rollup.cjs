@@ -2,7 +2,21 @@ const { getBabelOutputPlugin } = require('@rollup/plugin-babel');
 const cleanup = require('rollup-plugin-cleanup');
 const alias = require('@rollup/plugin-alias');
 
-module.exports = (config, b) => {
+function removeExports() {
+	return {
+		name: 'remove-exports', // name of the plugin
+		renderChunk(code, _chunk, _options) {
+			const exportRegex = /export\s+\{[^}]*\};?/g;
+			const modifiedCode = code.replace(exportRegex, '');
+			return {
+				code: modifiedCode,
+				map: null, // or provide a source map if necessary
+			};
+		},
+	};
+}
+
+module.exports = (config, _b) => {
 	return {
 		treeshake: true,
 		...config,
@@ -15,6 +29,7 @@ module.exports = (config, b) => {
 						['@babel/preset-env', { targets: { rhino: '1.7.14' } }],
 					],
 				}),
+				removeExports(),
 			],
 		},
 		plugins: [
