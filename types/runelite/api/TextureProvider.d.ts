@@ -1,7 +1,6 @@
-/**
- * Represents a texture provider.
- */
-interface TextureProvider {
+/// <reference path="Texture.d.ts" />
+interface TextureProvider
+{
 	getBrightness(): number;
 
 	/**

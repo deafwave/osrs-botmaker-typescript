@@ -1,12 +1,14 @@
+/// <reference path="Mesh.d.ts" />
+/// <reference path="Model.d.ts" />
 /**
  * An unlit model
  */
 interface ModelData extends Mesh<ModelData>, Renderable {
-	DEFAULT_AMBIENT: number;
-	DEFAULT_CONTRAST: number;
-	DEFAULT_X: number;
-	DEFAULT_Y: number;
-	DEFAULT_Z: number;
+	DEFAULT_AMBIENT: 64;
+	DEFAULT_CONTRAST: 768;
+	DEFAULT_X: -50;
+	DEFAULT_Y: -10;
+	DEFAULT_Z: -50;
 
 	/**
 	 * Gets colors as Jagex HSL
@@ -18,7 +20,7 @@ interface ModelData extends Mesh<ModelData>, Renderable {
 	/**
 	 * Lights a model.
 	 *
-	 * The produced model shares vertices, face transparencies, face indices, and textures with
+	 * The produced model shares verticies, face transparencies, face indicies, and textures with
 	 * the underlying ModelData. If any of these may be mutated the corresponding {@code cloneX}
 	 * method should be called before {@code light}ing
 	 */

@@ -3,8 +3,7 @@
 /**
  * Represents the entire 3D scene
  */
-interface Scene
-{
+interface Scene {
 	/**
 	 * Gets the tiles in the scene
 	 *

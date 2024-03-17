@@ -1,6 +1,5 @@
-/**
- * Deprecated interface representing a RenderOverview, extending WorldMap.
- * @see WorldMap
- * @deprecated
- */
-type RenderOverview = any;
+/// <reference path="worldmap/WorldMap.d.ts" />
+/// <reference path="WorldMapData.d.ts" />
+interface RenderOverview extends WorldMap {
+	getWorldMapData(): WorldMapData;
+}

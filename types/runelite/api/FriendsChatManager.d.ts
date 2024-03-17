@@ -1,7 +1,6 @@
+/// <reference path="NameableContainer.d.ts" />
 /// <reference path="FriendsChatRank.d.ts" />
-/**
- * Represents a container of friends chat members
- */
+/// <reference path="FriendsChatMember.d.ts" />
 interface FriendsChatManager extends NameableContainer<FriendsChatMember> {
 	/**
 	 * Gets the owner of the currently joined friends chat

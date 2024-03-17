@@ -1,3 +1,4 @@
+// FIXME: Validate this is accurate (was a class)
 /**
  * Interface representing DBTableID with nested Quest interface in TypeScript.
  */

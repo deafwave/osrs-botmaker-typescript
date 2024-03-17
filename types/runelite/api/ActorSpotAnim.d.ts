@@ -1,5 +1,6 @@
 /// <reference path="RuneliteNode.d.ts" />
-interface ActorSpotAnim extends RuneliteNode {
+interface ActorSpotAnim extends RuneliteNode
+{
 	/**
 	 * Get the spotanim id
 	 * @see GraphicID

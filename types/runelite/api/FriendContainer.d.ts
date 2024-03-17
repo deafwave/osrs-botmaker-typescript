@@ -1,7 +1,7 @@
-/// <reference path="Friend.d.ts" />
 /// <reference path="NameableContainer.d.ts" />
 /// <reference path="Deque.d.ts" />
 /// <reference path="PendingLogin.d.ts" />
+/// <reference path="Friend.d.ts" />
 /**
  * A nameable container of friends
  */

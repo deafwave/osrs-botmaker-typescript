@@ -35,7 +35,7 @@ function createDTSFiles(dirPath) {
 
 					// Handle interfaces
 					const javaInterfaces = data.match(
-						/\/\*\*[\s\S]*?\*\/\s*public\s+interface\s+\w+(\s+extends\s+[\w, ]+)?\s*\{(?:[^}]*(?:\/\/[^\n]*|\/\*[\s\S]*?\*\/))*[^}]*\}/g,
+						/(?:\/\*\*[\s\S]*?\*\/\s*)?public\s+interface\s+\w+(\s+extends\s+[\w<>, ]+)?\s*\{(?:[^}]*\/\*[\s\S]*?\*\/\s*)*[^}]*\}/g,
 					);
 					if (javaInterfaces) {
 						javaInterfaces.forEach((javaInterface) => {
@@ -45,6 +45,10 @@ function createDTSFiles(dirPath) {
 								);
 							writeToFile(filePath, dirPath, tsInterface);
 						});
+					} else {
+						if (data.includes('public interface')) {
+							console.log(filePath);
+						}
 					}
 				});
 			} else if (file.isDirectory()) {

@@ -1,9 +1,6 @@
 /// <reference path="RuneliteNode.d.ts" />
-
-/**
- * Represents a texture.
- */
-interface Texture extends RuneliteNode {
+interface Texture extends RuneliteNode
+{
 	getPixels(): number[];
 
 	getAnimationDirection(): number;

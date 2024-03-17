@@ -123,7 +123,6 @@
 /// <reference path="./WallObject.d.ts" />
 /// <reference path="./WidgetNode.d.ts" />
 /// <reference path="./World.d.ts" />
-/// <reference path="./WorldMapData.d.ts" />
 /// <reference path="./WorldType.d.ts" />
 /// <reference path="./annotations/Component.d.ts" />
 /// <reference path="./annotations/HitsplatType.d.ts" />
@@ -382,6 +381,9 @@ interface RuneliteApi {
 	WallObject: WallObject;
 	WidgetNode: WidgetNode;
 	World: World;
+	/**
+	 * @deprecated Use net.runelite.api.worldmap.WorldMapData instead.
+	 */
 	WorldMapData: WorldMapData;
 	WorldType: WorldType;
 	annotations: {

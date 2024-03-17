@@ -1,15 +1,7 @@
 /// <reference path="RuneliteNode.d.ts" />
-
-interface Script extends RuneliteNode {
-	/**
-	 * Gets integer operands of the script.
-	 * @returns An array of integers representing the operands.
-	 */
+interface Script extends RuneliteNode
+{
 	getIntOperands(): number[];
 
-	/**
-	 * Gets instructions of the script.
-	 * @returns An array of integers representing the instructions.
-	 */
 	getInstructions(): number[];
 }

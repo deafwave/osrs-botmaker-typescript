@@ -1,7 +1,5 @@
-/**
- * Represents a varbit composition.
- */
-interface VarbitComposition {
+interface VarbitComposition
+{
 	/**
 	 * The varp index for this varbit
 	 *
