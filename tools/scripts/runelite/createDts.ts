@@ -35,7 +35,7 @@ function createDTSFiles(dirPath) {
 
 					// Handle interfaces
 					const javaInterfaces = data.match(
-						/public\s+interface\s+\w+\s+\{[^}]*\}/g,
+						/public\s+interface\s+\w+(\s+extends\s+[\w, ]+)?\s*\{[^}]*\}/g,
 					);
 					if (javaInterfaces) {
 						javaInterfaces.forEach((javaInterface) => {
@@ -64,13 +64,13 @@ function writeToFile(filePath, dirPath, tsContent) {
 			} else {
 				console.log(`Created: ${tsFilePath}`);
 				// Optionally delete the Java file after conversion
-				// fs.unlink(filePath, (err) => {
-				//     if (err) {
-				//         console.error('Error deleting file:', err);
-				//     } else {
-				//         console.log(`Deleted: ${filePath}`);
-				//     }
-				// });
+				fs.unlink(filePath, (err) => {
+					if (err) {
+						console.error('Error deleting file:', err);
+					} else {
+						console.log(`Deleted: ${filePath}`);
+					}
+				});
 			}
 		});
 	}
