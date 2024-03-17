@@ -56,6 +56,17 @@ ESLint and TypeScript will tell you when you're doing something improper. Follow
 
 [TypeScript Handbook](https://www.typescriptlang.org/docs/handbook/) is a valuable 'raw' resource.
 
+
+## How do I transition from `.js` to `.ts`?
+Stick this at the top of your `.js` files to ignore linting (TEMPORARY)
+
+```
+/* eslint-disable unicorn/no-abusive-eslint-disable */
+/* eslint-disable */
+```
+
+Then start modularizing your code, split things out to utils folders, etc. Use `.ts` files to do this, and fix the ESLint errors that occur as you do so.
+
 ## How do I add multiple output bundles for a package?
 Update the `packages/<PackageName>/project.json`, adding `additionalEntryPoints` of every bundle that you would like to create:
 ```
