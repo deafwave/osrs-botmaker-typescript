@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { convertJavaEnumToTypeScriptInterfaceWithComments } from './convertJavaEnum';
 import { convertJavaInterfaceToTypeScriptInterface } from './convertJavaInterface';
+import { convertJavaClass } from './convertJavaClass';
 
 function createDTSFiles(dirPath) {
 	fs.readdir(dirPath, { withFileTypes: true }, (err, files) => {
@@ -13,6 +14,10 @@ function createDTSFiles(dirPath) {
 		files.forEach((file) => {
 			if (file.isFile() && path.extname(file.name) === '.java') {
 				const filePath = path.join(dirPath, file.name);
+
+				// Debuggin
+				if (filePath !== 'api\\coords\\LocalPoint.java') return;
+
 				fs.readFile(filePath, 'utf8', (err, data) => {
 					if (err) {
 						console.error('Error reading file:', err);
@@ -20,34 +25,40 @@ function createDTSFiles(dirPath) {
 					}
 
 					// Handle enums
-					const javaEnums = data.match(
-						/public\s+enum\s+\w+\s+\{[^}]*\}/g,
-					);
-					if (javaEnums) {
-						javaEnums.forEach((javaEnum) => {
-							const tsInterface =
-								convertJavaEnumToTypeScriptInterfaceWithComments(
-									javaEnum,
-								);
-							writeToFile(filePath, dirPath, tsInterface);
-						});
-					}
+					// const javaEnums = data.match(
+					// 	/public\s+enum\s+\w+\s+{[^}]*}/g,
+					// );
+					// if (javaEnums) {
+					// 	javaEnums.forEach((javaEnum) => {
+					// 		const tsInterface =
+					// 			convertJavaEnumToTypeScriptInterfaceWithComments(
+					// 				javaEnum,
+					// 			);
+					// 		writeToFile(filePath, dirPath, tsInterface);
+					// 	});
+					// }
 
-					// Handle interfaces
-					const javaInterfaces = data.match(
-						/(?:\/\*\*[\s\S]*?\*\/\s*)?public\s+interface\s+\w+(\s+extends\s+[\w<>, ]+)?\s*\{(?:[^}]*\/\*[\s\S]*?\*\/\s*)*[^}]*\}/g,
+					// // Handle interfaces
+					// const javaInterfaces = data.match(
+					// 	/(?:\/\*\*[\S\s]*?\*\/\s*)?public\s+interface\s+\w+(\s+extends\s+[\w ,<>]+)?\s*{(?:[^}]*\/\*[\S\s]*?\*\/\s*)*[^}]*}/g,
+					// );
+					// if (javaInterfaces) {
+					// 	javaInterfaces.forEach((javaInterface) => {
+					// 		const tsInterface =
+					// 			convertJavaInterfaceToTypeScriptInterface(
+					// 				javaInterface,
+					// 			);
+					// 		writeToFile(filePath, dirPath, tsInterface);
+					// 	});
+					// }
+
+					const javaClasses = data.match(
+						/(?:\/\*\*[\S\s]*?\*\/\s*)?public\s+class\s+\w+(\s+implements\s+[\w ,<>]+)?\s*{(?:[^}]*\/\*[\S\s]*?\*\/\s*)*[^}]*}/g,
 					);
-					if (javaInterfaces) {
-						javaInterfaces.forEach((javaInterface) => {
-							const tsInterface =
-								convertJavaInterfaceToTypeScriptInterface(
-									javaInterface,
-								);
+					if (javaClasses) {
+						for (const javaClass of javaClasses) {
+							const tsInterface = convertJavaClass(javaClass);
 							writeToFile(filePath, dirPath, tsInterface);
-						});
-					} else {
-						if (data.includes('public interface')) {
-							console.log(filePath);
 						}
 					}
 				});
@@ -68,13 +79,13 @@ function writeToFile(filePath, dirPath, tsContent) {
 			} else {
 				// console.log(`Created: ${tsFilePath}`);
 				// Optionally delete the Java file after conversion
-				fs.unlink(filePath, (err) => {
-					if (err) {
-						console.error('Error deleting file:', err);
-					} else {
-						// console.log(`Deleted: ${filePath}`);
-					}
-				});
+				// fs.unlink(filePath, (err) => {
+				// 	if (err) {
+				// 		console.error('Error deleting file:', err);
+				// 	} else {
+				// 		// console.log(`Deleted: ${filePath}`);
+				// 	}
+				// });
 			}
 		});
 	}

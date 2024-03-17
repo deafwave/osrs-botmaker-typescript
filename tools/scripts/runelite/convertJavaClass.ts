@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/switch-case-braces */
-import { convertMethodSignature } from './utils';
-export function convertJavaInterface(input: string): string {
+import { convertMethodSignature, convertType } from './utils';
+export function convertJavaClass(input: string): string {
 	// Split the input into lines for easier processing
 	const lines = input.split('\n');
 	const customTypes = new Set<string>();
@@ -8,9 +8,12 @@ export function convertJavaInterface(input: string): string {
 	// Process each line
 	let begin = false;
 	let isNextNullable = false;
+	let isNextStatic = false;
+	let isNextPrivate = false;
 	let capturingCommentBlock = false;
 	let accumulatingMethodSignature = false;
 	let methodSignature = '';
+	let constructorParts: string[] = [];
 	const convertedLines = lines.map((line) => {
 		// Comments
 		if (!begin && line.trim().startsWith('/**')) {
@@ -26,21 +29,13 @@ export function convertJavaInterface(input: string): string {
 		}
 
 		// Start
-		if (line.includes(' extends ')) {
-			const regex =
-				/(?:interface|class)\s+\w+\s+extends\s+([A-Za-z0-9_,\s]+)/;
-			const match = line.match(regex);
-
-			if (match && match[1]) {
-				const allTypes = match[1].split(/\s*,\s*/);
-				allTypes.forEach((type) => customTypes.add(type));
-			}
-		}
-
 		if (!begin) {
-			if (line.includes('public interface')) {
+			if (line.includes('public class')) {
 				begin = true;
-				return line.replace(/public\s+interface/, 'interface');
+				return (
+					'declare namespace net.runelite.api {\n' +
+					line.replace(/public\s+class/, 'class')
+				);
 			}
 			return '';
 		}
@@ -55,11 +50,52 @@ export function convertJavaInterface(input: string): string {
 			return '';
 		}
 
+		// Handle constructor
+		if (line.trim().startsWith('private final')) {
+			const regex = /(\w+)/g;
+			let match;
+
+			let javaType = '';
+			while (
+				(match = regex.exec(line.replace('private final', ''))) !== null
+			) {
+				if (javaType === '') {
+					javaType = match[1];
+					continue;
+				}
+				const variableName = match[1];
+				const tsType = convertType(javaType, false, customTypes); // Ensure this function is defined
+				constructorParts.push(`${variableName}:${tsType}`);
+			}
+			return '';
+		}
+
+		// console.log(`HANDLE STATIC: |${line}|`);
+		// if (constructorParts.length > 0) {
+		// 	line =
+		// 		line +
+		// 		`\n/** FIXME: MISPLACED, move it up and remove this comment block */\nconstructor(${constructorParts.join(', ')});`;
+		// 	constructorParts = [];
+		// }
+		// return line;
+
 		// Handle Methods
 		if (
 			!accumulatingMethodSignature &&
 			(line.includes('(') || methodSignature)
 		) {
+			line = line.trim();
+			if (line.startsWith('private')) {
+				line = line.replace('private', '').trim();
+				isNextPrivate = true;
+			}
+			if (line.startsWith('public')) {
+				line = line.replace('public', '').trim();
+			}
+			if (line.startsWith('static')) {
+				line = line.replace('static', '').trim();
+				isNextStatic = true;
+			}
 			accumulatingMethodSignature = true;
 			methodSignature = '';
 		}
@@ -67,7 +103,7 @@ export function convertJavaInterface(input: string): string {
 		if (accumulatingMethodSignature) {
 			methodSignature += line + ' ';
 			// Check if this line ends the method signature
-			if (line.trim().endsWith(');')) {
+			if (line.trim().endsWith(')')) {
 				accumulatingMethodSignature = false;
 				line = methodSignature;
 				methodSignature = '';
@@ -77,12 +113,23 @@ export function convertJavaInterface(input: string): string {
 					line = line.replaceAll(/@\w+\s*(\([^)]*\))?/g, '');
 				}
 
-				const convertedLine = convertMethodSignature(
+				let convertedLine = convertMethodSignature(
 					line,
 					isNextNullable,
 					customTypes,
+					isNextStatic,
+					isNextPrivate,
 				);
 				isNextNullable = false;
+				isNextStatic = false;
+				isNextPrivate = false;
+				if (constructorParts.length > 0) {
+					convertedLine =
+						convertedLine +
+						`\n/** FIXME: MISPLACED, move it up and remove this comment block */\nconstructor(${constructorParts.join(', ')});`;
+					constructorParts = [];
+				}
+				// TODO: Should skip the {} after the method
 				return convertedLine;
 			} else {
 				// Continue accumulating if the method signature isn't complete
@@ -99,5 +146,5 @@ export function convertJavaInterface(input: string): string {
 	const referencePaths = Array.from(customTypes).map(
 		(type) => `/// <reference path="${type}.d.ts" />`,
 	);
-	return referencePaths.concat(convertedLines).join('\n');
+	return referencePaths.concat(convertedLines, '\n}').join('\n');
 }

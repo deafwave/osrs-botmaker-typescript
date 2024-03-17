@@ -2,12 +2,6 @@
 /// <reference path="WorldPoint.d.ts" />
 /// <reference path="Perspective.d.ts" />
 
-/**
- * A two-dimensional point in the local coordinate space.
- * Local points are immutable, however since the local coordinate space moves,
- * it is not safe to keep a LocalPoint after a loading zone.
- * The unit of a LocalPoint is 1/128th of a tile.
- */
 declare class LocalPoint {
 	private readonly x: number;
 	private readonly y: number;
