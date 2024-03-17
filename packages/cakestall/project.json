@@ -20,7 +20,7 @@
 				"outputPath": "dist/packages/cakestall",
 				"tsConfig": "packages/cakestall/tsconfig.lib.json",
 				"project": "packages/cakestall/package.json",
-				"rollupConfig": "packages/cakestall/rollup.cjs",
+				"rollupConfig": "rollup.cjs",
 				"assets": []
 			}
 		}
