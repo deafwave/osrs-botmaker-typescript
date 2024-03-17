@@ -43,5 +43,5 @@ jobs:
             - run: pnpm exec nx run-many -t build
             - uses: actions/upload-artifact@v4
               with:
-                  name: updated-artifacts
+                  name: botmaker-scripts
                   path: dist/**/*.esm.js
