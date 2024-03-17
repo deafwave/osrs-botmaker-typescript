@@ -1,86 +1,116 @@
 import fs from 'fs';
 import path from 'path';
+function convertJavaEnumToTypeScriptInterfaceWithComments(javaCode) {
+	const enumNameMatch = javaCode.match(/enum\s+(\w+)/);
+	if (!enumNameMatch) {
+		return 'Enum name not found.';
+	}
 
-// Allows placeholder files to be created for the .d.ts files
-// TODO: Once we're stable, make this properly generate the types
-function createDTSFilesWithTypes(dirPath) {
-	fs.readdir(dirPath, { withFileTypes: true }, (err, files) => {
-		if (err) {
-			console.error('Error reading directory:', err);
-			return;
-		}
+	const enumName = enumNameMatch[1];
+	let output = `interface ${enumName} {\n`;
 
-		files.forEach((file) => {
-			if (file.isDirectory()) {
-				// Recursively handle directories
-				createDTSFilesWithTypes(path.join(dirPath, file.name));
-			} else {
-				// Check if the file is a Java file
-				if (path.extname(file.name) === '.java') {
-					const baseFileName = path.basename(file.name, '.java');
-					const typeName = baseFileName;
-					const dtsFileName = baseFileName + '.d.ts';
-					const dtsFilePath = path.join(dirPath, dtsFileName);
-					const typeContent = `type ${typeName} = any;\n`;
+	// Adjusting the regular expression to match enum entries, block comments, and single-line comments, stopping at semicolon.
+	const regex =
+		/\/\*\*[\s\S]+?\*\/|\/\/[^\n]*|([@\w]+)\s*(?:\([^)]*\))?,?\s*(?:\/\/.*)?\s*(?:;|\n)?/g;
+	let match;
+	let pendingComment = '';
 
-					// Create a corresponding .d.ts file with the type declaration
-					fs.writeFile(dtsFilePath, typeContent, (err) => {
-						if (err) {
-							console.error('Error writing file:', err);
-						} else {
-							console.log(`Created: ${dtsFilePath}`);
-						}
-					});
-				}
-			}
-		});
-	});
-}
+	// Starting matching from the point immediately after the enum name is found.
+	let startIndex = enumNameMatch.index + enumNameMatch[0].length;
 
-function prependToJavaFiles(dirPath, textToPrepend) {
-	fs.readdir(dirPath, { withFileTypes: true }, (err, files) => {
-		if (err) {
-			console.error('Error reading directory:', err);
-			return;
-		}
-
-		files.forEach((file) => {
-			if (file.isDirectory()) {
-				// Recursively handle directories
-				prependToJavaFiles(
-					path.join(dirPath, file.name),
-					textToPrepend,
+	while ((match = regex.exec(javaCode.slice(startIndex))) !== null) {
+		if (
+			match[0].trim().startsWith('/**') ||
+			match[0].trim().startsWith('//')
+		) {
+			// Found a comment, append it to pending comment.
+			pendingComment +=
+				'  ' + match[0].replace(/\n\s*\*/g, '\n  *').trim() + '\n';
+		} else if (match[1].trim().startsWith('@')) {
+			// FIXME: Merge to above /** block */ if exists
+			if (pendingComment.includes('*/')) {
+				pendingComment = pendingComment.replace(
+					'*/',
+					`* ${match[0].trim()}\n\t*/`,
 				);
 			} else {
-				if (path.extname(file.name) === '.java') {
-					const filePath = path.join(dirPath, file.name);
-					fs.readFile(filePath, 'utf8', (err, data) => {
-						if (err) {
-							console.error('Error reading file:', err);
-							return;
-						}
-						const updatedContent = textToPrepend + data;
-						fs.writeFile(
-							filePath,
-							updatedContent,
-							'utf8',
-							(err) => {
+				pendingComment += `  // ${match[0].trim()}\n`;
+			}
+		} else if (match[1]) {
+			// Found an enum entry, attach any pending comment.
+			output += `${pendingComment}  ${match[1]}: '${match[1]}';\n`;
+			pendingComment = ''; // Reset pending comment.
+			if (match[0].trim().includes(';')) {
+				// Semicolon encountered, indicating the end of enum entries, stop matching.
+				break;
+			}
+		}
+	}
+
+	output += '}';
+	return output;
+}
+
+function createDTSFilesWithEnums(dirPath) {
+	fs.readdir(dirPath, { withFileTypes: true }, (err, files) => {
+		if (err) {
+			console.error('Error reading directory:', err);
+			return;
+		}
+
+		files.forEach((file) => {
+			if (file.isFile() && path.extname(file.name) === '.java') {
+				const filePath = path.join(dirPath, file.name);
+				fs.readFile(filePath, 'utf8', (err, data) => {
+					if (err) {
+						console.error('Error reading file:', err);
+						return;
+					}
+
+					const javaEnums = data.match(
+						/public\s+enum\s+\w+\s+\{[^}]*\}/g,
+					);
+					if (!javaEnums) return;
+
+					javaEnums.forEach((javaEnum) => {
+						const jsInterface =
+							convertJavaEnumToTypeScriptInterfaceWithComments(
+								javaEnum,
+							);
+						if (jsInterface) {
+							const enumFileName =
+								path.basename(filePath, '.java') + '.d.ts';
+							const enumFilePath = path.join(
+								dirPath,
+								enumFileName,
+							);
+							fs.writeFile(enumFilePath, jsInterface, (err) => {
 								if (err) {
 									console.error('Error writing file:', err);
+								} else {
+									console.log(`Created: ${enumFilePath}`);
+									// Delete the Java file after successful conversion
+									fs.unlink(filePath, (err) => {
+										if (err) {
+											console.error(
+												'Error deleting file:',
+												err,
+											);
+										} else {
+											console.log(`Deleted: ${filePath}`);
+										}
+									});
 								}
-							},
-						);
+							});
+						}
 					});
-				}
+				});
+			} else if (file.isDirectory()) {
+				createDTSFilesWithEnums(path.join(dirPath, file.name));
 			}
 		});
 	});
 }
 
 // Usage
-const textToPrepend =
-	'Convert this Java code to a typescript .d.ts file. Use external references with naming intention instead of imports, maintain comments, and do not export anything. Only return the code block:\n';
-prependToJavaFiles('runeliteJava', textToPrepend);
-
-// Usage
-// createDTSFilesWithTypes('runeliteJava');
+createDTSFilesWithEnums('api');

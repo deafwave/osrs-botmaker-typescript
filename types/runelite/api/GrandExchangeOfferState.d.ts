@@ -1,33 +1,30 @@
-/**
- * Describes the state of a Grand Exchange offer.
- */
-declare enum GrandExchangeOfferState {
-	/**
-	 * An empty slot.
-	 */
-	EMPTY,
-	/**
-	 * A cancelled buy offer.
-	 */
-	CANCELLED_BUY,
-	/**
-	 * A cancelled sell offer.
-	 */
-	CANCELLED_SELL,
-	/**
-	 * A buy offer that is currently in progress.
-	 */
-	BUYING,
-	/**
-	 * A buy offer that has completed.
-	 */
-	BOUGHT,
-	/**
-	 * A sell offer that is currently in progress.
-	 */
-	SELLING,
-	/**
-	 * A sell offer that has completed.
-	 */
-	SOLD,
+interface GrandExchangeOfferState {
+  /**
+  * An empty slot.
+  */
+  EMPTY: 'EMPTY';
+  /**
+  * A cancelled buy offer.
+  */
+  CANCELLED_BUY: 'CANCELLED_BUY';
+  /**
+  * A cancelled sell offer.
+  */
+  CANCELLED_SELL: 'CANCELLED_SELL';
+  /**
+  * A buy offer that is currently in progress.
+  */
+  BUYING: 'BUYING';
+  /**
+  * A buy offer that has completed.
+  */
+  BOUGHT: 'BOUGHT';
+  /**
+  * A sell offer that is currently in progress.
+  */
+  SELLING: 'SELLING';
+  /**
+  * A sell offer that has completed.
+  */
+  SOLD: 'SOLD';
 }
