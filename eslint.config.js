@@ -54,6 +54,13 @@ export default [
 					],
 				},
 			],
+			'@typescript-eslint/no-unused-vars': [
+				'error',
+				{
+					varsIgnorePattern:
+						'^_|^onStart$|^onGameTick$|^onNpcAnimationChanged$|^onActorDeath$|^onHitsplatApplied$|^onInteractingChanged$|^onChatMessage$',
+				},
+			],
 			'@typescript-eslint/no-explicit-any': 'warn',
 		},
 	},
