@@ -35,7 +35,7 @@ function createDTSFiles(dirPath) {
 
 					// Handle interfaces
 					const javaInterfaces = data.match(
-						/public\s+interface\s+\w+(\s+extends\s+[\w, ]+)?\s*\{[^}]*\}/g,
+						/\/\*\*[\s\S]*?\*\/\s*public\s+interface\s+\w+(\s+extends\s+[\w, ]+)?\s*\{(?:[^}]*(?:\/\/[^\n]*|\/\*[\s\S]*?\*\/))*[^}]*\}/g,
 					);
 					if (javaInterfaces) {
 						javaInterfaces.forEach((javaInterface) => {

@@ -9,23 +9,21 @@ export function convertJavaInterfaceToTypeScriptInterface(
 	let begin = false;
 	let isNextNullable = false;
 	let capturingCommentBlock = false;
-	let commentBlock = '';
 	const convertedLines = lines.map((line) => {
 		if (!begin && line.trim().startsWith('/**')) {
 			capturingCommentBlock = true;
+			return line;
 		}
 		if (!begin && capturingCommentBlock) {
-			commentBlock += line + '\n';
 			if (line.trim().endsWith('*/')) {
 				capturingCommentBlock = false;
 			}
-			return ''; // Do not include comment lines in the final output yet
+			return line;
 		}
 		if (!begin) {
 			if (line.includes('public interface')) {
 				begin = true;
-				line = line.replace(/public\s+interface/, 'interface');
-				return commentBlock + line;
+				return line.replace(/public\s+interface/, 'interface');
 			}
 			return '';
 		}
@@ -83,7 +81,7 @@ function convertMethodSignature(signature: string, isNextNullable = false) {
 		.join(', ');
 
 	// Constructing the new signature
-	let newSignature = `${methodName}(${params}): ${convertType(returnType, isNextNullable)};`;
+	let newSignature = `\t${methodName}(${params}): ${convertType(returnType, isNextNullable)};`;
 
 	return newSignature;
 }
@@ -100,6 +98,9 @@ function convertType(javaType: string, isNullable = false): string {
 		case 'byte':
 		case 'short':
 			baseType = 'number';
+			break;
+		case 'String':
+			baseType = 'string';
 			break;
 		case 'boolean':
 			baseType = 'boolean';
