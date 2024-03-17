@@ -38,3 +38,10 @@ jobs:
 
             # - run: pnpm exec nx-cloud record -- nx format:check
             - run: pnpm exec nx affected -t lint test build
+
+            # Build all until we have a better release system
+            - run: pnpm exec nx run-many -t build
+            - uses: actions/upload-artifact@v4
+              with:
+                  name: updated-artifacts
+                  path: dist/**/*.esm.js
