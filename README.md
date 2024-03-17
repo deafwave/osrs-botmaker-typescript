@@ -15,8 +15,6 @@ There are several outlined improvements in [Github Issues](https://github.com/Ch
 Take one on, submit a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)!
 
 ## Usage
-
-### Creating a private mirror
 ### Install
 - [pnpm](https://pnpm.io/installation)
 - [node & npm](https://nodejs.org/en)
