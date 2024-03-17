@@ -82,6 +82,12 @@ Stick this at the top of your `.js` files to ignore linting (TEMPORARY)
 
 Then start modularizing your code, split things out to utils folders, etc. Use `.ts` files to do this, and fix the ESLint errors that occur as you do so.
 
+## How do I view build artifacts in the CI/CD pipeline?
+1. Open your repositories [Github Actions](https://github.com/ChandlerFerry/osrs-botmaker-typescript/actions)
+2. Click on the latest workflow run
+3. If the workflow run failed, diagnose why and fix it!
+4. Once you have a successful workflow run, click `botmaker-scripts` in the Arifacts section
+
 ## How do I add multiple output bundles for a package?
 Update the `packages/<PackageName>/project.json`, adding `additionalEntryPoints` of every bundle that you would like to create:
 ```
