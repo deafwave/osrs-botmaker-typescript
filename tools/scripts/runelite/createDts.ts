@@ -11,7 +11,7 @@ function convertJavaEnumToTypeScriptInterfaceWithComments(javaCode) {
 
 	// Adjusting the regular expression to match enum entries, block comments, and single-line comments, stopping at semicolon.
 	const regex =
-		/\/\*\*[\s\S]+?\*\/|\/\/[^\n]*|(\w+)\s*(?:\([^)]*\))?,?\s*(?:\/\/.*)?\s*(?:;|\n)?/g;
+		/\/\*\*[\s\S]+?\*\/|\/\/[^\n]*|([@\w]+)\s*(?:\([^)]*\))?,?\s*(?:\/\/.*)?\s*(?:;|\n)?/g;
 	let match;
 	let pendingComment = '';
 
@@ -26,6 +26,16 @@ function convertJavaEnumToTypeScriptInterfaceWithComments(javaCode) {
 			// Found a comment, append it to pending comment.
 			pendingComment +=
 				'  ' + match[0].replace(/\n\s*\*/g, '\n  *').trim() + '\n';
+		} else if (match[1].trim().startsWith('@')) {
+			// FIXME: Merge to above /** block */ if exists
+			if (pendingComment.includes('*/')) {
+				pendingComment = pendingComment.replace(
+					'*/',
+					`* ${match[0].trim()}\n\t*/`,
+				);
+			} else {
+				pendingComment += `  // ${match[0].trim()}\n`;
+			}
 		} else if (match[1]) {
 			// Found an enum entry, attach any pending comment.
 			output += `${pendingComment}  ${match[1]}: '${match[1]}';\n`;
