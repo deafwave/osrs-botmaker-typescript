@@ -4,22 +4,27 @@ export function convertJavaInterfaceToTypeScriptInterface(
 ): string {
 	// Split the input into lines for easier processing
 	const lines = input.split('\n');
+	const customTypes = new Set<string>();
 
 	// Process each line
 	let begin = false;
 	let isNextNullable = false;
 	let capturingCommentBlock = false;
 	const convertedLines = lines.map((line) => {
+		// Comments
 		if (!begin && line.trim().startsWith('/**')) {
 			capturingCommentBlock = true;
 			return line;
-		}
-		if (!begin && capturingCommentBlock) {
+		} else if (!begin && capturingCommentBlock) {
 			if (line.trim().endsWith('*/')) {
 				capturingCommentBlock = false;
 			}
 			return line;
+		} else if (line.trim().startsWith('*')) {
+			return line;
 		}
+
+		// Start
 		if (!begin) {
 			if (line.includes('public interface')) {
 				begin = true;
@@ -38,9 +43,22 @@ export function convertJavaInterfaceToTypeScriptInterface(
 
 		// Handle Methods
 		if (line.endsWith(');')) {
-			line = convertMethodSignature(line, isNextNullable);
+			// Remove Annotations
+			if (line.includes('@')) {
+				line = line.replaceAll(/@\w+\s*(\([^)]*\))?/g, '');
+			}
+
+			if (line.includes('@')) {
+				console.log(`||${line.trim()}||`);
+			}
+
+			const convertedLine = convertMethodSignature(
+				line,
+				isNextNullable,
+				customTypes,
+			);
 			isNextNullable = false;
-			return line;
+			return convertedLine;
 		}
 
 		// Remove unnecessary braces and semicolons
@@ -49,11 +67,17 @@ export function convertJavaInterfaceToTypeScriptInterface(
 		return line;
 	});
 
-	// Join the processed lines back into a single string
-	return convertedLines.join('\n');
+	const referencePaths = Array.from(customTypes).map(
+		(type) => `/// <reference path="${type}.d.ts" />`,
+	);
+	return referencePaths.concat(convertedLines).join('\n');
 }
 
-function convertMethodSignature(signature: string, isNextNullable = false) {
+function convertMethodSignature(
+	signature: string,
+	isNextNullable = false,
+	customTypes: Set<string>,
+) {
 	// Extracting the return type and the rest of the signature
 	const returnTypeMatch = signature.match(/^\s*([\w<>\[\]]+)\s+/);
 	if (!returnTypeMatch) {
@@ -70,26 +94,31 @@ function convertMethodSignature(signature: string, isNextNullable = false) {
 	}
 
 	const methodName = methodMatch[1];
-	const params = methodMatch[2]
+	const parameters = methodMatch[2]
 		.split(',')
-		.map((param) => {
-			const parts = param.trim().split(/\s+/);
+		.map((parameter) => {
+			const parts = parameter.trim().split(/\s+/);
 			return parts.length > 1
-				? `${parts[1].trim()}: ${convertType(parts[0].trim())}`
-				: param;
+				? `${parts[1].trim()}: ${convertType(parts[0].trim(), false, customTypes)}`
+				: parameter;
 		})
 		.join(', ');
 
-	// Constructing the new signature
-	let newSignature = `\t${methodName}(${params}): ${convertType(returnType, isNextNullable)};`;
-
-	return newSignature;
+	return `\t${methodName}(${parameters}): ${convertType(returnType, isNextNullable, customTypes)};`;
 }
 
-function convertType(javaType: string, isNullable = false): string {
-	const isArray = javaType.endsWith('[]');
-	let baseType = isArray ? javaType.slice(0, -2) : javaType;
+function convertType(
+	javaType: string,
+	isNullable = false,
+	customTypes: Set<string>,
+): string {
+	let arrayDepth = 0;
+	while (javaType.endsWith('[]')) {
+		arrayDepth++;
+		javaType = javaType.slice(0, -2);
+	}
 
+	let baseType = javaType;
 	switch (baseType) {
 		case 'int':
 		case 'float':
@@ -105,9 +134,29 @@ function convertType(javaType: string, isNullable = false): string {
 		case 'boolean':
 			baseType = 'boolean';
 			break;
-		// Additional type mappings can be added here
+		case 'Object':
+		case 'Object...':
+		case 'void':
+			break;
+		default:
+			if (baseType.includes('<')) {
+				// Java Generic
+				const internalType = baseType.substring(
+					baseType.indexOf('<') + 1,
+					baseType.lastIndexOf('>'),
+				);
+				customTypes.add('../../java');
+				customTypes.add(internalType);
+			} else {
+				customTypes.add(baseType);
+			}
+			break;
 	}
 
-	const tsType = isArray ? `${baseType}[]` : baseType;
+	let tsType = baseType;
+	for (let index = 0; index < arrayDepth; index++) {
+		tsType += '[]';
+	}
+
 	return isNullable ? `${tsType} | null` : tsType;
 }

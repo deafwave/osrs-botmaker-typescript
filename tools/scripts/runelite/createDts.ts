@@ -62,13 +62,13 @@ function writeToFile(filePath, dirPath, tsContent) {
 			if (err) {
 				console.error('Error writing file:', err);
 			} else {
-				console.log(`Created: ${tsFilePath}`);
+				// console.log(`Created: ${tsFilePath}`);
 				// Optionally delete the Java file after conversion
 				fs.unlink(filePath, (err) => {
 					if (err) {
 						console.error('Error deleting file:', err);
 					} else {
-						console.log(`Deleted: ${filePath}`);
+						// console.log(`Deleted: ${filePath}`);
 					}
 				});
 			}
