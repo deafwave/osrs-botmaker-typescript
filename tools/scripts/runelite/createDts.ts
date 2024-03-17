@@ -79,11 +79,24 @@ function createDTSFilesWithEnums(dirPath) {
 									console.error('Error writing file:', err);
 								} else {
 									console.log(`Created: ${enumFilePath}`);
+									// Delete the Java file after successful conversion
+									fs.unlink(filePath, (err) => {
+										if (err) {
+											console.error(
+												'Error deleting file:',
+												err,
+											);
+										} else {
+											console.log(`Deleted: ${filePath}`);
+										}
+									});
 								}
 							});
 						}
 					});
 				});
+			} else if (file.isDirectory()) {
+				createDTSFilesWithEnums(path.join(dirPath, file.name));
 			}
 		});
 	});
