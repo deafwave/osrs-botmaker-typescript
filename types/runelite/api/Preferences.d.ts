@@ -1,7 +1,8 @@
 /**
  * Stores the clients persisting preferences.
  */
-interface Preferences {
+interface Preferences
+{
 	/**
 	 * Gets the remembered login username.
 	 *

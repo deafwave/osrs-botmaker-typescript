@@ -1,7 +1,8 @@
 /**
  * Represents the paint of a tile in the current scene.
  */
-interface SceneTilePaint {
+interface SceneTilePaint
+{
 	/**
 	 * Gets the RGB value of the paint.
 	 *

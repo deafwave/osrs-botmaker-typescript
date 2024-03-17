@@ -1,6 +1,3 @@
-// FIXME: RuneliteNode name is a workaround for the type "dom" Problem
-// Uncertain why it's showing up in global types when it's not inside of the tsconfig.json
-
 /**
  * Represents a doubly linked node.
  */

@@ -1,25 +1,25 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="Point.d.ts" />
 /// <reference path="TileObject.d.ts" />
+/// <reference path="Point.d.ts" />
+/// <reference path="../../java/index.d.ts" />
 /// <reference path="Renderable.d.ts" />
 /**
  * Represents a game object.
  * <p>
- * Most objects in the RuneScape world are considered as game objects. Things
+ * Most object in the RuneScape world are considered as game objects. Things
  * such as trees, anvils, boxes, etc are all game objects.
  */
 interface GameObject extends TileObject {
 	/**
-	 * Get the size of this object, in tiles, on the x-axis.
+	 * Get the size of this object, in tiles, on the x axis
 	 *
-	 * @return the size on the x-axis
+	 * @return
 	 */
 	sizeX(): number;
 
 	/**
-	 * Get the size of this object, in tiles, on the y-axis.
+	 * Get the size of this object, in tiles, on the y axis
 	 *
-	 * @return the size on the y-axis
+	 * @return
 	 */
 	sizeY(): number;
 
@@ -49,9 +49,9 @@ interface GameObject extends TileObject {
 	getConvexHull(): Shape;
 
 	/**
-	 * Get the orientation of the object.
+	 * Get the orientation of the object
 	 * @see net.runelite.api.coords.Angle
-	 * @return the orientation
+	 * @return
 	 */
 	getOrientation(): number;
 

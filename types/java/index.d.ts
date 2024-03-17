@@ -10,3 +10,11 @@
 /// <reference path="Rectangle.d.ts" />
 /// <reference path="Shape.d.ts" />
 /// <reference path="Thread.d.ts" />
+/// <reference path="List.d.ts" />
+/// <reference path="Consumer.d.ts" />
+
+type JavaMouseEvent = any;
+type MouseWheelEvent = any;
+type KeyEvent = any;
+type Throwable = any;
+type Graphics = any;

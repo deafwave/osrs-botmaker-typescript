@@ -24,7 +24,7 @@
  */
 package net.runelite.api;
 
-public interface ActorSpotAnim extends Node
+public interface ActorSpotAnim extends RuneliteNode
 {
 	/**
 	 * Get the spotanim id

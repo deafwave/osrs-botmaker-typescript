@@ -1,5 +1,6 @@
-/// <reference path="AABB.d.ts" />
 /// <reference path="Mesh.d.ts" />
+/// <reference path="Renderable.d.ts" />
+/// <reference path="AABB.d.ts" />
 /**
  * Represents the model of an object.
  */
@@ -30,8 +31,8 @@ interface Model extends Mesh<any>, Renderable {
 
 	/**
 	 * @see #getAABB(int)
-	 * @deprecated
 	 */
+
 	calculateExtreme(orientation: number): void;
 
 	getAABB(orientation: number): AABB;

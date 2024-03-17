@@ -1,7 +1,6 @@
-/// <reference path="Node.d.ts" />
-
+/// <reference path="RuneliteNode.d.ts" />
 /**
- * Represents an integer typically in a HashTable.
+ * Represents an integer typically in a {@link HashTable}.
  */
 interface IntegerNode extends RuneliteNode {
 	/**

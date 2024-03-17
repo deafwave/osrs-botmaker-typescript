@@ -1,7 +1,6 @@
+/// <reference path="TileObject.d.ts" />
 /// <reference path="../../java/index.d.ts" />
 /// <reference path="Renderable.d.ts" />
-/// <reference path="TileObject.d.ts" />
-
 /**
  * Represents one or two walls on a tile
  */
@@ -34,14 +33,18 @@ interface WallObject extends TileObject {
 
 	/**
 	 * A bitfield containing various flags:
+	 * <pre>{@code
 	 * object type id = bits & 0x20
 	 * orientation (0-3) = bits >>> 6 & 3
 	 * supports items = bits >>> 8 & 1
+	 * }</pre>
 	 */
 	getConfig(): number;
 
 	/**
 	 * Gets the convex hull of the objects model.
+	 *
+	 * @return the convex hull
 	 * @see net.runelite.api.model.Jarvis
 	 */
 	getConvexHull(): Shape;

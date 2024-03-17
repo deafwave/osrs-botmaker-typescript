@@ -1,5 +1,4 @@
 /// <reference path="ParamHolder.d.ts" />
-
 /**
  * A config type dedicated to holding params.
  *
@@ -8,6 +7,7 @@
  *
  * @see ParamHolder
  */
-interface StructComposition extends ParamHolder {
+interface StructComposition extends ParamHolder
+{
 	getId(): number;
 }

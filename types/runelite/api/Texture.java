@@ -24,7 +24,7 @@
  */
 package net.runelite.api;
 
-public interface Texture extends Node
+public interface Texture extends RuneliteNode
 {
 	int[] getPixels();
 

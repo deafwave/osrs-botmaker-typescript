@@ -1,5 +1,5 @@
-interface Type {
-  MUSIC: 'MUSIC';
-  EFFECTS: 'EFFECTS';
-  AREA: 'AREA';
+interface VolumeChanged {
+	MUSIC: 'MUSIC';
+	EFFECTS: 'EFFECTS';
+	AREA: 'AREA';
 }

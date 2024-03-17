@@ -1,17 +1,21 @@
 /**
  * Dynamically applied NPC effects
  */
-interface NpcOverrides {
+interface NpcOverrides
+{
 	/**
 	 * Entirely replaces this NPC's models
 	 */
+
 	getModelIds(): number[] | null;
 
 	/**
 	 * Replaces this NPC's recolor values. Does not replace it's keys, which must be set statically
 	 * in the cache
 	 */
+
 	getColorToReplaceWith(): number[] | null;
+
 
 	getTextureToReplaceWith(): number[] | null;
 

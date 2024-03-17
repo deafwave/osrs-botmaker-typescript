@@ -1,7 +1,9 @@
+/// <reference path="GrandExchangeOfferState.d.ts" />
 /**
  * Represents an offer in a grand exchange slot.
  */
-interface GrandExchangeOffer {
+interface GrandExchangeOffer
+{
 	/**
 	 * Gets the quantity of bought or sold items.
 	 *
@@ -41,7 +43,7 @@ interface GrandExchangeOffer {
 	/**
 	 * Gets the current state of the offer.
 	 *
-	 * @return the offer's state
+	 * @return the offers state
 	 */
 	getState(): GrandExchangeOfferState;
 }

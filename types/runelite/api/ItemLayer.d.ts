@@ -1,34 +1,35 @@
-/// <reference path="Renderable.d.ts" />
 /// <reference path="TileObject.d.ts" />
+/// <reference path="Renderable.d.ts" />
 /**
  * Represents a pile of items held by a tile.
  */
-interface ItemLayer extends TileObject {
+interface ItemLayer extends TileObject
+{
 	/**
 	 * Gets the height of the layer.
 	 *
-	 * @returns the height
+	 * @return the height
 	 */
 	getHeight(): number;
 
 	/**
 	 * Gets the item at the bottom of the pile.
 	 *
-	 * @returns the bottom item
+	 * @return the bottom item
 	 */
 	getBottom(): Renderable;
 
 	/**
 	 * Gets the item at the middle of the pile.
 	 *
-	 * @returns the middle item
+	 * @return the middle item
 	 */
 	getMiddle(): Renderable;
 
 	/**
 	 * Gets the item at the top of the pile.
 	 *
-	 * @returns the top item
+	 * @return the top item
 	 */
 	getTop(): Renderable;
 }

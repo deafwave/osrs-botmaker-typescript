@@ -1,6 +1,7 @@
 /// <reference path="Renderable.d.ts" />
 /// <reference path="Actor.d.ts" />
 /// <reference path="coords/LocalPoint.d.ts" />
+/// <reference path="Animation.d.ts" />
 /**
  * Represents a projectile entity. (ie. cannonball, arrow)
  */
@@ -18,7 +19,7 @@ interface Projectile extends Renderable {
 	 *
 	 * @return the target actor, or null if this projectile is an AoE attack
 	 */
-	getInteracting(): Actor | null;
+	getInteracting(): Actor;
 
 	/**
 	 * Get the target point of the projectile. For projectiles with an actor target,
@@ -164,6 +165,7 @@ interface Projectile extends Renderable {
 	 * The animation of the projectile
 	 * @return
 	 */
+
 	getAnimation(): Animation | null;
 
 	/**

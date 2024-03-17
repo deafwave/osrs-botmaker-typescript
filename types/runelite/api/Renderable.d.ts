@@ -1,4 +1,4 @@
-/// <reference path="Node.d.ts" />
+/// <reference path="RuneliteNode.d.ts" />
 /// <reference path="Model.d.ts" />
 /**
  * Represents an object that can be rendered.

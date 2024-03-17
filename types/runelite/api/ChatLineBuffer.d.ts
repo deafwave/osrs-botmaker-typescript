@@ -6,14 +6,14 @@ interface ChatLineBuffer {
 	/**
 	 * Gets an array of message nodes currently in the chatbox.
 	 *
-	 * @returns messages in the chatbox
+	 * @return messages in the chatbox
 	 */
 	getLines(): MessageNode[];
 
 	/**
 	 * Gets the length of the {@link #getLines()} array.
 	 *
-	 * @returns the length
+	 * @return the length
 	 */
 	getLength(): number;
 

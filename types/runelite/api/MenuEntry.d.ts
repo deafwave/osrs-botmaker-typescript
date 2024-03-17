@@ -1,8 +1,9 @@
+/// <reference path="MenuAction.d.ts" />
 /// <reference path="../../java/index.d.ts" />
-/// <reference path="NPC.d.ts" />
 /// <reference path="widgets/Widget.d.ts" />
+/// <reference path="NPC.d.ts" />
 /// <reference path="Player.d.ts" />
-
+/// <reference path="Actor.d.ts" />
 /**
  * A menu entry in a right-click menu.
  */
@@ -50,7 +51,7 @@ interface MenuEntry {
 	 * If this is true and you have single mouse button on and this entry is
 	 * the top entry the right click menu will not be opened when you left click
 	 *
-	 * This is used for shift click
+	 * This is used  for shift click
 	 */
 	isForceLeftClick(): boolean;
 	setForceLeftClick(forceLeftClick: boolean): MenuEntry;
@@ -67,7 +68,7 @@ interface MenuEntry {
 	 * @param callback
 	 * @return
 	 */
-	onClick(callback: (entry: MenuEntry) => void): MenuEntry;
+	onClick(callback: Consumer<MenuEntry>): MenuEntry;
 
 	/**
 	 * Set the parent for the menu entry. This makes this menu entry part of the sub-menu off of the parent.
@@ -80,6 +81,7 @@ interface MenuEntry {
 	 * Get the parent for the menu entry.
 	 * @return
 	 */
+
 	getParent(): MenuEntry | null;
 
 	/**
@@ -107,23 +109,27 @@ interface MenuEntry {
 	 * with an associated widget. Such as eg, CC_OP.
 	 * @return
 	 */
+
 	getWidget(): Widget | null;
 
 	/**
 	 * Get the {@link NPC} this menu entry is targeting, if any.
 	 * @return
 	 */
+
 	getNpc(): NPC | null;
 
 	/**
 	 * Get the {@link Player} this menu entry is targeting, if any.
 	 * @return
 	 */
+
 	getPlayer(): Player | null;
 
 	/**
 	 * Get the {@link Actor} this menu entry is targeting, if any.
 	 * @return
 	 */
+
 	getActor(): Actor | null;
 }

@@ -1,8 +1,11 @@
 /// <reference path="Actor.d.ts" />
+/// <reference path="NPCComposition.d.ts" />
+/// <reference path="NpcOverrides.d.ts" />
 /**
  * Represents a non-player character in the game.
  */
-interface NPC extends Actor {
+interface NPC extends Actor
+{
 	/**
 	 * Gets the ID of the NPC.
 	 *
@@ -11,7 +14,9 @@ interface NPC extends Actor {
 	 */
 	getId(): number;
 
+
 	getName(): string;
+
 
 	getCombatLevel(): number;
 
@@ -36,9 +41,12 @@ interface NPC extends Actor {
 	 *
 	 * @return the transformed NPC
 	 */
+
 	getTransformedComposition(): NPCComposition | null;
 
+
 	getModelOverrides(): NpcOverrides | null;
+
 
 	getChatheadOverrides(): NpcOverrides | null;
 }

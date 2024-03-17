@@ -1,6 +1,8 @@
-/// <reference path="SoundEffectID.d.ts" />
 /// <reference path="coords/LocalPoint.d.ts" />
-
+/**
+ * An ambient sound effect. These are loaded only at scene load and are used to play ambient
+ * sound effects that are purely client side and not sent from the server.
+ */
 interface AmbientSoundEffect {
 	/**
 	 * The id of the sound effect
@@ -14,6 +16,7 @@ interface AmbientSoundEffect {
 	 * @see SoundEffectID
 	 * @return
 	 */
+
 	getBackgroundSoundEffectIds(): number[] | null;
 
 	/**

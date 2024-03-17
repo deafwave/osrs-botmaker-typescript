@@ -1,7 +1,8 @@
 /**
  * Represents the model of a tile in the current scene.
  */
-interface SceneTileModel {
+interface SceneTileModel
+{
 	/**
 	 * Gets the underlay color of the tile.
 	 *

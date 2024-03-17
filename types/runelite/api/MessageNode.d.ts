@@ -1,4 +1,4 @@
-/// <reference path="Node.d.ts" />
+/// <reference path="RuneliteNode.d.ts" />
 /// <reference path="ChatMessageType.d.ts" />
 /**
  * Represents a message in the chatbox.
@@ -61,14 +61,14 @@ interface MessageNode extends RuneliteNode {
 	setValue(value: string): void;
 
 	/**
-	 * Gets the overridden message format.
+	 * Gets the overriden message format.
 	 *
 	 * @return the message format
 	 */
 	getRuneLiteFormatMessage(): string;
 
 	/**
-	 * Sets the overridden message format.
+	 * Sets the overriden message format.
 	 * <p>
 	 * If this value is not null, the message contents as returned by
 	 * {@link #getValue()} will be replaced with the format set here

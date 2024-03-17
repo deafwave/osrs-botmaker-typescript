@@ -1,4 +1,8 @@
-interface Animation {
+/**
+ * Represents an animation of a renderable
+ */
+interface Animation
+{
 	/**
 	 * Get the id for this animation
 	 * @see AnimationID

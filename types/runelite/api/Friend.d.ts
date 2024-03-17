@@ -2,4 +2,6 @@
 /**
  * Represents a player in the friends list.
  */
-interface Friend extends ChatPlayer {}
+interface Friend extends ChatPlayer
+{
+}
