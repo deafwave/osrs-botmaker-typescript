@@ -1,7 +1,8 @@
 /**
  * Represents an index in the cache
  */
-interface IndexDataBase {
+interface IndexDataBase
+{
 	/**
 	 * Returns true if any cache overlay in this index is outdated due to hash mismatch
 	 */
@@ -14,5 +15,5 @@ interface IndexDataBase {
 	 */
 	getFileIds(archiveId: number): number[];
 
-	loadData(archiveID: number, fileID: number): Uint8Array;
+	loadData(archiveID: number, fileID: number): number[];
 }

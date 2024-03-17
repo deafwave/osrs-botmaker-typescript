@@ -1,4 +1,4 @@
-/// <reference path="Node.d.ts" />
+/// <reference path="RuneliteNode.d.ts" />
 /**
  * Represents an iterable hash table.
  */

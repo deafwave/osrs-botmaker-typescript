@@ -1,7 +1,8 @@
 /**
  * Represents a doubly linked node cache.
  */
-interface NodeCache {
+interface NodeCache
+{
 	/**
 	 * Resets cache.
 	 */

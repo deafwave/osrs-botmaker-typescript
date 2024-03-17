@@ -3,7 +3,8 @@
  * by buffering the pending logins to try to match a pending logout with a pending
  * login and cancel both.
  */
-interface PendingLogin {
+interface PendingLogin
+{
 	/**
 	 * The name of the player
 	 * @return

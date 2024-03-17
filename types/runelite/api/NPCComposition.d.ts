@@ -1,5 +1,6 @@
+/// <reference path="ParamHolder.d.ts" />
 /**
- * Information about a specific NpcID
+ * Information about a specific {@link NpcID}
  */
 interface NPCComposition extends ParamHolder {
 	/**
@@ -14,7 +15,8 @@ interface NPCComposition extends ParamHolder {
 
 	/**
 	 * The 5 menuops this NPC has when in world. Index 0 corresponds to
-	 * NPC_FIRST_OPTION, Index 2 to NPC_SECOND_OPTION and so on.
+	 * {@link MenuAction#NPC_FIRST_OPTION}, Index 2 to
+	 * {@link MenuAction#NPC_SECOND_OPTION} and so on.
 	 */
 	getActions(): string[];
 
@@ -44,8 +46,8 @@ interface NPCComposition extends ParamHolder {
 	getCombatLevel(): number;
 
 	/**
-	 * Get the NpcIDs of NPCs this can transform into, depending
-	 * on a Varbits or VarPlayer
+	 * Get the {@link NpcID}s of NPCs this can transform into, depending
+	 * on a {@link Varbits} or {@link VarPlayer}
 	 */
 	getConfigs(): number[];
 
@@ -53,7 +55,7 @@ interface NPCComposition extends ParamHolder {
 	 * Get the NPC composition the player's state says this NPC should
 	 * transmogrify into.
 	 *
-	 * @throws NullPointerException if getConfigs() is null
+	 * @throws NullPointerException if {@link #getConfigs()} is null
 	 */
 	transform(): NPCComposition;
 
@@ -71,14 +73,18 @@ interface NPCComposition extends ParamHolder {
 
 	/**
 	 * Get the colors to be replaced on this npc's model for this npc.
+	 * @see JagexColor
 	 * @return the colors to be replaced
 	 */
+
 	getColorToReplace(): number[] | null;
 
 	/**
 	 * Get the colors applied to this npc's model for this npc.
+	 * @see JagexColor
 	 * @return the colors to replace with
 	 */
+
 	getColorToReplaceWith(): number[] | null;
 
 	/**

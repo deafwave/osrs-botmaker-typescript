@@ -1,3 +1,4 @@
+/// <reference path="../Point.d.ts" />
 /// <reference path="../coords/WorldPoint.d.ts" />
 /// <reference path="WorldMapRenderer.d.ts" />
 /// <reference path="WorldMapData.d.ts" />
@@ -15,7 +16,7 @@ interface WorldMap {
 	/**
 	 * Gets the current zoom level of the world map.
 	 *
-	 * @return the world map zoom
+	 * @return the world map zoon
 	 */
 	getWorldMapZoom(): number;
 
@@ -41,7 +42,7 @@ interface WorldMap {
 	initializeWorldMap(worldMapData: WorldMapData): void;
 
 	/**
-	 * The data represented by the renderer.
+	 * The data represented by the render.
 	 *
 	 * @return the map data
 	 */

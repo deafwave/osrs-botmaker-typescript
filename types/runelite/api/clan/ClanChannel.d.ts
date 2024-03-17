@@ -1,25 +1,26 @@
+/// <reference path="../../../java/index.d.ts" />
 /// <reference path="ClanChannelMember.d.ts" />
 /**
- * Represents the 'ClanChannel' interface from Java in TypeScript.
- * This TypeScript interface replicates the structure and methods of the Java interface.
+ * A clan channel.
  */
 interface ClanChannel {
 	/**
 	 * The name of the channel
-	 * @returns {string} The name.
+	 * @return
 	 */
 	getName(): string;
 
 	/**
 	 * The members currently online in the channel.
-	 * @returns {ClanChannelMember[]} The list of members.
+	 * @return
 	 */
-	getMembers(): ClanChannelMember[];
+	getMembers(): List<ClanChannelMember>;
 
 	/**
 	 * Find a clan member by name
-	 * @param {string} name The name of the member to find.
-	 * @returns {ClanChannelMember | null} The clan member, or null if not found.
+	 * @param name
+	 * @return
 	 */
+
 	findMember(name: string): ClanChannelMember | null;
 }

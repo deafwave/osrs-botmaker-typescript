@@ -1,4 +1,4 @@
-/// <reference path="Node.d.ts" />
+/// <reference path="RuneliteNode.d.ts" />
 
 /**
  * A data structure that uses a hash function to compute an index into an

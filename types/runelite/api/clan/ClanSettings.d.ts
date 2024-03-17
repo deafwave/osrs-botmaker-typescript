@@ -1,34 +1,37 @@
+/// <reference path="../../../java/index.d.ts" />
 /// <reference path="ClanMember.d.ts" />
 /// <reference path="ClanRank.d.ts" />
 /// <reference path="ClanTitle.d.ts" />
-
 /**
  * A clan's settings.
  */
 interface ClanSettings {
 	/**
 	 * The clan name
-	 * @returns {string} The name of the clan.
+	 * @return
 	 */
 	getName(): string;
 
 	/**
 	 * The members of the clan. This includes all members, whether online or offline.
-	 * @returns {ClanMember[]} The list of clan members.
+	 * @return
 	 */
-	getMembers(): ClanMember[];
+	getMembers(): List<ClanMember>;
 
 	/**
 	 * Find a member of the clan.
-	 * @param {string} name The name of the member to find.
-	 * @returns {ClanMember | null} The clan member, or null if not found.
+	 * @param name
+	 * @return
 	 */
+
 	findMember(name: string): ClanMember | null;
 
 	/**
 	 * Get the clan title for a clan rank.
-	 * @param {ClanRank} clanRank The rank.
-	 * @returns {ClanTitle | null} The clan title associated with the rank, or null.
+	 * @param clanRank the rank
+	 * @see ClanRank
+	 * @return
 	 */
+
 	titleForRank(clanRank: ClanRank): ClanTitle | null;
 }

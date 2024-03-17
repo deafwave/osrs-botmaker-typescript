@@ -1,4 +1,4 @@
-/// <reference path="Node.d.ts" />
+/// <reference path="RuneliteNode.d.ts" />
 
 interface Script extends RuneliteNode {
 	/**

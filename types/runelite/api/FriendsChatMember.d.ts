@@ -1,9 +1,10 @@
-/// <reference path="FriendsChatRank.d.ts" />
 /// <reference path="ChatPlayer.d.ts" />
+/// <reference path="FriendsChatRank.d.ts" />
 /**
  * Represents a friends chat member.
  */
-interface FriendsChatMember extends ChatPlayer {
+interface FriendsChatMember extends ChatPlayer
+{
 	/**
 	 * Gets the world the member is in.
 	 *

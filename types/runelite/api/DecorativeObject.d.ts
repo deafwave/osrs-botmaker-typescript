@@ -1,5 +1,5 @@
-/// <reference path="../../java/index.d.ts" />
 /// <reference path="TileObject.d.ts" />
+/// <reference path="../../java/index.d.ts" />
 /// <reference path="Renderable.d.ts" />
 /**
  * Represents a decorative object, such as an object on a wall.
@@ -8,8 +8,8 @@ interface DecorativeObject extends TileObject {
 	/**
 	 * Gets the convex hull of the objects model.
 	 *
-	 * @returns the convex hull
-	 * @see Jarvis
+	 * @return the convex hull
+	 * @see net.runelite.api.model.Jarvis
 	 */
 	getConvexHull(): Shape;
 	getConvexHull2(): Shape;

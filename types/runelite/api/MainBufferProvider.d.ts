@@ -1,13 +1,13 @@
-/// <reference path="../../java/index.d.ts" />
 /// <reference path="BufferProvider.d.ts" />
+/// <reference path="../../java/index.d.ts" />
 /**
- * Represents the client's primary image buffer.
+ * Represents the clients primary image buffer.
  */
 interface MainBufferProvider extends BufferProvider {
 	/**
-	 * Retrieves the image currently loaded in the buffer.
+	 * Gets the image currently loaded in the buffer.
 	 *
-	 * @returns The loaded image
+	 * @return the loaded image
 	 */
 	getImage(): Image;
 }

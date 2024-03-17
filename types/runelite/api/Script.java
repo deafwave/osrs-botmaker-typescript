@@ -24,7 +24,7 @@
  */
 package net.runelite.api;
 
-public interface Script extends Node
+public interface Script extends RuneliteNode
 {
 	int[] getIntOperands();
 

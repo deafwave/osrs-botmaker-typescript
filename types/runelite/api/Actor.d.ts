@@ -1,12 +1,12 @@
 /// <reference path="Renderable.d.ts" />
 /// <reference path="coords/WorldPoint.d.ts" />
+/// <reference path="coords/LocalPoint.d.ts" />
 /// <reference path="IterableHashTable.d.ts" />
 /// <reference path="ActorSpotAnim.d.ts" />
 /// <reference path="../../java/index.d.ts" />
 /// <reference path="Point.d.ts" />
 /// <reference path="SpritePixels.d.ts" />
-/// <reference path="Renderable.d.ts" />
-
+/// <reference path="coords/WorldArea.d.ts" />
 /**
  * Represents a RuneScape actor/entity.
  */
@@ -23,6 +23,7 @@ interface Actor extends Renderable {
 	 *
 	 * @return the name
 	 */
+
 	getName(): string | null;
 
 	/**
@@ -35,7 +36,7 @@ interface Actor extends Renderable {
 
 	/**
 	 * Gets the actor being interacted with.
-	 *
+	 * <p>
 	 * Examples of interaction include:
 	 * <ul>
 	 *     <li>A monster focusing an Actor to attack</li>
@@ -45,7 +46,7 @@ interface Actor extends Renderable {
 	 *
 	 * @return the actor, null if no interaction is occurring
 	 */
-	getInteracting(): Actor | null;
+	getInteracting(): Actor;
 
 	/**
 	 * Gets the health of the actor in {@link #getHealthScale()} units.
@@ -67,197 +68,7 @@ interface Actor extends Renderable {
 
 	/**
 	 * Gets the server-side location of the actor.
-	 *
-	 * This value is typically ahead of where the client renders and is not
-	 * affected by things such as animations.
-	 *
-	 * @return the server location
-	 */
-	getWorldLocation(): WorldPoint;
-
-	/**
-	 * Gets the client-side location of the actor.
-	 *
-	 * @return the client location
-	 */
-	getLocalLocation(): LocalPoint;
-
-	/**
-	 * Gets the target orientation of the actor.
-	 *
-	 * @return the orientation
-	 */
-	getOrientation(): number;
-
-	/**
-	 * Gets the current orientation of the actor.
-	 *
-	 * @return the orientation
-	 */
-	getCurrentOrientation(): number;
-
-	/**
-	 * Gets the current animation the actor is performing.
-	 *
-	 * @return the animation ID
-	 */
-	getAnimation(): number;
-
-	/**
-	 * Gets the secondary animation the actor is performing. Usually an idle animation, or one of the walking ones.
-	 *
-	 * @return the animation ID
-	 */
-	getPoseAnimation(): number;
-
-	/**
-	 * Set the idle pose animation.
-	 * @param animation
-	 */
-	setPoseAnimation(animation: number): void;
-
-	/**
-	 * Get the frame of the idle animation the actor is performing
-	 * @return
-	 */
-	getPoseAnimationFrame(): number;
-
-	/**
-	 * Set the frame of the idle animation the actor is performing
-	 * @param frame
-	 */
-	setPoseAnimationFrame(frame: number): void;
-
-	/**
-	 * The idle pose animation. If the actor is not walking or otherwise animating, this will be used
-	 * for their pose animation.
-	 *
-	 * @return the animation ID
-	 */
-	getIdlePoseAnimation(): number;
-
-	setIdlePoseAnimation(animation: number): void;
-
-	/**
-	 * Animation used for rotating left if the actor is also not walking
-	 *
-	 * @return the animation ID
-	 */
-	getIdleRotateLeft(): number;
-
-	setIdleRotateLeft(animationID: number): void;
-
-	/**
-	 * Animation used for rotating right if the actor is also not walking
-	 *
-	 * @return the animation ID
-	 */
-	getIdleRotateRight(): number;
-
-	setIdleRotateRight(animationID: number): void;
-
-	/**
-	 * Animation used for walking
-	 *
-	 * @return the animation ID
-	 */
-	getWalkAnimation(): number;
-
-	setWalkAnimation(animationID: number): void;
-
-	/**
-	 * Animation used for rotating left while walking
-	 *
-	 * @return the animation ID
-	 */
-	getWalkRotateLeft(): number;
-
-	setWalkRotateLeft(animationID: number): void;
-
-	/**
-	 * Animation used for rotating right while walking
-	 *
-	 * @return the animation ID
-	 */
-	getWalkRotateRight(): number;
-
-	setWalkRotateRight(animationID: number): void;
-
-	/**
-	 * Animation used for an about-face while walking
-	 *
-	 * @return the animation ID
-	 */
-	getWalkRotate180(): number;
-
-	setWalkRotate180(animationID: number): void;
-
-	/**
-	 * Animation used for running
-	 *
-	 * @return the animation ID
-	 */
-	getRunAnimation(): number;
-
-	setRunAnimation(animationID: number): void;
-
-	/**
-	 * Sets an animation for the actor to perform.
-	 *
-	 * @param animation the animation ID
-	 */
-	setAnimation(animation: number): void;
-
-	/**
-	 * Get the frame of the animation the actor is performing
-	 *
-	 * @return the frame
-	 */
-	getAnimationFrame(): number;
-
-	/**
-	 * Sets the frame of the animation the actor is performing.
-	 *
-	 * @param frame the animation frame
-	 */
-	setAnimationFrame(frame: number): void;
-
-	/**
-	 * Get the spotanims on the actor.
-	 * It is important to not modify the table directly or indirectly via
-	 * eg. iterator remove().
-	 */
-	getSpotAnims(): IterableHashTable<ActorSpotAnim>;
-
-	/**
-	 * Check if the actor has a spotanim
-	 * @param spotAnimId the spot anim id
-	 * @return
-	 */
-	hasSpotAnim(spotAnimId: number): boolean;
-
-	/**
-	 * Create an actor spotanim
-	 * @param id key for the {@link #getSpotAnims()}     * Gets the health of the actor in {@link #getHealthScale()} units.
-	 *
-	 * The server does not transmit actors' real health, only this value
-	 * between zero and {@link #getHealthScale()}. Some actors may be
-	 * missing this info, in which case -1 is returned.
-	 */
-	getHealthRatio(): number;
-
-	/**
-	 * Gets the maximum value {@link #getHealthRatio()} can return
-	 *
-	 * For actors with the default size health bar this is 30, but
-	 * for bosses with a larger health bar this can be a larger number.
-	 * Some actors may be missing this info, in which case -1 is returned.
-	 */
-	getHealthScale(): number;
-
-	/**
-	 * Gets the server-side location of the actor.
-	 *
+	 * <p>
 	 * This value is typically ahead of where the client renders and is not
 	 * affected by things such as animations.
 	 *
@@ -410,6 +221,7 @@ interface Actor extends Renderable {
 	 * @param animation the animation ID
 	 * @see AnimationID
 	 */
+
 	setAnimation(animation: number): void;
 
 	/**
@@ -425,6 +237,7 @@ interface Actor extends Renderable {
 	 * @param frame the animation frame
 	 * @deprecated use setAnimationFrame
 	 */
+
 	setActionFrame(frame: number): void;
 
 	/**
@@ -486,6 +299,7 @@ interface Actor extends Renderable {
 	 * @see GraphicID
 	 * @deprecated see {@link #hasSpotAnim(int)}
 	 */
+
 	getGraphic(): number;
 
 	/**
@@ -495,6 +309,7 @@ interface Actor extends Renderable {
 	 * @see GraphicID
 	 * @deprecated see {@link #createSpotAnim(int, int, int, int)}
 	 */
+
 	setGraphic(graphic: number): void;
 
 	/**
@@ -502,6 +317,7 @@ interface Actor extends Renderable {
 	 * @return
 	 * @deprecated see {@link ActorSpotAnim#getHeight()}
 	 */
+
 	getGraphicHeight(): number;
 
 	/**
@@ -509,6 +325,7 @@ interface Actor extends Renderable {
 	 * @param height
 	 * @deprecated see {@link ActorSpotAnim#setHeight(int)}
 	 */
+
 	setGraphicHeight(height: number): void;
 
 	/**
@@ -517,6 +334,7 @@ interface Actor extends Renderable {
 	 * @return
 	 * @deprecated see {@link ActorSpotAnim#getFrame()}
 	 */
+
 	getSpotAnimFrame(): number;
 
 	/**
@@ -525,6 +343,7 @@ interface Actor extends Renderable {
 	 * @param spotAnimFrame
 	 * @deprecated see {@link ActorSpotAnim#setFrame(int)}
 	 */
+
 	setSpotAnimFrame(spotAnimFrame: number): void;
 
 	/**
@@ -543,6 +362,7 @@ interface Actor extends Renderable {
 	 * @param zOffset the z-axis offset
 	 * @return the text drawing location
 	 */
+
 	getCanvasTextLocation(
 		graphics: Graphics2D,
 		text: string,
@@ -579,7 +399,7 @@ interface Actor extends Renderable {
 
 	/**
 	 * Gets the logical height of the actors model.
-	 *
+	 * <p>
 	 * This z-axis offset is roughly where the health bar of the actor
 	 * is drawn.
 	 *

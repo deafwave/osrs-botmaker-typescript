@@ -1,25 +1,27 @@
 /// <reference path="../ChatPlayer.d.ts" />
+/// <reference path="ClanRank.d.ts" />
 /**
- * Represents the 'ClanChannelMember' interface from Java in TypeScript.
- * This TypeScript interface extends 'ChatPlayer' and replicates the structure and methods of the Java interface.
+ * A member of a clan channel
  */
 interface ClanChannelMember extends ChatPlayer {
 	/**
 	 * The member name
-	 * @returns {string} The name of the member.
+	 * @return
 	 */
 	getName(): string;
 
 	/**
-	 * The member's rank relative to the other members.
-	 * To get the member title, refer to ClanSettings.titleForRank.
-	 * @returns {ClanRank} The rank of the member.
+	 * The member's rank relative to the other members. To get the member title,
+	 * see ClanSettings.
+	 * @see ClanRank
+	 * @see ClanSettings#titleForRank(ClanRank)
+	 * @return
 	 */
 	getRank(): ClanRank;
 
 	/**
 	 * The world the member is on
-	 * @returns {number} The world number.
+	 * @return
 	 */
 	getWorld(): number;
 }

@@ -2,7 +2,8 @@
 /**
  * Represents the template of a specific item type.
  */
-interface ItemComposition extends ParamHolder {
+interface ItemComposition extends ParamHolder
+{
 	/**
 	 * Gets the item's name as it appears in game.
 	 * On a members server, this is always the item's actual name.
@@ -153,6 +154,7 @@ interface ItemComposition extends ParamHolder {
 	 * @see ItemComposition#getColorToReplaceWith()
 	 * @return the colors to be replaced
 	 */
+
 	getColorToReplace(): number[] | null;
 
 	/**
@@ -160,7 +162,7 @@ interface ItemComposition extends ParamHolder {
 	 * @see JagexColor
 	 * @see ItemComposition#setColorToReplaceWith(short[])
 	 */
-	setColorToReplace(colorsToReplace: number[] | null): void;
+	setColorToReplace(colorsToReplace: number[]): void;
 
 	/**
 	 * Get the colors applied to this item's model for this item.
@@ -168,6 +170,7 @@ interface ItemComposition extends ParamHolder {
 	 * @see ItemComposition#getColorToReplace()
 	 * @return the colors to replace with
 	 */
+
 	getColorToReplaceWith(): number[] | null;
 
 	/**
@@ -175,33 +178,35 @@ interface ItemComposition extends ParamHolder {
 	 * @see JagexColor
 	 * @see ItemComposition#setColorToReplace(short[])
 	 */
-	setColorToReplaceWith(colorToReplaceWith: number[] | null): void;
+	setColorToReplaceWith(colorToReplaceWith: number[]): void;
 
 	/**
 	 * Get the textures to be replaced on this item's model for this item.
 	 * @see ItemComposition#getTextureToReplaceWith()
 	 * @return the textures to be replaced
 	 */
+
 	getTextureToReplace(): number[] | null;
 
 	/**
 	 * Set the textures to be replaced on this item's model for this item.
 	 * @see ItemComposition#setTextureToReplaceWith(short[])
 	 */
-	setTextureToReplace(textureToFind: number[] | null): void;
+	setTextureToReplace(textureToFind: number[]): void;
 
 	/**
 	 * Get the textures applied to this item's model for this item.
 	 * @see ItemComposition#getTextureToReplace()
 	 * @return the textures to replace with
 	 */
+
 	getTextureToReplaceWith(): number[] | null;
 
 	/**
 	 * Set the textures applied to this item's model for this item.
 	 * @see ItemComposition#setTextureToReplace(short[])
 	 */
-	setTextureToReplaceWith(textureToReplaceWith: number[] | null): void;
+	setTextureToReplaceWith(textureToReplaceWith: number[]): void;
 
 	/**
 	 * Get the x angle for 2d item sprites used in the inventory.

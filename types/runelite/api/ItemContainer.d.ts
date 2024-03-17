@@ -1,6 +1,5 @@
-/// <reference path="Node.d.ts" />
+/// <reference path="RuneliteNode.d.ts" />
 /// <reference path="Item.d.ts" />
-
 /**
  * Represents an inventory that contains items.
  */
@@ -18,6 +17,7 @@ interface ItemContainer extends RuneliteNode {
 	 *
 	 * @return the items held
 	 */
+
 	getItems(): Item[];
 
 	/**
@@ -27,6 +27,7 @@ interface ItemContainer extends RuneliteNode {
 	 * @return the item
 	 * @see Item
 	 */
+
 	getItem(slot: number): Item | null;
 
 	/**

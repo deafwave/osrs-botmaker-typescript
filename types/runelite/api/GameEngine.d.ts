@@ -8,7 +8,7 @@ interface GameEngine {
 	 *
 	 * @return the game canvas
 	 */
-	getCanvas(): HTMLCanvasElement;
+	getCanvas(): Canvas;
 
 	/**
 	 * Gets the client main thread.
