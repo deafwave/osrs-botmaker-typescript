@@ -18,7 +18,7 @@ function removeExports() {
 
 module.exports = (config, _b) => {
 	return {
-		treeshake: true,
+		treeshake: false,
 		...config,
 		external: [],
 		output: {
