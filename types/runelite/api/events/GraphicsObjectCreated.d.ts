@@ -7,6 +7,6 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The newly created graphics object.
 		 */
-		private readonly graphicsObject: GraphicsObject;
+		getGraphicsObject(): GraphicsObject;
 	}
 }

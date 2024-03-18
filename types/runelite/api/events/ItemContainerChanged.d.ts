@@ -4,10 +4,10 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The modified container's ID.
 		 */
-		private readonly containerId: number;
+		getContainerId(): number;
 		/**
 		 * The modified item container.
 		 */
-		private readonly itemContainer: ItemContainer;
+		getItemContainer(): ItemContainer;
 	}
 }

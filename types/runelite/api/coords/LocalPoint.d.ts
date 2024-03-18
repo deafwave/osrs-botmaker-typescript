@@ -4,8 +4,8 @@
 
 declare namespace net.runelite.api.coords {
 	export class LocalPoint {
-		private readonly x: number;
-		private readonly y: number;
+		getX(): number;
+		getY(): number;
 
 		private constructor(x: number, y: number);
 

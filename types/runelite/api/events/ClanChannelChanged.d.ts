@@ -4,7 +4,7 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The clan channel
 		 */
-		private readonly clanChannel: net.runelite.api.clan.ClanChannel;
+		getClanChannel(): net.runelite.api.clan.ClanChannel;
 
 		/**
 		 * The clan id, or -1 for guest clan

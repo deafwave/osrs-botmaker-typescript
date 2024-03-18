@@ -1,6 +1,6 @@
 declare namespace net.runelite.api {
 	export class Item {
-		private readonly id: number;
-		private readonly quantity: number;
+		getId(): number;
+		getQuantity(): number;
 	}
 }

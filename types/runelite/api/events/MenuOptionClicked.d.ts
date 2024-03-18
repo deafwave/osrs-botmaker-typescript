@@ -6,7 +6,7 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The clicked menu entry
 		 */
-		private readonly menuEntry: MenuEntry;
+		getMenuEntry(): MenuEntry;
 
 		/**
 		 * Whether or not the event has been consumed by a subscriber.

@@ -5,7 +5,7 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The spawned NPC.
 		 */
-		private readonly npc: NPC;
+		getNpc(): NPC;
 
 		getActor(): Actor;
 	}

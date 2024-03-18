@@ -4,12 +4,12 @@ declare namespace net.runelite.api.events {
 	 * Represents an event where an area sound effect is played in TypeScript.
 	 */
 	export class AreaSoundEffectPlayed {
-		private readonly source: Actor | null;
-		private readonly soundId: number;
-		private readonly sceneX: number;
-		private readonly sceneY: number;
-		private readonly range: number;
-		private readonly delay: number;
+		getSource(): Actor | null;
+		getSoundId(): number;
+		getSceneX(): number;
+		getSceneY(): number;
+		getRange(): number;
+		getDelay(): number;
 
 		private consumed: boolean;
 

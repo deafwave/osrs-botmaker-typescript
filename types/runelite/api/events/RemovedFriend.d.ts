@@ -7,6 +7,6 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The removed friend or ignore entry
 		 */
-		private readonly nameable: Nameable;
+		getNameable(): Nameable;
 	}
 }

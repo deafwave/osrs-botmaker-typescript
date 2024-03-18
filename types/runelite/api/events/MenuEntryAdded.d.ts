@@ -1,7 +1,7 @@
 /// <reference path="../MenuEntry.d.ts" />
 declare namespace net.runelite.api.events {
 	export class MenuEntryAdded {
-		private readonly menuEntry: MenuEntry;
+		getMenuEntry(): MenuEntry;
 
 		/**
 		 * The option text added to the menu. (ie. "Walk here", "Use")

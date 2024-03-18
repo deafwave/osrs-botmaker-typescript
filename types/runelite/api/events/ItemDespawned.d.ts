@@ -6,7 +6,7 @@ declare namespace net.runelite.api.events {
 	 * all item piles are implicitly despawned, and despawn events will not be sent.
 	 */
 	export class ItemDespawned {
-		private readonly tile: Tile;
-		private readonly item: TileItem;
+		getTile(): Tile;
+		getItem(): TileItem;
 	}
 }

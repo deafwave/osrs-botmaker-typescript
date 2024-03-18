@@ -9,9 +9,9 @@ declare namespace net.runelite.api.coords {
 	 * WorldPoints are immutable. Methods that modify the properties create a new instance.
 	 */
 	export class WorldPoint {
-		private readonly x: number;
-		private readonly y: number;
-		private readonly plane: number;
+		getX(): number;
+		getY(): number;
+		getPlane(): number;
 
 		constructor(x: number, y: number, plane: number);
 

@@ -5,11 +5,11 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The NPC of which the composition changed.
 		 */
-		private readonly npc: NPC;
+		getNpc(): NPC;
 
 		/**
 		 * The old composition of the NPC
 		 */
-		private readonly old: NPCComposition;
+		getOld(): NPCComposition;
 	}
 }

@@ -5,7 +5,7 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The despawned player.
 		 */
-		private readonly player: Player;
+		getPlayer(): Player;
 
 		getActor(): Actor;
 	}
