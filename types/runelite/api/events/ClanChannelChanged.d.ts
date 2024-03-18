@@ -1,17 +1,22 @@
 /// <reference path="ClanChannel.d.ts" />
-/// <reference path="ClanID.d.ts" />
+declare namespace net.runelite.api {
+class ClanChannelChanged
+{
+/**
+	 * The clan channel
+	 */
+
 
 /**
- * Represents an event when the local player joins or leaves a clan channel in TypeScript.
- */
-declare class ClanChannelChanged {
-	private readonly clanChannel: ClanChannel | null;
-	private readonly clanId: number;
-	private readonly guest: boolean;
+	 * The clan id, or -1 for guest clan
+	 * @see net.runelite.api.clan.ClanID
+	 */
 
-	constructor(
-		clanChannel: ClanChannel | null,
-		clanId: number,
-		guest: boolean,
-	);
+int clanId;
+/**
+	 * Whether or not this was the guest clan channel
+	 */
+boolean guest;
+}
+
 }

@@ -1,9 +1,8 @@
-/**
- * Represents an event called every game cycle when the client is dragging a widget on
- * the cursor in TypeScript.
- */
-declare class DraggingWidgetChanged {
-	private readonly draggingWidget: boolean;
-
-	constructor(draggingWidget: boolean);
+declare namespace net.runelite.api {
+	class DraggingWidgetChanged {
+		/**
+		 * Whether a widget is currently being dragged.
+		 */
+		private draggingWidget: boolean;
+	}
 }

@@ -1,1 +1,8 @@
-type VarClientIntChanged = any;
+declare namespace net.runelite.api {
+class VarClientIntChanged
+{
+
+int index;
+}
+
+}

@@ -1,10 +1,11 @@
 /**
- * Represents struct IDs used in the client.
  * @see StructComposition
  * @see Client#getStructComposition(int)
  */
-interface StructID {
-	readonly SETTINGS_MUSIC_VOLUME: number;
-	readonly SETTINGS_EFFECT_VOLUME: number;
-	readonly SETTINGS_AREA_VOLUME: number;
+declare namespace net.runelite.api {
+	class StructID {
+		static readonly SETTINGS_MUSIC_VOLUME = 2753;
+		static readonly SETTINGS_EFFECT_VOLUME = 2754;
+		static readonly SETTINGS_AREA_VOLUME = 2755;
+	}
 }

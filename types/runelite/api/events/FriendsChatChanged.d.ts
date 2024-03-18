@@ -1,8 +1,10 @@
+declare namespace net.runelite.api {
+class FriendsChatChanged
+{
 /**
- * Represents an event in TypeScript where the client has joined or left a friends chat.
- */
-declare class FriendsChatChanged {
-	private readonly joined: boolean;
+	 * Whether or not the client is now in a friends chat.
+	 */
+boolean joined;
+}
 
-	constructor(joined: boolean);
 }

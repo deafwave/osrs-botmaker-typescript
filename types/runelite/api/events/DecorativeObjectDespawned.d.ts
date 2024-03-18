@@ -1,12 +1,14 @@
-/// <reference path="Tile.d.ts" />
-/// <reference path="DecorativeObject.d.ts" />
-
+declare namespace net.runelite.api {
+class DecorativeObjectDespawned
+{
 /**
- * Represents an event where a DecorativeObject attached to a Tile is removed in TypeScript.
- */
-declare class DecorativeObjectDespawned {
-	private readonly tile: Tile;
-	private readonly decorativeObject: DecorativeObject;
+	 * The affected tile.
+	 */
+Tile tile;
+/**
+	 * The removed decorative object.
+	 */
+DecorativeObject decorativeObject;
+}
 
-	constructor(tile: Tile, decorativeObject: DecorativeObject);
 }

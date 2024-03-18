@@ -1,10 +1,12 @@
 /**
  * Volume values for each of the stops on the volume interface
  */
-interface SoundEffectVolume {
-	readonly MUTED: number;
-	readonly LOW: number;
-	readonly MEDIUM_LOW: number;
-	readonly MEDIUM_HIGH: number;
-	readonly HIGH: number;
+declare namespace net.runelite.api {
+	class SoundEffectVolume {
+		static readonly MUTED = 0;
+		static readonly LOW = 32;
+		static readonly MEDIUM_LOW = 64;
+		static readonly MEDIUM_HIGH = 96;
+		static readonly HIGH = 127;
+	}
 }

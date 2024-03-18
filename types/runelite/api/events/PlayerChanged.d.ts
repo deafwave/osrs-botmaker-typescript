@@ -1,1 +1,8 @@
-type PlayerChanged = any;
+/// <reference path="Player.d.ts" />
+declare namespace net.runelite.api {
+class PlayerChanged
+{
+
+}
+
+}

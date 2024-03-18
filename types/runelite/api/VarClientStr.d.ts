@@ -5,11 +5,13 @@
  * machine in the preferences2.dat file depending on how Jagex
  * configured the variable
  */
-interface VarClientStr {
-	CHATBOX_TYPED_TEXT: number;
-	INPUT_TEXT: number;
-	PRIVATE_MESSAGE_TARGET: number;
-	RECENT_FRIENDS_CHAT: number;
-	NOTIFICATION_TOP_TEXT: number;
-	NOTIFICATION_BOTTOM_TEXT: number;
+declare namespace net.runelite.api {
+	class VarClientStr {
+		static readonly CHATBOX_TYPED_TEXT = 335;
+		static readonly INPUT_TEXT = 359;
+		static readonly PRIVATE_MESSAGE_TARGET = 360;
+		static readonly RECENT_FRIENDS_CHAT = 362;
+		static readonly NOTIFICATION_TOP_TEXT = 387;
+		static readonly NOTIFICATION_BOTTOM_TEXT = 388;
+	}
 }

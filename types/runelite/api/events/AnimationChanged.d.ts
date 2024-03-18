@@ -1,11 +1,9 @@
-/// <reference path="Actor.d.ts" />
-
-/**
- * Represents an event where an Actor has changed animations in TypeScript.
- * Use Actor.getAnimation() to get the new animation ID.
- */
-declare class AnimationChanged {
-	private readonly actor: Actor;
-
-	constructor(actor: Actor);
+/// <reference path="../Actor.d.ts" />
+declare namespace net.runelite.api {
+	class AnimationChanged {
+		/**
+		 * The actor that has entered a new animation.
+		 */
+		private actor: Actor;
+	}
 }
