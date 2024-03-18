@@ -2,13 +2,15 @@
 /// <reference path="Deque.d.ts" />
 /// <reference path="PendingLogin.d.ts" />
 /// <reference path="Friend.d.ts" />
-/**
- * A nameable container of friends
- */
-interface FriendContainer extends NameableContainer<Friend> {
+declare namespace net.runelite.api {
 	/**
-	 * Get the recent logins/logouts of friends from the last few seconds
-	 * @return
+	 * A nameable container of friends
 	 */
-	getPendingLogins(): Deque<PendingLogin>;
+	export interface FriendContainer extends NameableContainer<Friend> {
+		/**
+		 * Get the recent logins/logouts of friends from the last few seconds
+		 * @return
+		 */
+		getPendingLogins(): Deque<PendingLogin>;
+	}
 }

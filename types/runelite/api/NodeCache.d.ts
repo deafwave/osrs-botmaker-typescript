@@ -1,10 +1,11 @@
-/**
- * Represents a doubly linked node cache.
- */
-interface NodeCache
-{
+declare namespace net.runelite.api {
 	/**
-	 * Resets cache.
+	 * Represents a doubly linked node cache.
 	 */
-	reset(): void;
+	export interface NodeCache {
+		/**
+		 * Resets cache.
+		 */
+		reset(): void;
+	}
 }

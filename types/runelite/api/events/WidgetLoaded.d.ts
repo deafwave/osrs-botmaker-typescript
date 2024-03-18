@@ -1,5 +1,5 @@
-declare namespace net.runelite.api {
-	class WidgetLoaded {
+declare namespace net.runelite.api.events {
+	export class WidgetLoaded {
 		/**
 		 * The group ID of the loaded widget.
 		 */

@@ -1,6 +1,6 @@
 /// <reference path="../AmbientSoundEffect.d.ts" />
-declare namespace net.runelite.api {
-	class AmbientSoundEffectCreated {
+declare namespace net.runelite.api.events {
+	export class AmbientSoundEffectCreated {
 		private ambientSoundEffect: AmbientSoundEffect;
 	}
 }

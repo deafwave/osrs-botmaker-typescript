@@ -1,11 +1,12 @@
 /// <reference path="SpritePixels.d.ts" />
-interface HealthBar
-{
-	getHealthBarFrontSprite(): SpritePixels;
+declare namespace net.runelite.api {
+	export interface HealthBar {
+		getHealthBarFrontSprite(): SpritePixels;
 
-	getHealthBarBackSprite(): SpritePixels;
+		getHealthBarBackSprite(): SpritePixels;
 
-	getHealthBarFrontSpriteId(): number;
+		getHealthBarFrontSpriteId(): number;
 
-	setPadding(padding: number): void;
+		setPadding(padding: number): void;
+	}
 }

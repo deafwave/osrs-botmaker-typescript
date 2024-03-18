@@ -1,19 +1,20 @@
-/**
- * Represents an index in the cache
- */
-interface IndexDataBase
-{
+declare namespace net.runelite.api {
 	/**
-	 * Returns true if any cache overlay in this index is outdated due to hash mismatch
+	 * Represents an index in the cache
 	 */
-	isOverlayOutdated(): boolean;
+	export interface IndexDataBase {
+		/**
+		 * Returns true if any cache overlay in this index is outdated due to hash mismatch
+		 */
+		isOverlayOutdated(): boolean;
 
-	/**
-	 * Get the child file ids for a given archive
-	 * @param archiveId
-	 * @return
-	 */
-	getFileIds(archiveId: number): number[];
+		/**
+		 * Get the child file ids for a given archive
+		 * @param archiveId
+		 * @return
+		 */
+		getFileIds(archiveId: number): number[];
 
-	loadData(archiveID: number, fileID: number): number[];
+		loadData(archiveID: number, fileID: number): number[];
+	}
 }

@@ -1,8 +1,8 @@
-/**
- * Hint arrow types.
- */
 declare namespace net.runelite.api {
-	class HintArrowType {
+	/**
+	 * Hint arrow types.
+	 */
+	export class HintArrowType {
 		/**
 		 * No hint arrow present.
 		 */

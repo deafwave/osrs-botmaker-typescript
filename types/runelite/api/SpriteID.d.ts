@@ -1,5 +1,5 @@
 declare namespace net.runelite.api {
-	class SpriteID {
+	export class SpriteID {
 		static readonly RS2_CHATBOX_BUTTONS = 0;
 		static readonly RS2_TABS_ROW_BOTTOM = 1;
 		static readonly RS2_TABS_ROW_TOP = 2;

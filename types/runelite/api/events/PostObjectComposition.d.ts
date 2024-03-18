@@ -1,10 +1,9 @@
-declare namespace net.runelite.api {
-class PostObjectComposition
-{
-/**
-	 * The newly created object
-	 */
-ObjectComposition objectComposition;
-}
-
+/// <reference path="../ObjectComposition.d.ts" />
+declare namespace net.runelite.api.events {
+	export class PostObjectComposition {
+		/**
+		 * The newly created object
+		 */
+		private objectComposition: ObjectComposition;
+	}
 }

@@ -1,6 +1,6 @@
-declare namespace net.runelite.api {
+declare namespace net.runelite.api.widgets {
 	/** @deprecated */
-	class WidgetID {
+	export class WidgetID {
 		static readonly FAIRY_RING_PANEL_GROUP_ID: number;
 		static readonly FAIRY_RING_GROUP_ID: number;
 		static readonly LOGOUT_PANEL_ID: number;
@@ -122,11 +122,9 @@ declare namespace net.runelite.api {
 		static readonly HALLOWED_SEPULCHRE_TIMER_GROUP_ID: number;
 		static readonly BANK_PIN_GROUP_ID: number;
 		static readonly HEALTH_OVERLAY_BAR_GROUP_ID: number;
-		static readonly CHAMBERS_OF_XERIC_STORAGE_UNIT_PRIVATE_GROUP_ID =
-			number;
+		static readonly CHAMBERS_OF_XERIC_STORAGE_UNIT_PRIVATE_GROUP_ID: number;
 		static readonly CHAMBERS_OF_XERIC_STORAGE_UNIT_SHARED_GROUP_ID: number;
-		static readonly CHAMBERS_OF_XERIC_STORAGE_UNIT_INVENTORY_GROUP_ID =
-			number;
+		static readonly CHAMBERS_OF_XERIC_STORAGE_UNIT_INVENTORY_GROUP_ID: number;
 		static readonly DUEL_INVENTORY_GROUP_ID: number;
 		static readonly DUEL_INVENTORY_OTHER_GROUP_ID: number;
 		static readonly TRAILBLAZER_AREAS_GROUP_ID: number;

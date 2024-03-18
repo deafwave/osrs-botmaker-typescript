@@ -1,3 +1,3 @@
-declare namespace net.runelite.api {
-	class AccountHashChanged {}
+declare namespace net.runelite.api.events {
+	export class AccountHashChanged {}
 }

@@ -1,14 +1,15 @@
-interface EnumComposition
-{
-	size(): number;
+declare namespace net.runelite.api {
+	export interface EnumComposition {
+		size(): number;
 
-	getKeys(): number[];
+		getKeys(): number[];
 
-	getIntVals(): number[];
+		getIntVals(): number[];
 
-	getStringVals(): string[];
+		getStringVals(): string[];
 
-	getIntValue(key: number): number;
+		getIntValue(key: number): number;
 
-	getStringValue(key: number): string;
+		getStringValue(key: number): string;
+	}
 }

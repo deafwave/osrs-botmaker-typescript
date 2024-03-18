@@ -1,7 +1,7 @@
 /// <reference path="ChatPlayer.d.ts" />
-/**
- * Represents a player in the friends list.
- */
-interface Friend extends ChatPlayer
-{
+declare namespace net.runelite.api {
+	/**
+	 * Represents a player in the friends list.
+	 */
+	export interface Friend extends ChatPlayer {}
 }

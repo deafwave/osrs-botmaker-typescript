@@ -1,8 +1,8 @@
-/**
- * @see ParamID#SETTING_ID
- */
 declare namespace net.runelite.api {
-	class SettingID {
+	/**
+	 * @see ParamID#SETTING_ID
+	 */
+	export class SettingID {
 		static readonly CAMERA_ZOOM = 14;
 
 		static readonly MUSIC_VOLUME = 30;

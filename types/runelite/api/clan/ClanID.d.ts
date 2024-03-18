@@ -1,5 +1,5 @@
-declare namespace net.runelite.api {
-	class ClanID {
+declare namespace net.runelite.api.clan {
+	export class ClanID {
 		/**
 		 * The primary clan.
 		 */

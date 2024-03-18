@@ -1,12 +1,11 @@
 /// <reference path="WorldPoint.d.ts" />
 /// <reference path="../Client.d.ts" />
 /// <reference path="../../../java/index.d.ts" />
-
-/**
- * Represents an area on the world.
- */
-declare namespace net.runelite.api {
-	class WorldArea {
+declare namespace net.runelite.api.coords {
+	/**
+	 * Represents an area on the world.
+	 */
+	export class WorldArea {
 		private x: number;
 		private y: number;
 		private width: number;
@@ -21,15 +20,15 @@ declare namespace net.runelite.api {
 			plane: number,
 		);
 
-		distanceTo(other: WorldArea): number;
-		distanceTo2D(other: WorldArea): number;
-		distanceTo(other: WorldPoint): number;
-		distanceTo2D(other: WorldPoint): number;
-		contains(worldPoint: WorldPoint): boolean;
-		contains2D(worldPoint: WorldPoint): boolean;
-		isInMeleeDistance(other: WorldArea): boolean;
-		isInMeleeDistance(other: WorldPoint): boolean;
-		intersectsWith(other: WorldArea): boolean;
+		distanceTo(other: net.runelite.api.coords.WorldArea): number;
+		distanceTo2D(other: net.runelite.api.coords.WorldArea): number;
+		distanceTo(other: net.runelite.api.coords.WorldPoint): number;
+		distanceTo2D(other: net.runelite.api.coords.WorldPoint): number;
+		contains(worldPoint: net.runelite.api.coords.WorldPoint): boolean;
+		contains2D(worldPoint: net.runelite.api.coords.WorldPoint): boolean;
+		isInMeleeDistance(other: net.runelite.api.coords.WorldArea): boolean;
+		isInMeleeDistance(other: net.runelite.api.coords.WorldPoint): boolean;
+		intersectsWith(other: net.runelite.api.coords.WorldArea): boolean;
 
 		canTravelInDirection(client: Client, dx: number, dy: number): boolean;
 		canTravelInDirection(
@@ -39,10 +38,16 @@ declare namespace net.runelite.api {
 			extraCondition: Predicate<WorldPoint>,
 		): boolean;
 
-		hasLineOfSightTo(client: Client, other: WorldArea): boolean;
-		hasLineOfSightTo(client: Client, other: WorldPoint): boolean;
+		hasLineOfSightTo(
+			client: Client,
+			other: net.runelite.api.coords.WorldArea,
+		): boolean;
+		hasLineOfSightTo(
+			client: Client,
+			other: net.runelite.api.coords.WorldPoint,
+		): boolean;
 
-		toWorldPoint(): WorldPoint;
-		toWorldPointList(): WorldPoint[];
+		toWorldPoint(): net.runelite.api.coords.WorldPoint;
+		toWorldPointList(): net.runelite.api.coords.WorldPoint[];
 	}
 }

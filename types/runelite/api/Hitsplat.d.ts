@@ -1,11 +1,11 @@
 /// <reference path="annotations/HitsplatType.d.ts" />
-/**
- * A hitsplat that has been applied to an {@link Actor}.
- */
 declare namespace net.runelite.api {
-	class Hitsplat {
+	/**
+	 * A hitsplat that has been applied to an {@link Actor}.
+	 */
+	export class Hitsplat {
 		constructor(
-			hitsplatType: HitsplatType,
+			hitsplatType: net.runelite.api.annotations.HitsplatType,
 			amount: number,
 			disappearsOnGameCycle: number,
 		);

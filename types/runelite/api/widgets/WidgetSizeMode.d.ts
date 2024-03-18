@@ -1,5 +1,5 @@
-declare namespace net.runelite.api {
-	class WidgetSizeMode {
+declare namespace net.runelite.api.widgets {
+	export class WidgetSizeMode {
 		/**
 		 * dim = originalDim
 		 */

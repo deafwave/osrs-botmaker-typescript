@@ -1,10 +1,9 @@
 /// <reference path="../Actor.d.ts" />
-
-/**
- * Represents an event where an area sound effect is played in TypeScript.
- */
-declare namespace net.runelite.api {
-	class AreaSoundEffectPlayed {
+declare namespace net.runelite.api.events {
+	/**
+	 * Represents an event where an area sound effect is played in TypeScript.
+	 */
+	export class AreaSoundEffectPlayed {
 		private readonly source: Actor | null;
 		private readonly soundId: number;
 		private readonly sceneX: number;

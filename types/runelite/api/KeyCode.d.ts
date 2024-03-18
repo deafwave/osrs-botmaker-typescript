@@ -1,8 +1,8 @@
-/**
- * Jagex key codes
- */
 declare namespace net.runelite.api {
-	class KeyCode {
+	/**
+	 * Jagex key codes
+	 */
+	export class KeyCode {
 		static readonly KC_F1 = 1;
 		static readonly KC_F2 = 2;
 		static readonly KC_F3 = 3;

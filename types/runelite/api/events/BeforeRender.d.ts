@@ -1,6 +1,6 @@
-/**
- * Posted at the start of every frame
- */
-declare namespace net.runelite.api {
-	class BeforeRender {}
+declare namespace net.runelite.api.events {
+	/**
+	 * Posted at the start of every frame
+	 */
+	export class BeforeRender {}
 }

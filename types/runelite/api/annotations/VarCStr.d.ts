@@ -1,1 +1,3 @@
-type VarCStr = any;
+declare namespace net.runelite.api.annotations {
+	type VarCStr = any;
+}

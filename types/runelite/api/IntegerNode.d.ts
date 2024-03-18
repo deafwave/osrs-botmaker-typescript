@@ -1,19 +1,21 @@
 /// <reference path="RuneliteNode.d.ts" />
-/**
- * Represents an integer typically in a {@link HashTable}.
- */
-interface IntegerNode extends RuneliteNode {
+declare namespace net.runelite.api {
 	/**
-	 * Gets the value of the node.
-	 *
-	 * @return the int value
+	 * Represents an integer typically in a {@link HashTable}.
 	 */
-	getValue(): number;
+	export interface IntegerNode extends RuneliteNode {
+		/**
+		 * Gets the value of the node.
+		 *
+		 * @return the int value
+		 */
+		getValue(): number;
 
-	/**
-	 * Sets the value of the node.
-	 *
-	 * @param value the new int value
-	 */
-	setValue(value: number): void;
+		/**
+		 * Sets the value of the node.
+		 *
+		 * @param value the new int value
+		 */
+		setValue(value: number): void;
+	}
 }

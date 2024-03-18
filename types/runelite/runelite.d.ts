@@ -1,10 +1,9 @@
-/// <reference path="./api/index.d.ts" />
+/// <reference path="./api/Client.d.ts" />
 
-declare const net: {
-	runelite: {
-		api: RuneliteApi;
-		client: any;
-	};
-};
+declare namespace net.runelite {
+	export let client: any;
+}
 
-declare const client: RuneliteApi['Client'];
+declare const client: net.runelite.api.Client;
+
+import client = net.runelite.api.Client;

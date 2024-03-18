@@ -1,5 +1,5 @@
-declare namespace net.runelite.api {
-	class WidgetClosed {
+declare namespace net.runelite.api.events {
+	export class WidgetClosed {
 		/**
 		 * The ID of the interface that is closed
 		 */

@@ -1,8 +1,8 @@
 /// <reference path="../Tile.d.ts" />
 /// <reference path="../WallObject.d.ts" />
 
-declare namespace net.runelite.api {
-	class WallObjectSpawned {
+declare namespace net.runelite.api.events {
+	export class WallObjectSpawned {
 		/**
 		 * The affected tile.
 		 */

@@ -1,16 +1,17 @@
 /// <reference path="ClanRank.d.ts" />
-/**
- * A member of a clan.
- */
-interface ClanMember
-{
+declare namespace net.runelite.api.clan {
 	/**
-	 * The clan member's name
+	 * A member of a clan.
 	 */
-	getName(): string;
+	export interface ClanMember {
+		/**
+		 * The clan member's name
+		 */
+		getName(): string;
 
-	/**
-	 * The clan member's rank
-	 */
-	getRank(): ClanRank;
+		/**
+		 * The clan member's rank
+		 */
+		getRank(): ClanRank;
+	}
 }

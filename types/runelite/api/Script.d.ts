@@ -1,7 +1,8 @@
 /// <reference path="RuneliteNode.d.ts" />
-interface Script extends RuneliteNode
-{
-	getIntOperands(): number[];
+declare namespace net.runelite.api {
+	export interface Script extends RuneliteNode {
+		getIntOperands(): number[];
 
-	getInstructions(): number[];
+		getInstructions(): number[];
+	}
 }

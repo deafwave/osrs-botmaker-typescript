@@ -1,8 +1,8 @@
 /// <reference path="../../../java/index.d.ts" />
 /// <reference path="Widget.d.ts" />
 /// <reference path="../Point.d.ts" />
-declare namespace net.runelite.api {
-	class WidgetItem {
+declare namespace net.runelite.api.widgets {
+	export class WidgetItem {
 		/**
 		 * The ID of the item represented.
 		 *
@@ -35,7 +35,7 @@ declare namespace net.runelite.api {
 			id: number,
 			quantity: number,
 			canvasBounds: Rectangle,
-			widget: Widget,
+			widget: net.runelite.api.widgets.Widget,
 			draggingCanvasBounds: Rectangle,
 		);
 

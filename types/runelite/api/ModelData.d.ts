@@ -1,79 +1,81 @@
 /// <reference path="Mesh.d.ts" />
 /// <reference path="Model.d.ts" />
-/**
- * An unlit model
- */
-interface ModelData extends Mesh<ModelData>, Renderable {
-	DEFAULT_AMBIENT: 64;
-	DEFAULT_CONTRAST: 768;
-	DEFAULT_X: -50;
-	DEFAULT_Y: -10;
-	DEFAULT_Z: -50;
-
+declare namespace net.runelite.api {
 	/**
-	 * Gets colors as Jagex HSL
-	 *
-	 * @see JagexColor
+	 * An unlit model
 	 */
-	getFaceColors(): number[];
+	export interface ModelData extends Mesh<ModelData>, Renderable {
+		DEFAULT_AMBIENT: 64;
+		DEFAULT_CONTRAST: 768;
+		DEFAULT_X: -50;
+		DEFAULT_Y: -10;
+		DEFAULT_Z: -50;
 
-	/**
-	 * Lights a model.
-	 *
-	 * The produced model shares verticies, face transparencies, face indicies, and textures with
-	 * the underlying ModelData. If any of these may be mutated the corresponding {@code cloneX}
-	 * method should be called before {@code light}ing
-	 */
-	light(
-		ambient: number,
-		contrast: number,
-		x: number,
-		y: number,
-		z: number,
-	): Model;
+		/**
+		 * Gets colors as Jagex HSL
+		 *
+		 * @see JagexColor
+		 */
+		getFaceColors(): number[];
 
-	/**
-	 * Lights a model with default values
-	 *
-	 * @see #light(int, int, int, int, int)
-	 */
-	light(): Model;
+		/**
+		 * Lights a model.
+		 *
+		 * The produced model shares verticies, face transparencies, face indicies, and textures with
+		 * the underlying ModelData. If any of these may be mutated the corresponding {@code cloneX}
+		 * method should be called before {@code light}ing
+		 */
+		light(
+			ambient: number,
+			contrast: number,
+			x: number,
+			y: number,
+			z: number,
+		): Model;
 
-	/**
-	 * Applies a recolor using Jagex's HSL format. You should call {@link #cloneColors()} ()} before calling
-	 * this method
-	 */
-	recolor(colorToReplace: number, colorToReplaceWith: number): ModelData;
+		/**
+		 * Lights a model with default values
+		 *
+		 * @see #light(int, int, int, int, int)
+		 */
+		light(): Model;
 
-	/**
-	 * Applies a retexture, changing texture ids. You should call {@link #cloneTextures()} before calling
-	 * this method
-	 */
-	retexture(find: number, replace: number): ModelData;
+		/**
+		 * Applies a recolor using Jagex's HSL format. You should call {@link #cloneColors()} ()} before calling
+		 * this method
+		 */
+		recolor(colorToReplace: number, colorToReplaceWith: number): ModelData;
 
-	/**
-	 * Shallow-copies a model. Does not copy any arrays, which are still shared with this object.
-	 */
-	shallowCopy(): ModelData;
+		/**
+		 * Applies a retexture, changing texture ids. You should call {@link #cloneTextures()} before calling
+		 * this method
+		 */
+		retexture(find: number, replace: number): ModelData;
 
-	/**
-	 * Clones {@link #getVerticesX()}, {@link #getVerticesY()}, and {@link #getVerticesZ()} so
-	 * they can be safely mutated
-	 */
-	cloneVertices(): ModelData;
+		/**
+		 * Shallow-copies a model. Does not copy any arrays, which are still shared with this object.
+		 */
+		shallowCopy(): ModelData;
 
-	/**
-	 * Clones {@link #getFaceColors()} so they can be safely mutated
-	 */
-	cloneColors(): ModelData;
+		/**
+		 * Clones {@link #getVerticesX()}, {@link #getVerticesY()}, and {@link #getVerticesZ()} so
+		 * they can be safely mutated
+		 */
+		cloneVertices(): ModelData;
 
-	/**
-	 * Clones {@link #getFaceTextures()} so they can be safely mutated
-	 */
-	cloneTextures(): ModelData;
+		/**
+		 * Clones {@link #getFaceColors()} so they can be safely mutated
+		 */
+		cloneColors(): ModelData;
 
-	/**
-	 * Clones {@link #getFaceTransparencies()} so they can be safely mutated
-	 */
-	cloneTransparencies(): ModelData;
+		/**
+		 * Clones {@link #getFaceTextures()} so they can be safely mutated
+		 */
+		cloneTextures(): ModelData;
+
+		/**
+		 * Clones {@link #getFaceTransparencies()} so they can be safely mutated
+		 */
+		cloneTransparencies(): ModelData;
+	}
 }

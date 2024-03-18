@@ -1,33 +1,34 @@
-/**
- * Represents the paint of a tile in the current scene.
- */
-interface SceneTilePaint
-{
+declare namespace net.runelite.api {
 	/**
-	 * Gets the RGB value of the paint.
-	 *
-	 * @return the paint RGB
+	 * Represents the paint of a tile in the current scene.
 	 */
-	getRBG(): number;
+	export interface SceneTilePaint {
+		/**
+		 * Gets the RGB value of the paint.
+		 *
+		 * @return the paint RGB
+		 */
+		getRBG(): number;
 
-	getSwColor(): number;
+		getSwColor(): number;
 
-	getSeColor(): number;
+		getSeColor(): number;
 
-	getNwColor(): number;
+		getNwColor(): number;
 
-	getNeColor(): number;
+		getNeColor(): number;
 
-	getTexture(): number;
+		getTexture(): number;
 
-	isFlat(): boolean;
+		isFlat(): boolean;
 
-	getBufferOffset(): number;
-	setBufferOffset(bufferOffset: number): void;
+		getBufferOffset(): number;
+		setBufferOffset(bufferOffset: number): void;
 
-	getUvBufferOffset(): number;
-	setUvBufferOffset(bufferOffset: number): void;
+		getUvBufferOffset(): number;
+		setUvBufferOffset(bufferOffset: number): void;
 
-	getBufferLen(): number;
-	setBufferLen(bufferLen: number): void;
+		getBufferLen(): number;
+		setBufferLen(bufferLen: number): void;
+	}
 }

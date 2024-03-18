@@ -1,5 +1,5 @@
-declare namespace net.runelite.api {
-	class WidgetModelType {
+declare namespace net.runelite.api.widgets {
+	export class WidgetModelType {
 		static readonly NULL = 0;
 		static readonly MODEL = 1;
 		static readonly NPC_CHATHEAD = 2;

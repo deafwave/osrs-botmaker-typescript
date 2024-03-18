@@ -1,52 +1,49 @@
 /// <reference path="Actor.d.ts" />
 /// <reference path="NPCComposition.d.ts" />
 /// <reference path="NpcOverrides.d.ts" />
-/**
- * Represents a non-player character in the game.
- */
-interface NPC extends Actor
-{
+declare namespace net.runelite.api {
 	/**
-	 * Gets the ID of the NPC.
-	 *
-	 * @return the ID of the NPC
-	 * @see NpcID
+	 * Represents a non-player character in the game.
 	 */
-	getId(): number;
+	export interface NPC extends Actor {
+		/**
+		 * Gets the ID of the NPC.
+		 *
+		 * @return the ID of the NPC
+		 * @see NpcID
+		 */
+		getId(): number;
 
+		getName(): string;
 
-	getName(): string;
+		getCombatLevel(): number;
 
+		/**
+		 * Gets the index position of this NPC in the clients cached
+		 * NPC array.
+		 *
+		 * @return the NPC index
+		 * @see Client#getCachedNPCs()
+		 */
+		getIndex(): number;
 
-	getCombatLevel(): number;
+		/**
+		 * Gets the composition of this NPC.
+		 *
+		 * @return the composition
+		 */
+		getComposition(): NPCComposition;
 
-	/**
-	 * Gets the index position of this NPC in the clients cached
-	 * NPC array.
-	 *
-	 * @return the NPC index
-	 * @see Client#getCachedNPCs()
-	 */
-	getIndex(): number;
+		/**
+		 * Get the composition for this NPC and transform it if required
+		 *
+		 * @return the transformed NPC
+		 */
 
-	/**
-	 * Gets the composition of this NPC.
-	 *
-	 * @return the composition
-	 */
-	getComposition(): NPCComposition;
+		getTransformedComposition(): NPCComposition | null;
 
-	/**
-	 * Get the composition for this NPC and transform it if required
-	 *
-	 * @return the transformed NPC
-	 */
+		getModelOverrides(): NpcOverrides | null;
 
-	getTransformedComposition(): NPCComposition | null;
-
-
-	getModelOverrides(): NpcOverrides | null;
-
-
-	getChatheadOverrides(): NpcOverrides | null;
+		getChatheadOverrides(): NpcOverrides | null;
+	}
 }

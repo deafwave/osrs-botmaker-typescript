@@ -1,5 +1,5 @@
 declare namespace net.runelite.api {
-	class NullObjectID {
+	export class NullObjectID {
 		static readonly NULL = 0;
 		static readonly NULL_65 = 65;
 		static readonly NULL_66 = 66;

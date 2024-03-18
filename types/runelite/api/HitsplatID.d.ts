@@ -1,5 +1,5 @@
 declare namespace net.runelite.api {
-	class HitsplatID {
+	export class HitsplatID {
 		static readonly BLOCK_ME = 12;
 		static readonly BLOCK_OTHER = 13;
 		static readonly DAMAGE_ME = 16;

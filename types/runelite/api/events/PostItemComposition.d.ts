@@ -1,10 +1,9 @@
-declare namespace net.runelite.api {
-class PostItemComposition
-{
-/**
-	 * The newly created item.
-	 */
-ItemComposition itemComposition;
-}
-
+/// <reference path="../ItemComposition.d.ts" />
+declare namespace net.runelite.api.events {
+	export class PostItemComposition {
+		/**
+		 * The newly created item.
+		 */
+		private itemComposition: ItemComposition;
+	}
 }

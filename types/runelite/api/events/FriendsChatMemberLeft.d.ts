@@ -1,10 +1,9 @@
-declare namespace net.runelite.api {
-class FriendsChatMemberLeft
-{
-/**
-	 * The member that left
-	 */
-FriendsChatMember member;
-}
-
+/// <reference path="../FriendsChatMember.d.ts" />
+declare namespace net.runelite.api.events {
+	export class FriendsChatMemberLeft {
+		/**
+		 * The member that left
+		 */
+		private member: FriendsChatMember;
+	}
 }

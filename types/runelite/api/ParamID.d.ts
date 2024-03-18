@@ -1,8 +1,8 @@
-/**
- * @see ParamHolder
- */
 declare namespace net.runelite.api {
-	class ParamID {
+	/**
+	 * @see ParamHolder
+	 */
+	export class ParamID {
 		static readonly OC_ITEM_OP1 = 451;
 		static readonly OC_ITEM_OP2 = 452;
 		static readonly OC_ITEM_OP3 = 453;

@@ -1,5 +1,5 @@
 declare namespace net.runelite.api {
-	class NpcID {
+	export class NpcID {
 		static readonly TOOL_LEPRECHAUN = 0;
 		static readonly MOLANISK = 1;
 		static readonly ABERRANT_SPECTRE = 2;

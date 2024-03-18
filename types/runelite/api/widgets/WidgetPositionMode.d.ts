@@ -1,5 +1,5 @@
-declare namespace net.runelite.api {
-	class WidgetPositionMode {
+declare namespace net.runelite.api.widgets {
+	export class WidgetPositionMode {
 		static readonly ABSOLUTE_LEFT = 0;
 		static readonly ABSOLUTE_TOP = 0;
 		static readonly ABSOLUTE_CENTER = 1;

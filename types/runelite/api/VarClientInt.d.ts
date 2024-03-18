@@ -1,12 +1,12 @@
-/**
- * Client side only, content-developer integers
- *
- * VarCInts are stored entirely in memory, or locally on a user's
- * machine in the preferences2.dat file depending on how Jagex
- * configured the variable
- */
 declare namespace net.runelite.api {
-	class VarClientInt {
+	/**
+	 * Client side only, content-developer integers
+	 *
+	 * VarCInts are stored entirely in memory, or locally on a user's
+	 * machine in the preferences2.dat file depending on how Jagex
+	 * configured the variable
+	 */
+	export class VarClientInt {
 		static readonly TOOLTIP_TIMEOUT = 1;
 
 		/**

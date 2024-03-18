@@ -2,8 +2,8 @@
 /// <reference path="WorldPoint.d.ts" />
 /// <reference path="../Perspective.d.ts" />
 
-declare namespace net.runelite.api {
-	class LocalPoint {
+declare namespace net.runelite.api.coords {
+	export class LocalPoint {
 		private readonly x: number;
 		private readonly y: number;
 
@@ -17,8 +17,8 @@ declare namespace net.runelite.api {
 		 */
 		public static fromWorld(
 			client: Client,
-			world: WorldPoint,
-		): LocalPoint | null;
+			world: net.runelite.api.coords.WorldPoint,
+		): net.runelite.api.coords.LocalPoint | null;
 
 		/**
 		 * Gets the local coordinate at the center of the passed tile.
@@ -31,14 +31,14 @@ declare namespace net.runelite.api {
 			client: Client,
 			x: number,
 			y: number,
-		): LocalPoint | null;
+		): net.runelite.api.coords.LocalPoint | null;
 
 		/**
 		 * Gets the distance between this point and another.
 		 * @param other other point
 		 * @returns number
 		 */
-		public distanceTo(other: LocalPoint): number;
+		public distanceTo(other: net.runelite.api.coords.LocalPoint): number;
 
 		/**
 		 * Test if this point is in the loaded scene, a 104x104 tile area.
@@ -52,7 +52,10 @@ declare namespace net.runelite.api {
 		 * @param y y-axis coordinate of the tile in Scene coords
 		 * @returns LocalPoint
 		 */
-		public static fromScene(x: number, y: number): LocalPoint;
+		public static fromScene(
+			x: number,
+			y: number,
+		): net.runelite.api.coords.LocalPoint;
 
 		/**
 		 * Gets the x-axis coordinate in scene space (tiles).

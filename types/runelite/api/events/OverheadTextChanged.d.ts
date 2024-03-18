@@ -1,10 +1,4 @@
-/// <reference path="Actor.d.ts" />
-declare namespace net.runelite.api {
-class OverheadTextChanged
-{
-
-
-
-}
-
+/// <reference path="../Actor.d.ts" />
+declare namespace net.runelite.api.events {
+	export class OverheadTextChanged {}
 }

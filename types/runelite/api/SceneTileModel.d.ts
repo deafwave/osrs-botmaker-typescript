@@ -1,64 +1,65 @@
-/**
- * Represents the model of a tile in the current scene.
- */
-interface SceneTileModel
-{
+declare namespace net.runelite.api {
 	/**
-	 * Gets the underlay color of the tile.
-	 *
-	 * @return the underlay color
+	 * Represents the model of a tile in the current scene.
 	 */
-	getModelUnderlay(): number;
+	export interface SceneTileModel {
+		/**
+		 * Gets the underlay color of the tile.
+		 *
+		 * @return the underlay color
+		 */
+		getModelUnderlay(): number;
 
-	/**
-	 * Gets the overlay color of the tile.
-	 *
-	 * @return the overlay color
-	 */
-	getModelOverlay(): number;
+		/**
+		 * Gets the overlay color of the tile.
+		 *
+		 * @return the overlay color
+		 */
+		getModelOverlay(): number;
 
-	/**
-	 * Gets the shape mask type.
-	 *
-	 * @return the shape mask
-	 */
-	getShape(): number;
+		/**
+		 * Gets the shape mask type.
+		 *
+		 * @return the shape mask
+		 */
+		getShape(): number;
 
-	/**
-	 * Gets the rotation of the tile.
-	 *
-	 * @return the rotation
-	 */
-	getRotation(): number;
+		/**
+		 * Gets the rotation of the tile.
+		 *
+		 * @return the rotation
+		 */
+		getRotation(): number;
 
-	getFaceX(): number[];
+		getFaceX(): number[];
 
-	getFaceY(): number[];
+		getFaceY(): number[];
 
-	getFaceZ(): number[];
+		getFaceZ(): number[];
 
-	getVertexX(): number[];
+		getVertexX(): number[];
 
-	getVertexY(): number[];
+		getVertexY(): number[];
 
-	getVertexZ(): number[];
+		getVertexZ(): number[];
 
-	getTriangleColorA(): number[];
+		getTriangleColorA(): number[];
 
-	getTriangleColorB(): number[];
+		getTriangleColorB(): number[];
 
-	getTriangleColorC(): number[];
+		getTriangleColorC(): number[];
 
-	getTriangleTextureId(): number[];
+		getTriangleTextureId(): number[];
 
-	isFlat(): boolean;
+		isFlat(): boolean;
 
-	getBufferOffset(): number;
-	setBufferOffset(bufferOffset: number): void;
+		getBufferOffset(): number;
+		setBufferOffset(bufferOffset: number): void;
 
-	getUvBufferOffset(): number;
-	setUvBufferOffset(bufferOffset: number): void;
+		getUvBufferOffset(): number;
+		setUvBufferOffset(bufferOffset: number): void;
 
-	getBufferLen(): number;
-	setBufferLen(bufferLen: number): void;
+		getBufferLen(): number;
+		setBufferLen(bufferLen: number): void;
+	}
 }

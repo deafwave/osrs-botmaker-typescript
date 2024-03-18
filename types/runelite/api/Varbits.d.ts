@@ -1,16 +1,16 @@
-/**
- * Server controlled "content-developer" integers.
- *
- * @see VarPlayer
- * <p>
- * These differ from a {@link VarPlayer} in that VarBits can be
- * less than 32 bits. One or more VarBits can be assigned to a
- * backing VarPlayer, each with a static range of bits that it is
- * allowed to access. This allows a more compact representation
- * of small values, like booleans
- */
 declare namespace net.runelite.api {
-	class Varbits {
+	/**
+	 * Server controlled "content-developer" integers.
+	 *
+	 * @see VarPlayer
+	 * <p>
+	 * These differ from a {@link VarPlayer} in that VarBits can be
+	 * less than 32 bits. One or more VarBits can be assigned to a
+	 * backing VarPlayer, each with a static range of bits that it is
+	 * allowed to access. This allows a more compact representation
+	 * of small values, like booleans
+	 */
+	export class Varbits {
 		/*
 		 * If chatbox is transparent or not
 		 */

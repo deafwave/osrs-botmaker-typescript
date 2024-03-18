@@ -1,4 +1,6 @@
 /// <reference path="../ScriptEvent.d.ts" />
-interface JavaScriptCallback {
-	run(event: ScriptEvent): void;
+declare namespace net.runelite.api.widgets {
+	export interface JavaScriptCallback {
+		run(event: ScriptEvent): void;
+	}
 }

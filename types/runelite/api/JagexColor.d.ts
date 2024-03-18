@@ -1,5 +1,5 @@
 declare namespace net.runelite.api {
-	class JagexColor {
+	export class JagexColor {
 		public static readonly HUE_MAX = 63;
 		public static readonly SATURATION_MAX = 7;
 		public static readonly LUMINANCE_MAX = 127;

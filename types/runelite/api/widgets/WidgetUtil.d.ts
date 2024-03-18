@@ -1,5 +1,5 @@
-declare namespace net.runelite.api {
-	class WidgetUtil {
+declare namespace net.runelite.api.widgets {
+	export class WidgetUtil {
 		/**
 		 * Utility method that converts a component id to the interface it
 		 * belongs to.

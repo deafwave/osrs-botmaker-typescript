@@ -1,5 +1,5 @@
 declare namespace net.runelite.api {
-	class Point {
+	export class Point {
 		constructor(x: number, y: number);
 
 		/**

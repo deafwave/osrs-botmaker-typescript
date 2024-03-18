@@ -1,8 +1,8 @@
-/**
- * Utility class mapping Widget ItemQuantityMode values
- */
-declare namespace net.runelite.api {
-	class ItemQuantityMode {
+declare namespace net.runelite.api.widgets {
+	/**
+	 * Utility class mapping Widget ItemQuantityMode values
+	 */
+	export class ItemQuantityMode {
 		/**
 		 * Never show item quantity number
 		 */

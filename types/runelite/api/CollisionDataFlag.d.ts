@@ -1,8 +1,8 @@
-/**
- * A utility class containing collision data flags for tiles.
- */
 declare namespace net.runelite.api {
-	class CollisionDataFlag {
+	/**
+	 * A utility class containing collision data flags for tiles.
+	 */
+	export class CollisionDataFlag {
 		/**
 		 * Directional movement blocking flags.
 		 */

@@ -1,37 +1,37 @@
-/**
- * Represents an paletted sprite.
- */
-interface IndexedSprite
-{
+declare namespace net.runelite.api {
 	/**
-	 * The bitmap of this sprite. Each value is an index into {@link #getPalette()}.
-	 * 0 is transparent
+	 * Represents an paletted sprite.
 	 */
-	getPixels(): number[];
-	setPixels(pixels: number[]): void;
+	export interface IndexedSprite {
+		/**
+		 * The bitmap of this sprite. Each value is an index into {@link #getPalette()}.
+		 * 0 is transparent
+		 */
+		getPixels(): number[];
+		setPixels(pixels: number[]): void;
 
-	/**
-	 * The color palette in RGB. The zero index is unused.
-	 */
-	getPalette(): number[];
-	setPalette(palette: number[]): void;
+		/**
+		 * The color palette in RGB. The zero index is unused.
+		 */
+		getPalette(): number[];
+		setPalette(palette: number[]): void;
 
-	getOffsetX(): number;
-	setOffsetX(offsetX: number): void;
+		getOffsetX(): number;
+		setOffsetX(offsetX: number): void;
 
-	getOffsetY(): number;
-	setOffsetY(offsetY: number): void;
+		getOffsetY(): number;
+		setOffsetY(offsetY: number): void;
 
-	getWidth(): number;
-	setWidth(width: number): void;
+		getWidth(): number;
+		setWidth(width: number): void;
 
+		getHeight(): number;
+		setHeight(height: number): void;
 
-	getHeight(): number;
-	setHeight(height: number): void;
+		getOriginalWidth(): number;
+		setOriginalWidth(originalWidth: number): void;
 
-	getOriginalWidth(): number;
-	setOriginalWidth(originalWidth: number): void;
-
-	getOriginalHeight(): number;
-	setOriginalHeight(originalHeight: number): void;
+		getOriginalHeight(): number;
+		setOriginalHeight(originalHeight: number): void;
+	}
 }

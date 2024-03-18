@@ -1,11 +1,11 @@
-/**
- * Utility class used for defining options to be used on the click mask
- * of a {@link Widget}.
- *
- * @see Widget#getClickMask()
- */
-declare namespace net.runelite.api {
-	class WidgetConfig {
+declare namespace net.runelite.api.widgets {
+	/**
+	 * Utility class used for defining options to be used on the click mask
+	 * of a {@link Widget}.
+	 *
+	 * @see Widget#getClickMask()
+	 */
+	export class WidgetConfig {
 		/**
 		 * Enables displaying a ninth option on a menu.
 		 */

@@ -1,14 +1,15 @@
 /// <reference path="Renderable.d.ts" />
-/**
- * Represents an item inside an {@link ItemLayer}.
- */
-interface TileItem extends Renderable
-{
+declare namespace net.runelite.api {
 	/**
-	 * @return the ID of the item
-	 * @see ItemID
+	 * Represents an item inside an {@link ItemLayer}.
 	 */
-	getId(): number;
+	export interface TileItem extends Renderable {
+		/**
+		 * @return the ID of the item
+		 * @see ItemID
+		 */
+		getId(): number;
 
-	getQuantity(): number;
+		getQuantity(): number;
+	}
 }

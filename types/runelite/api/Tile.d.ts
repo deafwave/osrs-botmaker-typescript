@@ -10,112 +10,114 @@
 /// <reference path="coords/LocalPoint.d.ts" />
 /// <reference path="../../java/index.d.ts" />
 /// <reference path="TileItem.d.ts" />
-/**
- * Represents a tile in the game.
- */
-interface Tile {
+declare namespace net.runelite.api {
 	/**
-	 * Gets the decoration on the tile.
-	 *
-	 * @return the tile decoration
+	 * Represents a tile in the game.
 	 */
-	getDecorativeObject(): DecorativeObject;
+	export interface Tile {
+		/**
+		 * Gets the decoration on the tile.
+		 *
+		 * @return the tile decoration
+		 */
+		getDecorativeObject(): DecorativeObject;
 
-	/**
-	 * Gets all game objects on the tile.
-	 *
-	 * @return the game objects
-	 */
-	getGameObjects(): GameObject[];
+		/**
+		 * Gets all game objects on the tile.
+		 *
+		 * @return the game objects
+		 */
+		getGameObjects(): GameObject[];
 
-	/**
-	 * Gets the items held on this tile.
-	 *
-	 * @return the item
-	 */
-	getItemLayer(): ItemLayer;
+		/**
+		 * Gets the items held on this tile.
+		 *
+		 * @return the item
+		 */
+		getItemLayer(): ItemLayer;
 
-	/**
-	 * Gets the object on the ground layer of the tile.
-	 *
-	 * @return the ground object
-	 */
-	getGroundObject(): GroundObject;
+		/**
+		 * Gets the object on the ground layer of the tile.
+		 *
+		 * @return the ground object
+		 */
+		getGroundObject(): GroundObject;
 
-	/**
-	 * Sets the object on the ground layer of the tile.
-	 *
-	 * @param groundObject the ground object
-	 */
-	setGroundObject(groundObject: GroundObject): void;
+		/**
+		 * Sets the object on the ground layer of the tile.
+		 *
+		 * @param groundObject the ground object
+		 */
+		setGroundObject(groundObject: GroundObject): void;
 
-	/**
-	 * Gets the wall of the tile.
-	 *
-	 * @return the wall object
-	 */
-	getWallObject(): WallObject;
+		/**
+		 * Gets the wall of the tile.
+		 *
+		 * @return the wall object
+		 */
+		getWallObject(): WallObject;
 
-	/**
-	 * Gets the scene paint of the tile.
-	 *
-	 * @return the paint
-	 */
-	getSceneTilePaint(): SceneTilePaint;
+		/**
+		 * Gets the scene paint of the tile.
+		 *
+		 * @return the paint
+		 */
+		getSceneTilePaint(): SceneTilePaint;
 
-	/**
-	 * Gets the model of the tile in the scene.
-	 *
-	 * @return the tile model
-	 */
-	getSceneTileModel(): SceneTileModel;
+		/**
+		 * Gets the model of the tile in the scene.
+		 *
+		 * @return the tile model
+		 */
+		getSceneTileModel(): SceneTileModel;
 
-	/**
-	 * Gets the location coordinate of the tile in the world.
-	 *
-	 * @return the world location
-	 */
-	getWorldLocation(): WorldPoint;
+		/**
+		 * Gets the location coordinate of the tile in the world.
+		 *
+		 * @return the world location
+		 */
+		getWorldLocation(): net.runelite.api.coords.WorldPoint;
 
-	/**
-	 * Gets the location coordinate of the tile in scene coords
-	 *
-	 * @return the scene location
-	 */
-	getSceneLocation(): Point;
+		/**
+		 * Gets the location coordinate of the tile in scene coords
+		 *
+		 * @return the scene location
+		 */
+		getSceneLocation(): Point;
 
-	/**
-	 * Gets the local coordinate of the tile.
-	 *
-	 * @return the local location
-	 */
-	getLocalLocation(): LocalPoint;
+		/**
+		 * Gets the local coordinate of the tile.
+		 *
+		 * @return the local location
+		 */
+		getLocalLocation(): net.runelite.api.coords.LocalPoint;
 
-	/**
-	 * Gets the plane that this tile is on.
-	 *
-	 * @return the plane
-	 */
-	getPlane(): number;
+		/**
+		 * Gets the plane that this tile is on.
+		 *
+		 * @return the plane
+		 */
+		getPlane(): number;
 
-	/**
-	 * Get the plane this tile is rendered on, which is where the tile heights are from.
-	 *
-	 * @return
-	 */
-	getRenderLevel(): number;
+		/**
+		 * Get the plane this tile is rendered on, which is where the tile heights are from.
+		 *
+		 * @return
+		 */
+		getRenderLevel(): number;
 
-	/**
-	 * Get all the ground items for this tile
-	 *
-	 * @return the ground items
-	 */
-	getGroundItems(): List<TileItem>;
+		/**
+		 * Get all the ground items for this tile
+		 *
+		 * @return the ground items
+		 */
+		getGroundItems(): List<TileItem>;
 
-	/**
-	 * Return the tile under this one, if this tile is a bridge
-	 *
-	 * @return
-	 */
-	getBridge(): Tile;
+		/**
+		 * Return the tile under this one, if this tile is a bridge
+		 *
+		 * @return
+		 */
+		getBridge(): Tile;
+	}
 }

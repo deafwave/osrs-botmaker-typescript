@@ -1,12 +1,12 @@
-/**
- * A utility class used for calculating experience related values.
- * <p>
- * Skill levels calculated and handled by this class are within (inclusive)
- * the range 1-126 rather than 1-99 to account for virtual levels obtained
- * when reaching the 200M experience limit.
- */
 declare namespace net.runelite.api {
-	class Experience {
+	/**
+	 * A utility class used for calculating experience related values.
+	 * <p>
+	 * Skill levels calculated and handled by this class are within (inclusive)
+	 * the range 1-126 rather than 1-99 to account for virtual levels obtained
+	 * when reaching the 200M experience limit.
+	 */
+	export class Experience {
 		/**
 		 * Maximum effective skill level at 13,034,431 experience.
 		 */

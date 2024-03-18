@@ -1,10 +1,8 @@
-declare namespace net.runelite.api {
-class FriendsChatChanged
-{
-/**
-	 * Whether or not the client is now in a friends chat.
-	 */
-boolean joined;
-}
-
+declare namespace net.runelite.api.events {
+	export class FriendsChatChanged {
+		/**
+		 * Whether or not the client is now in a friends chat.
+		 */
+		private joined: boolean;
+	}
 }

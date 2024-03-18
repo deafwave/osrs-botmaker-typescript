@@ -1,11 +1,11 @@
-/**
- * Utility class used for mapping animation IDs.
- * <p>
- * Note: This class is not complete and may not contain a specific animation
- * required.
- */
 declare namespace net.runelite.api {
-	class AnimationID {
+	/**
+	 * Utility class used for mapping animation IDs.
+	 * <p>
+	 * Note: This class is not complete and may not contain a specific animation
+	 * required.
+	 */
+	export class AnimationID {
 		static readonly IDLE = -1;
 		static readonly HERBLORE_PESTLE_AND_MORTAR = 364;
 		static readonly WOODCUTTING_BRONZE = 879;

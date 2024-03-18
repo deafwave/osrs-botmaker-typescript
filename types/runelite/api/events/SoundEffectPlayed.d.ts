@@ -1,20 +1,12 @@
-/// <reference path="Actor.d.ts" />
-declare namespace net.runelite.api {
-class SoundEffectPlayed
-{
+/// <reference path="../Actor.d.ts" />
+declare namespace net.runelite.api.events {
+	export class SoundEffectPlayed {
+		private source: Actor | null;
+		private soundId: number;
+		private delay: number;
 
+		private consumed: boolean;
 
-int soundId;
-int delay;
-
-boolean consumed;
-
-	private consume(): void | null;
-/** FIXME: MISPLACED, move it up and remove this comment block */
-constructor(source:Actor);
-
-
-
-}
-
+		private consume(): void | null;
+	}
 }

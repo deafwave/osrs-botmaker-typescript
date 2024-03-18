@@ -1,1 +1,3 @@
-type Jarvis = any;
+declare namespace net.runelite.api.model {
+	type Jarvis = any;
+}

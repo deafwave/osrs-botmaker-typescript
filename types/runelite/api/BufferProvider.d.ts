@@ -1,11 +1,12 @@
-/**
- * Represents an engine graphic buffer.
- */
-interface BufferProvider
-{
-	getPixels(): number[];
+declare namespace net.runelite.api {
+	/**
+	 * Represents an engine graphic buffer.
+	 */
+	export interface BufferProvider {
+		getPixels(): number[];
 
-	getWidth(): number;
+		getWidth(): number;
 
-	getHeight(): number;
+		getHeight(): number;
+	}
 }

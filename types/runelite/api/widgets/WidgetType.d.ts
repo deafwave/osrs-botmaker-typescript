@@ -1,5 +1,5 @@
-declare namespace net.runelite.api {
-	class WidgetType {
+declare namespace net.runelite.api.widgets {
+	export class WidgetType {
 		static readonly LAYER = 0;
 		static readonly RECTANGLE = 3;
 		static readonly TEXT = 4;

@@ -1,35 +1,36 @@
 /// <reference path="TileObject.d.ts" />
 /// <reference path="Renderable.d.ts" />
-/**
- * Represents a pile of items held by a tile.
- */
-interface ItemLayer extends TileObject
-{
+declare namespace net.runelite.api {
 	/**
-	 * Gets the height of the layer.
-	 *
-	 * @return the height
+	 * Represents a pile of items held by a tile.
 	 */
-	getHeight(): number;
+	export interface ItemLayer extends TileObject {
+		/**
+		 * Gets the height of the layer.
+		 *
+		 * @return the height
+		 */
+		getHeight(): number;
 
-	/**
-	 * Gets the item at the bottom of the pile.
-	 *
-	 * @return the bottom item
-	 */
-	getBottom(): Renderable;
+		/**
+		 * Gets the item at the bottom of the pile.
+		 *
+		 * @return the bottom item
+		 */
+		getBottom(): Renderable;
 
-	/**
-	 * Gets the item at the middle of the pile.
-	 *
-	 * @return the middle item
-	 */
-	getMiddle(): Renderable;
+		/**
+		 * Gets the item at the middle of the pile.
+		 *
+		 * @return the middle item
+		 */
+		getMiddle(): Renderable;
 
-	/**
-	 * Gets the item at the top of the pile.
-	 *
-	 * @return the top item
-	 */
-	getTop(): Renderable;
+		/**
+		 * Gets the item at the top of the pile.
+		 *
+		 * @return the top item
+		 */
+		getTop(): Renderable;
+	}
 }

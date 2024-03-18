@@ -1,8 +1,8 @@
-/**
- * Utility class used for mapping sound effect IDs.
- */
 declare namespace net.runelite.api {
-	class SoundEffectID {
+	/**
+	 * Utility class used for mapping sound effect IDs.
+	 */
+	export class SoundEffectID {
 		readonly UI_BOOP = 2266;
 		readonly GE_INCREMENT_PLOP = 3929;
 		readonly GE_DECREMENT_PLOP = 3930;

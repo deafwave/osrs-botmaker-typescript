@@ -1,14 +1,14 @@
-declare namespace net.runelite.api {
-class DecorativeObjectDespawned
-{
-/**
-	 * The affected tile.
-	 */
-Tile tile;
-/**
-	 * The removed decorative object.
-	 */
-DecorativeObject decorativeObject;
-}
-
+/// <reference path="../Tile.d.ts" />
+/// <reference path="../DecorativeObject.d.ts" />
+declare namespace net.runelite.api.events {
+	export class DecorativeObjectDespawned {
+		/**
+		 * The affected tile.
+		 */
+		private tile: Tile;
+		/**
+		 * The removed decorative object.
+		 */
+		private decorativeObject: DecorativeObject;
+	}
 }

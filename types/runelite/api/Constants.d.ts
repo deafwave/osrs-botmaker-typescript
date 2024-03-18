@@ -1,9 +1,9 @@
 /// <reference path="../../java/index.d.ts" />
-/**
- * A utility class containing constant values.
- */
 declare namespace net.runelite.api {
-	class Constants {
+	/**
+	 * A utility class containing constant values.
+	 */
+	export class Constants {
 		/**
 		 * The original width of the game when running in fixed mode.
 		 */

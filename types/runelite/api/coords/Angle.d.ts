@@ -1,6 +1,6 @@
 /// <reference path="Direction.d.ts" />
-declare namespace net.runelite.api {
-	class Angle {
+declare namespace net.runelite.api.coords {
+	export class Angle {
 		/**
 		 * The raw angle value.
 		 */

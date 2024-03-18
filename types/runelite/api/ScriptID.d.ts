@@ -1,5 +1,5 @@
 declare namespace net.runelite.api {
-	class ScriptID {
+	export class ScriptID {
 		/**
 		 * Updates the scrollbar handle and container to the new height of the content container
 		 * <ul>

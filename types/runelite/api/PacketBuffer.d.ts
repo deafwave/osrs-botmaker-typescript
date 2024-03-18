@@ -1,3 +1,3 @@
-interface PacketBuffer
-{
+declare namespace net.runelite.api {
+	export interface PacketBuffer {}
 }

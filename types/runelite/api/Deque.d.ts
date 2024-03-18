@@ -1,15 +1,17 @@
-/**
- * A doubly linked list.
- */
-interface Deque<T> extends Iterable<T> {
+declare namespace net.runelite.api {
 	/**
-	 * Add a new element to the end of the deque
-	 * @param t the element
+	 * A doubly linked list.
 	 */
-	addLast(t: T): void;
+	export interface Deque<T> extends Iterable<T> {
+		/**
+		 * Add a new element to the end of the deque
+		 * @param t the element
+		 */
+		addLast(t: T): void;
 
-	/**
-	 * clear the deque
-	 */
-	clear(): void;
+		/**
+		 * clear the deque
+		 */
+		clear(): void;
+	}
 }

@@ -1,11 +1,9 @@
-/// <reference path="Nameable.d.ts" />
-declare namespace net.runelite.api {
-class NameableNameChanged
-{
-/**
-	 * The nameable that changed names.
-	 */
-
-}
-
+/// <reference path="../Nameable.d.ts" />
+declare namespace net.runelite.api.events {
+	export class NameableNameChanged {
+		/**
+		 * The nameable that changed names.
+		 */
+		private nameable: Nameable;
+	}
 }

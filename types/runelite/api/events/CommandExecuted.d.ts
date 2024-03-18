@@ -1,5 +1,5 @@
-declare namespace net.runelite.api {
-	class CommandExecuted {
+declare namespace net.runelite.api.events {
+	export class CommandExecuted {
 		/**
 		 * The name of the command entered.
 		 */

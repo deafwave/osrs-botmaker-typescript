@@ -1,19 +1,12 @@
-/// <reference path="Player.d.ts" />
-/// <reference path="Actor.d.ts" />
-declare namespace net.runelite.api {
-class PlayerSpawned
-{
-/**
-	 * The spawned player.
-	 */
+/// <reference path="../Player.d.ts" />
+/// <reference path="../Actor.d.ts" />
+declare namespace net.runelite.api.events {
+	export class PlayerSpawned {
+		/**
+		 * The spawned player.
+		 */
+		private readonly player: Player;
 
-
-	getActor(): Actor;
-/** FIXME: MISPLACED, move it up and remove this comment block */
-constructor(player:Player);
-
-
-
-}
-
+		getActor(): Actor;
+	}
 }

@@ -1,17 +1,18 @@
 /// <reference path="RuneliteNode.d.ts" />
-interface Texture extends RuneliteNode
-{
-	getPixels(): number[];
+declare namespace net.runelite.api {
+	export interface Texture extends RuneliteNode {
+		getPixels(): number[];
 
-	getAnimationDirection(): number;
+		getAnimationDirection(): number;
 
-	getAnimationSpeed(): number;
+		getAnimationSpeed(): number;
 
-	isLoaded(): boolean;
+		isLoaded(): boolean;
 
-	getU(): number;
-	setU(u: number): void;
+		getU(): number;
+		setU(u: number): void;
 
-	getV(): number;
-	setV(v: number): void;
+		getV(): number;
+		setV(v: number): void;
+	}
 }

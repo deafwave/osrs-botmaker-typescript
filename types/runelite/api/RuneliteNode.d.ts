@@ -1,25 +1,27 @@
-/**
- * Represents a doubly linked node.
- */
-interface RuneliteNode {
+declare namespace net.runelite.api {
 	/**
-	 * Gets the next node.
-	 *
-	 * @return the next node
+	 * Represents a doubly linked node.
 	 */
-	getNext(): RuneliteNode;
+	export interface RuneliteNode {
+		/**
+		 * Gets the next node.
+		 *
+		 * @return the next node
+		 */
+		getNext(): RuneliteNode;
 
-	/**
-	 * Gets the previous node.
-	 *
-	 * @return the previous node
-	 */
-	getPrevious(): RuneliteNode;
+		/**
+		 * Gets the previous node.
+		 *
+		 * @return the previous node
+		 */
+		getPrevious(): RuneliteNode;
 
-	/**
-	 * Gets the hash value of the node.
-	 *
-	 * @return the hash value
-	 */
-	getHash(): number;
+		/**
+		 * Gets the hash value of the node.
+		 *
+		 * @return the hash value
+		 */
+		getHash(): number;
+	}
 }

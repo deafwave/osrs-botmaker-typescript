@@ -1,1 +1,3 @@
-type Component = any;
+declare namespace net.runelite.api.annotations {
+	type Component = any;
+}

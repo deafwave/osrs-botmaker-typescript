@@ -3,80 +3,83 @@
 /// <reference path="../Scene.d.ts" />
 /// <reference path="../../../java/index.d.ts" />
 
-/**
- * A three-dimensional point representing the coordinate of a Tile.
- * WorldPoints are immutable. Methods that modify the properties create a new instance.
- */
-declare namespace net.runelite.api {
-	class WorldPoint {
+declare namespace net.runelite.api.coords {
+	/**
+	 * A three-dimensional point representing the coordinate of a Tile.
+	 * WorldPoints are immutable. Methods that modify the properties create a new instance.
+	 */
+	export class WorldPoint {
 		private readonly x: number;
 		private readonly y: number;
 		private readonly plane: number;
 
 		constructor(x: number, y: number, plane: number);
 
-		dx(dx: number): WorldPoint;
-		dy(dy: number): WorldPoint;
-		dz(dz: number): WorldPoint;
+		dx(dx: number): net.runelite.api.coords.WorldPoint;
+		dy(dy: number): net.runelite.api.coords.WorldPoint;
+		dz(dz: number): net.runelite.api.coords.WorldPoint;
 
 		static isInScene(scene: Scene, x: number, y: number): boolean;
 		static isInScene(client: Client, x: number, y: number): boolean;
 		isInScene(client: Client): boolean;
 
-		static fromLocal(client: Client, local: LocalPoint): WorldPoint;
+		static fromLocal(
+			client: Client,
+			local: net.runelite.api.coords.LocalPoint,
+		): net.runelite.api.coords.WorldPoint;
 		static fromLocal(
 			scene: Scene,
 			x: number,
 			y: number,
 			plane: number,
-		): WorldPoint;
+		): net.runelite.api.coords.WorldPoint;
 		static fromLocal(
 			client: Client,
 			x: number,
 			y: number,
 			plane: number,
-		): WorldPoint;
+		): net.runelite.api.coords.WorldPoint;
 
 		static fromLocalInstance(
 			client: Client,
-			localPoint: LocalPoint,
-		): WorldPoint;
+			localPoint: net.runelite.api.coords.LocalPoint,
+		): net.runelite.api.coords.WorldPoint;
 		static fromLocalInstance(
 			client: Client,
-			localPoint: LocalPoint,
+			localPoint: net.runelite.api.coords.LocalPoint,
 			plane: number,
-		): WorldPoint;
+		): net.runelite.api.coords.WorldPoint;
 		static fromLocalInstance(
 			scene: Scene,
-			localPoint: LocalPoint,
+			localPoint: net.runelite.api.coords.LocalPoint,
 			plane: number,
-		): WorldPoint;
+		): net.runelite.api.coords.WorldPoint;
 
 		static toLocalInstance(
 			client: Client,
-			worldPoint: WorldPoint,
+			worldPoint: net.runelite.api.coords.WorldPoint,
 		): Collection<WorldPoint>;
 		static toLocalInstance(
 			scene: Scene,
-			worldPoint: WorldPoint,
+			worldPoint: net.runelite.api.coords.WorldPoint,
 		): Collection<WorldPoint>;
 
-		distanceTo(other: WorldArea): number;
-		distanceTo(other: WorldPoint): number;
-		distanceTo2D(other: WorldPoint): number;
+		distanceTo(other: net.runelite.api.coords.WorldArea): number;
+		distanceTo(other: net.runelite.api.coords.WorldPoint): number;
+		distanceTo2D(other: net.runelite.api.coords.WorldPoint): number;
 
 		static fromScene(
 			client: Client,
 			x: number,
 			y: number,
 			plane: number,
-		): WorldPoint;
+		): net.runelite.api.coords.WorldPoint;
 		static fromScene(
 			scene: Scene,
 			x: number,
 			y: number,
 			plane: number,
-		): WorldPoint;
+		): net.runelite.api.coords.WorldPoint;
 
 		getRegionID(): number;
 		static fromRegion(
@@ -84,18 +87,18 @@ declare namespace net.runelite.api {
 			regionX: number,
 			regionY: number,
 			plane: number,
-		): WorldPoint;
+		): net.runelite.api.coords.WorldPoint;
 		getRegionX(): number;
 		getRegionY(): number;
 
 		static getMirrorPoint(
-			worldPoint: WorldPoint,
+			worldPoint: net.runelite.api.coords.WorldPoint,
 			toOverworld: boolean,
-		): WorldPoint;
+		): net.runelite.api.coords.WorldPoint;
 
-		isInArea(...worldAreas: WorldArea[]): boolean;
-		isInArea2D(...worldAreas: WorldArea[]): boolean;
+		isInArea(...worldAreas: net.runelite.api.coords.WorldArea[]): boolean;
+		isInArea2D(...worldAreas: net.runelite.api.coords.WorldArea[]): boolean;
 
-		toWorldArea(): WorldArea;
+		toWorldArea(): net.runelite.api.coords.WorldArea;
 	}
 }

@@ -1,5 +1,5 @@
 declare namespace net.runelite.api {
-	class ItemID {
+	export class ItemID {
 		static readonly DWARF_REMAINS = 0;
 		static readonly TOOLKIT = 1;
 		static readonly CANNONBALL = 2;
