@@ -1,4 +1,6 @@
 /**
- * Represents an event posted when the canvas size might have changed in TypeScript.
+ * An event posted when the canvas size might have changed.
  */
-declare class CanvasSizeChanged {}
+declare namespace net.runelite.api {
+	class CanvasSizeChanged {}
+}

@@ -1,6 +1,11 @@
-declare class GraphicsObjectCreated {
-	/**
+/// <reference path="GraphicsObject.d.ts" />
+declare namespace net.runelite.api {
+class GraphicsObjectCreated
+{
+/**
 	 * The newly created graphics object.
 	 */
-	readonly graphicsObject: GraphicsObject;
+
+}
+
 }

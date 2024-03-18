@@ -1,10 +1,6 @@
-/// <reference path="Actor.d.ts" />
-
-/**
- * Represents an event for when an actor dies in TypeScript.
- */
-declare class ActorDeath {
-	private readonly actor: Actor;
-
-	constructor(actor: Actor);
+/// <reference path="../Actor.d.ts" />
+declare namespace net.runelite.api {
+	class ActorDeath {
+		private readonly actor: Actor;
+	}
 }

@@ -1,8 +1,10 @@
+declare namespace net.runelite.api {
+class FriendsChatMemberLeft
+{
 /**
- * Represents an event in TypeScript where a member has left a friends chat.
- */
-declare class FriendsChatMemberLeft {
-	private readonly member: FriendsChatMember;
+	 * The member that left
+	 */
+FriendsChatMember member;
+}
 
-	constructor(member: FriendsChatMember);
 }

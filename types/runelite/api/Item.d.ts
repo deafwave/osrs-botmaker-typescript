@@ -1,13 +1,6 @@
-/**
- * Represents an item.
- */
-interface Item {
-	/**
-	 * The ID of the item.
-	 */
-	readonly id: number;
-	/**
-	 * The quantity of the item.
-	 */
-	readonly quantity: number;
+declare namespace net.runelite.client {
+	class Item {
+		private readonly id: number;
+		private readonly quantity: number;
+	}
 }

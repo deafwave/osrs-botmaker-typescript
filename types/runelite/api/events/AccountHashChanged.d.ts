@@ -1,4 +1,3 @@
-/**
- * Represents an empty class for AccountHashChanged in TypeScript.
- */
-declare class AccountHashChanged {}
+declare namespace net.runelite.api {
+	class AccountHashChanged {}
+}

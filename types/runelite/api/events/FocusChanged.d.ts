@@ -1,8 +1,10 @@
+declare namespace net.runelite.api {
+class FocusChanged
+{
 /**
- * Represents an event in TypeScript where the focus state of the client changes.
- */
-declare class FocusChanged {
-	private readonly focused: boolean;
+	 * The new focus state.
+	 */
+boolean focused;
+}
 
-	constructor(focused: boolean);
 }

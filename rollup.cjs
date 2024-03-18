@@ -16,6 +16,20 @@ function removeExports() {
 	};
 }
 
+/** Used for some users during migration */
+function forceGlobal() {
+	return {
+		name: 'remove-$1', // name of the plugin
+		renderChunk(code, _chunk, _options) {
+			const modifiedCode = code.replaceAll('$1', '');
+			return {
+				code: modifiedCode,
+				map: null, // or provide a source map if necessary
+			};
+		},
+	};
+}
+
 module.exports = (config, _b) => {
 	return {
 		treeshake: false,

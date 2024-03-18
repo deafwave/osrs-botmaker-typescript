@@ -1,9 +1,14 @@
+declare namespace net.runelite.api {
+class GameObjectSpawned
+{
 /**
- * Represents an event in TypeScript where a game object is added to a tile.
- */
-declare class GameObjectSpawned {
-	private readonly tile: Tile;
-	private readonly gameObject: GameObject;
+	 * The affected tile.
+	 */
+Tile tile;
+/**
+	 * The newly spawned game object.
+	 */
+GameObject gameObject;
+}
 
-	constructor(tile: Tile, gameObject: GameObject);
 }

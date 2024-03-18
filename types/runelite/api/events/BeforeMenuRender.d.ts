@@ -1,10 +1,12 @@
 /**
  * Represents an event before the menu is rendered in TypeScript.
  */
-declare class BeforeMenuRender {
-	private consumed: boolean;
+declare namespace net.runelite.api {
+	class BeforeMenuRender {
+		private consumed: boolean;
 
-	constructor();
+		constructor();
 
-	consume(): void;
+		consume(): void;
+	}
 }

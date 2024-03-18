@@ -1,13 +1,14 @@
-/// <reference path="GrandExchangeOffer.d.ts" />
-
-declare class GrandExchangeOfferChanged {
-	/**
+declare namespace net.runelite.api {
+class GrandExchangeOfferChanged
+{
+/**
 	 * The offer that has been modified.
 	 */
-	offer: GrandExchangeOffer;
-
-	/**
+GrandExchangeOffer offer;
+/**
 	 * The index value of the slot.
 	 */
-	slot: number;
+int slot;
+}
+
 }
