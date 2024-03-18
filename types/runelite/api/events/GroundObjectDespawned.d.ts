@@ -6,10 +6,13 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The affected tile.
 		 */
-		private tile: Tile;
+		getTile(): Tile;
+		setTile(tile: Tile): void;
+
 		/**
 		 * The removed ground object.
 		 */
-		private groundObject: GroundObject;
+		getGroundObject(): GroundObject;
+		setGroundObject(groundObject: GroundObject): void;
 	}
 }

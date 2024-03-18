@@ -11,7 +11,7 @@ declare namespace net.runelite.api.events {
 		getRange(): number;
 		getDelay(): number;
 
-		private consumed: boolean;
+		isConsumed(): boolean;
 
 		constructor(
 			source: Actor | null,

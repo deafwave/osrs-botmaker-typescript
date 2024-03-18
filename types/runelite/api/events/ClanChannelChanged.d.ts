@@ -11,10 +11,11 @@ declare namespace net.runelite.api.events {
 		 * @see net.runelite.api.clan.ClanID
 		 */
 
-		private clanId: number;
+		getClanId(): number;
+
 		/**
 		 * Whether or not this was the guest clan channel
 		 */
-		private guest: boolean;
+		isGuest(): boolean;
 	}
 }

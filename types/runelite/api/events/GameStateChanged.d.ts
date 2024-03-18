@@ -4,6 +4,7 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The new game state.
 		 */
-		private gameState: GameState;
+		getGameState(): GameState;
+		setGameState(gameState: GameState): void;
 	}
 }

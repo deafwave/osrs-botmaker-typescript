@@ -5,10 +5,13 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The actor the hitsplat was applied to.
 		 */
-		private actor: Actor;
+		getActor(): Actor;
+		setActor(actor: Actor): void;
+
 		/**
 		 * The applied hitsplat.
 		 */
-		private hitsplat: Hitsplat;
+		getHitsplat(): Hitsplat;
+		setHitsplat(hitsplat: Hitsplat): void;
 	}
 }

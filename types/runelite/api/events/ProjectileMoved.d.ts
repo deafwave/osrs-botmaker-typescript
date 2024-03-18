@@ -6,14 +6,19 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The projectile being moved.
 		 */
-		private projectile: Projectile;
+		getProjectile(): Projectile;
+		setProjectile(projectile: Projectile): void;
+
 		/**
 		 * The target location of the projectile.
 		 */
-		private position: net.runelite.api.coords.LocalPoint;
+		getPosition(): net.runelite.api.coords.LocalPoint;
+		setPosition(position: net.runelite.api.coords.LocalPoint): void;
+
 		/**
 		 * The z-axis target location of the projectile.
 		 */
-		private z: number;
+		getZ(): number;
+		setZ(z: number): void;
 	}
 }

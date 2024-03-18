@@ -4,6 +4,6 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The nameable that changed names.
 		 */
-		private nameable: Nameable;
+		getNameable(): Nameable;
 	}
 }

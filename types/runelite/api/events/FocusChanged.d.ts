@@ -3,6 +3,7 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The new focus state.
 		 */
-		private focused: boolean;
+		isFocused(): boolean;
+		setFocused(focused: boolean): void;
 	}
 }

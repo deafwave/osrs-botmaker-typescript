@@ -7,7 +7,7 @@ declare namespace net.runelite.api.coords {
 		getX(): number;
 		getY(): number;
 
-		private constructor(x: number, y: number);
+		constructor(x: number, y: number);
 
 		/**
 		 * Gets the local coordinate at the center of the passed tile.

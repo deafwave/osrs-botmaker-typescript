@@ -4,6 +4,7 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The actor that has had their graphic changed.
 		 */
-		private actor: Actor;
+		getActor(): Actor;
+		setActor(actor: Actor): void;
 	}
 }

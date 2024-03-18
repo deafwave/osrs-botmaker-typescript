@@ -4,11 +4,13 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The script that is currently being executed
 		 */
-		private script: Script;
+		getScript(): Script;
+		setScript(script: Script): void;
 
 		/**
 		 * The name passed to runelite_callback
 		 */
-		private eventName: string;
+		getEventName(): string;
+		setEventName(eventName: string): void;
 	}
 }

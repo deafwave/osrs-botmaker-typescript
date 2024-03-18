@@ -3,6 +3,6 @@ declare namespace net.runelite.api.events {
 		/**
 		 * Whether or not the client is now in a friends chat.
 		 */
-		private joined: boolean;
+		isJoined(): boolean;
 	}
 }

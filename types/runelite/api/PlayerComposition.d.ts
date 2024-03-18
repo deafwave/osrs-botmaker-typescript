@@ -11,7 +11,6 @@ declare namespace net.runelite.api {
 		 * @return true if the player is female
 		 * @deprecated use getGender
 		 */
-
 		isFemale(): boolean;
 
 		/**

@@ -4,6 +4,6 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The newly created item.
 		 */
-		private itemComposition: ItemComposition;
+		getItemComposition(): ItemComposition;
 	}
 }

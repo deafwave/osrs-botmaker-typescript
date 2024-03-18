@@ -4,6 +4,7 @@ declare namespace net.runelite.api.events {
 		 * The group ID of the loaded widget.
 		 */
 
-		private groupId: number;
+		getGroupId(): number;
+		setGroupId(groupId: number): void;
 	}
 }

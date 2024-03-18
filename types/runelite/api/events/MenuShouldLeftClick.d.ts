@@ -3,6 +3,6 @@ declare namespace net.runelite.api.events {
 		/**
 		 * If set to true, the menu will open on left click.
 		 */
-		private forceRightClick: boolean;
+		isForceRightClick(): boolean;
 	}
 }

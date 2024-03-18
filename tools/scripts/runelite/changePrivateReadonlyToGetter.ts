@@ -18,12 +18,14 @@ function processFile(filePath) {
 			return;
 		}
 
-		const result = data.replaceAll(
-			/private readonly (.*?):/g,
-			(match, p1) => {
-				return `get${toPascalCase(p1)}():`;
-			},
-		);
+		let result = data;
+		result = result.replaceAll(/private readonly (.*?):/g, (match, p1) => {
+			return `get${toPascalCase(p1)}():`;
+		}) as string;
+
+		result = result.replaceAll(/private (.*?):(.*?);/g, (match, p1, p2) => {
+			return `get${toPascalCase(p1)}(): ${p2};\nset${toPascalCase(p1)}(): ${p2};\n`;
+		}) as string;
 
 		fs.writeFile(filePath, result, 'utf8', (err) => {
 			if (err) console.error(err);

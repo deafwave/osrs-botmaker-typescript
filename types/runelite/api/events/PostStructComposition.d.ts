@@ -5,6 +5,7 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The newly created struct.
 		 */
-		private structComposition: StructComposition;
+		getStructComposition(): StructComposition;
+		setStructComposition(structComposition: StructComposition): void;
 	}
 }

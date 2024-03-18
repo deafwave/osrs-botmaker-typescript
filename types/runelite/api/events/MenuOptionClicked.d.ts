@@ -11,14 +11,13 @@ declare namespace net.runelite.api.events {
 		/**
 		 * Whether or not the event has been consumed by a subscriber.
 		 */
-
-		private consumed: boolean;
+		isConsumed(): boolean;
 
 		/**
 		 * Action parameter 0. Its value depends on the menuAction.
 		 */
 
-		private getParam0(): number;
+		getParam0(): number;
 
 		/**
 		 * Action parameter 1. Its value depends on the menuAction.

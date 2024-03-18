@@ -3,6 +3,7 @@ declare namespace net.runelite.api.events {
 		/**
 		 * Index in playerOptions which changed.
 		 */
-		private index: number;
+		getIndex(): number;
+		setIndex(index: number): void;
 	}
 }

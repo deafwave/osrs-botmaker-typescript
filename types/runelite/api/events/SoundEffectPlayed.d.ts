@@ -1,12 +1,17 @@
 /// <reference path="../Actor.d.ts" />
 declare namespace net.runelite.api.events {
 	export class SoundEffectPlayed {
-		private source: Actor | null;
-		private soundId: number;
-		private delay: number;
+		getSource(): Actor | null;
 
-		private consumed: boolean;
+		getSoundId(): number;
+		setSoundId(id: number): void;
 
-		private consume(): void | null;
+		getDelay(): number;
+		setDelay(delay: number): void;
+
+		setConsumed(consume: boolean): void;
+		isConsumed(): boolean;
+
+		consume(): void;
 	}
 }

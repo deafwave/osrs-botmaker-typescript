@@ -6,10 +6,13 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The affected tile.
 		 */
-		private tile: Tile;
+		getTile(): Tile;
+		setTile(tile: Tile): void;
+
 		/**
 		 * The newly spawned game object.
 		 */
-		private gameObject: GameObject;
+		getGameObject(): GameObject;
+		setGameObject(gameObject: GameObject): void;
 	}
 }

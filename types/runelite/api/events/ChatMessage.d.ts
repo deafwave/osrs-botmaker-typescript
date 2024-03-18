@@ -6,29 +6,40 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The underlying MessageNode for the message.
 		 */
-		private messageNode: MessageNode;
+		getMessageNode(): MessageNode;
+		setMessageNode(messageNode: MessageNode): void;
+
 		/**
 		 * The type of message received.
 		 */
-		private type: ChatMessageType;
+		getType(): ChatMessageType;
+		setType(type: ChatMessageType): void;
+
 		/**
 		 * The name of the player that sent the message.
 		 */
-		private name: string;
+		getName(): string;
+		setName(name: string): void;
+
 		/**
 		 * The contents of the message.
 		 */
-		private message: string;
+		getMessage(): string;
+		setMessage(message: string): void;
+
 		/**
 		 * The sender of the message.
 		 * <p>
 		 * This field is only used for friends chat messages and refers to the
 		 * current name of the friends chat the client is in.
 		 */
-		private sender: string;
+		getSender(): string;
+		setSender(sender: string): void;
+
 		/**
 		 * Timestamp of the message.
 		 */
-		private timestamp: number;
+		getTimestamp(): number;
+		setTimestamp(timestamp: number): void;
 	}
 }

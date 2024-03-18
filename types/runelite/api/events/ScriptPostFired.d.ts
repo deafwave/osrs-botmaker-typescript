@@ -3,5 +3,6 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The script id of the invoked script
 		 */
+		getScriptId(): number;
 	}
 }

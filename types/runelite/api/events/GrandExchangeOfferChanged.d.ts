@@ -5,10 +5,13 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The offer that has been modified.
 		 */
-		private offer: GrandExchangeOffer;
+		getOffer(): GrandExchangeOffer;
+		setOffer(offer: GrandExchangeOffer): void;
+
 		/**
 		 * The index value of the slot.
 		 */
-		private slot: number;
+		getSlot(): number;
+		setSlot(slot: number): void;
 	}
 }

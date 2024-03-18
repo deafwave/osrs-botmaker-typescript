@@ -3,7 +3,7 @@ declare namespace net.runelite.api.events {
 		/**
 		 * Whether or not the event has been consumed by a subscriber.
 		 */
-		private consumed: boolean;
+		isConsumed(): boolean;
 
 		/**
 		 * Marks the event as having been consumed.
@@ -12,6 +12,6 @@ declare namespace net.runelite.api.events {
 		 * search results and that the event will not be passed on
 		 * for handling by vanilla client code.
 		 */
-		private consume(): void;
+		setConsumed(consumed: boolean): void;
 	}
 }

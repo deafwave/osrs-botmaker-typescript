@@ -3,6 +3,7 @@ declare namespace net.runelite.api.events {
 		/**
 		 * Whether a widget is currently being dragged.
 		 */
-		private draggingWidget: boolean;
+		isDraggingWidget(): boolean;
+		setDraggingWidget(draggingWidget: boolean): void;
 	}
 }

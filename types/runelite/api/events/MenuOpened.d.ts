@@ -9,7 +9,8 @@ declare namespace net.runelite.api.events {
 		 * The entries in this menu are reversed, the last entry in the
 		 * array will appear first (at the top) in the opened menu.
 		 */
-		menuEntries: MenuEntry[];
+		getMenuEntries(): MenuEntry[];
+		setMenuEntries(menuEntries: MenuEntry[]): void;
 
 		/**
 		 * Gets the entry that will be displayed first in the menu.

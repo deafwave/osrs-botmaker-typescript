@@ -5,10 +5,13 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The affected tile.
 		 */
-		private tile: Tile;
+		getTile(): Tile;
+		setTile(tile: Tile): void;
+
 		/**
 		 * The removed game object.
 		 */
-		private gameObject: GameObject;
+		getGameObject(): GameObject;
+		setGameObject(gameObject: GameObject): void;
 	}
 }

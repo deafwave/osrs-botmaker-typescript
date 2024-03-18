@@ -3,6 +3,7 @@ declare namespace net.runelite.api.events {
 		/**
 		 * Whether the game is in resizable mode.
 		 */
-		private isResized: boolean;
+		isResized(): boolean;
+		setResized(isResized: boolean): void;
 	}
 }

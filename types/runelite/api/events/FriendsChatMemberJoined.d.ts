@@ -4,6 +4,6 @@ declare namespace net.runelite.api.events {
 		/**
 		 * The member that joined
 		 */
-		private member: FriendsChatMember;
+		getMember(): FriendsChatMember;
 	}
 }

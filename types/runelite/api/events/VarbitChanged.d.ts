@@ -5,20 +5,23 @@ declare namespace net.runelite.api.events {
 		 * For a varplayer, this is the varplayer id.
 		 */
 
-		private varpId: number;
+		getVarpId(): number;
+		setVarpId(varpId: number): void;
 
 		/**
 		 * The id of the varbit that was changed.
 		 * For a varplayer, this is -1.
 		 */
-		private varbitId: number;
+		getVarbitId(): number;
+		setVarbitId(varbitId: number): void;
 
 		/**
 		 * The new value of the varp or varbit
 		 */
-		private value: number;
+		getValue(): number;
+		setValue(value: number): void;
 
 		/** @Deprecated */
-		private getIndex(): number;
+		getIndex(): number;
 	}
 }
