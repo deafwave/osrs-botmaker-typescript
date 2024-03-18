@@ -15,9 +15,6 @@ function createDTSFiles(dirPath) {
 			if (file.isFile() && path.extname(file.name) === '.java') {
 				const filePath = path.join(dirPath, file.name);
 
-				// Debuggin
-				if (filePath !== 'api\\coords\\LocalPoint.java') return;
-
 				fs.readFile(filePath, 'utf8', (err, data) => {
 					if (err) {
 						console.error('Error reading file:', err);
@@ -53,7 +50,7 @@ function createDTSFiles(dirPath) {
 					// }
 
 					const javaClasses = data.match(
-						/(?:\/\*\*[\S\s]*?\*\/\s*)?public\s+class\s+\w+(\s+implements\s+[\w ,<>]+)?\s*{(?:[^}]*\/\*[\S\s]*?\*\/\s*)*[^}]*}/g,
+						/(?:\/\*\*[^*]*\*+(?:[^\/*][^*]*\*+)*\/\s*)?public(?:\s+final)?\s+class\s+\w+(\s+implements\s+[\w\s,<>]+)?\s*\{[^}]*\}/g,
 					);
 					if (javaClasses) {
 						for (const javaClass of javaClasses) {
@@ -79,13 +76,13 @@ function writeToFile(filePath, dirPath, tsContent) {
 			} else {
 				// console.log(`Created: ${tsFilePath}`);
 				// Optionally delete the Java file after conversion
-				// fs.unlink(filePath, (err) => {
-				// 	if (err) {
-				// 		console.error('Error deleting file:', err);
-				// 	} else {
-				// 		// console.log(`Deleted: ${filePath}`);
-				// 	}
-				// });
+				fs.unlink(filePath, (err) => {
+					if (err) {
+						console.error('Error deleting file:', err);
+					} else {
+						// console.log(`Deleted: ${filePath}`);
+					}
+				});
 			}
 		});
 	}

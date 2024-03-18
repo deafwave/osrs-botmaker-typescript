@@ -10,11 +10,27 @@ export function convertJavaClass(input: string): string {
 	let isNextNullable = false;
 	let isNextStatic = false;
 	let isNextPrivate = false;
+	let isNextReadonly = false;
 	let capturingCommentBlock = false;
 	let accumulatingMethodSignature = false;
+	let accumulatingMethodCurlies = false;
+	let accumulatingMethodCurliesDepth = 0;
 	let methodSignature = '';
 	let constructorParts: string[] = [];
 	const convertedLines = lines.map((line) => {
+		if (line.trim().startsWith('{')) {
+			accumulatingMethodCurlies = true;
+			accumulatingMethodCurliesDepth += 1;
+		}
+		if (accumulatingMethodCurlies && accumulatingMethodCurliesDepth > 1) {
+			if (line.includes('}')) {
+				accumulatingMethodCurliesDepth -= 1;
+			}
+			if (accumulatingMethodCurliesDepth === 1) {
+				accumulatingMethodCurlies = false;
+			}
+			return '';
+		}
 		// Comments
 		if (!begin && line.trim().startsWith('/**')) {
 			capturingCommentBlock = true;
@@ -70,32 +86,54 @@ export function convertJavaClass(input: string): string {
 			return '';
 		}
 
-		// console.log(`HANDLE STATIC: |${line}|`);
-		// if (constructorParts.length > 0) {
-		// 	line =
-		// 		line +
-		// 		`\n/** FIXME: MISPLACED, move it up and remove this comment block */\nconstructor(${constructorParts.join(', ')});`;
-		// 	constructorParts = [];
-		// }
-		// return line;
+		// Prep Replacements
+		line = line.trim();
+		if (line.startsWith('private ')) {
+			line = line.replace('private ', '').trim();
+			isNextPrivate = true;
+		}
+		if (line.startsWith('public ')) {
+			line = line.replace('public ', '').trim();
+		}
+		if (line.startsWith('static ')) {
+			line = line.replace('static ', '').trim();
+			isNextStatic = true;
+		}
+		if (line.startsWith('final ')) {
+			line = line.replace('final ', '').trim();
+			isNextReadonly = true;
+		}
 
+		// Remove Annotations
+		if (line.includes('@')) {
+			line = line.replaceAll(/@\w+\s*(\([^)]*\))?/g, '');
+		}
+
+		// Handle variable
+		if (line.trim().includes(' = ')) {
+			const regex = /(.*?) /g;
+			const match = regex.exec(line);
+			const javaType = match[1];
+			// const tsType = convertType(javaType, false, customTypes); // Ensure this function is defined
+			let builtLine = line.replace(javaType, '').trim();
+			if (isNextReadonly) {
+				builtLine = 'readonly ' + builtLine;
+			}
+			if (isNextStatic) {
+				builtLine = 'static ' + builtLine;
+			}
+			console.log(builtLine);
+			isNextNullable = false;
+			isNextStatic = false;
+			isNextPrivate = false;
+			isNextReadonly = false;
+			return builtLine;
+		}
 		// Handle Methods
 		if (
 			!accumulatingMethodSignature &&
 			(line.includes('(') || methodSignature)
 		) {
-			line = line.trim();
-			if (line.startsWith('private')) {
-				line = line.replace('private', '').trim();
-				isNextPrivate = true;
-			}
-			if (line.startsWith('public')) {
-				line = line.replace('public', '').trim();
-			}
-			if (line.startsWith('static')) {
-				line = line.replace('static', '').trim();
-				isNextStatic = true;
-			}
 			accumulatingMethodSignature = true;
 			methodSignature = '';
 		}
@@ -105,13 +143,9 @@ export function convertJavaClass(input: string): string {
 			// Check if this line ends the method signature
 			if (line.trim().endsWith(')')) {
 				accumulatingMethodSignature = false;
+				accumulatingMethodCurlies = true;
 				line = methodSignature;
 				methodSignature = '';
-
-				// Remove Annotations
-				if (line.includes('@')) {
-					line = line.replaceAll(/@\w+\s*(\([^)]*\))?/g, '');
-				}
 
 				let convertedLine = convertMethodSignature(
 					line,
@@ -123,6 +157,7 @@ export function convertJavaClass(input: string): string {
 				isNextNullable = false;
 				isNextStatic = false;
 				isNextPrivate = false;
+				isNextReadonly = false;
 				if (constructorParts.length > 0) {
 					convertedLine =
 						convertedLine +
