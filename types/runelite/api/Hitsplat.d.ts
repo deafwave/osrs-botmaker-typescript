@@ -10,6 +10,19 @@ declare namespace net.runelite.api {
 			disappearsOnGameCycle: number,
 		);
 
+		/**
+		 * The value displayed by the hitsplat.
+		 */
+		getAmount(): number;
+		/**
+		 * The type of hitsplat.
+		 */
+		getHitsplatType(): number;
+		/**
+		 * When the hitsplat will disappear.
+		 */
+		getDisappearsOnGameCycle(): number;
+
 		isMine(): boolean;
 
 		isOthers(): boolean;

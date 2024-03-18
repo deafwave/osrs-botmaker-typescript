@@ -6,6 +6,8 @@ declare namespace net.runelite.api.coords {
 		 */
 		constructor(angle: number);
 
+		getAngle(): number;
+
 		/**
 		 * Converts the angle value to the nearest cardinal direction.
 		 * <p>

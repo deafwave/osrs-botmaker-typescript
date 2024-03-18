@@ -4,10 +4,9 @@
 
 declare namespace net.runelite.api.coords {
 	export class LocalPoint {
+		constructor(x: number, y: number);
 		getX(): number;
 		getY(): number;
-
-		constructor(x: number, y: number);
 
 		/**
 		 * Gets the local coordinate at the center of the passed tile.

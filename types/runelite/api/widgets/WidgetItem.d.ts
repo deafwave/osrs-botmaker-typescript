@@ -3,34 +3,6 @@
 /// <reference path="../Point.d.ts" />
 declare namespace net.runelite.api.widgets {
 	export class WidgetItem {
-		/**
-		 * The ID of the item represented.
-		 *
-		 * @see net.runelite.api.ItemID
-		 */
-
-		/**
-		 * The quantity of the represented item.
-		 */
-
-		/**
-		 * The area where the widget is drawn on the canvas.
-		 */
-
-		/**
-		 * The widget which contains this item.
-		 */
-
-		/**
-		 * The canvas bounds for the widget, if it is being dragged.
-		 */
-
-		/**
-		 * Get the area where the widget item is drawn on the canvas, accounting for drag
-		 * @return
-		 */
-		getCanvasBounds(): Rectangle | null;
-		/** FIXME: MISPLACED, move it up and remove this comment block */
 		constructor(
 			id: number,
 			quantity: number,
@@ -38,6 +10,29 @@ declare namespace net.runelite.api.widgets {
 			widget: net.runelite.api.widgets.Widget,
 			draggingCanvasBounds: Rectangle,
 		);
+		/**
+		 * The ID of the item represented.
+		 *
+		 * @see net.runelite.api.ItemID
+		 */
+		getId(): number;
+		/**
+		 * The quantity of the represented item.
+		 */
+		getQuantity(): number;
+		/**
+		 * The widget which contains this item.
+		 */
+		getWidget(): Widget;
+		/**
+		 * The canvas bounds for the widget, if it is being dragged.
+		 */
+		getDraggingCanvasBounds(): Rectangle | null;
+		/**
+		 * Get the area where the widget item is drawn on the canvas, accounting for drag
+		 * @return
+		 */
+		getCanvasBounds(): Rectangle;
 
 		/**
 		 * Get the area where the widget item is drawn on the canvas
