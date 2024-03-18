@@ -1,1 +1,7 @@
-type PostAnimation = any;
+declare namespace net.runelite.api {
+class PostAnimation
+{
+Animation animation;
+}
+
+}

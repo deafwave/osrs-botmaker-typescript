@@ -1,9 +1,14 @@
+declare namespace net.runelite.api {
+class GameObjectDespawned
+{
 /**
- * Represents an event in TypeScript where a game object on a tile is removed.
- */
-declare class GameObjectDespawned {
-	private readonly tile: Tile;
-	private readonly gameObject: GameObject;
+	 * The affected tile.
+	 */
+Tile tile;
+/**
+	 * The removed game object.
+	 */
+GameObject gameObject;
+}
 
-	constructor(tile: Tile, gameObject: GameObject);
 }

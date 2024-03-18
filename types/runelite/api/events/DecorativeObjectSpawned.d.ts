@@ -1,12 +1,14 @@
-/// <reference path="Tile.d.ts" />
-/// <reference path="DecorativeObject.d.ts" />
-
+declare namespace net.runelite.api {
+class DecorativeObjectSpawned
+{
 /**
- * Represents an event where a DecorativeObject is attached to a Tile in TypeScript.
- */
-declare class DecorativeObjectSpawned {
-	private readonly tile: Tile;
-	private readonly decorativeObject: DecorativeObject;
+	 * The affected tile.
+	 */
+Tile tile;
+/**
+	 * The newly spawned decorative object.
+	 */
+DecorativeObject decorativeObject;
+}
 
-	constructor(tile: Tile, decorativeObject: DecorativeObject);
 }
