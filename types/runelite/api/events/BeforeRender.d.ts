@@ -1,4 +1,6 @@
 /**
- * Represents an event posted at the start of every frame in TypeScript.
+ * Posted at the start of every frame
  */
-declare class BeforeRender {}
+declare namespace net.runelite.api {
+	class BeforeRender {}
+}

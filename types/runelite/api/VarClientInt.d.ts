@@ -1,54 +1,41 @@
 /**
+ * Client side only, content-developer integers
+ *
  * VarCInts are stored entirely in memory, or locally on a user's
  * machine in the preferences2.dat file depending on how Jagex
- * configured the variable.
+ * configured the variable
  */
-interface VarClientInt {
-	/**
-	 * Timeout for tooltips.
-	 */
-	readonly TOOLTIP_TIMEOUT: number;
+declare namespace net.runelite.api {
+	class VarClientInt {
+		static readonly TOOLTIP_TIMEOUT = 1;
 
-	/**
-	 * Tooltip visibility status.
-	 * 0 = no tooltip displayed
-	 * 1 = tooltip displaying
-	 */
-	readonly TOOLTIP_VISIBLE: number;
+		/**
+		 * 0 = no tooltip displayed
+		 * 1 = tooltip displaying
+		 */
+		static readonly TOOLTIP_VISIBLE = 2;
 
-	/**
-	 * Current message layer mode.
-	 * @see net.runelite.api.vars.InputType
-	 */
-	readonly INPUT_TYPE: number;
+		/**
+		 * Current message layer mode
+		 * @see net.runelite.api.vars.InputType
+		 */
+		static readonly INPUT_TYPE = 5;
 
-	/**
-	 * The game sets this to the same value as CAMERA_ZOOM_RESIZABLE_VIEWPORT.
-	 */
-	readonly CAMERA_ZOOM_FIXED_VIEWPORT: number;
+		/**
+		 * The game sets this to the same value as {@link #CAMERA_ZOOM_RESIZABLE_VIEWPORT}
+		 */
+		static readonly CAMERA_ZOOM_FIXED_VIEWPORT = 73;
+		static readonly CAMERA_ZOOM_RESIZABLE_VIEWPORT = 74;
 
-	/**
-	 * The game sets this to the same value as CAMERA_ZOOM_FIXED_VIEWPORT.
-	 */
-	readonly CAMERA_ZOOM_RESIZABLE_VIEWPORT: number;
+		static readonly MEMBERSHIP_STATUS = 103;
 
-	/**
-	 * Membership status.
-	 */
-	readonly MEMBERSHIP_STATUS: number;
+		static readonly INVENTORY_TAB = 171;
 
-	/**
-	 * Inventory tab.
-	 */
-	readonly INVENTORY_TAB: number;
+		/**
+		 * time to block keypresses til
+		 */
+		static readonly BLOCK_KEYPRESS = 187;
 
-	/**
-	 * Time to block keypresses until.
-	 */
-	readonly BLOCK_KEYPRESS: number;
-
-	/**
-	 * World map search focused status.
-	 */
-	readonly WORLD_MAP_SEARCH_FOCUSED: number;
+		static readonly WORLD_MAP_SEARCH_FOCUSED = 190;
+	}
 }

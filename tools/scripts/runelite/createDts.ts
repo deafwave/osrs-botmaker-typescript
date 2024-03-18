@@ -50,7 +50,7 @@ function createDTSFiles(dirPath) {
 					// }
 
 					const javaClasses = data.match(
-						/(?:\/\*\*[^*]*\*+(?:[^\/*][^*]*\*+)*\/\s*)?public(?:\s+final)?\s+class\s+\w+(\s+implements\s+[\w\s,<>]+)?\s*\{[^}]*\}/g,
+						/(?:\/\*\*[^*]*\*+(?:[^\/*][^*]*\*+)*\/\s*)?public(?:\s+final)?\s+class\s+\w+(\s+implements\s+[\w\s,<>]+)?\s*\{(?:[^{}]|\{[^{}]*\})*\}/g,
 					);
 					if (javaClasses) {
 						for (const javaClass of javaClasses) {

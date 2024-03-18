@@ -18,19 +18,6 @@ export function convertJavaClass(input: string): string {
 	let methodSignature = '';
 	let constructorParts: string[] = [];
 	const convertedLines = lines.map((line) => {
-		if (line.trim().startsWith('{')) {
-			accumulatingMethodCurlies = true;
-			accumulatingMethodCurliesDepth += 1;
-		}
-		if (accumulatingMethodCurlies && accumulatingMethodCurliesDepth > 1) {
-			if (line.includes('}')) {
-				accumulatingMethodCurliesDepth -= 1;
-			}
-			if (accumulatingMethodCurliesDepth === 1) {
-				accumulatingMethodCurlies = false;
-			}
-			return '';
-		}
 		// Comments
 		if (!begin && line.trim().startsWith('/**')) {
 			capturingCommentBlock = true;
@@ -42,6 +29,23 @@ export function convertJavaClass(input: string): string {
 			return line;
 		} else if (line.trim().startsWith('*')) {
 			return line;
+		} else if (line.trim().startsWith('//')) {
+			return line;
+		}
+
+		// Curly Handling
+		if (line.trim().startsWith('{')) {
+			accumulatingMethodCurlies = true;
+			accumulatingMethodCurliesDepth += 1;
+		}
+		if (accumulatingMethodCurlies && accumulatingMethodCurliesDepth > 1) {
+			if (line.includes('}')) {
+				accumulatingMethodCurliesDepth -= 1;
+			}
+			// if (accumulatingMethodCurliesDepth === 1) {
+			// 	accumulatingMethodCurlies = false;
+			// }
+			return '';
 		}
 
 		// Start

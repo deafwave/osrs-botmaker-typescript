@@ -1,12 +1,8 @@
-/// <reference path="ClanChannel.d.ts" />
-/// <reference path="ClanChannelMember.d.ts" />
-
-/**
- * Represents an event when a clan member leaves a clan channel in TypeScript.
- */
-declare class ClanMemberLeft {
-	private readonly clanChannel: ClanChannel;
-	private readonly clanMember: ClanChannelMember;
-
-	constructor(clanChannel: ClanChannel, clanMember: ClanChannelMember);
+/// <reference path="../clan/ClanChannel.d.ts" />
+/// <reference path="../clan/ClanChannelMember.d.ts" />
+declare namespace net.runelite.api {
+	class ClanMemberLeft {
+		private clanChannel: ClanChannel;
+		private clanMember: ClanChannelMember;
+	}
 }
