@@ -46,11 +46,14 @@ export function convertJavaClass(input: string): string {
 
 		// Start
 		if (!begin) {
-			if (line.includes('public class')) {
+			if (
+				line.includes('public class') ||
+				line.includes('public final class')
+			) {
 				begin = true;
 				return (
 					'declare namespace net.runelite.api {\n' +
-					line.replace(/public\s+class/, 'class')
+					line.replace(/public.*?class/, 'class')
 				);
 			}
 			return '';
@@ -122,7 +125,6 @@ export function convertJavaClass(input: string): string {
 			if (isNextStatic) {
 				builtLine = 'static ' + builtLine;
 			}
-			console.log(builtLine);
 			isNextNullable = false;
 			isNextStatic = false;
 			isNextPrivate = false;
