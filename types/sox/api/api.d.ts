@@ -1,22 +1,38 @@
-/// <reference path="../../runelite/api/index.d.ts" />
+/// <reference path="../../runelite/api/GraphicsObject.d.ts" />
+/// <reference path="../../runelite/api/NPC.d.ts" />
+/// <reference path="../../runelite/api/Projectile.d.ts" />
+/// <reference path="../../runelite/api/ObjectComposition.d.ts" />
+/// <reference path="../../runelite/api/TileObject.d.ts" />
+/// <reference path="../../runelite/api/Prayer.d.ts" />
 
-// FIXME: Need to update this since the javadoc for sox's apis are outdated
 interface SoxApi {
+	/** @deprecated see {@link printGameMessage}*/
+	PrintDebugMessage: (message: string) => void;
+	attackPlayer: (names: string[]) => void;
 	clearGameChat: () => void;
+	depositAllToBankWithId: (id: number) => void;
+	depositAllToBankWithName: (name: string) => void;
+	depositToBankWithId: (id: number) => void;
+	depositToBankWithName: (name: string) => void;
+	followPlayer: (names: string[]) => void;
 	getBooleanVariable: (variableName: string) => boolean;
 	getCounter: (name: string) => number;
-	getGraphicsObjectsWithIds: (ids: number[]) => GraphicsObject[];
+	getGraphicsObjectsWithIds: (
+		ids: number[],
+	) => net.runelite.api.GraphicsObject[];
 	getIntArrayVariable: (variableName: string) => number[];
 	getIntVariable: (variableName: string) => number;
 	getNpcAttackSpeed: (npcId: number) => number;
-	getNpcsWithIds: (ids: number[]) => NPC[];
-	getNpcsWithNames: (names: string[]) => NPC[];
-	getProjectilesWithIds: (ids: number[]) => Projectile[];
+	getNpcsWithIds: (ids: number[]) => net.runelite.api.NPC[];
+	getNpcsWithNames: (names: string[]) => net.runelite.api.NPC[];
+	getProjectilesWithIds: (ids: number[]) => net.runelite.api.Projectile[];
 	getStringArrayVariable: (variableName: string) => string[];
 	getStringVariable: (variableName: string) => string;
-	getTileObjectComposition: (objectId: number) => ObjectComposition;
-	getTileObjectsWithIds: (ids: number[]) => TileObject[];
-	getTileObjectsWithNames: (names: string[]) => TileObject[];
+	getTileObjectComposition: (
+		objectId: number,
+	) => net.runelite.api.ObjectComposition;
+	getTileObjectsWithIds: (ids: number[]) => net.runelite.api.TileObject[];
+	getTileObjectsWithNames: (names: string[]) => net.runelite.api.TileObject[];
 	interactInventoryWithIds: (itemIds: number[], options: string[]) => void;
 	interactInventoryWithNames: (
 		itemNames: string[],
@@ -25,29 +41,40 @@ interface SoxApi {
 	interactNpc: (npcName: string, action: string) => void;
 	interactObject: (objectName: string, action: string) => void;
 	interactObjects: (objectName: string[], action: string[]) => void;
-	interactSuppliedNpc: (target: NPC, action: string) => void;
-	interactSuppliedObject: (target: TileObject, action: string) => void;
+	interactSpecifiedWidget(
+		pid: number,
+		id: number,
+		opcode: number,
+		param0: string,
+		param1?: string,
+	): void;
+	interactSuppliedNpc: (target: net.runelite.api.NPC, action: string) => void;
+	interactSuppliedObject: (
+		target: net.runelite.api.TileObject,
+		action: string,
+	) => void;
+	interactWidgetText(text: string): void;
 	isBankOpen: () => boolean;
+	isNearPlayer: (radius: number, names: string[]) => boolean;
+	isWebWalking: () => boolean;
 	localPlayerIdle: () => boolean;
 	localPlayerMoving: () => boolean;
 	lootItemsWithIds: (lootIds: number[], maxDistance: number) => void;
 	lootItemsWithNames: (lootNames: string[], maxDistance: number) => void;
-	PrintDebugMessage: (message: string) => void; // Deprecated
-	printGameMessage: (message: string) => void;
+	printGameMessage: (message: string) => void; // TODO: Make sure this works
 	setCounter: (name: string, value: number) => void;
 	setVariable: (variableName: string, value: string) => void;
-	togglePrayer: (prayer: Prayer, bypassMouseClicks: boolean) => void;
+	togglePrayer: (
+		prayer: net.runelite.api.Prayer,
+		bypassMouseClicks: boolean,
+	) => void;
+	tradePlayer: (names: string[]) => void;
 	walkToTrueWorldPoint: (x: number, y: number) => void;
 	walkToWorldPoint: (x: number, y: number) => void;
-
-	// Not on the JavaDocs
-	isWebWalking: () => boolean;
-	interactSpecifiedWidget(
-		pid: number,
-		id: number,
-		op: number,
-		param: string,
-	): void;
-	interactWidgetText(text: string): void;
-	webWalkStart(point: WorldPoint): void;
+	webWalkCancel: () => void;
+	webWalkStart: (point: net.runelite.api.coords.WorldPoint) => void;
+	withdrawAllFromBankWithId: (id: number) => void;
+	withdrawAllFromBankWithName: (name: string) => void;
+	withdrawFromBankWithId: (id: number) => void;
+	withdrawFromBankWithName: (name: string) => void;
 }
