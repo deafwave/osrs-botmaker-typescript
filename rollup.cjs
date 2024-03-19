@@ -1,7 +1,7 @@
 const { getBabelOutputPlugin } = require('@rollup/plugin-babel');
 const cleanup = require('rollup-plugin-cleanup');
 const alias = require('@rollup/plugin-alias');
-
+const npcIdMap = require('./types/runelite/api/NpcID.cjs');
 function removeExports() {
 	return {
 		name: 'remove-exports', // name of the plugin
@@ -30,6 +30,38 @@ function forceGlobal() {
 	};
 }
 
+function runeliteAliases() {
+	return {
+		name: 'runelite-aliases', // name of the plugin
+		renderChunk(code, _chunk, _options) {
+			const modifiedCode = code.replaceAll(
+				/([\{\( \[\:])(rl)./g,
+				(_, p1) => `${p1}net.runelite.api.`,
+			);
+			return {
+				code: modifiedCode,
+				map: null, // or provide a source map if necessary
+			};
+		},
+	};
+}
+
+function soxBugFixes() {
+	return {
+		name: 'sox-bugfix', // name of the plugin
+		renderChunk(code, _chunk, _options) {
+			const modifiedCode = code.replaceAll(
+				/net\.runelite\.api\.NpcID\.(.*?)([ ),;\]])/g,
+				(_, p1, p2) => `${npcIdMap[p1]}${p2}`,
+			);
+			return {
+				code: modifiedCode,
+				map: null,
+			};
+		},
+	};
+}
+
 module.exports = (config, _b) => {
 	return {
 		treeshake: false,
@@ -47,6 +79,8 @@ module.exports = (config, _b) => {
 			],
 		},
 		plugins: [
+			runeliteAliases(),
+			soxBugFixes(),
 			...config.plugins,
 			alias({
 				entries: [
