@@ -1,44 +1,44 @@
 declare namespace net.runelite.api {
-	export interface FriendsChatRank {
+	export enum FriendsChatRank {
 		/**
 		 * Not ranked.
 		 */
-		UNRANKED: 'UNRANKED';
+		UNRANKED = 'UNRANKED',
 		/**
 		 * Friend rank.
 		 */
-		FRIEND: 'FRIEND';
+		FRIEND = 'FRIEND',
 		/**
 		 * Recruit rank.
 		 */
-		RECRUIT: 'RECRUIT';
+		RECRUIT = 'RECRUIT',
 		/**
 		 * Corporal rank.
 		 */
-		CORPORAL: 'CORPORAL';
+		CORPORAL = 'CORPORAL',
 		/**
 		 * Sergeant rank.
 		 */
-		SERGEANT: 'SERGEANT';
+		SERGEANT = 'SERGEANT',
 		/**
 		 * Lieutenant rank.
 		 */
-		LIEUTENANT: 'LIEUTENANT';
+		LIEUTENANT = 'LIEUTENANT',
 		/**
 		 * Captain rank.
 		 */
-		CAPTAIN: 'CAPTAIN';
+		CAPTAIN = 'CAPTAIN',
 		/**
 		 * General rank.
 		 */
-		GENERAL: 'GENERAL';
+		GENERAL = 'GENERAL',
 		/**
 		 * Channel owner rank.
 		 */
-		OWNER: 'OWNER';
+		OWNER = 'OWNER',
 		/**
 		 * JMod rank.
 		 */
-		JMOD: 'JMOD';
+		JMOD = 'JMOD',
 	}
 }

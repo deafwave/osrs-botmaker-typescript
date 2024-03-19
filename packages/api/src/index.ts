@@ -1,6 +1,10 @@
+export const apiVariables = {
+	test: 0,
+	aaa: 1,
+};
 function onStart() {
-	let myLoc = client.getLocalPlayer().getWorldLocation();
-	let otherLoc = new net.runelite.api.coords.WorldPoint(
+	const myLoc = client.getLocalPlayer().getWorldLocation();
+	const otherLoc = new net.runelite.api.coords.WorldPoint(
 		1234,
 		5678,
 		client.getPlane(),
