@@ -2,7 +2,7 @@ import * as ts from 'typescript';
 import * as rollup from 'rollup';
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
 import { getBabelInputPlugin } from '@rollup/plugin-babel';
-import { dirname, join, parse, resolve } from 'path';
+import { basename, dirname, join, parse, resolve } from 'path';
 import { from, Observable, of } from 'rxjs';
 import { catchError, concatMap, last, scan, tap } from 'rxjs/operators';
 import { eachValueFrom } from '@nx/devkit/src/utils/rxjs-for-await';
@@ -83,9 +83,24 @@ export async function* rollupExecutor(
 		options.main,
 		...(options.additionalEntryPoints ?? []),
 	];
+	const keysSoFar = new Set();
+	let duplicateFound = false;
+	for (const entryPoint of entryPoints) {
+		const baseName = basename(entryPoint);
+		if (keysSoFar.has(baseName)) {
+			duplicateFound = true;
+			break;
+		} else {
+			keysSoFar.add(baseName);
+		}
+	}
 	for (const entryPoint of entryPoints) {
 		const tweakedOptions = {
 			...options,
+			...(duplicateFound &&
+				!entryPoint.includes('src/index.ts') && {
+					outputFileName: dirname(entryPoint).split('/').pop(),
+				}),
 			main: entryPoint,
 		} as NormalizedRollupExecutorOptions;
 		const rollupOptions = await createRollupOptions(
