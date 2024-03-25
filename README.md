@@ -39,7 +39,7 @@ _This process will become easier once [#1](https://github.com/ChandlerFerry/osrs
 
 1. Duplicate the `cakestall` folder & rename it to `<NewPackageName>`
 2. Find and replace `cakestall` inside of the new folder with `<NewPackageName>` 
-3. Update `tsconfig.base.json` `compilerOptions.paths`, adding `"@packages/<NewPackageName>": ["packages/<NewPackageName>/src/index.ts"]`
+3. Update `tsconfig.base.json` `compilerOptions.paths`, adding `"@packages/<NewPackageName>": ["packages/<NewPackageName>/src/index.ts"]` ([this section](https://github.com/ChandlerFerry/osrs-botmaker-typescript/blob/main/tsconfig.base.json#L15-L19))
 
 ## Common Errors
 ### Referenced project 'tsconfig.lib.json' must have setting "composite": true.
