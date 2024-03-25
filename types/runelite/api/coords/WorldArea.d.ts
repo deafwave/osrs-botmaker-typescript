@@ -227,6 +227,6 @@ declare namespace net.runelite.api.coords {
 		 *
 		 * @return Returns the WorldPoints in this WorldArea
 		 */
-		toWorldPointList(): List<WorldPoint>;
+		toWorldPointList(): Array<WorldPoint>; // TODO: Validate that this is not a Java List
 	}
 }

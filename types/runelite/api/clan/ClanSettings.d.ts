@@ -17,7 +17,7 @@ declare namespace net.runelite.api.clan {
 		 * The members of the clan. This includes all members, whether online or offline.
 		 * @return
 		 */
-		getMembers(): List<ClanMember>;
+		getMembers(): Array<ClanMember>; // TODO: Validate that this is not a Java List
 
 		/**
 		 * Find a member of the clan.

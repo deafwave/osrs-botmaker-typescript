@@ -111,7 +111,7 @@ declare namespace net.runelite.api {
 		 *
 		 * @return the ground items
 		 */
-		getGroundItems(): List<TileItem>;
+		getGroundItems(): Array<TileItem>; // TODO: Validate that this is not a Java List
 
 		/**
 		 * Return the tile under this one, if this tile is a bridge

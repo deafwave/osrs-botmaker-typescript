@@ -92,14 +92,14 @@ declare namespace net.runelite.api {
 		 *
 		 * @return a list of all players
 		 */
-		getPlayers(): List<Player>;
+		getPlayers(): Array<Player>; // TODO: Validate that this is not a Java List
 
 		/**
 		 * Gets a list of all valid NPCs from the NPC cache.
 		 *
 		 * @return a list of all NPCs
 		 */
-		getNpcs(): List<NPC>;
+		getNpcs(): Array<NPC>; // TODO: Validate that this is not a Java List
 
 		/**
 		 * Gets an array of all cached NPCs.
@@ -1149,7 +1149,7 @@ declare namespace net.runelite.api {
 			column: number,
 			tupleIndex: number,
 			value: Object,
-		): List<number>;
+		): Array<number>; // TODO: Validate that this is not a Java List
 
 		/**
 		 * Get a map element config by id

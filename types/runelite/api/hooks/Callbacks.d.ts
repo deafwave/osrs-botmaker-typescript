@@ -74,7 +74,7 @@ declare namespace net.runelite.api.hooks {
 		 */
 		drawInterface(
 			interfaceId: number,
-			widgetItems: List<net.runelite.api.widgets.WidgetItem>,
+			widgetItems: Array<net.runelite.api.widgets.WidgetItem>, // TODO: Validate that this is not a Java List
 		): void;
 
 		/**
@@ -84,7 +84,7 @@ declare namespace net.runelite.api.hooks {
 		 */
 		drawLayer(
 			layer: net.runelite.api.widgets.Widget,
-			widgetItems: List<net.runelite.api.widgets.WidgetItem>,
+			widgetItems: Array<net.runelite.api.widgets.WidgetItem>, // TODO: Validate that this is not a Java List
 		): void;
 
 		/**
