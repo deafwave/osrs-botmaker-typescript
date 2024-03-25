@@ -58,11 +58,11 @@ declare namespace net.runelite.api.coords {
 		static toLocalInstance(
 			client: Client,
 			worldPoint: net.runelite.api.coords.WorldPoint,
-		): Collection<WorldPoint>;
+		): Array<WorldPoint>; // TODO: Validate that this is not a Java Collection
 		static toLocalInstance(
 			scene: Scene,
 			worldPoint: net.runelite.api.coords.WorldPoint,
-		): Collection<WorldPoint>;
+		): Array<WorldPoint>; // TODO: Validate that this is not a Java Collection
 
 		distanceTo(other: net.runelite.api.coords.WorldArea): number;
 		distanceTo(other: net.runelite.api.coords.WorldPoint): number;

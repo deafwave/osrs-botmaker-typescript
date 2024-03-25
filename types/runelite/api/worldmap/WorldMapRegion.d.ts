@@ -6,6 +6,6 @@ declare namespace net.runelite.api.worldmap {
 		 * Gets visible map icons. The underlying list is modified as the map is panned around.
 		 * @return
 		 */
-		getMapIcons(): Collection<WorldMapIcon>;
+		getMapIcons(): Array<WorldMapIcon>; // TODO: Validate that this is not a Java Collection
 	}
 }
