@@ -20,7 +20,7 @@
 		"checkJs": false,
 		"allowJs": false,
 		"resolveJsonModule": true,
-		"target": "es6",
+		"target": "es5",
 		"module": "esnext",
 		"moduleResolution": "node",
 		"outDir": "./dist",
