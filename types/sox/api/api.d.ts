@@ -63,7 +63,10 @@ interface SoxApi {
 	lootItemsWithNames: (lootNames: string[], maxDistance: number) => void;
 	printGameMessage: (message: string) => void; // TODO: Make sure this works
 	setCounter: (name: string, value: number) => void;
-	setVariable: (variableName: string, value: string) => void;
+	setVariable: (
+		variableName: string,
+		value: string | number | boolean | string[] | number[],
+	) => void;
 	togglePrayer: (
 		prayer: net.runelite.api.Prayer,
 		bypassMouseClicks: boolean,
