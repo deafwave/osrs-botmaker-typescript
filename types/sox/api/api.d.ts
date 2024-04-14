@@ -61,7 +61,7 @@ interface SoxApi {
 	localPlayerMoving: () => boolean;
 	lootItemsWithIds: (lootIds: number[], maxDistance: number) => void;
 	lootItemsWithNames: (lootNames: string[], maxDistance: number) => void;
-	printGameMessage: (message: string) => void; // TODO: Make sure this works
+	printGameMessage: (message: string) => void;
 	setCounter: (name: string, value: number) => void;
 	setVariable: (
 		variableName: string,
