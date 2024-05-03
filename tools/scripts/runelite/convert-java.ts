@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/switch-case-braces */
 import { convertMethodSignature, convertType } from './utils';
 
-let declaredNamespace = false;
+const customTypes = new Set<string>();
 let accumulatingMethodSignature = false;
 let accumulatingMethodCurlies = false;
 let accumulatingMethodCurliesDepth = 0;
@@ -85,6 +85,15 @@ const handleAnnotations = (line: string) => {
 	return result;
 };
 
+const handleInlineAnnotations = (line: string) => {
+	if (line.includes('@')) {
+		// TODO: Diagnose why eslint thinks this is 'any'
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+		line = line.replaceAll(/@\w+\s*(\([^)]*\))?/g, '');
+	}
+	return line;
+};
+
 /** Handles Prefix Keywords [public/private] [static] [final] */
 const handlePrefixKeywords = (line: string) => {
 	let cleanLine = line.trim();
@@ -130,6 +139,15 @@ const handleImports = (line: string) => {
 	};
 	if (line.startsWith('import ')) {
 		result.found = true;
+
+		if (line.includes('net.runelite.api.')) {
+			// add the type to the custom types
+			const split = line.split('net.runelite.api.');
+			const type = split[1].split(';')[0];
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+			const folderPathType = type.replaceAll('.', '/') as string;
+			customTypes.add(folderPathType);
+		}
 		result.line = '';
 	}
 	return result;
@@ -159,26 +177,26 @@ const processLine = (line: string) => {
 	line = handlePrefixKeywords(line);
 
 	// Curly Handling
-	if (line.trim().startsWith('{')) {
-		accumulatingMethodCurlies = true;
-		accumulatingMethodCurliesDepth += 1;
-	}
-	if (accumulatingMethodCurlies && accumulatingMethodCurliesDepth > 1) {
-		if (line.includes('}')) {
-			accumulatingMethodCurliesDepth -= 1;
-		}
-		// if (accumulatingMethodCurliesDepth === 1) {
-		// 	accumulatingMethodCurlies = false;
-		// }
-		return '';
-	}
+	// if (line.trim().startsWith('{')) {
+	// 	accumulatingMethodCurlies = true;
+	// 	accumulatingMethodCurliesDepth += 1;
+	// }
+	// if (accumulatingMethodCurlies && accumulatingMethodCurliesDepth > 1) {
+	// 	if (line.includes('}')) {
+	// 		accumulatingMethodCurliesDepth -= 1;
+	// 	}
+	// 	// if (accumulatingMethodCurliesDepth === 1) {
+	// 	// 	accumulatingMethodCurlies = false;
+	// 	// }
+	// 	return '';
+	// }
 
 	// Start new export
 	if (line.startsWith('class') || line.startsWith('interface')) {
 		return `export ${line}`;
 	}
 
-	// // Handle constructor
+	// Handle constructor
 	// if (line.trim().startsWith('private final')) {
 	// 	const regex = /(\w+)/g;
 	// 	let match;
@@ -198,12 +216,10 @@ const processLine = (line: string) => {
 	// 	return '';
 	// }
 
-	// // Remove Annotations
-	// if (line.includes('@')) {
-	// 	line = line.replaceAll(/@\w+\s*(\([^)]*\))?/g, '');
-	// }
+	// Remove Inline Annotations
+	line = handleInlineAnnotations(line);
 
-	// // Handle variable
+	// Handle variable
 	// if (line.trim().includes(' = ')) {
 	// 	const regex = /(.*?) /g;
 	// 	const match = regex.exec(line);
@@ -222,57 +238,52 @@ const processLine = (line: string) => {
 	// 	prefixKeywords.readonly = false;
 	// 	return builtLine;
 	// }
-	// // Handle Methods
-	// if (
-	// 	!accumulatingMethodSignature &&
-	// 	(line.includes('(') || methodSignature)
-	// ) {
-	// 	accumulatingMethodSignature = true;
-	// 	methodSignature = '';
-	// }
+	// Handle Methods
+	if (
+		!accumulatingMethodSignature &&
+		(line.includes('(') || methodSignature)
+	) {
+		accumulatingMethodSignature = true;
+		methodSignature = '';
+	}
 
-	// if (accumulatingMethodSignature) {
-	// 	methodSignature += line + ' ';
-	// 	// Check if this line ends the method signature
-	// 	if (line.trim().endsWith(')')) {
-	// 		accumulatingMethodSignature = false;
-	// 		accumulatingMethodCurlies = true;
-	// 		line = methodSignature;
-	// 		methodSignature = '';
+	if (accumulatingMethodSignature) {
+		methodSignature += line + ' ';
+		// Check if this line ends the method signature
+		if (line.trim().endsWith(');')) {
+			accumulatingMethodSignature = false;
+			accumulatingMethodCurlies = true;
+			line = methodSignature;
+			methodSignature = '';
 
-	// 		let convertedLine = convertMethodSignature(
-	// 			line,
-	// 			annotations.nullable,
-	// 			customTypes,
-	// 			prefixKeywords.static,
-	// 			prefixKeywords.private,
-	// 		);
-	// 		annotations.nullable = false;
-	// 		prefixKeywords.static = false;
-	// 		prefixKeywords.private = false;
-	// 		prefixKeywords.readonly = false;
-	// 		if (constructorParts.length > 0) {
-	// 			convertedLine =
-	// 				convertedLine +
-	// 				`\n/** FIXME: MISPLACED, move it up and remove this comment block */\nconstructor(${constructorParts.join(', ')});`;
-	// 			constructorParts = [];
-	// 		}
-	// 		// TODO: Should skip the {} after the method
-	// 		return convertedLine;
-	// 	} else {
-	// 		// Continue accumulating if the method signature isn't complete
-	// 		return '';
-	// 	}
-	// }
-
-	// Remove unnecessary braces and semicolons
-	// line = line.replace(/[{;}]/g, '');
+			let convertedLine = convertMethodSignature(
+				line,
+				annotations.nullable,
+				customTypes,
+				prefixKeywords.static,
+				prefixKeywords.private,
+			);
+			annotations.nullable = false;
+			prefixKeywords.static = false;
+			prefixKeywords.private = false;
+			prefixKeywords.readonly = false;
+			if (constructorParts.length > 0) {
+				convertedLine =
+					convertedLine +
+					`\n/** FIXME: MISPLACED, move it up and remove this comment block */\nconstructor(${constructorParts.join(', ')});`;
+				constructorParts = [];
+			}
+			// TODO: Should skip the {} after the method
+			return convertedLine;
+		} else {
+			// Continue accumulating if the method signature isn't complete
+			return '';
+		}
+	}
 
 	return line;
 };
 export function convertJava(input: string): string {
-	const customTypes = new Set<string>();
-
 	const lines = input.split('\n');
 	// Process each line
 

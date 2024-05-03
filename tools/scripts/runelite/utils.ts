@@ -1,3 +1,6 @@
+/* eslint-disable no-useless-escape */
+/* eslint-disable unicorn/better-regex */
+/* eslint-disable unicorn/prefer-string-slice */
 /* eslint-disable unicorn/switch-case-braces */
 export function convertMethodSignature(
 	signature: string,
@@ -35,6 +38,23 @@ export function convertMethodSignature(
 	return `\t${isNextPrivate ? 'private ' : ''}${isNextStatic ? 'static ' : ''}${methodName}(${parameters}): ${convertType(returnType, isNextNullable, customTypes)};`;
 }
 
+const handleRuneliteType = (baseType: string, customTypes: Set<string>) => {
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+	const runeliteType = [...customTypes].find((type) =>
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+		type.endsWith(`/${baseType}`),
+	);
+
+	// eslint-disable-next-line unicorn/prefer-ternary
+	if (runeliteType) {
+		console.log(runeliteType);
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+		return `net.runelite.api.${runeliteType.replaceAll('/', '.')}`;
+	} else {
+		return;
+	}
+};
+
 export function convertType(
 	javaType: string,
 	isNullable = false,
@@ -71,16 +91,33 @@ export function convertType(
 				const outerType = baseType
 					.substring(0, baseType.indexOf('<'))
 					.trim();
-				const innerType = baseType
+				let innerType = baseType
 					.substring(
 						baseType.indexOf('<') + 1,
 						baseType.lastIndexOf('>'),
 					)
 					.trim();
-				customTypes.add(outerType);
-				customTypes.add(innerType);
+
+				const runeliteType = handleRuneliteType(innerType, customTypes);
+				if (runeliteType) {
+					innerType = runeliteType;
+				}
+				if (outerType === 'List') {
+					baseType = `Array<${innerType}>`;
+				} else {
+					customTypes.add(outerType);
+				}
+
+				if (!runeliteType) {
+					customTypes.add(innerType);
+				}
 			} else {
-				customTypes.add(baseType);
+				const runeliteType = handleRuneliteType(baseType, customTypes);
+				if (runeliteType) {
+					baseType = runeliteType;
+				} else {
+					customTypes.add(baseType);
+				}
 			}
 			break;
 	}
