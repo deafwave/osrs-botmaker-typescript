@@ -123,6 +123,17 @@ const handlePackages = (line: string) => {
 	return result;
 };
 
+const handleImports = (line: string) => {
+	const result = {
+		found: false,
+		line,
+	};
+	if (line.startsWith('import ')) {
+		result.found = true;
+		result.line = '';
+	}
+	return result;
+};
 const processLine = (line: string) => {
 	// Always handle comments
 	const commentInfo = handleComments(line);
@@ -134,9 +145,15 @@ const processLine = (line: string) => {
 	if (annotationInfo.found) {
 		return annotationInfo.line;
 	}
+
 	const packageInfo = handlePackages(line);
 	if (packageInfo.found) {
 		return packageInfo.line;
+	}
+
+	const importInfo = handleImports(line);
+	if (importInfo.found) {
+		return importInfo.line;
 	}
 
 	line = handlePrefixKeywords(line);
@@ -156,12 +173,9 @@ const processLine = (line: string) => {
 		return '';
 	}
 
-	// // Start New Class
-	if (line.includes('public class') || line.includes('public final class')) {
-		return (
-			'declare namespace net.runelite.api {\n' +
-			line.replace(/public.*?class/, 'class')
-		);
+	// Start new export
+	if (line.startsWith('class') || line.startsWith('interface')) {
+		return `export ${line}`;
 	}
 
 	// // Handle constructor
@@ -270,5 +284,7 @@ export function convertJava(input: string): string {
 	const referencePaths = [...customTypes].map(
 		(type) => `/// <reference path="${type}.d.ts" />`,
 	);
-	return [...referencePaths, ...convertedLines, fileEndings].join('\n');
+	return [...referencePaths, ...convertedLines, fileEndings]
+		.filter((x) => x !== '')
+		.join('\n');
 }
