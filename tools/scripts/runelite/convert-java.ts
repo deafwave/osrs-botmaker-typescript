@@ -1,13 +1,13 @@
 /* eslint-disable unicorn/switch-case-braces */
 import { convertMethodSignature, convertType } from './utils';
 
-let begin = false;
+let declaredNamespace = false;
 let accumulatingMethodSignature = false;
 let accumulatingMethodCurlies = false;
 let accumulatingMethodCurliesDepth = 0;
 let methodSignature = '';
 let constructorParts: string[] = [];
-
+const fileEndings: string[] = [];
 const annotations = {
 	nullable: false,
 	magicConstant: false,
@@ -108,6 +108,21 @@ const handlePrefixKeywords = (line: string) => {
 	return cleanLine;
 };
 
+const handlePackages = (line: string) => {
+	const result = {
+		found: false,
+		line,
+	};
+	if (line.startsWith('package ')) {
+		result.found = true;
+		result.line = line
+			.replace('package ', 'declare namespace ')
+			.replace(';', ' {');
+		fileEndings.unshift('}');
+	}
+	return result;
+};
+
 const processLine = (line: string) => {
 	// Always handle comments
 	const commentInfo = handleComments(line);
@@ -119,38 +134,35 @@ const processLine = (line: string) => {
 	if (annotationInfo.found) {
 		return annotationInfo.line;
 	}
+	const packageInfo = handlePackages(line);
+	if (packageInfo.found) {
+		return packageInfo.line;
+	}
 
 	line = handlePrefixKeywords(line);
 
 	// Curly Handling
-	// if (line.trim().startsWith('{')) {
-	// 	accumulatingMethodCurlies = true;
-	// 	accumulatingMethodCurliesDepth += 1;
-	// }
-	// if (accumulatingMethodCurlies && accumulatingMethodCurliesDepth > 1) {
-	// 	if (line.includes('}')) {
-	// 		accumulatingMethodCurliesDepth -= 1;
-	// 	}
-	// 	// if (accumulatingMethodCurliesDepth === 1) {
-	// 	// 	accumulatingMethodCurlies = false;
-	// 	// }
-	// 	return '';
-	// }
+	if (line.trim().startsWith('{')) {
+		accumulatingMethodCurlies = true;
+		accumulatingMethodCurliesDepth += 1;
+	}
+	if (accumulatingMethodCurlies && accumulatingMethodCurliesDepth > 1) {
+		if (line.includes('}')) {
+			accumulatingMethodCurliesDepth -= 1;
+		}
+		// if (accumulatingMethodCurliesDepth === 1) {
+		// 	accumulatingMethodCurlies = false;
+		// }
+		return '';
+	}
 
 	// // Start New Class
-	// if (!begin) {
-	// 	if (
-	// 		line.includes('public class') ||
-	// 		line.includes('public final class')
-	// 	) {
-	// 		begin = true;
-	// 		return (
-	// 			'declare namespace net.runelite.api {\n' +
-	// 			line.replace(/public.*?class/, 'class')
-	// 		);
-	// 	}
-	// 	return '';
-	// }
+	if (line.includes('public class') || line.includes('public final class')) {
+		return (
+			'declare namespace net.runelite.api {\n' +
+			line.replace(/public.*?class/, 'class')
+		);
+	}
 
 	// // Handle constructor
 	// if (line.trim().startsWith('private final')) {
@@ -258,7 +270,5 @@ export function convertJava(input: string): string {
 	const referencePaths = [...customTypes].map(
 		(type) => `/// <reference path="${type}.d.ts" />`,
 	);
-	// FIXME: Make sure this can be converted to a spread operator
-	// eslint-disable-next-line unicorn/prefer-spread
-	return referencePaths.concat(convertedLines, '\n}').join('\n');
+	return [...referencePaths, ...convertedLines, fileEndings].join('\n');
 }
