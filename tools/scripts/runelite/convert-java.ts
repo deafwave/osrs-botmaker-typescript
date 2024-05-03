@@ -2,7 +2,6 @@
 import { convertMethodSignature, convertType } from './utils';
 
 let begin = false;
-let isNextNullable = false;
 let isNextStatic = false;
 let isNextPrivate = false;
 let isNextReadonly = false;
@@ -12,6 +11,13 @@ let accumulatingMethodCurliesDepth = 0;
 let methodSignature = '';
 let constructorParts: string[] = [];
 
+const annotations = {
+	nullable: false,
+	magicConstant: false,
+	override: false,
+};
+
+/** Transfer comments 1:1 */
 const handleComments = (line: string) => {
 	const result = {
 		found: false,
@@ -32,17 +38,63 @@ const handleComments = (line: string) => {
 	}
 	return result;
 };
+
+/** Consume annotations as they don't exist in TypeScript */
+const handleAnnotations = (line: string) => {
+	const result = {
+		found: false,
+		line,
+	};
+	const trimmedLine = line.trim();
+
+	if (trimmedLine.startsWith('@Nullable')) {
+		result.found = true;
+		result.line = '';
+		annotations.nullable = true;
+	} else if (trimmedLine.startsWith('@Override')) {
+		result.found = true;
+		result.line = '';
+		annotations.override = true;
+	} else if (trimmedLine.startsWith('@MagicConstant')) {
+		result.found = true;
+		result.line = '';
+		annotations.magicConstant = true;
+	} else if (trimmedLine.startsWith('@Deprecated')) {
+		// TODO: Post-processing - fold these into the above comment if it exists
+		result.found = true;
+		result.line = '/** @deprecated */';
+	} else if (trimmedLine.startsWith('@VisibleForDevtools')) {
+		// TODO: What does this do to the code?
+		result.found = true;
+		result.line = '';
+	} else if (trimmedLine.startsWith('@Nonnull')) {
+		// TODO: What does this do to the code?
+		result.found = true;
+		result.line = '';
+	} else if (trimmedLine.startsWith('@Interface')) {
+		// TODO: What does this do to the code?
+		result.found = true;
+		result.line = '';
+	} else if (trimmedLine.startsWith('@')) {
+		console.log('Unhandled annotation:', trimmedLine);
+		result.found = true;
+		result.line = '';
+	}
+	return result;
+};
 const processLine = (line: string) => {
 	// Always handle comments
 	const commentInfo = handleComments(line);
 	if (commentInfo.found) {
-		console.log(commentInfo.line);
 		return commentInfo.line;
-	} else {
-		return '';
 	}
 
-	// // Curly Handling
+	const annotationInfo = handleAnnotations(line);
+	if (annotationInfo.found) {
+		return annotationInfo.line;
+	}
+
+	// Curly Handling
 	// if (line.trim().startsWith('{')) {
 	// 	accumulatingMethodCurlies = true;
 	// 	accumulatingMethodCurliesDepth += 1;
@@ -69,16 +121,6 @@ const processLine = (line: string) => {
 	// 			line.replace(/public.*?class/, 'class')
 	// 		);
 	// 	}
-	// 	return '';
-	// }
-
-	// // Handle annotations
-	// if (line.trim().startsWith('@Nullable')) {
-	// 	isNextNullable = true;
-	// 	return '';
-	// } else if (line.trim().startsWith('@')) {
-	// 	// FIXME: Client.java has a method that starts with an annotation
-	// 	// @MagicConstant(valuesFromClass = HintArrowType.class) int getHintArrowType();
 	// 	return '';
 	// }
 
@@ -138,7 +180,7 @@ const processLine = (line: string) => {
 	// 	if (isNextStatic) {
 	// 		builtLine = 'static ' + builtLine;
 	// 	}
-	// 	isNextNullable = false;
+	// 	annotations.nullable = false;
 	// 	isNextStatic = false;
 	// 	isNextPrivate = false;
 	// 	isNextReadonly = false;
@@ -164,12 +206,12 @@ const processLine = (line: string) => {
 
 	// 		let convertedLine = convertMethodSignature(
 	// 			line,
-	// 			isNextNullable,
+	// 			annotations.nullable,
 	// 			customTypes,
 	// 			isNextStatic,
 	// 			isNextPrivate,
 	// 		);
-	// 		isNextNullable = false;
+	// 		annotations.nullable = false;
 	// 		isNextStatic = false;
 	// 		isNextPrivate = false;
 	// 		isNextReadonly = false;
