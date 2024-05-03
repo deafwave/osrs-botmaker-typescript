@@ -30,7 +30,7 @@ export function convertMethodSignature(
 		.map((parameter) => {
 			const parts = parameter.trim().split(/\s+/);
 			return parts.length > 1
-				? `${parts[1].trim()}: ${convertType(parts[0].trim(), false, customTypes)}`
+				? `${parts[1].trim()}: ${convertType(parts[0].trim(), false, customTypes)}${parts[1].startsWith('...') ? '[]' : ''}`
 				: parameter;
 		})
 		.join(', ');
