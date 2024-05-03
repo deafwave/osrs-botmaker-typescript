@@ -10,7 +10,7 @@ export function convertMethodSignature(
 	isNextPrivate = false,
 ) {
 	// Extracting the return type and the rest of the signature
-	const returnTypeMatch = signature.match(/^\s*([\w<>\[\]]+)\s+/);
+	const returnTypeMatch = signature.match(/^\s*([\w<>, \[\]]+)\s+/);
 	if (!returnTypeMatch) {
 		return signature; // Return original if it's not a valid method signature
 	}
@@ -47,7 +47,6 @@ const handleRuneliteType = (baseType: string, customTypes: Set<string>) => {
 
 	// eslint-disable-next-line unicorn/prefer-ternary
 	if (runeliteType) {
-		console.log(runeliteType);
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 		return `net.runelite.api.${runeliteType.replaceAll('/', '.')}`;
 	} else {
@@ -55,6 +54,20 @@ const handleRuneliteType = (baseType: string, customTypes: Set<string>) => {
 	}
 };
 
+const baseTypeReplacements = (baseType: string) => {
+	baseType = baseType.replace('void', 'void');
+	baseType = baseType.replace('String', 'string');
+	baseType = baseType.replace('short', 'number');
+	baseType = baseType.replace('Object', 'Record<string, any>');
+	baseType = baseType.replace('Object...', 'any[]'); // FIXME: ...args: any[]
+	baseType = baseType.replace('long', 'number');
+	baseType = baseType.replace('Integer', 'number');
+	baseType = baseType.replace('int', 'number');
+	baseType = baseType.replace('float', 'number');
+	baseType = baseType.replace('double', 'number');
+	baseType = baseType.replace('byte', 'number');
+	return baseType;
+};
 export function convertType(
 	javaType: string,
 	isNullable = false,
@@ -69,6 +82,7 @@ export function convertType(
 	let baseType = javaType;
 	switch (baseType) {
 		case 'int':
+		case 'Integer':
 		case 'float':
 		case 'double':
 		case 'long':
@@ -79,15 +93,18 @@ export function convertType(
 		case 'String':
 			baseType = 'string';
 			break;
-		case 'boolean':
-			baseType = 'boolean';
-			break;
 		case 'Object':
+			baseType = 'Record<string, any>';
+			break;
 		case 'Object...':
+			baseType = 'any[]'; // FIXME: ...args: any[]
+			break;
+		case 'boolean':
 		case 'void':
 			break;
 		default:
 			if (baseType.includes('<')) {
+				// console.log(baseType);
 				const outerType = baseType
 					.substring(0, baseType.indexOf('<'))
 					.trim();
@@ -103,7 +120,9 @@ export function convertType(
 					innerType = runeliteType;
 				}
 				if (outerType === 'List') {
-					baseType = `Array<${innerType}>`;
+					baseType = `Array<${baseTypeReplacements(innerType)}>`;
+				} else if (outerType === 'Map') {
+					baseType = `Record<${baseTypeReplacements(innerType)}>`;
 				} else {
 					customTypes.add(outerType);
 				}
