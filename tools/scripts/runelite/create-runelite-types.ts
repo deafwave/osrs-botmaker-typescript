@@ -5,7 +5,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 import fs from 'node:fs';
 import path from 'node:path';
-import { convertJava } from './convertJava';
+import { convertJava } from './convert-java';
 
 function createDTSFiles(dirPath) {
 	fs.readdir(dirPath, { withFileTypes: true }, (err, files) => {
