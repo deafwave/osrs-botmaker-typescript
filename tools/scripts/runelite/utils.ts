@@ -29,9 +29,34 @@ export function convertMethodSignature(
 		.split(',')
 		.map((parameter) => {
 			const parts = parameter.trim().split(/\s+/);
-			return parts.length > 1
-				? `${parts[1].trim()}: ${convertType(parts[0].trim(), false, customTypes)}${parts[1].startsWith('...') ? '[]' : ''}`
-				: parameter;
+
+			if (parts.length > 1) {
+				let typedParameter = '';
+				/** Handle reserved words */
+				let cleanVariableName = parts[1].trim();
+				if (cleanVariableName === 'var') {
+					cleanVariableName = 'variable';
+				}
+
+				typedParameter = `${cleanVariableName}`;
+
+				const convertedType = convertType(
+					parts[0].trim(),
+					false,
+					customTypes,
+				);
+
+				typedParameter = `${typedParameter}: ${convertedType}`;
+
+				// Force Array Ending in TypeScript
+				if (cleanVariableName.startsWith('...')) {
+					typedParameter = `${typedParameter}[]`;
+				}
+
+				return typedParameter;
+			} else {
+				return parameter;
+			}
 		})
 		.join(', ');
 
@@ -54,7 +79,7 @@ const handleRuneliteType = (baseType: string, customTypes: Set<string>) => {
 	}
 };
 
-const baseTypeReplacements = (baseType: string) => {
+const baseTypeReplacements = (baseType: string, customTypes: Set<string>) => {
 	baseType = baseType.replace('void', 'void');
 	baseType = baseType.replace('String', 'string');
 	baseType = baseType.replace('short', 'number');
@@ -66,6 +91,11 @@ const baseTypeReplacements = (baseType: string) => {
 	baseType = baseType.replace('float', 'number');
 	baseType = baseType.replace('double', 'number');
 	baseType = baseType.replace('byte', 'number');
+
+	const runeliteType = handleRuneliteType(baseType, customTypes);
+	if (runeliteType) {
+		baseType = runeliteType;
+	}
 	return baseType;
 };
 export function convertType(
@@ -120,9 +150,12 @@ export function convertType(
 					innerType = runeliteType;
 				}
 				if (outerType === 'List') {
-					baseType = `Array<${baseTypeReplacements(innerType)}>`;
+					innerType = baseTypeReplacements(innerType, customTypes);
+					baseType = `Array<${baseTypeReplacements(innerType, customTypes)}>`;
 				} else if (outerType === 'Map') {
-					baseType = `Record<${baseTypeReplacements(innerType)}>`;
+					const splitType = innerType.split(', ');
+					innerType = baseTypeReplacements(splitType[1], customTypes);
+					baseType = `Record<${baseTypeReplacements(splitType[0], customTypes)}, ${innerType}>`;
 				} else {
 					customTypes.add(outerType);
 				}

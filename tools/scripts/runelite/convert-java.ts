@@ -148,7 +148,24 @@ const handleImports = (line: string) => {
 			const folderPathType = type.replaceAll('.', '/') as string;
 			customTypes.add(folderPathType);
 		}
+
 		result.line = '';
+	} else if (line.includes('extends')) {
+		result.found = true;
+		// add types to customTypes but do not consume the line
+		const firstSplit = line.split('extends');
+		const extendPackages = firstSplit[1].split(', ');
+		for (const extend of extendPackages) {
+			/** Handle Jagex Type */
+			if (extend.trim() === 'OAuthApi') {
+				result.line = line.replace(
+					'OAuthApi',
+					'com.jagex.oldscape.pub.OAuthApi',
+				);
+				customTypes.add('../../jagex/index'); // FIXME: Dynamic based on depth
+			}
+			customTypes.add(extend.trim());
+		}
 	}
 	return result;
 };
@@ -171,7 +188,7 @@ const processLine = (line: string) => {
 
 	const importInfo = handleImports(line);
 	if (importInfo.found) {
-		return importInfo.line;
+		line = importInfo.line;
 	}
 
 	line = handlePrefixKeywords(line);
@@ -292,9 +309,19 @@ export function convertJava(input: string): string {
 		const newLine = processLine(line);
 		convertedLines.push(newLine);
 	}
-	const referencePaths = [...customTypes].map(
-		(type) => `/// <reference path="${type}.d.ts" />`,
-	);
+	const referencePaths = [...customTypes]
+		.filter((type) => {
+			// remove TypeScript & Java & Jagex Types
+			const typescriptTypes = ['string', 'number', 'Record<string, any>'];
+			const javaTypes = ['EnumSet', 'Dimension', 'Canvas', 'List', 'Map'];
+			const jagexTypes = ['OAuthApi'];
+			console.log(type);
+			return ![...typescriptTypes, ...javaTypes, ...jagexTypes].includes(
+				// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
+				type,
+			);
+		})
+		.map((type) => `/// <reference path="${type}.d.ts" />`);
 	return [...referencePaths, ...convertedLines, fileEndings]
 		.filter((x) => x !== '')
 		.join('\n');
