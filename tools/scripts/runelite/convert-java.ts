@@ -2,9 +2,6 @@
 import { convertMethodSignature, convertType } from './utils';
 
 let begin = false;
-let isNextStatic = false;
-let isNextPrivate = false;
-let isNextReadonly = false;
 let accumulatingMethodSignature = false;
 let accumulatingMethodCurlies = false;
 let accumulatingMethodCurliesDepth = 0;
@@ -15,6 +12,11 @@ const annotations = {
 	nullable: false,
 	magicConstant: false,
 	override: false,
+};
+const prefixKeywords = {
+	private: false,
+	static: false,
+	readonly: false,
 };
 
 /** Transfer comments 1:1 */
@@ -82,6 +84,30 @@ const handleAnnotations = (line: string) => {
 	}
 	return result;
 };
+
+/** Handles Prefix Keywords [public/private] [static] [final] */
+const handlePrefixKeywords = (line: string) => {
+	let cleanLine = line.trim();
+	if (cleanLine.startsWith('private ')) {
+		cleanLine = cleanLine.replace('private ', '').trim();
+		prefixKeywords.private = true;
+	}
+	if (cleanLine.startsWith('public ')) {
+		cleanLine = cleanLine.replace('public ', '').trim();
+	}
+
+	if (cleanLine.startsWith('static ')) {
+		cleanLine = cleanLine.replace('static ', '').trim();
+		prefixKeywords.static = true;
+	}
+
+	if (cleanLine.startsWith('final ')) {
+		cleanLine = cleanLine.replace('final ', '').trim();
+		prefixKeywords.readonly = true;
+	}
+	return cleanLine;
+};
+
 const processLine = (line: string) => {
 	// Always handle comments
 	const commentInfo = handleComments(line);
@@ -93,6 +119,8 @@ const processLine = (line: string) => {
 	if (annotationInfo.found) {
 		return annotationInfo.line;
 	}
+
+	line = handlePrefixKeywords(line);
 
 	// Curly Handling
 	// if (line.trim().startsWith('{')) {
@@ -144,24 +172,6 @@ const processLine = (line: string) => {
 	// 	return '';
 	// }
 
-	// // Prep Replacements
-	// line = line.trim();
-	// if (line.startsWith('private ')) {
-	// 	line = line.replace('private ', '').trim();
-	// 	isNextPrivate = true;
-	// }
-	// if (line.startsWith('public ')) {
-	// 	line = line.replace('public ', '').trim();
-	// }
-	// if (line.startsWith('static ')) {
-	// 	line = line.replace('static ', '').trim();
-	// 	isNextStatic = true;
-	// }
-	// if (line.startsWith('final ')) {
-	// 	line = line.replace('final ', '').trim();
-	// 	isNextReadonly = true;
-	// }
-
 	// // Remove Annotations
 	// if (line.includes('@')) {
 	// 	line = line.replaceAll(/@\w+\s*(\([^)]*\))?/g, '');
@@ -174,16 +184,16 @@ const processLine = (line: string) => {
 	// 	const javaType = match[1];
 	// 	// const tsType = convertType(javaType, false, customTypes); // Ensure this function is defined
 	// 	let builtLine = line.replace(javaType, '').trim();
-	// 	if (isNextReadonly) {
+	// 	if (prefixKeywords.readonly) {
 	// 		builtLine = 'readonly ' + builtLine;
 	// 	}
-	// 	if (isNextStatic) {
+	// 	if (prefixKeywords.static) {
 	// 		builtLine = 'static ' + builtLine;
 	// 	}
 	// 	annotations.nullable = false;
-	// 	isNextStatic = false;
-	// 	isNextPrivate = false;
-	// 	isNextReadonly = false;
+	// 	prefixKeywords.static = false;
+	// 	prefixKeywords.private = false;
+	// 	prefixKeywords.readonly = false;
 	// 	return builtLine;
 	// }
 	// // Handle Methods
@@ -208,13 +218,13 @@ const processLine = (line: string) => {
 	// 			line,
 	// 			annotations.nullable,
 	// 			customTypes,
-	// 			isNextStatic,
-	// 			isNextPrivate,
+	// 			prefixKeywords.static,
+	// 			prefixKeywords.private,
 	// 		);
 	// 		annotations.nullable = false;
-	// 		isNextStatic = false;
-	// 		isNextPrivate = false;
-	// 		isNextReadonly = false;
+	// 		prefixKeywords.static = false;
+	// 		prefixKeywords.private = false;
+	// 		prefixKeywords.readonly = false;
 	// 		if (constructorParts.length > 0) {
 	// 			convertedLine =
 	// 				convertedLine +
