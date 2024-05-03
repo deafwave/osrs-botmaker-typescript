@@ -3,7 +3,6 @@ import { convertMethodSignature, convertType } from './utils';
 
 const customTypes = new Set<string>();
 let accumulatingMethodSignature = false;
-let accumulatingMethodCurlies = false;
 let accumulatingMethodCurliesDepth = 0;
 let methodSignature = '';
 let constructorParts: string[] = [];
@@ -162,7 +161,6 @@ const handleImports = (line: string) => {
 					'OAuthApi',
 					'com.jagex.oldscape.pub.OAuthApi',
 				);
-				customTypes.add('../../jagex/index'); // FIXME: Dynamic based on depth
 			}
 			customTypes.add(extend.trim());
 		}
@@ -171,6 +169,7 @@ const handleImports = (line: string) => {
 };
 const processLine = (line: string) => {
 	// Always handle comments
+	// TODO: Remove handling comments while accumulatingMethodCurlies
 	const commentInfo = handleComments(line);
 	if (commentInfo.found) {
 		return commentInfo.line;
@@ -194,19 +193,15 @@ const processLine = (line: string) => {
 	line = handlePrefixKeywords(line);
 
 	// Curly Handling
-	// if (line.trim().startsWith('{')) {
-	// 	accumulatingMethodCurlies = true;
-	// 	accumulatingMethodCurliesDepth += 1;
-	// }
-	// if (accumulatingMethodCurlies && accumulatingMethodCurliesDepth > 1) {
-	// 	if (line.includes('}')) {
-	// 		accumulatingMethodCurliesDepth -= 1;
-	// 	}
-	// 	// if (accumulatingMethodCurliesDepth === 1) {
-	// 	// 	accumulatingMethodCurlies = false;
-	// 	// }
-	// 	return '';
-	// }
+	if (line.trim().startsWith('{')) {
+		accumulatingMethodCurliesDepth += 1;
+	}
+	if (accumulatingMethodCurliesDepth > 1) {
+		if (line.includes('}')) {
+			accumulatingMethodCurliesDepth -= 1;
+		}
+		return '';
+	}
 
 	// Start new export
 	if (line.startsWith('class') || line.startsWith('interface')) {
@@ -267,9 +262,8 @@ const processLine = (line: string) => {
 	if (accumulatingMethodSignature) {
 		methodSignature += line + ' ';
 		// Check if this line ends the method signature
-		if (line.trim().endsWith(');')) {
+		if (line.trim().endsWith(');') || line.trim().endsWith(')')) {
 			accumulatingMethodSignature = false;
-			accumulatingMethodCurlies = true;
 			line = methodSignature;
 			methodSignature = '';
 
@@ -300,7 +294,10 @@ const processLine = (line: string) => {
 
 	return line;
 };
-export function convertJava(input: string): string {
+export function convertJava(input: string, filePath: string): string {
+	const depth = filePath.split('\\').length - 2;
+	customTypes.add(`${'../'.repeat(depth)}java/index`);
+	customTypes.add(`${'../'.repeat(depth)}jagex/index`);
 	const lines = input.split('\n');
 	// Process each line
 
@@ -313,9 +310,20 @@ export function convertJava(input: string): string {
 		.filter((type) => {
 			// remove TypeScript & Java & Jagex Types
 			const typescriptTypes = ['string', 'number', 'Record<string, any>'];
-			const javaTypes = ['EnumSet', 'Dimension', 'Canvas', 'List', 'Map'];
+			const javaTypes = [
+				'EnumSet',
+				'Dimension',
+				'Canvas',
+				'List',
+				'Map',
+				'Shape',
+				'Point2D.Float',
+				'Consumer',
+				'GeneralPath',
+				'PathIterator',
+			];
 			const jagexTypes = ['OAuthApi'];
-			console.log(type);
+
 			return ![...typescriptTypes, ...javaTypes, ...jagexTypes].includes(
 				// eslint-disable-next-line @typescript-eslint/no-unsafe-argument
 				type,

@@ -27,7 +27,7 @@ function createDTSFiles(dirPath) {
 						// TEMP SKIP ALL BUT CLIENT
 						return;
 					}
-					const tsInterface = convertJava(data);
+					const tsInterface = convertJava(data, filePath);
 					writeToFile(filePath, dirPath, tsInterface);
 				});
 			} else if (file.isDirectory()) {

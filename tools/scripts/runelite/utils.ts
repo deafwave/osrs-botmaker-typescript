@@ -10,7 +10,7 @@ export function convertMethodSignature(
 	isNextPrivate = false,
 ) {
 	// Extracting the return type and the rest of the signature
-	const returnTypeMatch = signature.match(/^\s*([\w<>, \[\]]+)\s+/);
+	const returnTypeMatch = signature.match(/^\s*([\w<>, \.\[\]]+)\s+/);
 	if (!returnTypeMatch) {
 		return signature; // Return original if it's not a valid method signature
 	}
@@ -149,6 +149,7 @@ export function convertType(
 				if (runeliteType) {
 					innerType = runeliteType;
 				}
+				// eslint-disable-next-line unicorn/prefer-switch
 				if (outerType === 'List') {
 					innerType = baseTypeReplacements(innerType, customTypes);
 					baseType = `Array<${baseTypeReplacements(innerType, customTypes)}>`;
@@ -156,6 +157,13 @@ export function convertType(
 					const splitType = innerType.split(', ');
 					innerType = baseTypeReplacements(splitType[1], customTypes);
 					baseType = `Record<${baseTypeReplacements(splitType[0], customTypes)}, ${innerType}>`;
+				} else if (outerType === 'BiPredicate') {
+					const splitType = innerType.split(', ');
+					innerType = baseTypeReplacements(splitType[1], customTypes);
+					baseType = `BiPredicate<${baseTypeReplacements(splitType[0], customTypes)}, ${innerType}>`;
+				} else if (outerType === 'Consumer') {
+					innerType = baseTypeReplacements(innerType, customTypes);
+					baseType = `${outerType}<${baseTypeReplacements(innerType, customTypes)}>`;
 				} else {
 					customTypes.add(outerType);
 				}
