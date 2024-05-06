@@ -2236,5 +2236,15 @@ declare namespace net.runelite.api {
 		setMinimapTileDrawer(drawTile: TileFunction): void;
 
 		getRasterizer(): Rasterizer;
+
+		menuAction(
+			p0: number,
+			p1: number,
+			action: net.runelite.api.MenuAction,
+			id: number,
+			itemId: number,
+			option: string,
+			target: string,
+		): void;
 	}
 }
