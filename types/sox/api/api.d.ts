@@ -8,6 +8,7 @@
 interface SoxApi {
 	/** @deprecated see {@link printGameMessage}*/
 	PrintDebugMessage: (message: string) => void;
+
 	attackPlayer: (names: string[]) => void;
 	clearGameChat: () => void;
 	depositAllToBankWithId: (id: number) => void;
@@ -33,6 +34,10 @@ interface SoxApi {
 	) => net.runelite.api.ObjectComposition;
 	getTileObjectsWithIds: (ids: number[]) => net.runelite.api.TileObject[];
 	getTileObjectsWithNames: (names: string[]) => net.runelite.api.TileObject[];
+	interactInventoryItemOnObjectWithIds(
+		id: number,
+		object: net.runelite.api.TileObject,
+	): void;
 	interactInventoryWithIds: (itemIds: number[], options: string[]) => void;
 	interactInventoryWithNames: (
 		itemNames: string[],
