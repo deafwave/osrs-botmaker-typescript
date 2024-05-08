@@ -35,12 +35,12 @@ interface SoxApi {
 	getTileObjectsWithIds: (ids: number[]) => net.runelite.api.TileObject[];
 	getTileObjectsWithNames: (names: string[]) => net.runelite.api.TileObject[];
 	interactInventoryItemOnNpcWithIds(
-		id: number,
+		itemId: number,
 		npc: net.runelite.api.NPC,
 	): void;
 	interactInventoryItemOnObjectWithIds(
-		id: number,
-		object: net.runelite.api.TileObject,
+		itemId: number,
+		tileObject: net.runelite.api.TileObject,
 	): void;
 	interactInventoryWithIds: (itemIds: number[], options: string[]) => void;
 	interactInventoryWithNames: (
