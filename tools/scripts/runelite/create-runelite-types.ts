@@ -7,7 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { convertJava } from './convert-java';
 
-function createDTSFiles(dirPath) {
+function createDTSFiles(dirPath: any) {
 	fs.readdir(dirPath, { withFileTypes: true }, (err, files) => {
 		if (err) {
 			console.error('Error reading directory:', err);
@@ -23,8 +23,8 @@ function createDTSFiles(dirPath) {
 						return;
 					}
 
-					if (file.name !== 'Client.java') {
-						// TEMP SKIP ALL BUT CLIENT
+					if (file.name !== 'Perspective.java') {
+						// TEMP SKIP ALL BUT ONE
 						return;
 					}
 					const tsInterface = convertJava(data, filePath);
@@ -37,7 +37,7 @@ function createDTSFiles(dirPath) {
 	});
 }
 
-function writeToFile(filePath, dirPath, tsContent) {
+function writeToFile(filePath: any, dirPath: any, tsContent: any) {
 	if (tsContent) {
 		const tsFileName = path.basename(filePath, '.java') + '.d.ts';
 		const tsFilePath = path.join(dirPath, tsFileName);

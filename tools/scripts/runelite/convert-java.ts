@@ -76,6 +76,10 @@ const handleAnnotations = (line: string) => {
 		// TODO: What does this do to the code?
 		result.found = true;
 		result.line = '';
+	} else if (trimmedLine.startsWith('@ApiStatus.Internal')) {
+		// TODO: DO NOT EXPOSE THE NEXT METHOD
+		result.found = true;
+		result.line = '/** @deprecated */';
 	} else if (trimmedLine.startsWith('@')) {
 		console.log('Unhandled annotation:', trimmedLine);
 		result.found = true;
@@ -113,6 +117,16 @@ const handlePrefixKeywords = (line: string) => {
 		cleanLine = cleanLine.replace('final ', '').trim();
 		prefixKeywords.readonly = true;
 	}
+
+	/** Handles an edge case
+	 *
+	 * https://github.com/runelite/runelite/blob/870092a19f15debc3ae130612c2c712771b612e0/runelite-api/src/main/java/net/runelite/api/Perspective.java#L67-L74
+	 */
+	if (cleanLine.startsWith('static')) {
+		cleanLine = '';
+		prefixKeywords.readonly = true;
+	}
+
 	return cleanLine;
 };
 
@@ -176,7 +190,7 @@ const processLine = (line: string) => {
 	}
 
 	const annotationInfo = handleAnnotations(line);
-	if (annotationInfo.found) {
+	if (annotationInfo.found && annotationInfo.line !== '') {
 		return annotationInfo.line;
 	}
 
@@ -193,7 +207,7 @@ const processLine = (line: string) => {
 	line = handlePrefixKeywords(line);
 
 	// Curly Handling
-	if (line.trim().startsWith('{')) {
+	if (line.trim().includes('{')) {
 		accumulatingMethodCurliesDepth += 1;
 	}
 	if (accumulatingMethodCurliesDepth > 1) {
@@ -232,24 +246,26 @@ const processLine = (line: string) => {
 	line = handleInlineAnnotations(line);
 
 	// Handle variable
-	// if (line.trim().includes(' = ')) {
-	// 	const regex = /(.*?) /g;
-	// 	const match = regex.exec(line);
-	// 	const javaType = match[1];
-	// 	// const tsType = convertType(javaType, false, customTypes); // Ensure this function is defined
-	// 	let builtLine = line.replace(javaType, '').trim();
-	// 	if (prefixKeywords.readonly) {
-	// 		builtLine = 'readonly ' + builtLine;
-	// 	}
-	// 	if (prefixKeywords.static) {
-	// 		builtLine = 'static ' + builtLine;
-	// 	}
-	// 	annotations.nullable = false;
-	// 	prefixKeywords.static = false;
-	// 	prefixKeywords.private = false;
-	// 	prefixKeywords.readonly = false;
-	// 	return builtLine;
-	// }
+	if (line.trim().includes(' = ')) {
+		// const regex = /(.*?) /g;
+		// const match = regex.exec(line);
+		// const javaType = match[1];
+		// // const tsType = convertType(javaType, false, customTypes); // Ensure this function is defined
+		// let builtLine = line.replace(javaType, '').trim();
+		// if (prefixKeywords.readonly) {
+		// 	builtLine = 'readonly ' + builtLine;
+		// }
+		// if (prefixKeywords.static) {
+		// 	builtLine = 'static ' + builtLine;
+		// }
+		// annotations.nullable = false;
+		// prefixKeywords.static = false;
+		// prefixKeywords.private = false;
+		// prefixKeywords.readonly = false;
+		// return builtLine;
+		return '';
+	}
+
 	// Handle Methods
 	if (
 		!accumulatingMethodSignature &&
