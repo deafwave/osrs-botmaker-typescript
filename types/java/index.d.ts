@@ -3,6 +3,7 @@
 /// <reference path="Collection.d.ts" />
 /// <reference path="Comparable.d.ts" />
 /// <reference path="Dimension.d.ts" />
+/// <reference path="Enum.d.ts" />
 /// <reference path="EnumSet.d.ts" />
 /// <reference path="Graphics2D.d.ts" />
 /// <reference path="Polygon.d.ts" />

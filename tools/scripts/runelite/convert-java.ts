@@ -104,6 +104,10 @@ const handlePrefixKeywords = (line: string) => {
 		cleanLine = cleanLine.replace('private ', '').trim();
 		prefixKeywords.private = true;
 	}
+	if (cleanLine.startsWith('protected ')) {
+		cleanLine = cleanLine.replace('protected ', '').trim();
+		prefixKeywords.private = true;
+	}
 	if (cleanLine.startsWith('public ')) {
 		cleanLine = cleanLine.replace('public ', '').trim();
 	}
@@ -116,6 +120,15 @@ const handlePrefixKeywords = (line: string) => {
 	if (cleanLine.startsWith('final ')) {
 		cleanLine = cleanLine.replace('final ', '').trim();
 		prefixKeywords.readonly = true;
+	}
+
+	/** REMOVE THESE */
+	if (cleanLine.includes('sychronized ')) {
+		cleanLine = cleanLine.replace('sychronized ', '').trim();
+	}
+	if (cleanLine.includes('final ')) {
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+		cleanLine = cleanLine.replaceAll('final ', '').trim();
 	}
 
 	/** Handles an edge case

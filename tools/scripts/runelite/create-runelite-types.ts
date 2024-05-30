@@ -23,7 +23,7 @@ function createDTSFiles(dirPath: any) {
 						return;
 					}
 
-					if (file.name !== 'Overlay.java') {
+					if (file.name !== 'Text.java') {
 						// TEMP SKIP ALL BUT ONE
 						return;
 					}
