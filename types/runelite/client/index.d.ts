@@ -14,8 +14,6 @@ declare namespace net.runelite.client {
 	export const plugins;
 	export const rs;
 	export const task;
-	export const ui;
-	export const util;
 	class ClassPreloader {
 		[key: string]: any;
 	}
