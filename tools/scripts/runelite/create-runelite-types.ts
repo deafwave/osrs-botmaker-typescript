@@ -23,7 +23,7 @@ function createDTSFiles(dirPath: any) {
 						return;
 					}
 
-					if (file.name !== 'Perspective.java') {
+					if (file.name !== 'Overlay.java') {
 						// TEMP SKIP ALL BUT ONE
 						return;
 					}
@@ -61,3 +61,4 @@ function writeToFile(filePath: any, dirPath: any, tsContent: any) {
 
 // Usage
 createDTSFiles('types/runelite/api');
+createDTSFiles('types/runelite/client');
