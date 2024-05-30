@@ -7,7 +7,6 @@ declare namespace net.runelite.client {
 	export const eventbus;
 	export const events;
 	export const externalplugins;
-	export const game;
 	export const hiscore;
 	export const input;
 	export const menus;
