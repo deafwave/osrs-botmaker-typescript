@@ -25,9 +25,6 @@ declare namespace net.runelite.client {
 	class Notifier {
 		[key: string]: any;
 	}
-	class RuneLite {
-		[key: string]: any;
-	}
 	class RuneLiteModule {
 		[key: string]: any;
 	}
