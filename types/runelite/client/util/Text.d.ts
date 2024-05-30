@@ -35,7 +35,7 @@ declare namespace net.runelite.client.util {
 		 * @param input input
 		 * @return list of values
 		 */
-		private static fromCSV(input: string): Array<string>;
+		static fromCSV(input: string): Array<string>;
 		/**
 		 * Joins collection of strings as comma separated values
 		 *

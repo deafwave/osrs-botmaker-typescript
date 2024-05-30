@@ -25,6 +25,6 @@
  */
 declare namespace net.runelite.client.util {
 	export class WildcardMatcher {
-		private static matches(pattern: string, text: string): boolean;
+		public static matches(pattern: string, text: string): boolean;
 	}
 }
