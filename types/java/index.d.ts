@@ -1,5 +1,4 @@
 /// <reference path="BufferedImage.d.ts" />
-/// <reference path="Canvas.d.ts" />
 /// <reference path="Collection.d.ts" />
 /// <reference path="Comparable.d.ts" />
 /// <reference path="Dimension.d.ts" />
@@ -16,6 +15,5 @@
 
 type JavaMouseEvent = any;
 type MouseWheelEvent = any;
-type KeyEvent = any;
 type Throwable = any;
 type Graphics = any;
