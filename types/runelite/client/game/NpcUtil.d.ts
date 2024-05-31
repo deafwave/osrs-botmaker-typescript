@@ -1,0 +1,180 @@
+/// <reference path="../../java/index.d.ts" />
+/// <reference path="../../jagex/index.d.ts" />
+/// <reference path="Client.d.ts" />
+/// <reference path="GameState.d.ts" />
+/// <reference path="ChatMessageType.d.ts" />
+/// <reference path="Constants.d.ts" />
+/// <reference path="Player.d.ts" />
+/// <reference path="File> valueType().d.ts" />
+/// <reference path="hooks/Callbacks.d.ts" />
+/// <reference path="AbstractModule.d.ts" />
+/// <reference path="events/GameStateChanged.d.ts" />
+/// <reference path="../../../java/index.d.ts" />
+/// <reference path="../../../jagex/index.d.ts" />
+/// <reference path="annotations/Component.d.ts" />
+/// <reference path="annotations/Interface.d.ts" />
+/// <reference path="annotations/VarCInt.d.ts" />
+/// <reference path="annotations/VarCStr.d.ts" />
+/// <reference path="annotations/Varbit.d.ts" />
+/// <reference path="annotations/Varp.d.ts" />
+/// <reference path="annotations/VisibleForDevtools.d.ts" />
+/// <reference path="clan/ClanChannel.d.ts" />
+/// <reference path="clan/ClanID.d.ts" />
+/// <reference path="clan/ClanSettings.d.ts" />
+/// <reference path="coords/LocalPoint.d.ts" />
+/// <reference path="coords/WorldPoint.d.ts" />
+/// <reference path="dbtable/DBRowConfig.d.ts" />
+/// <reference path="hooks/DrawCallbacks.d.ts" />
+/// <reference path="vars/AccountType.d.ts" />
+/// <reference path="widgets/ItemQuantityMode.d.ts" />
+/// <reference path="widgets/Widget.d.ts" />
+/// <reference path="widgets/WidgetConfig.d.ts" />
+/// <reference path="widgets/WidgetInfo.d.ts" />
+/// <reference path="widgets/WidgetModalMode.d.ts" />
+/// <reference path="worldmap/MapElementConfig.d.ts" />
+/// <reference path="worldmap/WorldMap.d.ts" />
+/// <reference path="GameEngine.d.ts" />
+/// <reference path="MainBufferProvider.d.ts" />
+/// <reference path="Renderable.d.ts" />
+/// <reference path="Skill.d.ts" />
+/// <reference path="events/BeforeRender.d.ts" />
+/// <reference path="events/FakeXpDrop.d.ts" />
+/// <reference path="events/GameTick.d.ts" />
+/// <reference path="events/PostClientTick.d.ts" />
+/// <reference path="events/ScriptCallbackEvent.d.ts" />
+/// <reference path="widgets/ComponentID.d.ts" />
+/// <reference path="widgets/WidgetItem.d.ts" />
+/// <reference path="worldmap/WorldMapRenderer.d.ts" />
+/// <reference path="events/ChatMessage.d.ts" />
+/// <reference path="MessageNode.d.ts" />
+/// <reference path="VarPlayer.d.ts" />
+/// <reference path="Varbits.d.ts" />
+/// <reference path="ScriptID.d.ts" />
+/// <reference path="VarClientStr.d.ts" />
+/// <reference path="events/CommandExecuted.d.ts" />
+/// <reference path="Config.d.ts" />
+/// <reference path="events/AccountHashChanged.d.ts" />
+/// <reference path="events/PlayerChanged.d.ts" />
+/// <reference path="events/WorldChanged.d.ts" />
+/// <reference path="Config> T getConfig(Class<T> clazz).d.ts" />
+/// <reference path="Config> void setDefaultConfiguration(T proxy.d.ts" />
+/// <reference path="boolean override).d.ts" />
+/// <reference path="Enum>) type.d.ts" />
+/// <reference path="str);.d.ts" />
+/// <reference path="Serializer<?>> serializerClass = configSerializer.value();.d.ts" />
+/// <reference path="Serializer<?>> value();.d.ts" />
+/// <reference path="Keybind.d.ts" />
+/// <reference path="WorldType.d.ts" />
+/// <reference path="Plugin>[] builtinExternals = null;.d.ts" />
+/// <reference path="Plugin> pluginClass : builtinExternals).d.ts" />
+/// <reference path="Plugin> plugin).d.ts" />
+/// <reference path="Plugin>... plugins).d.ts" />
+/// <reference path="URLClassLoader implements ReflectUtil.PrivateLookupableClassLoader.d.ts" />
+/// <reference path="ManifestLite.d.ts" />
+/// <reference path="DisplayData.d.ts" />
+/// <reference path="ChatInput.d.ts" />
+/// <reference path="NPC.d.ts" />
+/// <reference path="EnumComposition.d.ts" />
+/// <reference path="EnumID.d.ts" />
+/// <reference path="FriendsChatRank.d.ts" />
+/// <reference path="IndexedSprite.d.ts" />
+/// <reference path="clan/ClanTitle.d.ts" />
+/// <reference path="NullObjectID.d.ts" />
+/// <reference path="NullObjectID/NULL_25337.d.ts" />
+/// <reference path="NullObjectID/NULL_26371.d.ts" />
+/// <reference path="NullObjectID/NULL_26375.d.ts" />
+/// <reference path="NullObjectID/NULL_26561.d.ts" />
+/// <reference path="NullObjectID/NULL_26562.d.ts" />
+/// <reference path="NullObjectID/NULL_26884.d.ts" />
+/// <reference path="NullObjectID/NULL_26886.d.ts" />
+/// <reference path="NullObjectID/NULL_29868.d.ts" />
+/// <reference path="NullObjectID/NULL_29869.d.ts" />
+/// <reference path="NullObjectID/NULL_29870.d.ts" />
+/// <reference path="NullObjectID/NULL_31823.d.ts" />
+/// <reference path="NullObjectID/NULL_31849.d.ts" />
+/// <reference path="NullObjectID/NULL_31852.d.ts" />
+/// <reference path="NullObjectID/NULL_33327.d.ts" />
+/// <reference path="NullObjectID/NULL_33328.d.ts" />
+/// <reference path="NullObjectID/NULL_39541.d.ts" />
+/// <reference path="NullObjectID/NULL_39542.d.ts" />
+/// <reference path="NullObjectID/NULL_40960.d.ts" />
+/// <reference path="NullObjectID/NULL_40962.d.ts" />
+/// <reference path="NullObjectID/NULL_43840.d.ts" />
+/// <reference path="NullObjectID/NULL_47325.d.ts" />
+/// <reference path="ObjectID/*.d.ts" />
+/// <reference path="TileObject.d.ts" />
+/// <reference path="ItemID.d.ts" />
+/// <reference path="NpcID/*.d.ts" />
+/// <reference path="Constants/CLIENT_DEFAULT_ZOOM.d.ts" />
+/// <reference path="ItemComposition.d.ts" />
+/// <reference path="ItemID/*.d.ts" />
+/// <reference path="SpritePixels.d.ts" />
+/// <reference path="AnimationID.d.ts" />
+/// <reference path="NPCComposition.d.ts" />
+/// <reference path="NpcID.d.ts" />
+/// <reference path="Tile.d.ts" />
+/// <reference path="TileItem.d.ts" />
+/// <reference path="coords/WorldArea.d.ts" />
+/// <reference path="events/AnimationChanged.d.ts" />
+/// <reference path="events/ItemDespawned.d.ts" />
+/// <reference path="events/ItemSpawned.d.ts" />
+/// <reference path="events/NpcChanged.d.ts" />
+/// <reference path="events/NpcDespawned.d.ts" />
+/// <reference path="events/PlayerDespawned.d.ts" />
+/// <reference path="SpriteID.d.ts" />
+/// <reference path="Actor.d.ts" />
+/// <reference path="ParamID.d.ts" />
+/*
+ * Copyright (c) 2022, Jordan Atwood <nightfirecat@nightfirec.at>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *   list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *   this list of conditions and the following disclaimer in the documentation
+ *   and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+ * CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+declare namespace net.runelite.client.game {
+export class NpcUtil
+	/**
+	 * Returns whether an NPC is dying and can no longer be interacted with, or if it is still alive or in some special
+	 * state where it can be 0hp without dying. (For example, Gargoyles and other slayer monsters with item weaknesses
+	 * are not killed by reaching 0hp, so would not be dead based on that alone.)
+	 *
+	 * @param npc NPC to check whether it is dying
+	 * @return {@code true} if the NPC is dying
+	 */
+			// These NPCs hit 0hp but don't actually die
+			// These NPCs die, but transform into forms which are attackable or interactable, so it would be jarring for
+			// them to be considered dead when reaching 0hp.
+			// Tutorial island giant rats respawn instantly.
+			// Agrith Naar restores health upon reaching 0hp if the player does not have Silverlight
+			// equipped, or moved away immediately after applying the killing blow.
+			// These NPCs have no attack options, but are the dead and uninteractable form of otherwise attackable NPCs,
+			// thus should not be considered alive.
+			// Gargoyles, Dawn, and Dusk each have cracking forms which contain their death animations, so should always
+			// be considered dead.
+			// These NPCs are final new forms of previous NPCs and should not be considered dead upon transformation.
+			// Prior form(s) should be added to the `isDying()` exceptions list above to ensure they are not hidden or
+			// made uninteractable during their death animations.
+			// The Nightmare should be considered alive again once reaching its sleeping form
+			// Skotizo's altars should be considered alive again once they "respawn" from their inactive altar forms
+			// Corp frequently dies in masses with hitpoints remaining, so additionally use the death anim
+			// to determine if it is dead
+				// intentional fallthrough
+},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},}
