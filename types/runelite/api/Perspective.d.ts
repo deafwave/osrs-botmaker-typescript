@@ -1,12 +1,7 @@
-/// <reference path="LocalPoint.d.ts" />
+/// <reference path="coords/LocalPoint.d.ts" />
 /// <reference path="SpritePixels.d.ts" />
 /// <reference path="Model.d.ts" />
-/// <reference path="Shape.d.ts" />
 /// <reference path="Point.d.ts" />
-/// <reference path="BufferedImage.d.ts" />
-/// <reference path="Polygon.d.ts" />
-/// <reference path="WorldPoint.d.ts" />
-/// <reference path="Graphics2D.d.ts" />
 /// <reference path="Tile.d.ts" />
 /// <reference path="Client.d.ts" />
 
@@ -14,21 +9,21 @@ declare namespace net.runelite.api {
 	export class Perspective {
 		static staticgetCanvasImageLocation(
 			client: Client,
-			localLocation: LocalPoint,
+			localLocation: net.runelite.api.coords.LocalPoint,
 			image: BufferedImage,
 			zOffset: number,
 		): Point;
 
 		static getCanvasSpriteLocation(
 			client: Client,
-			localLocation: LocalPoint,
+			localLocation: net.runelite.api.coords.LocalPoint,
 			sprite: SpritePixels,
 			zOffset: number,
 		): Point;
 
 		static getCanvasTextLocation(
 			client: Client,
-			localLocation: LocalPoint,
+			localLocation: net.runelite.api.coords.LocalPoint,
 			text: string,
 			zOffset: number,
 		): Point;
@@ -36,20 +31,20 @@ declare namespace net.runelite.api {
 		static getCanvasTextMiniMapLocation(
 			client: Client,
 			graphics: Graphics2D,
-			localLocation: LocalPoint,
+			localLocation: net.runelite.api.coords.LocalPoint,
 			text: string,
 			zOffset: number,
 		): Point;
 
 		static getCanvasTileAreaPoly(
 			client: Client,
-			localLocation: LocalPoint,
+			localLocation: net.runelite.api.coords.LocalPoint,
 			size: number,
 		): Polygon;
 
 		static getCanvasTileAreaPoly(
 			client: Client,
-			localLocation: LocalPoint,
+			localLocation: net.runelite.api.coords.LocalPoint,
 			sizeX: number,
 			sizeY: number,
 			plane: number,
@@ -58,12 +53,12 @@ declare namespace net.runelite.api {
 
 		static getCanvasTilePoly(
 			client: Client,
-			localLocation: LocalPoint,
+			localLocation: net.runelite.api.coords.LocalPoint,
 		): Polygon;
 
 		static getCanvasTilePoly(
 			client: Client,
-			localLocation: LocalPoint,
+			localLocation: net.runelite.api.coords.LocalPoint,
 			zOffset: number,
 		): Polygon;
 
@@ -84,7 +79,7 @@ declare namespace net.runelite.api {
 
 		static getTileHeight(
 			client: Client,
-			localLocation: LocalPoint,
+			localLocation: net.runelite.api.coords.LocalPoint,
 			plane: number,
 		): number;
 
@@ -97,22 +92,22 @@ declare namespace net.runelite.api {
 
 		static localToCanvas(
 			client: Client,
-			localLocation: LocalPoint,
+			localLocation: net.runelite.api.coords.LocalPoint,
 			plane: number,
 		): Point;
 
 		static localToCanvas(
 			client: Client,
-			localLocation: LocalPoint,
+			localLocation: net.runelite.api.coords.LocalPoint,
 			plane: number,
 			zOffset: number,
 		): Point;
 
-		static localToMiniMap(client: Client, localLocation: LocalPoint): Point;
+		static localToMiniMap(client: Client, localLocation: net.runelite.api.coords.LocalPoint): Point;
 
 		static localToMiniMap(
 			client: Client,
-			localLocation: LocalPoint,
+			localLocation: net.runelite.api.coords.LocalPoint,
 			distance: number,
 		): Point;
 
@@ -128,6 +123,6 @@ declare namespace net.runelite.api {
 			z3d: number[],
 			x2d: number[],
 			y2d: number[],
-		);
+		): void;
 	}
 }
