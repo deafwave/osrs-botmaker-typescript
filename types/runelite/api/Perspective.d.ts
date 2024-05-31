@@ -1,4 +1,5 @@
 /// <reference path="coords/LocalPoint.d.ts" />
+/// <reference path="coords/WorldPoint.d.ts" />
 /// <reference path="SpritePixels.d.ts" />
 /// <reference path="Model.d.ts" />
 /// <reference path="Point.d.ts" />
@@ -73,7 +74,7 @@ declare namespace net.runelite.api {
 
 		static getMiniMapImageLocation(
 			client: Client,
-			worldLocation: WorldPoint,
+			worldLocation: net.runelite.api.coords.WorldPoint,
 			image: BufferedImage,
 		): Point;
 
