@@ -1,6 +1,5 @@
 declare namespace net.runelite.client.ui.overlay {
 	export class OverlayPriority {
-
 		static HIGH: string;
 		static HIGHEST: string;
 		static LOW: string;
