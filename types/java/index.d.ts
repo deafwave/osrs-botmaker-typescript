@@ -1,3 +1,4 @@
+/// <reference path="./awt/Canvas.d.ts" />
 /// <reference path="BufferedImage.d.ts" />
 /// <reference path="Collection.d.ts" />
 /// <reference path="Comparable.d.ts" />
