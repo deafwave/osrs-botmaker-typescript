@@ -26,15 +26,57 @@
  */
 declare namespace net.runelite.client.ui.overlay {
 	abstract class OverlayPanel extends net.runelite.client.ui.overlay.Overlay {
+
+		// protected PanelComponent: net.runelite.client.ui.overlay.components.PanelComponent; not implemented yet.
+
+		
 		/**
-		 * Enables/disables automatic clearing of {@link OverlayPanel#getPanelComponent()} children after rendering (enabled by default)
+		 * Gets the panel component.
+		 * @returns The panel component.
 		 */
+		getPanelComponent(): any; // PanelComponent - not implemented yet.
+
 		/**
-		 * Enables/disables automatic font size changes based on panel component size relative to default panel component size.
+		 * Gets the preferred color used for the panel component background.
+		 * @returns The preferred color.
 		 */
+		getPreferredColor(): Color;
+
 		/**
-		 * Preferred color used for panel component background
+		 * Checks if automatic clearing of panel component children after rendering is enabled.
+		 * @returns True if enabled, false otherwise.
+		 */
+		isClearChildren(): boolean;
+
+		/**
+		 * Checks if automatic font size changes based on panel component size relative to default size is enabled.
+		 * @returns True if enabled, false otherwise.
+		 */
+		isDynamicFont(): boolean;
+
+		/**
+		 * Renders the overlay on the provided Graphics2D object.
+		 * @param graphics The Graphics2D object to render on.
+		 * @returns The dimension of the rendered overlay.
 		 */
 		render(graphics: Graphics2D): Dimension;
+
+		/**
+		 * Enables or disables automatic clearing of panel component children after rendering.
+		 * @param clearChildren True to enable, false to disable.
+		 */
+		setClearChildren(clearChildren: boolean): void;
+
+		/**
+		 * Enables or disables automatic font size changes based on panel component size relative to default size.
+		 * @param dynamicFont True to enable, false to disable.
+		 */
+		setDynamicFont(dynamicFont: boolean): void;
+
+		/**
+		 * Sets the preferred color used for the panel component background.
+		 * @param preferredColor The preferred color.
+		 */
+		setPreferredColor(preferredColor: Color): void;
 	}
 }
