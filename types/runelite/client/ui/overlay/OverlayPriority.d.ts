@@ -1,15 +1,10 @@
 declare namespace net.runelite.client.ui.overlay {
 	export class OverlayPriority {
-		static ABOVE_CHATBOX_RIGHT: string;
-		static BOTTOM_LEFT: string;
-		static BOTTOM_RIGHT: string;
-		static CANVAS_TOP_RIGHT: string;
-		static DETACHED: string;
-		static DYNAMIC: string;
-		static TOOLTIP: string;
-		static TOP_CENTER: string;
-		static TOP_LEFT: string;
-		static TOP_RIGHT: string;
+		static HIGH: string;
+		static HIGHEST: string;
+		static LOW: string;
+		static MED: string;
+		static NONE: string;
 
 		/**
 		 * Returns the enum constant of this type with the specified name.
