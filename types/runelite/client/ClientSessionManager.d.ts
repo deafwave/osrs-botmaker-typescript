@@ -2,6 +2,7 @@
 /// <reference path="../../jagex/index.d.ts" />
 /// <reference path="Client.d.ts" />
 /// <reference path="GameState.d.ts" />
+/// <reference path="ClientShutdown.d.ts" />
 /*
  * Copyright (c) 2018, Adam <Adam@sigterm.info>
  * All rights reserved.
@@ -28,4 +29,15 @@
  */
 declare namespace net.runelite.client {
 export class ClientSessionManager
-},}
+{
+ScheduledExecutorService executorService;
+Client client;
+SessionClient sessionClient;
+ScheduledFuture<?> scheduledFuture;
+UUID sessionId;
+ClientSessionManager(ScheduledExecutorService executorService, Client client, SessionClient sessionClient) 
+	start(): void;
+	private onClientShutdown(e: ClientShutdown): void;
+	private ping(): void;
+}
+}

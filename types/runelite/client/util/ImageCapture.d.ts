@@ -1,197 +1,11 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
 /// <reference path="../../../java/index.d.ts" />
 /// <reference path="../../../jagex/index.d.ts" />
-/// <reference path="annotations/Component.d.ts" />
-/// <reference path="annotations/Interface.d.ts" />
-/// <reference path="annotations/VarCInt.d.ts" />
-/// <reference path="annotations/VarCStr.d.ts" />
-/// <reference path="annotations/Varbit.d.ts" />
-/// <reference path="annotations/Varp.d.ts" />
-/// <reference path="annotations/VisibleForDevtools.d.ts" />
-/// <reference path="clan/ClanChannel.d.ts" />
-/// <reference path="clan/ClanID.d.ts" />
-/// <reference path="clan/ClanSettings.d.ts" />
-/// <reference path="coords/LocalPoint.d.ts" />
-/// <reference path="coords/WorldPoint.d.ts" />
-/// <reference path="dbtable/DBRowConfig.d.ts" />
-/// <reference path="hooks/DrawCallbacks.d.ts" />
-/// <reference path="vars/AccountType.d.ts" />
-/// <reference path="widgets/ItemQuantityMode.d.ts" />
-/// <reference path="widgets/Widget.d.ts" />
-/// <reference path="widgets/WidgetConfig.d.ts" />
-/// <reference path="widgets/WidgetInfo.d.ts" />
-/// <reference path="widgets/WidgetModalMode.d.ts" />
-/// <reference path="worldmap/MapElementConfig.d.ts" />
-/// <reference path="worldmap/WorldMap.d.ts" />
-/// <reference path="GameEngine.d.ts" />
-/// <reference path="MainBufferProvider.d.ts" />
-/// <reference path="Renderable.d.ts" />
-/// <reference path="Skill.d.ts" />
-/// <reference path="events/BeforeRender.d.ts" />
-/// <reference path="events/FakeXpDrop.d.ts" />
-/// <reference path="events/GameTick.d.ts" />
-/// <reference path="events/PostClientTick.d.ts" />
-/// <reference path="events/ScriptCallbackEvent.d.ts" />
-/// <reference path="widgets/ComponentID.d.ts" />
-/// <reference path="widgets/WidgetItem.d.ts" />
-/// <reference path="worldmap/WorldMapRenderer.d.ts" />
-/// <reference path="events/ChatMessage.d.ts" />
-/// <reference path="MessageNode.d.ts" />
-/// <reference path="VarPlayer.d.ts" />
-/// <reference path="Varbits.d.ts" />
-/// <reference path="ScriptID.d.ts" />
-/// <reference path="VarClientStr.d.ts" />
-/// <reference path="events/CommandExecuted.d.ts" />
-/// <reference path="Config.d.ts" />
-/// <reference path="events/AccountHashChanged.d.ts" />
-/// <reference path="events/PlayerChanged.d.ts" />
-/// <reference path="events/WorldChanged.d.ts" />
-/// <reference path="Config> T getConfig(Class<T> clazz).d.ts" />
-/// <reference path="Config> void setDefaultConfiguration(T proxy.d.ts" />
-/// <reference path="boolean override).d.ts" />
-/// <reference path="Enum>) type.d.ts" />
-/// <reference path="str);.d.ts" />
-/// <reference path="Serializer<?>> serializerClass = configSerializer.value();.d.ts" />
-/// <reference path="Serializer<?>> value();.d.ts" />
-/// <reference path="Keybind.d.ts" />
-/// <reference path="WorldType.d.ts" />
-/// <reference path="Plugin>[] builtinExternals = null;.d.ts" />
-/// <reference path="Plugin> pluginClass : builtinExternals).d.ts" />
-/// <reference path="Plugin> plugin).d.ts" />
-/// <reference path="Plugin>... plugins).d.ts" />
-/// <reference path="URLClassLoader implements ReflectUtil.PrivateLookupableClassLoader.d.ts" />
-/// <reference path="ManifestLite.d.ts" />
-/// <reference path="DisplayData.d.ts" />
-/// <reference path="ChatInput.d.ts" />
-/// <reference path="NPC.d.ts" />
-/// <reference path="EnumComposition.d.ts" />
-/// <reference path="EnumID.d.ts" />
-/// <reference path="FriendsChatRank.d.ts" />
-/// <reference path="IndexedSprite.d.ts" />
-/// <reference path="clan/ClanTitle.d.ts" />
-/// <reference path="NullObjectID.d.ts" />
-/// <reference path="NullObjectID/NULL_25337.d.ts" />
-/// <reference path="NullObjectID/NULL_26371.d.ts" />
-/// <reference path="NullObjectID/NULL_26375.d.ts" />
-/// <reference path="NullObjectID/NULL_26561.d.ts" />
-/// <reference path="NullObjectID/NULL_26562.d.ts" />
-/// <reference path="NullObjectID/NULL_26884.d.ts" />
-/// <reference path="NullObjectID/NULL_26886.d.ts" />
-/// <reference path="NullObjectID/NULL_29868.d.ts" />
-/// <reference path="NullObjectID/NULL_29869.d.ts" />
-/// <reference path="NullObjectID/NULL_29870.d.ts" />
-/// <reference path="NullObjectID/NULL_31823.d.ts" />
-/// <reference path="NullObjectID/NULL_31849.d.ts" />
-/// <reference path="NullObjectID/NULL_31852.d.ts" />
-/// <reference path="NullObjectID/NULL_33327.d.ts" />
-/// <reference path="NullObjectID/NULL_33328.d.ts" />
-/// <reference path="NullObjectID/NULL_39541.d.ts" />
-/// <reference path="NullObjectID/NULL_39542.d.ts" />
-/// <reference path="NullObjectID/NULL_40960.d.ts" />
-/// <reference path="NullObjectID/NULL_40962.d.ts" />
-/// <reference path="NullObjectID/NULL_43840.d.ts" />
-/// <reference path="NullObjectID/NULL_47325.d.ts" />
-/// <reference path="ObjectID/*.d.ts" />
-/// <reference path="TileObject.d.ts" />
-/// <reference path="ItemID.d.ts" />
-/// <reference path="NpcID/*.d.ts" />
-/// <reference path="Constants/CLIENT_DEFAULT_ZOOM.d.ts" />
-/// <reference path="ItemComposition.d.ts" />
-/// <reference path="ItemID/*.d.ts" />
-/// <reference path="SpritePixels.d.ts" />
-/// <reference path="AnimationID.d.ts" />
-/// <reference path="NPCComposition.d.ts" />
-/// <reference path="NpcID.d.ts" />
-/// <reference path="Tile.d.ts" />
-/// <reference path="TileItem.d.ts" />
-/// <reference path="coords/WorldArea.d.ts" />
-/// <reference path="events/AnimationChanged.d.ts" />
-/// <reference path="events/ItemDespawned.d.ts" />
-/// <reference path="events/ItemSpawned.d.ts" />
-/// <reference path="events/NpcChanged.d.ts" />
-/// <reference path="events/NpcDespawned.d.ts" />
-/// <reference path="events/PlayerDespawned.d.ts" />
-/// <reference path="SpriteID.d.ts" />
-/// <reference path="Actor.d.ts" />
-/// <reference path="ParamID.d.ts" />
-/// <reference path="java.awt.event.KeyListener.d.ts" />
-/// <reference path="MenuEntry.d.ts" />
-/// <reference path="MenuAction.d.ts" />
-/// <reference path="events/MenuEntryAdded.d.ts" />
-/// <reference path="events/PlayerMenuOptionsChanged.d.ts" />
-/// <reference path="CacheLoader<HiscoreManager.HiscoreKey.d.ts" />
-/// <reference path="HiscoreResult>.d.ts" />
-/// <reference path="WebsocketMessage>> MESSAGES;.d.ts" />
-/// <reference path="WebsocketMessage>> messages = new ArrayList<>();.d.ts" />
-/// <reference path="WebsocketMessage>> messages).d.ts" />
-/// <reference path="WebsocketMessage> message : MESSAGES).d.ts" />
-/// <reference path="WebsocketMessage> message : messages).d.ts" />
-/// <reference path="PartyMessage> void send(T message).d.ts" />
-/// <reference path="WebSocketListener implements AutoCloseable.d.ts" />
-/// <reference path="WebsocketMessage>> messages = new HashSet<>();.d.ts" />
-/// <reference path="WebsocketMessage> message).d.ts" />
-/// <reference path="Certificate> certificates = certificateFactory.generateCertificates(in);.d.ts" />
-/// <reference path="RuntimeException.d.ts" />
-/// <reference path="FilterInputStream.d.ts" />
-/// <reference path=".d.ts" />
-/// <reference path="URLClassLoader.d.ts" />
-/// <reference path="Plugin> value();.d.ts" />
-/// <reference path="Exception.d.ts" />
-/// <reference path="Plugin>> graph = GraphBuilder.d.ts" />
-/// <reference path="Plugin> pluginClazz : graph.nodes()).d.ts" />
-/// <reference path="Plugin>> sortedPlugins = topologicalSort(graph);.d.ts" />
-/// <reference path="Plugin> pluginClazz : sortedPlugins).d.ts" />
-/// <reference path="JPanel.d.ts" />
-/// <reference path="JFrame.d.ts" />
-/// <reference path="GridLayout.d.ts" />
-/// <reference path="PluginPanel.d.ts" />
-/// <reference path="JDialog.d.ts" />
-/// <reference path="JPanel implements Activatable.d.ts" />
-/// <reference path="JFrame implements ActionListener.d.ts" />
+/// <reference path="Client.d.ts" />
+/// <reference path="GameState.d.ts" />
+/// <reference path="Image.d.ts" />
 /// <reference path="BufferedImage.d.ts" />
-/// <reference path="TurboFilter.d.ts" />
-/// <reference path="EventBus.d.ts" />
-/// <reference path="Callable<T>> tasks) throws InterruptedException.d.ts" />
-/// <reference path="Callable<T>> tasks.d.ts" />
-/// <reference path="long timeout.d.ts" />
-/// <reference path="TimeUnit unit) throws InterruptedException.d.ts" />
-/// <reference path="ExecutionException.d.ts" />
-/// <reference path="TimeoutException.d.ts" />
-/// <reference path="DecorativeObject.d.ts" />
-/// <reference path="GameObject.d.ts" />
-/// <reference path="GroundObject.d.ts" />
-/// <reference path="ItemContainer.d.ts" />
-/// <reference path="ItemLayer.d.ts" />
-/// <reference path="Node.d.ts" />
-/// <reference path="Scene.d.ts" />
-/// <reference path="WallObject.d.ts" />
-/// <reference path="events/DecorativeObjectSpawned.d.ts" />
-/// <reference path="events/GameObjectSpawned.d.ts" />
-/// <reference path="events/GroundObjectSpawned.d.ts" />
-/// <reference path="events/ItemContainerChanged.d.ts" />
-/// <reference path="events/NpcSpawned.d.ts" />
-/// <reference path="events/PlayerSpawned.d.ts" />
-/// <reference path="events/WallObjectSpawned.d.ts" />
-/// <reference path="com.google.protobuf.GeneratedMessageLite.d.ts" />
-/// <reference path="com.google.protobuf.GeneratedMessageLite<.d.ts" />
-/// <reference path="Join.Builder>.d.ts" />
-/// <reference path="Part.Builder>.d.ts" />
-/// <reference path="Data.Builder>.d.ts" />
-/// <reference path="C2S.Builder>.d.ts" />
-/// <reference path="UserJoin.Builder>.d.ts" />
-/// <reference path="UserPart.Builder>.d.ts" />
-/// <reference path="PartyData.Builder>.d.ts" />
-/// <reference path="S2C.Builder>.d.ts" />
+/// <reference path="ImageUploadStyle.d.ts" />
+/// <reference path="Date.d.ts" />
 /*
  * Copyright (c) 2018, Lotto <https://github.com/devLotto>
  * Copyright (c) 2019, Alexsuperfly <https://github.com/Alexsuperfly>
@@ -218,8 +32,15 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 declare namespace net.runelite.client.util {
-	private static registerAllExtensions(Join: com.google.protobuf.GeneratedMessageLite<, implements: Join.Builder>, implements: Part.Builder>, implements: Data.Builder>, implements: C2S.Builder>, implements: UserJoin.Builder>, implements: UserPart.Builder>, implements: PartyData.Builder>, implements: S2C.Builder>): void | null;
+)
 export class ImageCapture
+{
+Client client;
+Notifier notifier;
+ClientUI clientUi;
+DrawManager drawManager;
+ScheduledExecutorService executor;
+EventBus eventBus;
 	/**
 	 * Take a screenshot and save it
 	 * @param subDir the subdirectory to save the screenshot in
@@ -228,6 +49,7 @@ export class ImageCapture
 	 * @param notify whether to send a notification
 	 * @param copyToClipboard whether to copy the screenshot to clipboard
 	 */
+	private static takeScreenshot(subDir: string, fileName: string, includeClientFrame: boolean, notify: boolean, copyToClipboard: boolean): void;
 			// This callback is on the client thread, move to executor thread now that we have the screenshot
 	/**
 	 * Add the client frame to a screenshot
@@ -235,6 +57,7 @@ export class ImageCapture
 	 * @param image the screenshot
 	 * @return
 	 */
+	addClientFrame(image: Image): BufferedImage;
 		// create a new image, paint the client ui to it, and then draw the screenshot to that
 		// on Windows the insets are the window border
 		// scaled client dimensions
@@ -242,6 +65,7 @@ export class ImageCapture
 		// Draw the client frame onto the screenshot
 		// Find the position of the canvas inside the frame
 		// Draw the original screenshot onto the new screenshot
+	private static getScaledValue(scale: number, value: number): number;
 	/**
 	 * Save a screenshot to disk. And optionally send a notification and copy it to clipboard.
 	 *
@@ -251,6 +75,7 @@ export class ImageCapture
 	 * @param notify Send a notification to the system tray when the image is captured.
 	 * @param saveToClipboard Whether to also save the screenshot to clipboard
 	 */
+	saveScreenshot(screenshot: BufferedImage, fileName: string, subDir: string, notify: boolean, saveToClipboard: boolean): void | null;
 			// Prevent the screenshot from being captured
 		// To make sure that screenshots don't get overwritten, check if file exists,
 		// and if it does create file with same name and suffix.
@@ -261,6 +86,7 @@ export class ImageCapture
 	 * @see #saveScreenshot(BufferedImage, String, String, boolean, boolean)
 	 */
 /** @deprecated */
+	takeScreenshot(screenshot: BufferedImage, fileName: string, subDir: string, notify: boolean, imageUploadStyle: ImageUploadStyle): void;
 	/**
 	  * Saves a screenshot to the screenshots folder as a PNG, and fires a ScreenshotTaken
 	  * event afterward.
@@ -268,4 +94,7 @@ export class ImageCapture
 	 * @see #saveScreenshot(BufferedImage, String, String, boolean, boolean)
 	 */
 /** @deprecated */
-},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},}
+	takeScreenshot(screenshot: BufferedImage, fileName: string, notify: boolean, imageUploadStyle: ImageUploadStyle): void;
+	private static format(date: Date): string;
+}
+}

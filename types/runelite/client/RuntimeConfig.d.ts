@@ -1,13 +1,6 @@
 /// <reference path="../../java/index.d.ts" />
 /// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
+/// <reference path="RuntimeConfig.d.ts" />
 /*
  * Copyright (c) 2022, Adam <Adam@sigterm.info>
  * All rights reserved.
@@ -34,4 +27,20 @@
  */
 declare namespace net.runelite.client {
 export class RuntimeConfig
-},},},},},},}
+{
+String outageMessage;
+Map<String, String> outageLinks;
+Instant outageStart;
+Instant outageEnd;
+Set<Integer> ignoreDeadNpcs;
+Set<Integer> forceDeadNpcs;
+Set<Integer> resetDeadOnChangeNpcs;
+Set<Integer> forceDeadAnimations;
+Set<Integer> nonAttackNpcs;
+Set<String> outdatedClientVersions;
+String[] updateLauncherWinVers;
+double updateRollout;
+	private showOutageMessage(): boolean;
+	refresh(config: RuntimeConfig): void;
+}
+}

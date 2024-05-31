@@ -1,638 +1,21 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
-/// <reference path="../../../java/index.d.ts" />
-/// <reference path="../../../jagex/index.d.ts" />
-/// <reference path="annotations/Component.d.ts" />
-/// <reference path="annotations/Interface.d.ts" />
-/// <reference path="annotations/VarCInt.d.ts" />
-/// <reference path="annotations/VarCStr.d.ts" />
-/// <reference path="annotations/Varbit.d.ts" />
-/// <reference path="annotations/Varp.d.ts" />
-/// <reference path="annotations/VisibleForDevtools.d.ts" />
-/// <reference path="clan/ClanChannel.d.ts" />
-/// <reference path="clan/ClanID.d.ts" />
-/// <reference path="clan/ClanSettings.d.ts" />
-/// <reference path="coords/LocalPoint.d.ts" />
-/// <reference path="coords/WorldPoint.d.ts" />
-/// <reference path="dbtable/DBRowConfig.d.ts" />
-/// <reference path="hooks/DrawCallbacks.d.ts" />
-/// <reference path="vars/AccountType.d.ts" />
-/// <reference path="widgets/ItemQuantityMode.d.ts" />
-/// <reference path="widgets/Widget.d.ts" />
-/// <reference path="widgets/WidgetConfig.d.ts" />
-/// <reference path="widgets/WidgetInfo.d.ts" />
-/// <reference path="widgets/WidgetModalMode.d.ts" />
-/// <reference path="worldmap/MapElementConfig.d.ts" />
-/// <reference path="worldmap/WorldMap.d.ts" />
-/// <reference path="GameEngine.d.ts" />
-/// <reference path="MainBufferProvider.d.ts" />
-/// <reference path="Renderable.d.ts" />
-/// <reference path="Skill.d.ts" />
-/// <reference path="events/BeforeRender.d.ts" />
-/// <reference path="events/FakeXpDrop.d.ts" />
-/// <reference path="events/GameTick.d.ts" />
-/// <reference path="events/PostClientTick.d.ts" />
-/// <reference path="events/ScriptCallbackEvent.d.ts" />
-/// <reference path="widgets/ComponentID.d.ts" />
-/// <reference path="widgets/WidgetItem.d.ts" />
-/// <reference path="worldmap/WorldMapRenderer.d.ts" />
-/// <reference path="events/ChatMessage.d.ts" />
-/// <reference path="MessageNode.d.ts" />
-/// <reference path="VarPlayer.d.ts" />
-/// <reference path="Varbits.d.ts" />
-/// <reference path="ScriptID.d.ts" />
-/// <reference path="VarClientStr.d.ts" />
-/// <reference path="events/CommandExecuted.d.ts" />
-/// <reference path="Config.d.ts" />
-/// <reference path="events/AccountHashChanged.d.ts" />
-/// <reference path="events/PlayerChanged.d.ts" />
-/// <reference path="events/WorldChanged.d.ts" />
-/// <reference path="Config> T getConfig(Class<T> clazz).d.ts" />
-/// <reference path="Config> void setDefaultConfiguration(T proxy.d.ts" />
-/// <reference path="boolean override).d.ts" />
-/// <reference path="Enum>) type.d.ts" />
-/// <reference path="str);.d.ts" />
-/// <reference path="Serializer<?>> serializerClass = configSerializer.value();.d.ts" />
-/// <reference path="Serializer<?>> value();.d.ts" />
-/// <reference path="Keybind.d.ts" />
-/// <reference path="WorldType.d.ts" />
-/// <reference path="Plugin>[] builtinExternals = null;.d.ts" />
-/// <reference path="Plugin> pluginClass : builtinExternals).d.ts" />
-/// <reference path="Plugin> plugin).d.ts" />
-/// <reference path="Plugin>... plugins).d.ts" />
-/// <reference path="URLClassLoader implements ReflectUtil.PrivateLookupableClassLoader.d.ts" />
-/// <reference path="ManifestLite.d.ts" />
-/// <reference path="DisplayData.d.ts" />
-/// <reference path="ChatInput.d.ts" />
-/// <reference path="NPC.d.ts" />
-/// <reference path="EnumComposition.d.ts" />
-/// <reference path="EnumID.d.ts" />
-/// <reference path="FriendsChatRank.d.ts" />
-/// <reference path="IndexedSprite.d.ts" />
-/// <reference path="clan/ClanTitle.d.ts" />
-/// <reference path="NullObjectID.d.ts" />
-/// <reference path="NullObjectID/NULL_25337.d.ts" />
-/// <reference path="NullObjectID/NULL_26371.d.ts" />
-/// <reference path="NullObjectID/NULL_26375.d.ts" />
-/// <reference path="NullObjectID/NULL_26561.d.ts" />
-/// <reference path="NullObjectID/NULL_26562.d.ts" />
-/// <reference path="NullObjectID/NULL_26884.d.ts" />
-/// <reference path="NullObjectID/NULL_26886.d.ts" />
-/// <reference path="NullObjectID/NULL_29868.d.ts" />
-/// <reference path="NullObjectID/NULL_29869.d.ts" />
-/// <reference path="NullObjectID/NULL_29870.d.ts" />
-/// <reference path="NullObjectID/NULL_31823.d.ts" />
-/// <reference path="NullObjectID/NULL_31849.d.ts" />
-/// <reference path="NullObjectID/NULL_31852.d.ts" />
-/// <reference path="NullObjectID/NULL_33327.d.ts" />
-/// <reference path="NullObjectID/NULL_33328.d.ts" />
-/// <reference path="NullObjectID/NULL_39541.d.ts" />
-/// <reference path="NullObjectID/NULL_39542.d.ts" />
-/// <reference path="NullObjectID/NULL_40960.d.ts" />
-/// <reference path="NullObjectID/NULL_40962.d.ts" />
-/// <reference path="NullObjectID/NULL_43840.d.ts" />
-/// <reference path="NullObjectID/NULL_47325.d.ts" />
-/// <reference path="ObjectID/*.d.ts" />
-/// <reference path="TileObject.d.ts" />
-/// <reference path="ItemID.d.ts" />
-/// <reference path="NpcID/*.d.ts" />
-/// <reference path="Constants/CLIENT_DEFAULT_ZOOM.d.ts" />
-/// <reference path="ItemComposition.d.ts" />
-/// <reference path="ItemID/*.d.ts" />
-/// <reference path="SpritePixels.d.ts" />
-/// <reference path="AnimationID.d.ts" />
-/// <reference path="NPCComposition.d.ts" />
-/// <reference path="NpcID.d.ts" />
-/// <reference path="Tile.d.ts" />
-/// <reference path="TileItem.d.ts" />
-/// <reference path="coords/WorldArea.d.ts" />
-/// <reference path="events/AnimationChanged.d.ts" />
-/// <reference path="events/ItemDespawned.d.ts" />
-/// <reference path="events/ItemSpawned.d.ts" />
-/// <reference path="events/NpcChanged.d.ts" />
-/// <reference path="events/NpcDespawned.d.ts" />
-/// <reference path="events/PlayerDespawned.d.ts" />
-/// <reference path="SpriteID.d.ts" />
-/// <reference path="Actor.d.ts" />
-/// <reference path="ParamID.d.ts" />
-/// <reference path="java.awt.event.KeyListener.d.ts" />
-/// <reference path="MenuEntry.d.ts" />
-/// <reference path="MenuAction.d.ts" />
-/// <reference path="events/MenuEntryAdded.d.ts" />
-/// <reference path="events/PlayerMenuOptionsChanged.d.ts" />
-/// <reference path="CacheLoader<HiscoreManager.HiscoreKey.d.ts" />
-/// <reference path="HiscoreResult>.d.ts" />
-/// <reference path="WebsocketMessage>> MESSAGES;.d.ts" />
-/// <reference path="WebsocketMessage>> messages = new ArrayList<>();.d.ts" />
-/// <reference path="WebsocketMessage>> messages).d.ts" />
-/// <reference path="WebsocketMessage> message : MESSAGES).d.ts" />
-/// <reference path="WebsocketMessage> message : messages).d.ts" />
-/// <reference path="PartyMessage> void send(T message).d.ts" />
-/// <reference path="WebSocketListener implements AutoCloseable.d.ts" />
-/// <reference path="WebsocketMessage>> messages = new HashSet<>();.d.ts" />
-/// <reference path="WebsocketMessage> message).d.ts" />
-/// <reference path="Certificate> certificates = certificateFactory.generateCertificates(in);.d.ts" />
-/// <reference path="RuntimeException.d.ts" />
-/// <reference path="FilterInputStream.d.ts" />
-/// <reference path=".d.ts" />
-/// <reference path="URLClassLoader.d.ts" />
-/// <reference path="Plugin> value();.d.ts" />
-/// <reference path="Exception.d.ts" />
-/// <reference path="Plugin>> graph = GraphBuilder.d.ts" />
-/// <reference path="Plugin> pluginClazz : graph.nodes()).d.ts" />
-/// <reference path="Plugin>> sortedPlugins = topologicalSort(graph);.d.ts" />
-/// <reference path="Plugin> pluginClazz : sortedPlugins).d.ts" />
-/// <reference path="JPanel.d.ts" />
-/// <reference path="JFrame.d.ts" />
-/// <reference path="GridLayout.d.ts" />
-/// <reference path="PluginPanel.d.ts" />
-/// <reference path="JDialog.d.ts" />
-/// <reference path="JPanel implements Activatable.d.ts" />
-/// <reference path="JFrame implements ActionListener.d.ts" />
-/// <reference path="BufferedImage.d.ts" />
-/// <reference path="TurboFilter.d.ts" />
-/// <reference path="EventBus.d.ts" />
-/// <reference path="Callable<T>> tasks) throws InterruptedException.d.ts" />
-/// <reference path="Callable<T>> tasks.d.ts" />
-/// <reference path="long timeout.d.ts" />
-/// <reference path="TimeUnit unit) throws InterruptedException.d.ts" />
-/// <reference path="ExecutionException.d.ts" />
-/// <reference path="TimeoutException.d.ts" />
-/// <reference path="DecorativeObject.d.ts" />
-/// <reference path="GameObject.d.ts" />
-/// <reference path="GroundObject.d.ts" />
-/// <reference path="ItemContainer.d.ts" />
-/// <reference path="ItemLayer.d.ts" />
-/// <reference path="Node.d.ts" />
-/// <reference path="Scene.d.ts" />
-/// <reference path="WallObject.d.ts" />
-/// <reference path="events/DecorativeObjectSpawned.d.ts" />
-/// <reference path="events/GameObjectSpawned.d.ts" />
-/// <reference path="events/GroundObjectSpawned.d.ts" />
-/// <reference path="events/ItemContainerChanged.d.ts" />
-/// <reference path="events/NpcSpawned.d.ts" />
-/// <reference path="events/PlayerSpawned.d.ts" />
-/// <reference path="events/WallObjectSpawned.d.ts" />
-/// <reference path="com.google.protobuf.GeneratedMessageLite.d.ts" />
-/// <reference path="com.google.protobuf.GeneratedMessageLite<.d.ts" />
-/// <reference path="Join.Builder>.d.ts" />
-/// <reference path="Part.Builder>.d.ts" />
-/// <reference path="Data.Builder>.d.ts" />
-/// <reference path="C2S.Builder>.d.ts" />
-/// <reference path="UserJoin.Builder>.d.ts" />
-/// <reference path="UserPart.Builder>.d.ts" />
-/// <reference path="PartyData.Builder>.d.ts" />
-/// <reference path="S2C.Builder>.d.ts" />
-/// <reference path="CharMatcher.d.ts" />
-/// <reference path="PopupFactory.d.ts" />
-/// <reference path="FullScreenAdapter.d.ts" />
-/// <reference path="Temporal> R addTo(R temporal.d.ts" />
-/// <reference path="long amount).d.ts" />
-/// <reference path="Annotation>.d.ts" />
-/// <reference path="Annotation> m = (Map) declaredAnnotations.get(object);.d.ts" />
-/// <reference path="Annotation>emptyMap()).d.ts" />
-/// <reference path="T> type.d.ts" />
-/// <reference path="String label) {.d.ts" />
-/// <reference path="T> type) {.d.ts" />
-/// <reference path="T.d.ts" />
-/// <reference path="StdCallLibrary.d.ts" />
-/// <reference path="widgets/InterfaceID.d.ts" />
-/// <reference path="HitsplatID.d.ts" />
-/// <reference path="VarClientInt.d.ts" />
-/// <reference path="SimplePolygon.d.ts" />
-/// <reference path="Point.d.ts" />
-/// <reference path="geometry/SimplePolygon.d.ts" />
-/// <reference path="../../../../java/index.d.ts" />
-/// <reference path="../../../../jagex/index.d.ts" />
-/// <reference path="widgets/JavaScriptCallback.d.ts" />
-/// <reference path="widgets/WidgetPositionMode.d.ts" />
-/// <reference path="widgets/WidgetSizeMode.d.ts" />
-/// <reference path="widgets/WidgetTextAlignment.d.ts" />
-/// <reference path="widgets/WidgetType.d.ts" />
-/// <reference path="ChatboxTextInput.d.ts" />
-/// <reference path="events/ScriptPreFired.d.ts" />
-/// <reference path="vars/InputType.d.ts" />
-/// <reference path="FontID.d.ts" />
-/// <reference path="ChatboxInput implements KeyListener.d.ts" />
-/// <reference path="FontTypeFace.d.ts" />
-/// <reference path="MouseListener.d.ts" />
-/// <reference path="Overlay.d.ts" />
-/// <reference path="Perspective.d.ts" />
-/// <reference path="PartyMessage.d.ts" />
-/// <reference path="PartyMemberMessage.d.ts" />
-/// <reference path="WebsocketMessage.d.ts" />
-/// <reference path="Plugin.d.ts" />
-/// <reference path="events/WidgetLoaded.d.ts" />
-/// <reference path="Quest.d.ts" />
-/// <reference path="QuestState.d.ts" />
-/// <reference path="Timer.d.ts" />
-/// <reference path="ItemID/AGILITY_ARENA_TICKET.d.ts" />
-/// <reference path="NullNpcID.d.ts" />
-/// <reference path="Skill/AGILITY.d.ts" />
-/// <reference path="events/DecorativeObjectDespawned.d.ts" />
-/// <reference path="events/GameObjectDespawned.d.ts" />
-/// <reference path="events/GroundObjectDespawned.d.ts" />
-/// <reference path="events/StatChanged.d.ts" />
-/// <reference path="events/WallObjectDespawned.d.ts" />
-/// <reference path="MenuAction/RUNELITE_OVERLAY.d.ts" />
-/// <reference path="MenuAction/RUNELITE_OVERLAY_CONFIG.d.ts" />
-/// <reference path="OverlayPanel.d.ts" />
-/// <reference path="NullObjectID/*.d.ts" />
-/// <reference path="Counter.d.ts" />
-/// <reference path="events/FocusChanged.d.ts" />
-/// <reference path="events/ScriptPostFired.d.ts" />
-/// <reference path="Plugin implements KeyListener.d.ts" />
-/// <reference path="EquipmentInventorySlot.d.ts" />
-/// <reference path="InventoryID.d.ts" />
-/// <reference path="Item.d.ts" />
-/// <reference path="StructComposition.d.ts" />
-/// <reference path="events/VarbitChanged.d.ts" />
-/// <reference path="events/MenuShouldLeftClick.d.ts" />
-/// <reference path="events/GrandExchangeSearched.d.ts" />
-/// <reference path="events/WidgetClosed.d.ts" />
-/// <reference path="NullObjectID/NULL_9092.d.ts" />
-/// <reference path="ObjectID/CONVEYOR_BELT.d.ts" />
-/// <reference path="Varbits/BLAST_FURNACE_COFFER.d.ts" />
-/// <reference path="ObjectID.d.ts" />
-/// <reference path="InfoBox.d.ts" />
-/// <reference path="Prayer.d.ts" />
-/// <reference path="SettingID.d.ts" />
-/// <reference path="events/ClientTick.d.ts" />
-/// <reference path="ChatLineBuffer.d.ts" />
-/// <reference path="ChatPlayer.d.ts" />
-/// <reference path="FriendsChatManager.d.ts" />
-/// <reference path="FriendsChatMember.d.ts" />
-/// <reference path="Ignore.d.ts" />
-/// <reference path="NameableContainer.d.ts" />
-/// <reference path="clan/ClanChannelMember.d.ts" />
-/// <reference path="clan/ClanRank.d.ts" />
-/// <reference path="events/ClanMemberJoined.d.ts" />
-/// <reference path="events/ClanMemberLeft.d.ts" />
-/// <reference path="events/FriendsChatChanged.d.ts" />
-/// <reference path="events/FriendsChatMemberJoined.d.ts" />
-/// <reference path="events/FriendsChatMemberLeft.d.ts" />
-/// <reference path="events/VarClientStrChanged.d.ts" />
-/// <reference path="Perspective/LOCAL_TILE_SIZE.d.ts" />
-/// <reference path="ItemID/CANNONBALL.d.ts" />
-/// <reference path="ChatMessageType/ENGINE.d.ts" />
-/// <reference path="ChatMessageType/GAMEMESSAGE.d.ts" />
-/// <reference path="ChatMessageType/ITEM_EXAMINE.d.ts" />
-/// <reference path="ChatMessageType/MODCHAT.d.ts" />
-/// <reference path="ChatMessageType/NPC_EXAMINE.d.ts" />
-/// <reference path="ChatMessageType/OBJECT_EXAMINE.d.ts" />
-/// <reference path="ChatMessageType/PUBLICCHAT.d.ts" />
-/// <reference path="ChatMessageType/SPAM.d.ts" />
-/// <reference path="events/OverheadTextChanged.d.ts" />
-/// <reference path="LinkedHashMap<Integer.d.ts" />
-/// <reference path="String>.d.ts" />
-/// <reference path="Experience.d.ts" />
-/// <reference path="IconID.d.ts" />
-/// <reference path="events/MenuOptionClicked.d.ts" />
-/// <reference path="widgets/WidgetUtil.d.ts" />
-/// <reference path="AnimationID/COOKING_FIRE.d.ts" />
-/// <reference path="AnimationID/COOKING_RANGE.d.ts" />
-/// <reference path="GraphicID.d.ts" />
-/// <reference path="events/GraphicChanged.d.ts" />
-/// <reference path="Enum> type = (Class<?.d.ts" />
-/// <reference path="Keybind>) cid.getType());.d.ts" />
-/// <reference path="Enum> set = configManager.getConfiguration(cd.getGroup().value().d.ts" />
-/// <reference path="null,.d.ts" />
-/// <reference path="Enum<T>> JComboBox<Enum<T>> combobox(Class<T> clazz.d.ts" />
-/// <reference path="T value).d.ts" />
-/// <reference path="JButton.d.ts" />
-/// <reference path="JPanel implements SearchablePlugin.d.ts" />
-/// <reference path="JLabel.d.ts" />
-/// <reference path="Plugin> clazz = p.getClass();.d.ts" />
-/// <reference path="JToggleButton.d.ts" />
-/// <reference path="SearchablePlugin> List<T> search(Collection<T> searchablePlugins.d.ts" />
-/// <reference path="String query).d.ts" />
-/// <reference path="PluginPanel> panelProvider.d.ts" />
-/// <reference path="String image.d.ts" />
-/// <reference path="String tooltip).d.ts" />
-/// <reference path="JFormattedTextField.AbstractFormatter.d.ts" />
-/// <reference path="JFormattedTextField.AbstractFormatterFactory.d.ts" />
-/// <reference path="Shape> implements Shape.d.ts" />
-/// <reference path="events/HitsplatApplied.d.ts" />
-/// <reference path="events/InteractingChanged.d.ts" />
-/// <reference path="ObjectComposition.d.ts" />
-/// <reference path="WorldMapPoint.d.ts" />
-/// <reference path="Animation.d.ts" />
-/// <reference path="DynamicObject.d.ts" />
-/// <reference path="GraphicsObject.d.ts" />
-/// <reference path="Projectile.d.ts" />
-/// <reference path="JPanel implements Scrollable.d.ts" />
-/// <reference path="VarbitComposition.d.ts" />
-/// <reference path="kit/KitType.d.ts" />
-/// <reference path="DevToolsFrame.d.ts" />
-/// <reference path="DefaultMutableTreeNode.d.ts" />
-/// <reference path="Constants/CHUNK_SIZE.d.ts" />
-/// <reference path="Constants/SCENE_SIZE.d.ts" />
-/// <reference path="CollisionDataFlag.d.ts" />
-/// <reference path="IndexDataBase.d.ts" />
-/// <reference path="events/VarClientIntChanged.d.ts" />
-/// <reference path="WidgetNode.d.ts" />
-/// <reference path="AbstractTableModel.d.ts" />
-/// <reference path="events/AreaSoundEffectPlayed.d.ts" />
-/// <reference path="events/SoundEffectPlayed.d.ts" />
-/// <reference path="Hitsplat.d.ts" />
-/// <reference path="ScriptEvent.d.ts" />
-/// <reference path="SoundEffectID.d.ts" />
-/// <reference path="Friend.d.ts" />
-/// <reference path="Nameable.d.ts" />
-/// <reference path="events/NameableNameChanged.d.ts" />
-/// <reference path="events/RemovedFriend.d.ts" />
-/// <reference path="PendingLogin.d.ts" />
-/// <reference path="BufferProvider.d.ts" />
-/// <reference path="IntProjection.d.ts" />
-/// <reference path="Model.d.ts" />
-/// <reference path="Projection.d.ts" />
-/// <reference path="SceneTileModel.d.ts" />
-/// <reference path="SceneTilePaint.d.ts" />
-/// <reference path="Texture.d.ts" />
-/// <reference path="TextureProvider.d.ts" />
-/// <reference path="Plugin implements DrawCallbacks.d.ts" />
-/// <reference path="KeyCode.d.ts" />
-/// <reference path="HotkeyListener.d.ts" />
-/// <reference path="MouseAdapter.d.ts" />
-/// <reference path="TileItem/OWNERSHIP_GROUP.d.ts" />
-/// <reference path="TileItem/OWNERSHIP_NONE.d.ts" />
-/// <reference path="TileItem/OWNERSHIP_OTHER.d.ts" />
-/// <reference path="TileItem/OWNERSHIP_SELF.d.ts" />
-/// <reference path="events/ItemQuantityChanged.d.ts" />
-/// <reference path="JagexColor.d.ts" />
-/// <reference path="ModelData.d.ts" />
-/// <reference path="RuneLiteObject.d.ts" />
-/// <reference path="CacheLoader<NamedQuantity.d.ts" />
-/// <reference path="Boolean>.d.ts" />
-/// <reference path="MouseAdapter implements KeyListener.d.ts" />
-/// <reference path="GrandExchangeOffer.d.ts" />
-/// <reference path="GrandExchangeOfferState/BOUGHT.d.ts" />
-/// <reference path="GrandExchangeOfferState/BUYING.d.ts" />
-/// <reference path="GrandExchangeOfferState/CANCELLED_BUY.d.ts" />
-/// <reference path="GrandExchangeOfferState/CANCELLED_SELL.d.ts" />
-/// <reference path="GrandExchangeOfferState/EMPTY.d.ts" />
-/// <reference path="GrandExchangeOfferState.d.ts" />
-/// <reference path="events/GrandExchangeOfferChanged.d.ts" />
-/// <reference path="AnimationID/*.d.ts" />
-/// <reference path="coords/Angle.d.ts" />
-/// <reference path="coords/Direction.d.ts" />
-/// <reference path="ObjectID/DRIFTWOOD_30523.d.ts" />
-/// <reference path="ObjectID/MUSHROOM_30520.d.ts" />
-/// <reference path="ObjectID/ROCK_30519.d.ts" />
-/// <reference path="ObjectID/ROCK_30521.d.ts" />
-/// <reference path="ObjectID/ROCK_30522.d.ts" />
-/// <reference path="clan/ClanMember.d.ts" />
-/// <reference path="JEditorPane.d.ts" />
-/// <reference path="SpriteID/WINDOW_CLOSE_BUTTON_RED_X.d.ts" />
-/// <reference path="SpriteID/WINDOW_CLOSE_BUTTON_RED_X_HOVERED.d.ts" />
-/// <reference path="MouseWheelListener.d.ts" />
-/// <reference path="InventoryID/EQUIPMENT.d.ts" />
-/// <reference path="InventoryID/INVENTORY.d.ts" />
-/// <reference path="events/MenuOpened.d.ts" />
-/// <reference path="WidgetItemOverlay.d.ts" />
-/// <reference path="HealthBar.d.ts" />
-/// <reference path="events/BeforeMenuRender.d.ts" />
-/// <reference path="events/PostHealthBar.d.ts" />
-/// <reference path="SpriteID/*.d.ts" />
-/// <reference path="ItemID/TEAK_CHEST.d.ts" />
-/// <reference path="Perspective/getCanvasTilePoly.d.ts" />
-/// <reference path="StatBoost.d.ts" />
-/// <reference path="FoodBase.d.ts" />
-/// <reference path="SimpleIterator.d.ts" />
-/// <reference path="SingleEffect.d.ts" />
-/// <reference path="StatChange.d.ts" />
-/// <reference path="SoundEffectVolume.d.ts" />
-/// <reference path="Preferences.d.ts" />
-/// <reference path="events/PostMenuSort.d.ts" />
-/// <reference path="Comparable<? super T>> void sortedInsert(List<T> list.d.ts" />
-/// <reference path="T value) // NOPMD: UnusedPrivateMethod: false positive.d.ts" />
-/// <reference path="HintArrowType.d.ts" />
-/// <reference path="AnimationID/MINING_3A_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_ADAMANT_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_BLACK_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_BRONZE_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_3A.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_ADAMANT.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_BLACK.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_BRONZE.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_CRYSTAL.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_DRAGON.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_DRAGON_OR.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_DRAGON_OR_TRAILBLAZER.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_DRAGON_UPGRADED.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_GILDED.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_INFERNAL.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_IRON.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_MITHRIL.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_RUNE.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_STEEL.d.ts" />
-/// <reference path="AnimationID/MINING_CRYSTAL_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_DRAGON_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_DRAGON_PICKAXE_OR.d.ts" />
-/// <reference path="AnimationID/MINING_DRAGON_PICKAXE_OR_TRAILBLAZER.d.ts" />
-/// <reference path="AnimationID/MINING_DRAGON_PICKAXE_UPGRADED.d.ts" />
-/// <reference path="AnimationID/MINING_GILDED_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_INFERNAL_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_IRON_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_MITHRIL_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_3A.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_ADAMANT.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_BLACK.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_BRONZE.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_CRYSTAL.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_DRAGON.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_DRAGON_OR.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_DRAGON_OR_TRAILBLAZER.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_DRAGON_UPGRADED.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_GILDED.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_INFERNAL.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_IRON.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_MITHRIL.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_RUNE.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_STEEL.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_TRAILBLAZER.d.ts" />
-/// <reference path="AnimationID/MINING_RUNE_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_STEEL_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_TRAILBLAZER_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_TRAILBLAZER_PICKAXE_2.d.ts" />
-/// <reference path="AnimationID/MINING_TRAILBLAZER_PICKAXE_3.d.ts" />
-/// <reference path="ItemID/ADAMANT_PICKAXE.d.ts" />
-/// <reference path="ItemID/BLACK_PICKAXE.d.ts" />
-/// <reference path="ItemID/BRONZE_PICKAXE.d.ts" />
-/// <reference path="ItemID/CRYSTAL_PICKAXE.d.ts" />
-/// <reference path="ItemID/DRAGON_PICKAXE.d.ts" />
-/// <reference path="ItemID/DRAGON_PICKAXE_OR.d.ts" />
-/// <reference path="ItemID/DRAGON_PICKAXE_OR_25376.d.ts" />
-/// <reference path="ItemID/DRAGON_PICKAXE_12797.d.ts" />
-/// <reference path="ItemID/GILDED_PICKAXE.d.ts" />
-/// <reference path="ItemID/INFERNAL_PICKAXE.d.ts" />
-/// <reference path="ItemID/IRON_PICKAXE.d.ts" />
-/// <reference path="ItemID/MITHRIL_PICKAXE.d.ts" />
-/// <reference path="ItemID/RUNE_PICKAXE.d.ts" />
-/// <reference path="ItemID/STEEL_PICKAXE.d.ts" />
-/// <reference path="ItemID/_3RD_AGE_PICKAXE.d.ts" />
-/// <reference path="ItemID/INFERNAL_PICKAXE_OR.d.ts" />
-/// <reference path="ObjectID/BROKEN_STRUT.d.ts" />
-/// <reference path="ObjectID/ORE_VEIN.d.ts" />
-/// <reference path="ObjectID/ORE_VEIN_26662.d.ts" />
-/// <reference path="ObjectID/ORE_VEIN_26663.d.ts" />
-/// <reference path="ObjectID/ORE_VEIN_26664.d.ts" />
-/// <reference path="ObjectID/ROCKFALL.d.ts" />
-/// <reference path="ObjectID/ROCKFALL_26680.d.ts" />
-/// <reference path="StructID.d.ts" />
-/// <reference path="events/AmbientSoundEffectCreated.d.ts" />
-/// <reference path="events/PostStructComposition.d.ts" />
-/// <reference path="events/VolumeChanged.d.ts" />
-/// <reference path="Slider.d.ts" />
-/// <reference path="events/GraphicsObjectCreated.d.ts" />
-/// <reference path="geometry/Geometry.d.ts" />
-/// <reference path="FriendsChatRank/UNRANKED.d.ts" />
-/// <reference path="MenuAction/ITEM_USE_ON_PLAYER.d.ts" />
-/// <reference path="MenuAction/PLAYER_EIGHTH_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_FIFTH_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_FIRST_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_FOURTH_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_SECOND_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_SEVENTH_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_SIXTH_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_THIRD_OPTION.d.ts" />
-/// <reference path="MenuAction/RUNELITE_PLAYER.d.ts" />
-/// <reference path="MenuAction/WALK.d.ts" />
-/// <reference path="MenuAction/WIDGET_TARGET_ON_PLAYER.d.ts" />
-/// <reference path="events/DraggingWidgetChanged.d.ts" />
-/// <reference path="widgets/WidgetConfig/DRAG.d.ts" />
-/// <reference path="widgets/WidgetConfig/DRAG_ON.d.ts" />
-/// <reference path="SpriteID/MINIMAP_DESTINATION_FLAG.d.ts" />
-/// <reference path="dbtable/DBTableID.d.ts" />
-/// <reference path="InstanceTemplates.d.ts" />
-/// <reference path="Perspective/SCENE_SIZE.d.ts" />
-/// <reference path="SpriteID/TAB_QUESTS_BROWN_RAIDING_PARTY.d.ts" />
-/// <reference path="ItemID/AIR_RUNE.d.ts" />
-/// <reference path="ItemID/BLOOD_RUNE.d.ts" />
-/// <reference path="ItemID/BODY_RUNE.d.ts" />
-/// <reference path="ItemID/CHAOS_RUNE.d.ts" />
-/// <reference path="ItemID/COSMIC_RUNE.d.ts" />
-/// <reference path="ItemID/DEATH_RUNE.d.ts" />
-/// <reference path="ItemID/EARTH_RUNE.d.ts" />
-/// <reference path="ItemID/FIRE_RUNE.d.ts" />
-/// <reference path="ItemID/LAW_RUNE.d.ts" />
-/// <reference path="ItemID/MIND_RUNE.d.ts" />
-/// <reference path="ItemID/NATURE_RUNE.d.ts" />
-/// <reference path="ItemID/SOUL_RUNE.d.ts" />
-/// <reference path="ItemID/WATER_RUNE.d.ts" />
-/// <reference path="Constants/ROOF_FLAG_BETWEEN.d.ts" />
-/// <reference path="Constants/ROOF_FLAG_DESTINATION.d.ts" />
-/// <reference path="Constants/ROOF_FLAG_HOVERED.d.ts" />
-/// <reference path="Constants/ROOF_FLAG_POSITION.d.ts" />
-/// <reference path="events/ActorDeath.d.ts" />
-/// <reference path="NullItemID.d.ts" />
-/// <reference path="AnimationID/SMITHING_CANNONBALL.d.ts" />
-/// <reference path="AnimationID/SMITHING_SMELTING.d.ts" />
-/// <reference path="events/ClanChannelChanged.d.ts" />
-/// <reference path="events/ResizeableChanged.d.ts" />
-/// <reference path="ItemID/FIRE_CAPE.d.ts" />
-/// <reference path="ItemID/INFERNAL_CAPE.d.ts" />
-/// <reference path="VarPlayer/LAST_HOME_TELEPORT.d.ts" />
-/// <reference path="VarPlayer/LAST_MINIGAME_TELEPORT.d.ts" />
-/// <reference path="TabContentPanel.d.ts" />
-/// <reference path="Plugin implements TwitchListener.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_3A.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_ADAMANT.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_BLACK.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_BRONZE.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_CRYSTAL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_CRYSTAL_INACTIVE.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_DRAGON.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_IRON.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_MITHRIL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_RUNE.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_STEEL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_3A_AXE.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_ADAMANT.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_BLACK.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_BRONZE.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_CRYSTAL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_DRAGON.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_DRAGON_OR.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_GILDED.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_INFERNAL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_IRON.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_MITHRIL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_RUNE.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_STEEL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_TRAILBLAZER.d.ts" />
-/// <reference path="AnimationID/CONSTRUCTION.d.ts" />
-/// <reference path="AnimationID/CONSTRUCTION_IMCANDO.d.ts" />
-/// <reference path="AnimationID/FIREMAKING.d.ts" />
-/// <reference path="AnimationID/FLETCHING_BOW_CUTTING.d.ts" />
-/// <reference path="AnimationID/IDLE.d.ts" />
-/// <reference path="AnimationID/LOOKING_INTO.d.ts" />
-/// <reference path="ItemID/BRUMA_KINDLING.d.ts" />
-/// <reference path="ItemID/BRUMA_ROOT.d.ts" />
-/// <reference path="events/WorldListLoad.d.ts" />
-/// <reference path="worldmap/WorldMapIcon.d.ts" />
-/// <reference path="worldmap/WorldMapRegion.d.ts" />
-/// <reference path="ScriptID/XPDROPS_SETDROPSIZE.d.ts" />
-/// <reference path="ScriptID/XPDROP_DISABLED.d.ts" />
-/// <reference path="GraphicID/GRAPHICS_OBJECT_ROCKFALL.d.ts" />
-/// <reference path="GraphicID/ZALCANO_PROJECTILE_FIREBALL.d.ts" />
-/// <reference path="HitsplatID/DAMAGE_MAX_ME.d.ts" />
-/// <reference path="HitsplatID/DAMAGE_MAX_ME_ORANGE.d.ts" />
-/// <reference path="HitsplatID/DAMAGE_ME.d.ts" />
-/// <reference path="HitsplatID/DAMAGE_ME_ORANGE.d.ts" />
-/// <reference path="NpcID/ZALCANO.d.ts" />
-/// <reference path="events/ProjectileMoved.d.ts" />
-/// <reference path="JLayeredPane.d.ts" />
-/// <reference path="BoxLayout.d.ts" />
-/// <reference path="DefaultListCellRenderer.d.ts" />
-/// <reference path="DimmableJPanel.d.ts" />
-/// <reference path="FlatButtonUI.d.ts" />
-/// <reference path="FlatCheckBoxUI.d.ts" />
-/// <reference path="FlatDarkLaf.d.ts" />
-/// <reference path="FlatScrollBarUI.d.ts" />
-/// <reference path="FlatRadioButtonUI.d.ts" />
-/// <reference path="FlatToggleButtonUI.d.ts" />
-/// <reference path="FlatRootPaneUI.d.ts" />
-/// <reference path="FlatTabbedPaneUI.d.ts" />
-/// <reference path="FlatTabbedPaneLayout.d.ts" />
-/// <reference path="WidgetOverlay.d.ts" />
 /// <reference path="../../../../../java/index.d.ts" />
 /// <reference path="../../../../../jagex/index.d.ts" />
-/// <reference path="GenericDiaryRequirement.d.ts" />
-/// <reference path="MapClue implements LocationClueScroll.d.ts" />
-/// <reference path="ClueScroll implements LocationClueScroll.d.ts" />
+/// <reference path="EquipmentInventorySlot.d.ts" />
+/// <reference path="Item.d.ts" />
+/// <reference path="ItemID.d.ts" />
+/// <reference path="NPC.d.ts" />
+/// <reference path="Point.d.ts" />
+/// <reference path="TileObject.d.ts" />
 /// <reference path="ClueScroll implements NpcClueScroll.d.ts" />
-/// <reference path="ObjectClueScroll.d.ts" />
-/// <reference path="LocationClueScroll.d.ts" />
-/// <reference path="LocationsClueScroll.d.ts" />
-/// <reference path="NpcClueScroll.d.ts" />
-/// <reference path="EquipmentInventorySlot/AMMO.d.ts" />
-/// <reference path="EquipmentInventorySlot/AMULET.d.ts" />
-/// <reference path="EquipmentInventorySlot/BODY.d.ts" />
-/// <reference path="EquipmentInventorySlot/BOOTS.d.ts" />
-/// <reference path="EquipmentInventorySlot/CAPE.d.ts" />
-/// <reference path="EquipmentInventorySlot/GLOVES.d.ts" />
-/// <reference path="EquipmentInventorySlot/HEAD.d.ts" />
-/// <reference path="EquipmentInventorySlot/LEGS.d.ts" />
-/// <reference path="EquipmentInventorySlot/RING.d.ts" />
-/// <reference path="EquipmentInventorySlot/SHIELD.d.ts" />
-/// <reference path="EquipmentInventorySlot/WEAPON.d.ts" />
-/// <reference path="ObjectID/CRATE_18506.d.ts" />
-/// <reference path="ObjectID/CRATE_2620.d.ts" />
-/// <reference path="ObjectID/CRATE_354.d.ts" />
-/// <reference path="ObjectID/CRATE_357.d.ts" />
-/// <reference path="ObjectID/CRATE_6616.d.ts" />
-/// <reference path="ClueScroll implements ObjectClueScroll.d.ts" />
 /// <reference path="NamedObjectClueScroll.d.ts" />
+/// <reference path=""i.d.ts" />
+/// <reference path="new.d.ts" />
+/// <reference path="PanelComponent.d.ts" />
+/// <reference path="ClueScrollPlugin.d.ts" />
+/// <reference path="Graphics2D.d.ts" />
+/// <reference path="ItemRequirement.d.ts" />
+/// <reference path="LineComponent.d.ts" />
+/// <reference path="SkillChallengeClue.d.ts" />
 /*
  * Copyright (c) 2019 Hydrox6 <ikada@protonmail.ch>
  * All rights reserved.
@@ -659,18 +42,63 @@
  */
 declare namespace net.runelite.client.plugins.cluescrolls.clues {
 export class SkillChallengeClue extends ClueScroll implements NpcClueScroll, NamedObjectClueScroll
+{
+enum ChallengeType
+item(ItemID.BRONZE_PICKAXE), item(ItemID.IRON_PICKAXE), item(ItemID.STEEL_PICKAXE), item(ItemID.BLACK_PICKAXE), item(ItemID.MITHRIL_PICKAXE), item(ItemID.ADAMANT_PICKAXE), item(ItemID.RUNE_PICKAXE), item(ItemID.DRAGON_PICKAXE), item(ItemID.DRAGON_PICKAXE_12797), item(ItemID.DRAGON_PICKAXE_OR), item(ItemID.DRAGON_PICKAXE_OR_25376), item(ItemID.INFERNAL_PICKAXE), item(ItemID.INFERNAL_PICKAXE_OR), item(ItemID.INFERNAL_PICKAXE_UNCHARGED), item(ItemID.INFERNAL_PICKAXE_UNCHARGED_25369), item(ItemID.GILDED_PICKAXE), item(ItemID._3RD_AGE_PICKAXE), item(ItemID.CRYSTAL_PICKAXE), item(ItemID.CRYSTAL_PICKAXE_INACTIVE), item(ItemID.TRAILBLAZER_PICKAXE) 
+);
+item(ItemID.BRONZE_AXE), item(ItemID.BRONZE_FELLING_AXE), item(ItemID.IRON_AXE), item(ItemID.IRON_FELLING_AXE), item(ItemID.STEEL_AXE), item(ItemID.STEEL_FELLING_AXE), item(ItemID.BLACK_AXE), item(ItemID.BLACK_FELLING_AXE), item(ItemID.MITHRIL_AXE), item(ItemID.MITHRIL_FELLING_AXE), item(ItemID.ADAMANT_AXE), item(ItemID.ADAMANT_FELLING_AXE), item(ItemID.RUNE_AXE), item(ItemID.RUNE_FELLING_AXE), item(ItemID.DRAGON_AXE), item(ItemID.DRAGON_AXE_OR), item(ItemID.DRAGON_FELLING_AXE), item(ItemID.INFERNAL_AXE), item(ItemID.INFERNAL_AXE_OR), item(ItemID.INFERNAL_AXE_UNCHARGED), item(ItemID.INFERNAL_AXE_UNCHARGED_25371), item(ItemID.GILDED_AXE), item(ItemID._3RD_AGE_AXE), item(ItemID._3RD_AGE_FELLING_AXE), item(ItemID.CRYSTAL_AXE), item(ItemID.CRYSTAL_AXE_INACTIVE), item(ItemID.CRYSTAL_FELLING_AXE), item(ItemID.CRYSTAL_FELLING_AXE_INACTIVE), item(ItemID.TRAILBLAZER_AXE) 
+);
+item(ItemID.HARPOON), item(ItemID.BARBTAIL_HARPOON), item(ItemID.DRAGON_HARPOON), item(ItemID.DRAGON_HARPOON_OR), item(ItemID.INFERNAL_HARPOON), item(ItemID.INFERNAL_HARPOON_OR), item(ItemID.INFERNAL_HARPOON_UNCHARGED), item(ItemID.INFERNAL_HARPOON_UNCHARGED_25367), item(ItemID.CRYSTAL_HARPOON), item(ItemID.CRYSTAL_HARPOON_INACTIVE), item(ItemID.TRAILBLAZER_HARPOON) 
+);
+item(ItemID.HAMMER), item(ItemID.IMCANDO_HAMMER) 
+);
+any("" /* graceful hood   */, ItemVariationMapping.getVariations(ItemID.GRACEFUL_HOOD).stream().map(ItemRequirements::item).toArray(SingleItemRequirement[]::new)), any("" /* graceful top    */, ItemVariationMapping.getVariations(ItemID.GRACEFUL_TOP).stream().map(ItemRequirements::item).toArray(SingleItemRequirement[]::new)), any("" /* graceful legs   */, ItemVariationMapping.getVariations(ItemID.GRACEFUL_LEGS).stream().map(ItemRequirements::item).toArray(SingleItemRequirement[]::new)), any("" /* graceful gloves */, ItemVariationMapping.getVariations(ItemID.GRACEFUL_GLOVES).stream().map(ItemRequirements::item).toArray(SingleItemRequirement[]::new)), any("" /* graceful boots  */, ItemVariationMapping.getVariations(ItemID.GRACEFUL_BOOTS).stream().map(ItemRequirements::item).toArray(SingleItemRequirement[]::new)), any("" /* graceful cape   */, Stream.of( ItemVariationMapping.getVariations(ItemID.GRACEFUL_CAPE).stream(), ItemVariationMapping.getVariations(ItemID.AGILITY_CAPE).stream(), ItemVariationMapping.getVariations(ItemID.MAX_CAPE).stream()) 
+.reduce(Stream::concat) 
+.orElseGet(Stream::empty) 
+.map(ItemRequirements::item).toArray(SingleItemRequirement[]::new)) 
+);
 		// Charlie Tasks
 		// Elite Sherlock Tasks
+	static SkillChallengeClue(ChallengeType.CHARLIE, need: "i,  item(ItemID.PIKE): new;
+.reduce(Stream::concat) 
+.orElseGet(Stream::empty) 
+.map(ItemRequirements::item) 
 		// Master Sherlock Tasks
+.toArray(SingleItemRequirement[]::new))), new SkillChallengeClue("Catch a black warlock.", any("Butterfly Net", item(ItemID.BUTTERFLY_NET), item(ItemID.MAGIC_BUTTERFLY_NET))), new SkillChallengeClue("Catch a red chinchompa.", item(ItemID.BOX_TRAP)), new SkillChallengeClue("Mine a mithril ore.", ANY_PICKAXE), new SkillChallengeClue("Smith a mithril 2h sword.", ANY_HAMMER, xOfItem(ItemID.MITHRIL_BAR, 3)), new SkillChallengeClue("Catch a raw shark.", ANY_HARPOON), new SkillChallengeClue("Cut a yew log.", ANY_AXE), new SkillChallengeClue("Burn a yew log.", item(ItemID.YEW_LOGS), item(ItemID.TINDERBOX)), new SkillChallengeClue("Cook a swordfish", "cook a swordfish", item(ItemID.RAW_SWORDFISH)), new SkillChallengeClue("Craft multiple cosmic runes from a single essence.", any("Pure essence or Daeyalt essence", item(ItemID.PURE_ESSENCE), item(ItemID.DAEYALT_ESSENCE))), new SkillChallengeClue("Plant a watermelon seed.", item(ItemID.RAKE), item(ItemID.SEED_DIBBER), xOfItem(ItemID.WATERMELON_SEED, 3)), new SkillChallengeClue("Activate the Chivalry prayer."), new SkillChallengeClue("Smith a tier 2 or above Shayzien platebody.", "smith a tier 2 or above shayzien platebody.", ANY_HAMMER, xOfItem(ItemID.LOVAKITE_BAR, 4)), new SkillChallengeClue("Equip an abyssal whip in front of the abyssal demons of the Slayer Tower.", true, any("Abyssal Whip", item(ItemID.ABYSSAL_WHIP), item(ItemID.FROZEN_ABYSSAL_WHIP), item(ItemID.VOLCANIC_ABYSSAL_WHIP), item(ItemID.ABYSSAL_WHIP_OR), item(ItemID.ABYSSAL_TENTACLE), item(ItemID.ABYSSAL_TENTACLE_OR))), new SkillChallengeClue("Smith a runite med helm.", ANY_HAMMER, item(ItemID.RUNITE_BAR)), new SkillChallengeClue("Teleport to a spirit tree you planted yourself."), new SkillChallengeClue("Create a Barrows teleport tablet.", item(ItemID.DARK_ESSENCE_BLOCK), xOfItem(ItemID.BLOOD_RUNE, 1), xOfItem(ItemID.LAW_RUNE, 2), xOfItem(ItemID.SOUL_RUNE, 2)), new SkillChallengeClue("Kill a Nechryael in the Slayer Tower.", "slay a nechryael in the slayer tower."), new SkillChallengeClue("Kill a Spiritual Mage while wearing something from their god.", "kill the spiritual, magic and godly whilst representing their own god."), new SkillChallengeClue("Create an unstrung dragonstone amulet at a furnace.", item(ItemID.GOLD_BAR), item(ItemID.DRAGONSTONE), item(ItemID.AMULET_MOULD)), new SkillChallengeClue("Burn a magic log.", item(ItemID.MAGIC_LOGS), item(ItemID.TINDERBOX)), new SkillChallengeClue("Burn a redwood log.", item(ItemID.REDWOOD_LOGS), item(ItemID.TINDERBOX)), new SkillChallengeClue("Complete a lap of Rellekka's Rooftop Agility Course", "complete a lap of the rellekka rooftop agility course whilst sporting the finest amount of grace.", true, A_FULL_GRACEFUL_SET), new SkillChallengeClue("Mix an anti-venom potion.", item(ItemID.ANTIDOTE4_5952), xOfItem(ItemID.ZULRAHS_SCALES, 20)), new SkillChallengeClue("Mine a piece of Runite ore", "mine a piece of runite ore whilst sporting the finest mining gear.", true, ANY_PICKAXE, all("Prospector kit", any("", item(ItemID.PROSPECTOR_HELMET), item(ItemID.GOLDEN_PROSPECTOR_HELMET)), any("", item(ItemID.PROSPECTOR_JACKET), item(ItemID.VARROCK_ARMOUR_4), item(ItemID.GOLDEN_PROSPECTOR_JACKET)), any("", item(ItemID.PROSPECTOR_LEGS), item(ItemID.GOLDEN_PROSPECTOR_LEGS)), any("", item(ItemID.PROSPECTOR_BOOTS), item(ItemID.GOLDEN_PROSPECTOR_BOOTS)))), new SkillChallengeClue("Steal a gem from the Ardougne market."), new SkillChallengeClue("Pickpocket an elf."), new SkillChallengeClue("Bind a blood rune at the blood altar.", item(ItemID.DARK_ESSENCE_FRAGMENTS)), new SkillChallengeClue("Create a ranging mix potion.", "mix a ranging mix potion.", item(ItemID.RANGING_POTION2), item(ItemID.CAVIAR)), new SkillChallengeClue("Fletch a rune dart.", item(ItemID.RUNE_DART_TIP), item(ItemID.FEATHER)), new SkillChallengeClue("Cremate a set of fiyr remains.", any("Magic or Redwood Pyre Logs", item(ItemID.MAGIC_PYRE_LOGS), item(ItemID.REDWOOD_PYRE_LOGS)), item(ItemID.TINDERBOX), item(ItemID.FIYR_REMAINS)), new SkillChallengeClue("Dissect a sacred eel.", item(ItemID.KNIFE), any("Fishing rod", item(ItemID.FISHING_ROD), item(ItemID.PEARL_FISHING_ROD)), item(ItemID.FISHING_BAIT)), new SkillChallengeClue("Kill a lizardman shaman."), new SkillChallengeClue("Catch an Anglerfish.", "angle for an anglerfish whilst sporting the finest fishing gear.", true, any("Fishing rod", item(ItemID.FISHING_ROD), item(ItemID.PEARL_FISHING_ROD)), item(ItemID.SANDWORMS), all("Angler's outfit", any("", item(ItemID.ANGLER_HAT), item(ItemID.SPIRIT_ANGLER_HEADBAND)), any("", item(ItemID.ANGLER_TOP), item(ItemID.SPIRIT_ANGLER_TOP)), any("", item(ItemID.ANGLER_WADERS), item(ItemID.SPIRIT_ANGLER_WADERS)), any("", item(ItemID.ANGLER_BOOTS), item(ItemID.SPIRIT_ANGLER_BOOTS)))), new SkillChallengeClue("Chop a redwood log.", "chop a redwood log whilst sporting the finest lumberjack gear.", true, ANY_AXE, all("Lumberjack outfit", any("", item(ItemID.LUMBERJACK_HAT), item(ItemID.FORESTRY_HAT)), any("", item(ItemID.LUMBERJACK_TOP), item(ItemID.FORESTRY_TOP)), any("", item(ItemID.LUMBERJACK_LEGS), item(ItemID.FORESTRY_LEGS)), any("", item(ItemID.LUMBERJACK_BOOTS), item(ItemID.FORESTRY_BOOTS)))), new SkillChallengeClue("Craft a light orb in the Dorgesh-Kaan bank.", item(ItemID.CAVE_GOBLIN_WIRE), item(ItemID.EMPTY_LIGHT_ORB)), new SkillChallengeClue("Kill a reanimated Abyssal Demon.", "kill a reanimated abyssal.", xOfItem(ItemID.SOUL_RUNE, 4), xOfItem(ItemID.BLOOD_RUNE, 2), any("Nature Rune x4", xOfItem(ItemID.NATURE_RUNE, 4), item(ItemID.BRYOPHYTAS_STAFF)), range("Ensouled abyssal head", ItemID.ENSOULED_ABYSSAL_HEAD, ItemID.ENSOULED_ABYSSAL_HEAD_13508)), new SkillChallengeClue("Kill a Fiyr shade inside Mort'tons shade catacombs.", any("Any Gold or Silver Shade Key", item(ItemID.GOLD_KEY_RED), item(ItemID.GOLD_KEY_BROWN), item(ItemID.GOLD_KEY_CRIMSON), item(ItemID.GOLD_KEY_BLACK), item(ItemID.GOLD_KEY_PURPLE), item(ItemID.SILVER_KEY_RED), item(ItemID.SILVER_KEY_BROWN), item(ItemID.SILVER_KEY_CRIMSON), item(ItemID.SILVER_KEY_BLACK), item(ItemID.SILVER_KEY_PURPLE))), new SkillChallengeClue("Catch a tecu salamander.", item(ItemID.ROPE), item(ItemID.SMALL_FISHING_NET)) 
+);
+ChallengeType type;
+String challenge;
+String rawChallenge;
+String returnText;
+ItemRequirement[] itemRequirements;
+SingleItemRequirement returnItem;
+boolean requireEquip;
+String[] objectNames;
+int[] objectRegions;
+boolean challengeCompleted;
 	// Charlie Tasks
+SkillChallengeClue(ChallengeType challengeType, String clueText, SingleItemRequirement returnItem) 
 	// Non-cryptic Sherlock Tasks
+SkillChallengeClue(String challenge, ItemRequirement ... itemRequirements) 
 	// Non-cryptic Sherlock Tasks
+SkillChallengeClue(String challenge, String[] objectNames, int[] objectRegions, ItemRequirement ... itemRequirements) 
 	// Non-cryptic Sherlock Tasks
+SkillChallengeClue(String challenge, boolean requireEquip, ItemRequirement ... itemRequirements) 
 	// Sherlock Tasks
+SkillChallengeClue(String challenge, String rawChallenge, ItemRequirement ... itemRequirements) 
 	// Sherlock Tasks
+SkillChallengeClue(String challenge, String rawChallenge, boolean requireEquip, ItemRequirement ... itemRequirements) 
 	// Sherlock Tasks
+SkillChallengeClue(String challenge, String rawChallenge, boolean requireEquip, String[] objectNames, int[] objectRegions, ItemRequirement ... itemRequirements) 
+	makeOverlayHint(panelComponent: PanelComponent, plugin: ClueScrollPlugin): void;
+	makeWorldOverlayHint(graphics: Graphics2D, plugin: ClueScrollPlugin): void;
 		// Mark NPC
 		// Mark objects
+	private static getRequirements(plugin: ClueScrollPlugin, requireEquipped: boolean, ...: ItemRequirement[]): Array<LineComponent>;
 		// If equipment is null, the player is wearing nothing
 		// If inventory is null, the player has nothing in their inventory
-},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},}
+	static forText(text: string, rawText: string): SkillChallengeClue;
+	getNpcs(plugin: ClueScrollPlugin): string[];
+	getConfigKeys(): number[];
+}
+}

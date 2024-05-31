@@ -1,16 +1,6 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
 /// <reference path="../../../java/index.d.ts" />
 /// <reference path="../../../jagex/index.d.ts" />
+/// <reference path="AccountSession.d.ts" />
 /*
  * Copyright (c) 2017, Adam <Adam@sigterm.info>
  * All rights reserved.
@@ -37,14 +27,33 @@
  */
 declare namespace net.runelite.client.account {
 export class SessionManager
+{
+AccountSession accountSession;
+EventBus eventBus;
+File sessionFile;
+AccountClient accountClient;
+Gson gson;
+String oauthRedirect;
+ScheduledExecutorService scheduledExecutorService;
+HttpServer server;
+SessionManager(  File sessionfile, EventBus eventBus, AccountClient accountClient, Gson gson,  String oauthRedirect, ScheduledExecutorService scheduledExecutorService ) 
+	loadSession(): void;
 		// Check if session is still valid
+	private saveSession(): void;
+	private deleteSession(): void;
 	/**
 	 * Set the given session as the active session
 	 *
 	 * @param session session
 	 */
+	private openSession(session: AccountSession): void;
+	private closeSession(): void;
 		// Delete session
+	login(): void;
 		// Navigate to login link
+	logout(): void;
 				// open the session, which triggers the sessionopen event
 				// Save session to disk
-},},},},},},},},},},},},},}
+	private startServer(): void;
+}
+}

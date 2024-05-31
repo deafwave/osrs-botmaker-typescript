@@ -1,39 +1,6 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
 /// <reference path="../../../java/index.d.ts" />
 /// <reference path="../../../jagex/index.d.ts" />
-/// <reference path="annotations/Component.d.ts" />
-/// <reference path="annotations/Interface.d.ts" />
-/// <reference path="annotations/VarCInt.d.ts" />
-/// <reference path="annotations/VarCStr.d.ts" />
-/// <reference path="annotations/Varbit.d.ts" />
-/// <reference path="annotations/Varp.d.ts" />
-/// <reference path="annotations/VisibleForDevtools.d.ts" />
-/// <reference path="clan/ClanChannel.d.ts" />
-/// <reference path="clan/ClanID.d.ts" />
-/// <reference path="clan/ClanSettings.d.ts" />
-/// <reference path="coords/LocalPoint.d.ts" />
-/// <reference path="coords/WorldPoint.d.ts" />
-/// <reference path="dbtable/DBRowConfig.d.ts" />
-/// <reference path="hooks/DrawCallbacks.d.ts" />
-/// <reference path="vars/AccountType.d.ts" />
-/// <reference path="widgets/ItemQuantityMode.d.ts" />
-/// <reference path="widgets/Widget.d.ts" />
-/// <reference path="widgets/WidgetConfig.d.ts" />
-/// <reference path="widgets/WidgetInfo.d.ts" />
-/// <reference path="widgets/WidgetModalMode.d.ts" />
-/// <reference path="worldmap/MapElementConfig.d.ts" />
-/// <reference path="worldmap/WorldMap.d.ts" />
-/// <reference path="GameEngine.d.ts" />
+/// <reference path="Client.d.ts" />
 /// <reference path="MainBufferProvider.d.ts" />
 /// <reference path="Renderable.d.ts" />
 /// <reference path="Skill.d.ts" />
@@ -42,9 +9,20 @@
 /// <reference path="events/GameTick.d.ts" />
 /// <reference path="events/PostClientTick.d.ts" />
 /// <reference path="events/ScriptCallbackEvent.d.ts" />
+/// <reference path="hooks/Callbacks.d.ts" />
 /// <reference path="widgets/ComponentID.d.ts" />
+/// <reference path="widgets/Widget.d.ts" />
 /// <reference path="widgets/WidgetItem.d.ts" />
+/// <reference path="worldmap/WorldMap.d.ts" />
 /// <reference path="worldmap/WorldMapRenderer.d.ts" />
+/// <reference path="Graphics2D.d.ts" />
+/// <reference path="MouseEvent.d.ts" />
+/// <reference path="MouseWheelEvent.d.ts" />
+/// <reference path="KeyEvent.d.ts" />
+/// <reference path="Graphics.d.ts" />
+/// <reference path="Image.d.ts" />
+/// <reference path="RenderableDrawListener.d.ts" />
+/// <reference path="Throwable.d.ts" />
 /*
  * Copyright (c) 2017, Adam <Adam@sigterm.info>
  * All rights reserved.
@@ -76,14 +54,48 @@ declare namespace net.runelite.client.callback {
  * can't just be placed in mixins or sent through event bus.
  */
 export class Hooks implements Callbacks
+{
+Client client;
+OverlayRenderer renderer;
+EventBus eventBus;
+DeferredEventBus deferredEventBus;
+Scheduler scheduler;
+InfoBoxManager infoBoxManager;
+ChatMessageManager chatMessageManager;
+MouseManager mouseManager;
+KeyManager keyManager;
+ClientThread clientThread;
+DrawManager drawManager;
+Notifier notifier;
+ClientUI clientUi;
+TelemetryClient telemetryClient;
+RuntimeConfig runtimeConfig;
+boolean developerMode;
+Dimension lastStretchedDimensions;
+VolatileImage stretchedImage;
+Graphics2D stretchedGraphics;
+long lastCheck;
+boolean shouldProcessGameTick;
+MainBufferProvider lastMainBufferProvider;
+Graphics2D lastGraphics;
+long nextError;
+boolean rateLimitedError;
+export interface RenderableDrawListener
 	/**
 	 * Get the Graphics2D for the MainBufferProvider image
 	 * This caches the Graphics2D instance so it can be reused
 	 * @param mainBufferProvider
 	 * @return
 	 */
+	private static getGraphics(mainBufferProvider: MainBufferProvider): Graphics2D | null;
+Hooks( Client client, OverlayRenderer renderer, EventBus eventBus, DeferredEventBus deferredEventBus, Scheduler scheduler, InfoBoxManager infoBoxManager, ChatMessageManager chatMessageManager, MouseManager mouseManager, KeyManager keyManager, ClientThread clientThread, DrawManager drawManager, Notifier notifier, ClientUI clientUi, TelemetryClient telemetryClient, RuntimeConfig runtimeConfig,  boolean developerMode ) 
+	post(event: Record<string, any>): void;
+	postDeferred(event: Record<string, any>): void;
+	tick(): void;
 			// tick pending scheduled tasks
 			// cull infoboxes
+	tickEnd(): void;
+	frame(): void;
 	/**
 	 * When the world map opens it loads about ~100mb of data into memory, which
 	 * represents about half of the total memory allocated by the client.
@@ -92,6 +104,19 @@ export class Hooks implements Callbacks
 	 * data to be garbage collected, and causes the map data from disk each time
 	 * is it opened.
 	 */
+	private checkWorldMap(): void;
+	mousePressed(mouseEvent: MouseEvent): MouseEvent;
+	mouseReleased(mouseEvent: MouseEvent): MouseEvent;
+	mouseClicked(mouseEvent: MouseEvent): MouseEvent;
+	mouseEntered(mouseEvent: MouseEvent): MouseEvent;
+	mouseExited(mouseEvent: MouseEvent): MouseEvent;
+	mouseDragged(mouseEvent: MouseEvent): MouseEvent;
+	mouseMoved(mouseEvent: MouseEvent): MouseEvent;
+	mouseWheelMoved(event: MouseWheelEvent): MouseWheelEvent;
+	keyPressed(keyEvent: KeyEvent): void;
+	keyReleased(keyEvent: KeyEvent): void;
+	keyTyped(keyEvent: KeyEvent): void;
+	draw(mainBufferProvider: MainBufferProvider, graphics: Graphics, x: number, y: number): void;
 		// Draw clientUI overlays
 			// processDrawComplete gets called on GPU by the gpu plugin at the end of its
 			// drawing cycle, which is later on.
@@ -102,5 +127,19 @@ export class Hooks implements Callbacks
 		// Draw the image onto the game canvas
 		// finalImage is backed by the client buffer which will change soon. make a copy
 		// so that callbacks can safely use it later from threads.
+	private screenshot(src: Image): Image;
 		// scale source image to the size of the client ui
-},},},},},},},},},},},},},},},},}
+	drawScene(): void;
+	drawAboveOverheads(): void;
+	serverTick(): void;
+	drawInterface(interfaceId: number, widgetItems: Array<net.runelite.api.widgets.WidgetItem>): void;
+	drawLayer(layer: net.runelite.api.widgets.Widget, widgetItems: Array<net.runelite.api.widgets.WidgetItem>): void;
+	onScriptCallbackEvent(scriptCallbackEvent: net.runelite.api.events.ScriptCallbackEvent): void;
+	registerRenderableDrawListener(listener: RenderableDrawListener): void;
+	unregisterRenderableDrawListener(listener: RenderableDrawListener): void;
+	draw(renderable: Renderable, drawingUi: boolean): boolean;
+	error(message: string, reason: Throwable): void;
+	openUrl(url: string): void;
+	isRuneLiteClientOutdated(): boolean;
+}
+}

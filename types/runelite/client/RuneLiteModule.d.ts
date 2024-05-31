@@ -1,13 +1,17 @@
 /// <reference path="../../java/index.d.ts" />
 /// <reference path="../../jagex/index.d.ts" />
 /// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
 /// <reference path="hooks/Callbacks.d.ts" />
 /// <reference path="AbstractModule.d.ts" />
+/// <reference path="Applet.d.ts" />
+/// <reference path="RuntimeConfig.d.ts" />
+/// <reference path="ConfigManager.d.ts" />
+/// <reference path="RuneLiteConfig.d.ts" />
+/// <reference path="ChatColorConfig.d.ts" />
+/// <reference path="HttpUrl.d.ts" />
+/// <reference path="OkHttpClient.d.ts" />
+/// <reference path="Gson.d.ts" />
+/// <reference path="TelemetryClient.d.ts" />
 /*
  * Copyright (c) 2016-2017, Adam <Adam@sigterm.info>
  * All rights reserved.
@@ -34,5 +38,29 @@
  */
 declare namespace net.runelite.client {
 export class RuneLiteModule extends AbstractModule
+{
+OkHttpClient okHttpClient;
+Supplier<Applet> clientLoader;
+RuntimeConfigLoader configLoader;
+boolean developerMode;
+boolean safeMode;
+boolean disableTelemetry;
+File sessionfile;
+String profile;
+boolean insecureWriteCredentials;
+boolean noupdate;
+	private configure(): void;
 		// bind runelite.properties & runtime config
-},},},},}
+	provideApplet(): Applet;
+	provideClient(applet: Applet): Client;
+	provideRuntimeConfig(): RuntimeConfig;
+	provideConfig(configManager: ConfigManager): RuneLiteConfig;
+	provideChatColorConfig(configManager: ConfigManager): ChatColorConfig;
+	provideApiBase(s: string): HttpUrl;
+	provideSession(s: string): HttpUrl;
+	provideStaticBase(s: string): HttpUrl;
+	provideWs(s: string): HttpUrl;
+	providePluginHubBase(s: string): HttpUrl;
+	provideTelemetry(okHttpClient: OkHttpClient, gson: Gson, apiBase: HttpUrl): TelemetryClient;
+}
+}

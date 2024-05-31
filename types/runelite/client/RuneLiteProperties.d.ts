@@ -1,13 +1,5 @@
 /// <reference path="../../java/index.d.ts" />
 /// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
 /*
  * Copyright (c) 2017, Adam <Adam@sigterm.info>
  * All rights reserved.
@@ -34,4 +26,21 @@
  */
 declare namespace net.runelite.client {
 export class RuneLiteProperties
-},},},},},}
+{
+	private static getVersion(): string;
+	static getCommit(): string;
+	static isDirty(): boolean;
+	static getDiscordInvite(): string;
+	static getLauncherVersion(): string | null;
+	static isInsecureSkipTlsVerification(): boolean;
+	static getTroubleshootingLink(): string;
+	static getBuildingLink(): string;
+	static getDNSChangeLink(): string;
+	static getJavConfig(): string;
+	static getJavConfigBackup(): string;
+	static getPluginHubVersion(): string;
+	static getApiBase(): string;
+	static getRuneLiteConfig(): string;
+	static getOSRSTwitterLink(): string;
+}
+}

@@ -1,136 +1,5 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
 /// <reference path="../../../java/index.d.ts" />
 /// <reference path="../../../jagex/index.d.ts" />
-/// <reference path="annotations/Component.d.ts" />
-/// <reference path="annotations/Interface.d.ts" />
-/// <reference path="annotations/VarCInt.d.ts" />
-/// <reference path="annotations/VarCStr.d.ts" />
-/// <reference path="annotations/Varbit.d.ts" />
-/// <reference path="annotations/Varp.d.ts" />
-/// <reference path="annotations/VisibleForDevtools.d.ts" />
-/// <reference path="clan/ClanChannel.d.ts" />
-/// <reference path="clan/ClanID.d.ts" />
-/// <reference path="clan/ClanSettings.d.ts" />
-/// <reference path="coords/LocalPoint.d.ts" />
-/// <reference path="coords/WorldPoint.d.ts" />
-/// <reference path="dbtable/DBRowConfig.d.ts" />
-/// <reference path="hooks/DrawCallbacks.d.ts" />
-/// <reference path="vars/AccountType.d.ts" />
-/// <reference path="widgets/ItemQuantityMode.d.ts" />
-/// <reference path="widgets/Widget.d.ts" />
-/// <reference path="widgets/WidgetConfig.d.ts" />
-/// <reference path="widgets/WidgetInfo.d.ts" />
-/// <reference path="widgets/WidgetModalMode.d.ts" />
-/// <reference path="worldmap/MapElementConfig.d.ts" />
-/// <reference path="worldmap/WorldMap.d.ts" />
-/// <reference path="GameEngine.d.ts" />
-/// <reference path="MainBufferProvider.d.ts" />
-/// <reference path="Renderable.d.ts" />
-/// <reference path="Skill.d.ts" />
-/// <reference path="events/BeforeRender.d.ts" />
-/// <reference path="events/FakeXpDrop.d.ts" />
-/// <reference path="events/GameTick.d.ts" />
-/// <reference path="events/PostClientTick.d.ts" />
-/// <reference path="events/ScriptCallbackEvent.d.ts" />
-/// <reference path="widgets/ComponentID.d.ts" />
-/// <reference path="widgets/WidgetItem.d.ts" />
-/// <reference path="worldmap/WorldMapRenderer.d.ts" />
-/// <reference path="events/ChatMessage.d.ts" />
-/// <reference path="MessageNode.d.ts" />
-/// <reference path="VarPlayer.d.ts" />
-/// <reference path="Varbits.d.ts" />
-/// <reference path="ScriptID.d.ts" />
-/// <reference path="VarClientStr.d.ts" />
-/// <reference path="events/CommandExecuted.d.ts" />
-/// <reference path="Config.d.ts" />
-/// <reference path="events/AccountHashChanged.d.ts" />
-/// <reference path="events/PlayerChanged.d.ts" />
-/// <reference path="events/WorldChanged.d.ts" />
-/// <reference path="Config> T getConfig(Class<T> clazz).d.ts" />
-/// <reference path="Config> void setDefaultConfiguration(T proxy.d.ts" />
-/// <reference path="boolean override).d.ts" />
-/// <reference path="Enum>) type.d.ts" />
-/// <reference path="str);.d.ts" />
-/// <reference path="Serializer<?>> serializerClass = configSerializer.value();.d.ts" />
-/// <reference path="Serializer<?>> value();.d.ts" />
-/// <reference path="Keybind.d.ts" />
-/// <reference path="WorldType.d.ts" />
-/// <reference path="Plugin>[] builtinExternals = null;.d.ts" />
-/// <reference path="Plugin> pluginClass : builtinExternals).d.ts" />
-/// <reference path="Plugin> plugin).d.ts" />
-/// <reference path="Plugin>... plugins).d.ts" />
-/// <reference path="URLClassLoader implements ReflectUtil.PrivateLookupableClassLoader.d.ts" />
-/// <reference path="ManifestLite.d.ts" />
-/// <reference path="DisplayData.d.ts" />
-/// <reference path="ChatInput.d.ts" />
-/// <reference path="NPC.d.ts" />
-/// <reference path="EnumComposition.d.ts" />
-/// <reference path="EnumID.d.ts" />
-/// <reference path="FriendsChatRank.d.ts" />
-/// <reference path="IndexedSprite.d.ts" />
-/// <reference path="clan/ClanTitle.d.ts" />
-/// <reference path="NullObjectID.d.ts" />
-/// <reference path="NullObjectID/NULL_25337.d.ts" />
-/// <reference path="NullObjectID/NULL_26371.d.ts" />
-/// <reference path="NullObjectID/NULL_26375.d.ts" />
-/// <reference path="NullObjectID/NULL_26561.d.ts" />
-/// <reference path="NullObjectID/NULL_26562.d.ts" />
-/// <reference path="NullObjectID/NULL_26884.d.ts" />
-/// <reference path="NullObjectID/NULL_26886.d.ts" />
-/// <reference path="NullObjectID/NULL_29868.d.ts" />
-/// <reference path="NullObjectID/NULL_29869.d.ts" />
-/// <reference path="NullObjectID/NULL_29870.d.ts" />
-/// <reference path="NullObjectID/NULL_31823.d.ts" />
-/// <reference path="NullObjectID/NULL_31849.d.ts" />
-/// <reference path="NullObjectID/NULL_31852.d.ts" />
-/// <reference path="NullObjectID/NULL_33327.d.ts" />
-/// <reference path="NullObjectID/NULL_33328.d.ts" />
-/// <reference path="NullObjectID/NULL_39541.d.ts" />
-/// <reference path="NullObjectID/NULL_39542.d.ts" />
-/// <reference path="NullObjectID/NULL_40960.d.ts" />
-/// <reference path="NullObjectID/NULL_40962.d.ts" />
-/// <reference path="NullObjectID/NULL_43840.d.ts" />
-/// <reference path="NullObjectID/NULL_47325.d.ts" />
-/// <reference path="ObjectID/*.d.ts" />
-/// <reference path="TileObject.d.ts" />
-/// <reference path="ItemID.d.ts" />
-/// <reference path="NpcID/*.d.ts" />
-/// <reference path="Constants/CLIENT_DEFAULT_ZOOM.d.ts" />
-/// <reference path="ItemComposition.d.ts" />
-/// <reference path="ItemID/*.d.ts" />
-/// <reference path="SpritePixels.d.ts" />
-/// <reference path="AnimationID.d.ts" />
-/// <reference path="NPCComposition.d.ts" />
-/// <reference path="NpcID.d.ts" />
-/// <reference path="Tile.d.ts" />
-/// <reference path="TileItem.d.ts" />
-/// <reference path="coords/WorldArea.d.ts" />
-/// <reference path="events/AnimationChanged.d.ts" />
-/// <reference path="events/ItemDespawned.d.ts" />
-/// <reference path="events/ItemSpawned.d.ts" />
-/// <reference path="events/NpcChanged.d.ts" />
-/// <reference path="events/NpcDespawned.d.ts" />
-/// <reference path="events/PlayerDespawned.d.ts" />
-/// <reference path="SpriteID.d.ts" />
-/// <reference path="Actor.d.ts" />
-/// <reference path="ParamID.d.ts" />
-/// <reference path="java.awt.event.KeyListener.d.ts" />
-/// <reference path="MenuEntry.d.ts" />
-/// <reference path="MenuAction.d.ts" />
-/// <reference path="events/MenuEntryAdded.d.ts" />
-/// <reference path="events/PlayerMenuOptionsChanged.d.ts" />
-/// <reference path="CacheLoader<HiscoreManager.HiscoreKey.d.ts" />
-/// <reference path="HiscoreResult>.d.ts" />
 /*
  * Copyright (c) 2017, Adam <Adam@sigterm.info>
  * All rights reserved.
@@ -157,4 +26,9 @@
  */
 declare namespace net.runelite.client.hiscore {
 enum HiscoreSkill
-},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},}
+{
+OVERALL("Overall", HiscoreSkillType.OVERALL), ATTACK("Attack", SKILL), DEFENCE("Defence", SKILL), STRENGTH("Strength", SKILL), HITPOINTS("Hitpoints", SKILL), RANGED("Ranged", SKILL), PRAYER("Prayer", SKILL), MAGIC("Magic", SKILL), COOKING("Cooking", SKILL), WOODCUTTING("Woodcutting", SKILL), FLETCHING("Fletching", SKILL), FISHING("Fishing", SKILL), FIREMAKING("Firemaking", SKILL), CRAFTING("Crafting", SKILL), SMITHING("Smithing", SKILL), MINING("Mining", SKILL), HERBLORE("Herblore", SKILL), AGILITY("Agility", SKILL), THIEVING("Thieving", SKILL), SLAYER("Slayer", SKILL), FARMING("Farming", SKILL), RUNECRAFT("Runecraft", SKILL), HUNTER("Hunter", SKILL), CONSTRUCTION("Construction", SKILL), LEAGUE_POINTS("League Points", ACTIVITY), BOUNTY_HUNTER_HUNTER("Bounty Hunter - Hunter", ACTIVITY), BOUNTY_HUNTER_ROGUE("Bounty Hunter - Rogue", ACTIVITY), CLUE_SCROLL_ALL("Clue Scrolls (all)", ACTIVITY), CLUE_SCROLL_BEGINNER("Clue Scrolls (beginner)", ACTIVITY), CLUE_SCROLL_EASY("Clue Scrolls (easy)", ACTIVITY), CLUE_SCROLL_MEDIUM("Clue Scrolls (medium)", ACTIVITY), CLUE_SCROLL_HARD("Clue Scrolls (hard)", ACTIVITY), CLUE_SCROLL_ELITE("Clue Scrolls (elite)", ACTIVITY), CLUE_SCROLL_MASTER("Clue Scrolls (master)", ACTIVITY), LAST_MAN_STANDING("LMS - Rank", ACTIVITY), PVP_ARENA_RANK("PvP Arena - Rank", ACTIVITY), SOUL_WARS_ZEAL("Soul Wars Zeal", ACTIVITY), RIFTS_CLOSED("Rifts closed", ACTIVITY), COLOSSEUM_GLORY("Colosseum Glory", ACTIVITY), ABYSSAL_SIRE("Abyssal Sire", BOSS), ALCHEMICAL_HYDRA("Alchemical Hydra", BOSS), ARTIO("Artio", BOSS), BARROWS_CHESTS("Barrows Chests", BOSS), BRYOPHYTA("Bryophyta", BOSS), CALLISTO("Callisto", BOSS), CALVARION("Calvar'ion", BOSS), CERBERUS("Cerberus", BOSS), CHAMBERS_OF_XERIC("Chambers of Xeric", BOSS), CHAMBERS_OF_XERIC_CHALLENGE_MODE("Chambers of Xeric: Challenge Mode", BOSS), CHAOS_ELEMENTAL("Chaos Elemental", BOSS), CHAOS_FANATIC("Chaos Fanatic", BOSS), COMMANDER_ZILYANA("Commander Zilyana", BOSS), CORPOREAL_BEAST("Corporeal Beast", BOSS), CRAZY_ARCHAEOLOGIST("Crazy Archaeologist", BOSS), DAGANNOTH_PRIME("Dagannoth Prime", BOSS), DAGANNOTH_REX("Dagannoth Rex", BOSS), DAGANNOTH_SUPREME("Dagannoth Supreme", BOSS), DERANGED_ARCHAEOLOGIST("Deranged Archaeologist", BOSS), DUKE_SUCELLUS("Duke Sucellus", BOSS), GENERAL_GRAARDOR("General Graardor", BOSS), GIANT_MOLE("Giant Mole", BOSS), GROTESQUE_GUARDIANS("Grotesque Guardians", BOSS), HESPORI("Hespori", BOSS), KALPHITE_QUEEN("Kalphite Queen", BOSS), KING_BLACK_DRAGON("King Black Dragon", BOSS), KRAKEN("Kraken", BOSS), KREEARRA("Kree'Arra", BOSS), KRIL_TSUTSAROTH("K'ril Tsutsaroth", BOSS), LUNAR_CHESTS("Lunar Chests", BOSS), MIMIC("Mimic", BOSS), NEX("Nex", BOSS), NIGHTMARE("Nightmare", BOSS), PHOSANIS_NIGHTMARE("Phosani's Nightmare", BOSS), OBOR("Obor", BOSS), PHANTOM_MUSPAH("Phantom Muspah", BOSS), SARACHNIS("Sarachnis", BOSS), SCORPIA("Scorpia", BOSS), SCURRIUS("Scurrius", BOSS), SKOTIZO("Skotizo", BOSS), SOL_HEREDIT("Sol Heredit", BOSS), SPINDEL("Spindel", BOSS), TEMPOROSS("Tempoross", BOSS), THE_GAUNTLET("The Gauntlet", BOSS), THE_CORRUPTED_GAUNTLET("The Corrupted Gauntlet", BOSS), THE_LEVIATHAN("The Leviathan", BOSS), THE_WHISPERER("The Whisperer", BOSS), THEATRE_OF_BLOOD("Theatre of Blood", BOSS), THEATRE_OF_BLOOD_HARD_MODE("Theatre of Blood: Hard Mode", BOSS), THERMONUCLEAR_SMOKE_DEVIL("Thermonuclear Smoke Devil", BOSS), TOMBS_OF_AMASCUT("Tombs of Amascut", BOSS), TOMBS_OF_AMASCUT_EXPERT("Tombs of Amascut: Expert Mode", BOSS), TZKAL_ZUK("TzKal-Zuk", BOSS), TZTOK_JAD("TzTok-Jad", BOSS), VARDORVIS("Vardorvis", BOSS), VENENATIS("Venenatis", BOSS), VETION("Vet'ion", BOSS), VORKATH("Vorkath", BOSS), WINTERTODT("Wintertodt", BOSS), ZALCANO("Zalcano", BOSS), ZULRAH("Zulrah", BOSS); 
+String name;
+HiscoreSkillType type;
+}
+}

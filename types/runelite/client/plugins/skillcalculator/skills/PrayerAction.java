@@ -1,0 +1,149 @@
+/*
+ * Copyright (c) 2021, Jordan Atwood <nightfirecat@protonmail.com>
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice, this
+ *    list of conditions and the following disclaimer.
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation
+ *    and/or other materials provided with the distribution.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ * ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+package net.runelite.client.plugins.skillcalculator.skills;
+
+import java.util.EnumSet;
+import java.util.Set;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import net.runelite.api.ItemID;
+import static net.runelite.client.plugins.skillcalculator.skills.PrayerBonus.BLESSED_SUNFIRE_WINE;
+import static net.runelite.client.plugins.skillcalculator.skills.PrayerBonus.DEMONIC_OFFERING;
+import static net.runelite.client.plugins.skillcalculator.skills.PrayerBonus.MORYTANIA_DIARY_3_SHADES;
+import static net.runelite.client.plugins.skillcalculator.skills.PrayerBonus.ZEALOT_ROBES;
+
+@AllArgsConstructor
+@Getter
+public enum PrayerAction implements ItemSkillAction
+{
+	GUPPY(ItemID.GUPPY, 1, 4, PrayerMethod.PREPARED_FISH),
+	BONES(ItemID.BONES, 1, 4.5f, PrayerMethod.BONES),
+	BURNT_BONES(ItemID.BURNT_BONES, 1, 4.5f, PrayerMethod.BONES),
+	WOLF_BONES(ItemID.WOLF_BONES, 1, 4.5f, PrayerMethod.BONES),
+	MONKEY_BONES(ItemID.MONKEY_BONES, 1, 5, PrayerMethod.BONES),
+	BAT_BONES(ItemID.BAT_BONES, 1, 5.3f, PrayerMethod.BONES),
+	CAVEFISH(ItemID.CAVEFISH, 1, 7, PrayerMethod.PREPARED_FISH),
+	FIENDISH_ASHES(ItemID.FIENDISH_ASHES, 1, 10, PrayerMethod.DEMONIC_ASHES),
+	TETRA(ItemID.TETRA, 1, 10, PrayerMethod.PREPARED_FISH),
+	BIG_BONES(ItemID.BIG_BONES, 1, 15, PrayerMethod.BONES),
+	JOGRE_BONES(ItemID.JOGRE_BONES, 1, 15, PrayerMethod.BONES),
+	CATFISH(ItemID.CATFISH, 1, 16, PrayerMethod.PREPARED_FISH),
+	WYRMLING_BONES(ItemID.WYRMLING_BONES, 1, 21, PrayerMethod.BONES),
+	ZOGRE_BONES(ItemID.ZOGRE_BONES, 1, 22.5f, PrayerMethod.BONES),
+	SHAIKAHAN_BONES(ItemID.SHAIKAHAN_BONES, 1, 25, PrayerMethod.BONES),
+	VILE_ASHES(ItemID.VILE_ASHES, 1, 25, PrayerMethod.DEMONIC_ASHES),
+	BABYDRAGON_BONES(ItemID.BABYDRAGON_BONES, 1, 30, PrayerMethod.BONES),
+	LOAR_REMAINS(ItemID.LOAR_REMAINS, 1, 33, PrayerMethod.SHADE_REMAINS),
+	PHRIN_REMAINS(ItemID.PHRIN_REMAINS, 1, 46.5f, PrayerMethod.SHADE_REMAINS),
+	WYRM_BONES(ItemID.WYRM_BONES, 1, 50, PrayerMethod.BONES),
+	RIYL_REMAINS(ItemID.RIYL_REMAINS, 1, 59.5f, PrayerMethod.SHADE_REMAINS),
+	MALICIOUS_ASHES(ItemID.MALICIOUS_ASHES, 1, 65, PrayerMethod.DEMONIC_ASHES),
+	DRAGON_BONES(ItemID.DRAGON_BONES, 1, 72, PrayerMethod.BONES),
+	WYVERN_BONES(ItemID.WYVERN_BONES, 1, 72, PrayerMethod.BONES),
+	DRAKE_BONES(ItemID.DRAKE_BONES, 1, 80, PrayerMethod.BONES),
+	ASYN_REMAINS(ItemID.ASYN_REMAINS, 1, 82.5f, PrayerMethod.SHADE_REMAINS),
+	FAYRG_BONES(ItemID.FAYRG_BONES, 1, 84, PrayerMethod.BONES),
+	FIYR_REMAINS(ItemID.FIYR_REMAINS, 1, 84, PrayerMethod.SHADE_REMAINS),
+	ABYSSAL_ASHES(ItemID.ABYSSAL_ASHES, 1, 85, PrayerMethod.DEMONIC_ASHES),
+	LAVA_DRAGON_BONES(ItemID.LAVA_DRAGON_BONES, 1, 85, PrayerMethod.BONES),
+	RAURG_BONES(ItemID.RAURG_BONES, 1, 96, PrayerMethod.BONES),
+	HYDRA_BONES(ItemID.HYDRA_BONES, 1, 110, PrayerMethod.BONES),
+	INFERNAL_ASHES(ItemID.INFERNAL_ASHES, 1, 110, PrayerMethod.DEMONIC_ASHES),
+	URIUM_REMAINS(ItemID.URIUM_REMAINS, 1, 120, PrayerMethod.SHADE_REMAINS),
+	DAGANNOTH_BONES(ItemID.DAGANNOTH_BONES, 1, 125, PrayerMethod.BONES),
+	ENSOULED_GOBLIN_HEAD(ItemID.ENSOULED_GOBLIN_HEAD, 1, 130, PrayerMethod.ENSOULED_HEAD),
+	OURG_BONES(ItemID.OURG_BONES, 1, 140, PrayerMethod.BONES),
+	ENSOULED_MONKEY_HEAD(ItemID.ENSOULED_MONKEY_HEAD, 1, 182, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_IMP_HEAD(ItemID.ENSOULED_IMP_HEAD, 1, 286, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_MINOTAUR_HEAD(ItemID.ENSOULED_MINOTAUR_HEAD, 1, 364, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_SCORPION_HEAD(ItemID.ENSOULED_SCORPION_HEAD, 1, 454, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_BEAR_HEAD(ItemID.ENSOULED_BEAR_HEAD, 1, 480, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_UNICORN_HEAD(ItemID.ENSOULED_UNICORN_HEAD, 1, 494, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_DOG_HEAD(ItemID.ENSOULED_DOG_HEAD, 1, 520, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_CHAOS_DRUID_HEAD(ItemID.ENSOULED_CHAOS_DRUID_HEAD, 1, 584, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_GIANT_HEAD(ItemID.ENSOULED_GIANT_HEAD, 1, 650, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_OGRE_HEAD(ItemID.ENSOULED_OGRE_HEAD, 1, 716, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_ELF_HEAD(ItemID.ENSOULED_ELF_HEAD, 1, 754, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_TROLL_HEAD(ItemID.ENSOULED_TROLL_HEAD, 1, 780, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_HORROR_HEAD(ItemID.ENSOULED_HORROR_HEAD, 1, 832, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_KALPHITE_HEAD(ItemID.ENSOULED_KALPHITE_HEAD, 1, 884, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_DAGANNOTH_HEAD(ItemID.ENSOULED_DAGANNOTH_HEAD, 1, 936, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_BLOODVELD_HEAD(ItemID.ENSOULED_BLOODVELD_HEAD, 1, 1040, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_TZHAAR_HEAD(ItemID.ENSOULED_TZHAAR_HEAD, 1, 1104, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_DEMON_HEAD(ItemID.ENSOULED_DEMON_HEAD, 1, 1170, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_HELLHOUND_HEAD(ItemID.ENSOULED_HELLHOUND_HEAD, 1, 1200, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_AVIANSIE_HEAD(ItemID.ENSOULED_AVIANSIE_HEAD, 1, 1234, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_ABYSSAL_HEAD(ItemID.ENSOULED_ABYSSAL_HEAD, 1, 1300, PrayerMethod.ENSOULED_HEAD),
+	ENSOULED_DRAGON_HEAD(ItemID.ENSOULED_DRAGON_HEAD, 1, 1560, PrayerMethod.ENSOULED_HEAD),
+	BLESSED_BONE_SHARDS(ItemID.BLESSED_BONE_SHARDS, 30, 5, PrayerMethod.BLESSED_SUNFIRE_WINE),
+	SUPERIOR_DRAGON_BONES(ItemID.SUPERIOR_DRAGON_BONES, 70, 150, PrayerMethod.BONES),
+	;
+
+	private enum PrayerMethod
+	{
+		BONES,
+		DEMONIC_ASHES,
+		ENSOULED_HEAD,
+		PREPARED_FISH,
+		SHADE_REMAINS,
+		BLESSED_SUNFIRE_WINE,
+	}
+
+	private static final Set<PrayerBonus> EXCLUDED_BONUSES_FOR_BONES = EnumSet.of(
+		MORYTANIA_DIARY_3_SHADES,
+		DEMONIC_OFFERING,
+		BLESSED_SUNFIRE_WINE
+	);
+	private static final Set<PrayerBonus> EXCLUDED_BONUSES_FOR_ASHES = EnumSet.complementOf(EnumSet.of(DEMONIC_OFFERING));
+	private static final Set<PrayerBonus> EXCLUDED_BONUSES_FOR_REMAINS = EnumSet.complementOf(EnumSet.of(MORYTANIA_DIARY_3_SHADES));
+	private static final Set<PrayerBonus> EXCLUDED_BONUSES_FOR_BLESSED_SUNFIRE_WINE = EnumSet.complementOf(EnumSet.of(ZEALOT_ROBES, BLESSED_SUNFIRE_WINE));
+	private static final Set<PrayerBonus> EXCLUDE_ALL_EXCEPT_ZEALOT_ROBES = EnumSet.complementOf(EnumSet.of(ZEALOT_ROBES));
+
+	private final int itemId;
+	private final int level;
+	private final float xp;
+	private final PrayerMethod methodType;
+
+	@Override
+	public Set<PrayerBonus> getExcludedSkillBonuses()
+	{
+		switch (getMethodType())
+		{
+			case BONES:
+				return EXCLUDED_BONUSES_FOR_BONES;
+			case DEMONIC_ASHES:
+				return EXCLUDED_BONUSES_FOR_ASHES;
+			case ENSOULED_HEAD:
+			case PREPARED_FISH:
+				return EXCLUDE_ALL_EXCEPT_ZEALOT_ROBES;
+			case SHADE_REMAINS:
+				return EXCLUDED_BONUSES_FOR_REMAINS;
+			case BLESSED_SUNFIRE_WINE:
+				return EXCLUDED_BONUSES_FOR_BLESSED_SUNFIRE_WINE;
+			default:
+				return EnumSet.allOf(PrayerBonus.class);
+		}
+	}
+}

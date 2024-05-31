@@ -1,252 +1,7 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
-/// <reference path="../../../java/index.d.ts" />
-/// <reference path="../../../jagex/index.d.ts" />
-/// <reference path="annotations/Component.d.ts" />
-/// <reference path="annotations/Interface.d.ts" />
-/// <reference path="annotations/VarCInt.d.ts" />
-/// <reference path="annotations/VarCStr.d.ts" />
-/// <reference path="annotations/Varbit.d.ts" />
-/// <reference path="annotations/Varp.d.ts" />
-/// <reference path="annotations/VisibleForDevtools.d.ts" />
-/// <reference path="clan/ClanChannel.d.ts" />
-/// <reference path="clan/ClanID.d.ts" />
-/// <reference path="clan/ClanSettings.d.ts" />
-/// <reference path="coords/LocalPoint.d.ts" />
-/// <reference path="coords/WorldPoint.d.ts" />
-/// <reference path="dbtable/DBRowConfig.d.ts" />
-/// <reference path="hooks/DrawCallbacks.d.ts" />
-/// <reference path="vars/AccountType.d.ts" />
-/// <reference path="widgets/ItemQuantityMode.d.ts" />
-/// <reference path="widgets/Widget.d.ts" />
-/// <reference path="widgets/WidgetConfig.d.ts" />
-/// <reference path="widgets/WidgetInfo.d.ts" />
-/// <reference path="widgets/WidgetModalMode.d.ts" />
-/// <reference path="worldmap/MapElementConfig.d.ts" />
-/// <reference path="worldmap/WorldMap.d.ts" />
-/// <reference path="GameEngine.d.ts" />
-/// <reference path="MainBufferProvider.d.ts" />
-/// <reference path="Renderable.d.ts" />
-/// <reference path="Skill.d.ts" />
-/// <reference path="events/BeforeRender.d.ts" />
-/// <reference path="events/FakeXpDrop.d.ts" />
-/// <reference path="events/GameTick.d.ts" />
-/// <reference path="events/PostClientTick.d.ts" />
-/// <reference path="events/ScriptCallbackEvent.d.ts" />
-/// <reference path="widgets/ComponentID.d.ts" />
-/// <reference path="widgets/WidgetItem.d.ts" />
-/// <reference path="worldmap/WorldMapRenderer.d.ts" />
-/// <reference path="events/ChatMessage.d.ts" />
-/// <reference path="MessageNode.d.ts" />
-/// <reference path="VarPlayer.d.ts" />
-/// <reference path="Varbits.d.ts" />
-/// <reference path="ScriptID.d.ts" />
-/// <reference path="VarClientStr.d.ts" />
-/// <reference path="events/CommandExecuted.d.ts" />
-/// <reference path="Config.d.ts" />
-/// <reference path="events/AccountHashChanged.d.ts" />
-/// <reference path="events/PlayerChanged.d.ts" />
-/// <reference path="events/WorldChanged.d.ts" />
-/// <reference path="Config> T getConfig(Class<T> clazz).d.ts" />
-/// <reference path="Config> void setDefaultConfiguration(T proxy.d.ts" />
-/// <reference path="boolean override).d.ts" />
-/// <reference path="Enum>) type.d.ts" />
-/// <reference path="str);.d.ts" />
-/// <reference path="Serializer<?>> serializerClass = configSerializer.value();.d.ts" />
-/// <reference path="Serializer<?>> value();.d.ts" />
-/// <reference path="Keybind.d.ts" />
-/// <reference path="WorldType.d.ts" />
-/// <reference path="Plugin>[] builtinExternals = null;.d.ts" />
-/// <reference path="Plugin> pluginClass : builtinExternals).d.ts" />
-/// <reference path="Plugin> plugin).d.ts" />
-/// <reference path="Plugin>... plugins).d.ts" />
-/// <reference path="URLClassLoader implements ReflectUtil.PrivateLookupableClassLoader.d.ts" />
-/// <reference path="ManifestLite.d.ts" />
-/// <reference path="DisplayData.d.ts" />
-/// <reference path="ChatInput.d.ts" />
-/// <reference path="NPC.d.ts" />
-/// <reference path="EnumComposition.d.ts" />
-/// <reference path="EnumID.d.ts" />
-/// <reference path="FriendsChatRank.d.ts" />
-/// <reference path="IndexedSprite.d.ts" />
-/// <reference path="clan/ClanTitle.d.ts" />
-/// <reference path="NullObjectID.d.ts" />
-/// <reference path="NullObjectID/NULL_25337.d.ts" />
-/// <reference path="NullObjectID/NULL_26371.d.ts" />
-/// <reference path="NullObjectID/NULL_26375.d.ts" />
-/// <reference path="NullObjectID/NULL_26561.d.ts" />
-/// <reference path="NullObjectID/NULL_26562.d.ts" />
-/// <reference path="NullObjectID/NULL_26884.d.ts" />
-/// <reference path="NullObjectID/NULL_26886.d.ts" />
-/// <reference path="NullObjectID/NULL_29868.d.ts" />
-/// <reference path="NullObjectID/NULL_29869.d.ts" />
-/// <reference path="NullObjectID/NULL_29870.d.ts" />
-/// <reference path="NullObjectID/NULL_31823.d.ts" />
-/// <reference path="NullObjectID/NULL_31849.d.ts" />
-/// <reference path="NullObjectID/NULL_31852.d.ts" />
-/// <reference path="NullObjectID/NULL_33327.d.ts" />
-/// <reference path="NullObjectID/NULL_33328.d.ts" />
-/// <reference path="NullObjectID/NULL_39541.d.ts" />
-/// <reference path="NullObjectID/NULL_39542.d.ts" />
-/// <reference path="NullObjectID/NULL_40960.d.ts" />
-/// <reference path="NullObjectID/NULL_40962.d.ts" />
-/// <reference path="NullObjectID/NULL_43840.d.ts" />
-/// <reference path="NullObjectID/NULL_47325.d.ts" />
-/// <reference path="ObjectID/*.d.ts" />
-/// <reference path="TileObject.d.ts" />
-/// <reference path="ItemID.d.ts" />
-/// <reference path="NpcID/*.d.ts" />
-/// <reference path="Constants/CLIENT_DEFAULT_ZOOM.d.ts" />
-/// <reference path="ItemComposition.d.ts" />
-/// <reference path="ItemID/*.d.ts" />
-/// <reference path="SpritePixels.d.ts" />
-/// <reference path="AnimationID.d.ts" />
-/// <reference path="NPCComposition.d.ts" />
-/// <reference path="NpcID.d.ts" />
-/// <reference path="Tile.d.ts" />
-/// <reference path="TileItem.d.ts" />
-/// <reference path="coords/WorldArea.d.ts" />
-/// <reference path="events/AnimationChanged.d.ts" />
-/// <reference path="events/ItemDespawned.d.ts" />
-/// <reference path="events/ItemSpawned.d.ts" />
-/// <reference path="events/NpcChanged.d.ts" />
-/// <reference path="events/NpcDespawned.d.ts" />
-/// <reference path="events/PlayerDespawned.d.ts" />
-/// <reference path="SpriteID.d.ts" />
-/// <reference path="Actor.d.ts" />
-/// <reference path="ParamID.d.ts" />
-/// <reference path="java.awt.event.KeyListener.d.ts" />
-/// <reference path="MenuEntry.d.ts" />
-/// <reference path="MenuAction.d.ts" />
-/// <reference path="events/MenuEntryAdded.d.ts" />
-/// <reference path="events/PlayerMenuOptionsChanged.d.ts" />
-/// <reference path="CacheLoader<HiscoreManager.HiscoreKey.d.ts" />
-/// <reference path="HiscoreResult>.d.ts" />
-/// <reference path="WebsocketMessage>> MESSAGES;.d.ts" />
-/// <reference path="WebsocketMessage>> messages = new ArrayList<>();.d.ts" />
-/// <reference path="WebsocketMessage>> messages).d.ts" />
-/// <reference path="WebsocketMessage> message : MESSAGES).d.ts" />
-/// <reference path="WebsocketMessage> message : messages).d.ts" />
-/// <reference path="PartyMessage> void send(T message).d.ts" />
-/// <reference path="WebSocketListener implements AutoCloseable.d.ts" />
-/// <reference path="WebsocketMessage>> messages = new HashSet<>();.d.ts" />
-/// <reference path="WebsocketMessage> message).d.ts" />
-/// <reference path="Certificate> certificates = certificateFactory.generateCertificates(in);.d.ts" />
-/// <reference path="RuntimeException.d.ts" />
-/// <reference path="FilterInputStream.d.ts" />
-/// <reference path=".d.ts" />
-/// <reference path="URLClassLoader.d.ts" />
-/// <reference path="Plugin> value();.d.ts" />
-/// <reference path="Exception.d.ts" />
-/// <reference path="Plugin>> graph = GraphBuilder.d.ts" />
-/// <reference path="Plugin> pluginClazz : graph.nodes()).d.ts" />
-/// <reference path="Plugin>> sortedPlugins = topologicalSort(graph);.d.ts" />
-/// <reference path="Plugin> pluginClazz : sortedPlugins).d.ts" />
-/// <reference path="JPanel.d.ts" />
-/// <reference path="JFrame.d.ts" />
-/// <reference path="GridLayout.d.ts" />
-/// <reference path="PluginPanel.d.ts" />
-/// <reference path="JDialog.d.ts" />
-/// <reference path="JPanel implements Activatable.d.ts" />
-/// <reference path="JFrame implements ActionListener.d.ts" />
-/// <reference path="BufferedImage.d.ts" />
-/// <reference path="TurboFilter.d.ts" />
-/// <reference path="EventBus.d.ts" />
-/// <reference path="Callable<T>> tasks) throws InterruptedException.d.ts" />
-/// <reference path="Callable<T>> tasks.d.ts" />
-/// <reference path="long timeout.d.ts" />
-/// <reference path="TimeUnit unit) throws InterruptedException.d.ts" />
-/// <reference path="ExecutionException.d.ts" />
-/// <reference path="TimeoutException.d.ts" />
-/// <reference path="DecorativeObject.d.ts" />
-/// <reference path="GameObject.d.ts" />
-/// <reference path="GroundObject.d.ts" />
-/// <reference path="ItemContainer.d.ts" />
-/// <reference path="ItemLayer.d.ts" />
-/// <reference path="Node.d.ts" />
-/// <reference path="Scene.d.ts" />
-/// <reference path="WallObject.d.ts" />
-/// <reference path="events/DecorativeObjectSpawned.d.ts" />
-/// <reference path="events/GameObjectSpawned.d.ts" />
-/// <reference path="events/GroundObjectSpawned.d.ts" />
-/// <reference path="events/ItemContainerChanged.d.ts" />
-/// <reference path="events/NpcSpawned.d.ts" />
-/// <reference path="events/PlayerSpawned.d.ts" />
-/// <reference path="events/WallObjectSpawned.d.ts" />
-/// <reference path="com.google.protobuf.GeneratedMessageLite.d.ts" />
-/// <reference path="com.google.protobuf.GeneratedMessageLite<.d.ts" />
-/// <reference path="Join.Builder>.d.ts" />
-/// <reference path="Part.Builder>.d.ts" />
-/// <reference path="Data.Builder>.d.ts" />
-/// <reference path="C2S.Builder>.d.ts" />
-/// <reference path="UserJoin.Builder>.d.ts" />
-/// <reference path="UserPart.Builder>.d.ts" />
-/// <reference path="PartyData.Builder>.d.ts" />
-/// <reference path="S2C.Builder>.d.ts" />
-/// <reference path="CharMatcher.d.ts" />
-/// <reference path="PopupFactory.d.ts" />
-/// <reference path="FullScreenAdapter.d.ts" />
-/// <reference path="Temporal> R addTo(R temporal.d.ts" />
-/// <reference path="long amount).d.ts" />
-/// <reference path="Annotation>.d.ts" />
-/// <reference path="Annotation> m = (Map) declaredAnnotations.get(object);.d.ts" />
-/// <reference path="Annotation>emptyMap()).d.ts" />
-/// <reference path="T> type.d.ts" />
-/// <reference path="String label) {.d.ts" />
-/// <reference path="T> type) {.d.ts" />
-/// <reference path="T.d.ts" />
-/// <reference path="StdCallLibrary.d.ts" />
-/// <reference path="widgets/InterfaceID.d.ts" />
-/// <reference path="HitsplatID.d.ts" />
-/// <reference path="VarClientInt.d.ts" />
-/// <reference path="SimplePolygon.d.ts" />
-/// <reference path="Point.d.ts" />
-/// <reference path="geometry/SimplePolygon.d.ts" />
 /// <reference path="../../../../java/index.d.ts" />
 /// <reference path="../../../../jagex/index.d.ts" />
-/// <reference path="widgets/JavaScriptCallback.d.ts" />
-/// <reference path="widgets/WidgetPositionMode.d.ts" />
-/// <reference path="widgets/WidgetSizeMode.d.ts" />
-/// <reference path="widgets/WidgetTextAlignment.d.ts" />
-/// <reference path="widgets/WidgetType.d.ts" />
-/// <reference path="ChatboxTextInput.d.ts" />
-/// <reference path="events/ScriptPreFired.d.ts" />
-/// <reference path="vars/InputType.d.ts" />
-/// <reference path="FontID.d.ts" />
-/// <reference path="ChatboxInput implements KeyListener.d.ts" />
-/// <reference path="FontTypeFace.d.ts" />
-/// <reference path="MouseListener.d.ts" />
-/// <reference path="Overlay.d.ts" />
-/// <reference path="Perspective.d.ts" />
-/// <reference path="PartyMessage.d.ts" />
-/// <reference path="PartyMemberMessage.d.ts" />
-/// <reference path="WebsocketMessage.d.ts" />
-/// <reference path="Plugin.d.ts" />
-/// <reference path="events/WidgetLoaded.d.ts" />
-/// <reference path="Quest.d.ts" />
-/// <reference path="QuestState.d.ts" />
-/// <reference path="Timer.d.ts" />
-/// <reference path="ItemID/AGILITY_ARENA_TICKET.d.ts" />
-/// <reference path="NullNpcID.d.ts" />
-/// <reference path="Skill/AGILITY.d.ts" />
-/// <reference path="events/DecorativeObjectDespawned.d.ts" />
-/// <reference path="events/GameObjectDespawned.d.ts" />
-/// <reference path="events/GroundObjectDespawned.d.ts" />
-/// <reference path="events/StatChanged.d.ts" />
-/// <reference path="events/WallObjectDespawned.d.ts" />
-/// <reference path="MenuAction/RUNELITE_OVERLAY.d.ts" />
-/// <reference path="MenuAction/RUNELITE_OVERLAY_CONFIG.d.ts" />
-/// <reference path="OverlayPanel.d.ts" />
 /// <reference path="NullObjectID/*.d.ts" />
+/// <reference path="ObjectID/*.d.ts" />
 /*
  * Copyright (c) 2018, SomeoneWithAnInternetConnection
  * All rights reserved.
@@ -273,34 +28,94 @@
  */
 declare namespace net.runelite.client.plugins.agility {
 export class Obstacles
+{
 		// Gnome
+OBSTACLE_NET_23134, TREE_BRANCH_23559, TREE_BRANCH_23560, OBSTACLE_NET_23135, OBSTACLE_PIPE_23138,
+OBSTACLE_PIPE_23139, LOG_BALANCE_23145, BALANCING_ROPE_23557,
 		// Brimhaven
+PLANK_3572, PLANK_3571, PLANK_3570, ROPE_SWING, PILLAR_3578, LOW_WALL, LOG_BALANCE, LOG_BALANCE_3557,
+BALANCING_LEDGE_3561, BALANCING_LEDGE, MONKEY_BARS_3564, BALANCING_ROPE, HAND_HOLDS_3583,
 		// Draynor
+ROUGH_WALL, TIGHTROPE, TIGHTROPE_11406, NARROW_WALL, WALL_11630, GAP_11631, CRATE_11632, STILE_7527,
 		// Al-Kharid
+ROUGH_WALL_11633, TIGHTROPE_14398, CABLE, ZIP_LINE_14403, TROPICAL_TREE_14404, ROOF_TOP_BEAMS,
+TIGHTROPE_14409, GAP_14399,
 		// Pyramid
+STAIRS_10857, LOW_WALL_10865, LEDGE_10860, PLANK_10868, GAP_10882, LEDGE_10886, STAIRS_10857, GAP_10884,
+GAP_10859, GAP_10861, LOW_WALL_10865, GAP_10859, LEDGE_10888, PLANK_10868, CLIMBING_ROCKS_10851, DOORWAY_10855,
 		// Varrock
+ROUGH_WALL_14412, CLOTHES_LINE, GAP_14414, WALL_14832, GAP_14833, GAP_14834, GAP_14835, LEDGE_14836, EDGE,
 		// Penguin
+STEPPING_STONE_21120, STEPPING_STONE_21126, STEPPING_STONE_21128, STEPPING_STONE_21129,
+STEPPING_STONE_21130, STEPPING_STONE_21131, STEPPING_STONE_21132, STEPPING_STONE_21133,
+ICICLES, ICE, ICE_21149, ICE_21150, ICE_21151, ICE_21152, ICE_21153, ICE_21154, ICE_21155, ICE_21156, GATE_21172,
 		// Barbarian
+ROPESWING_23131, LOG_BALANCE_23144, OBSTACLE_NET_20211, BALANCING_LEDGE_23547, LADDER_16682, CRUMBLING_WALL_1948,
 		// Canifis
+TALL_TREE_14843, GAP_14844, GAP_14845, GAP_14848, GAP_14846, POLEVAULT, GAP_14847, GAP_14897,
 		// Ape atoll
+STEPPING_STONE_15412, TROPICAL_TREE_15414, MONKEYBARS_15417, SKULL_SLOPE, ROPE_15487, TROPICAL_TREE_16062,
 		// Falador
+ROUGH_WALL_14898, TIGHTROPE_14899, HAND_HOLDS_14901, GAP_14903, GAP_14904, TIGHTROPE_14905,
+TIGHTROPE_14911, GAP_14919, LEDGE_14920, LEDGE_14921, LEDGE_14922, LEDGE_14923, LEDGE_14924, EDGE_14925,
 		// Wilderness
+OBSTACLE_PIPE_23137, ROPESWING_23132, STEPPING_STONE_23556, LOG_BALANCE_23542, ROCKS_23640,
 		// Seers
+WALL_14927, GAP_14928, TIGHTROPE_14932, GAP_14929, GAP_14930, EDGE_14931,
 		// Dorgesh-Kaan
+CABLE_22569, CABLE_22572, LADDER_22564, JUTTING_WALL_22552, TUNNEL_22557, PYLON_22664,
+CONSOLE, BOILER_22635, STAIRS_22650, STAIRS_22651, STAIRS_22609, STAIRS_22608,
 		// Pollniveach
+BASKET_14935, MARKET_STALL_14936, BANNER_14937, GAP_14938, TREE_14939, ROUGH_WALL_14940,
+MONKEYBARS, TREE_14944, DRYING_LINE,
 		// Rellaka
+ROUGH_WALL_14946, GAP_14947, TIGHTROPE_14987, GAP_14990, GAP_14991, TIGHTROPE_14992, PILE_OF_FISH,
 		// Ardougne
+WOODEN_BEAMS, GAP_15609, PLANK_26635, GAP_15610, GAP_15611, STEEP_ROOF, GAP_15612,
 		// Meiyerditch
+NULL_12945, ROCK_17958, ROCK_17959, ROCK_17960, BOAT_17961, NULL_18122, NULL_18124, WALL_RUBBLE,
+WALL_RUBBLE_18038, FLOORBOARDS, FLOORBOARDS_18071, FLOORBOARDS_18072, FLOORBOARDS_18073, NULL_18129, NULL_18130,
+WALL_18078, NULL_18132, NULL_18133, NULL_18083, TUNNEL_18085, SHELF_18086, SHELF_18087, WALL_18088,
+FLOORBOARDS_18089, FLOORBOARDS_18090, DOOR_18091, FLOORBOARDS_18093, FLOORBOARDS_18094, SHELF_18095,
+SHELF_18096, FLOORBOARDS_18097, FLOORBOARDS_18098, WASHING_LINE_18099, WASHING_LINE_18100,
+NULL_18135, NULL_18136, SHELF_18105, SHELF_18106, SHELF_18107, SHELF_18108, FLOORBOARDS_18109,
+FLOORBOARDS_18110, FLOORBOARDS_18112, FLOORBOARDS_18111, FLOORBOARDS_18114, FLOORBOARDS_18113,
+NULL_18116, FLOORBOARDS_18117, FLOORBOARDS_18118, STAIRS_DOWN, WALL_17980, BARRICADE_18054, LADDER_17999,
+LADDER_18000, LADDER_18001, LADDER_18002, ROCKY_SURFACE, WALL_39172, WALL_39173,
 		// Werewolf
+STEPPING_STONE_11643, HURDLE, HURDLE_11639, HURDLE_11640, PIPE_11657, SKULL_SLOPE, ZIP_LINE,
+ZIP_LINE_11645, ZIP_LINE_11646,
 		// Prifddinas
+LADDER_36221, TIGHTROPE_36225, CHIMNEY_36227, ROOF_EDGE, DARK_HOLE_36229, LADDER_36231, LADDER_36232,
+ROPE_BRIDGE_36233, TIGHTROPE_36234, ROPE_BRIDGE_36235, TIGHTROPE_36236, TIGHTROPE_36237, DARK_HOLE_36238,
 		// Rellekka Lighthouse
+BASALT_ROCK, BASALT_ROCK_4553, BASALT_ROCK_4554, BASALT_ROCK_4556, BASALT_ROCK_4558, ROCKY_SHORE,
+BASALT_ROCK_4557, BASALT_ROCK_4555, BASALT_ROCK_4552, BEACH,
 		// Shayzien
+LADDER_42209, MONKEYBARS_42211, TIGHTROPE_42212,
 		// Shayzien basic
+BAR_42213, TIGHTROPE_42214, TIGHTROPE_42215, GAP_42216,
 		// Shayzien hard
+BEAM, EDGE_42218, EDGE_42219, BEAM_42220, ZIPLINE,
 		// Necropolis
+NULL_44595
+);
 		// Prifddinas portals
+NULL_36241, NULL_36242, NULL_36243, NULL_36244, NULL_36245, NULL_36246
+);
+Multimap<Integer, AgilityShortcut> SHORTCUT_OBSTACLE_IDS;
 		// Agility pyramid
+NULL_3550, NULL_10872, NULL_10873
+);
 		// Stairs and Platforms (and one Gate)
+GATE_38460, PLATFORM_38455, PLATFORM_38456, PLATFORM_38457, PLATFORM_38458, PLATFORM_38459,
+PLATFORM_38470, PLATFORM_38477, STAIRS_38462, STAIRS_38463, STAIRS_38464, STAIRS_38465,
+STAIRS_38466, STAIRS_38467, STAIRS_38468, STAIRS_38469, STAIRS_38471, STAIRS_38472,
+STAIRS_38473, STAIRS_38474, STAIRS_38475, STAIRS_38476
+);
 		// Grapple, Portal, and Bridge skill obstacles
 		// They are multilocs, thus we use the NullObjectID
-},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},}
+NULL_39524, NULL_39525, NULL_39526, NULL_39527, NULL_39528, NULL_39533
+);
+}
+}

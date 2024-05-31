@@ -1,134 +1,11 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
 /// <reference path="../../../java/index.d.ts" />
 /// <reference path="../../../jagex/index.d.ts" />
-/// <reference path="annotations/Component.d.ts" />
-/// <reference path="annotations/Interface.d.ts" />
-/// <reference path="annotations/VarCInt.d.ts" />
-/// <reference path="annotations/VarCStr.d.ts" />
-/// <reference path="annotations/Varbit.d.ts" />
-/// <reference path="annotations/Varp.d.ts" />
-/// <reference path="annotations/VisibleForDevtools.d.ts" />
-/// <reference path="clan/ClanChannel.d.ts" />
-/// <reference path="clan/ClanID.d.ts" />
-/// <reference path="clan/ClanSettings.d.ts" />
-/// <reference path="coords/LocalPoint.d.ts" />
-/// <reference path="coords/WorldPoint.d.ts" />
-/// <reference path="dbtable/DBRowConfig.d.ts" />
-/// <reference path="hooks/DrawCallbacks.d.ts" />
-/// <reference path="vars/AccountType.d.ts" />
-/// <reference path="widgets/ItemQuantityMode.d.ts" />
-/// <reference path="widgets/Widget.d.ts" />
-/// <reference path="widgets/WidgetConfig.d.ts" />
-/// <reference path="widgets/WidgetInfo.d.ts" />
-/// <reference path="widgets/WidgetModalMode.d.ts" />
-/// <reference path="worldmap/MapElementConfig.d.ts" />
-/// <reference path="worldmap/WorldMap.d.ts" />
-/// <reference path="GameEngine.d.ts" />
-/// <reference path="MainBufferProvider.d.ts" />
-/// <reference path="Renderable.d.ts" />
-/// <reference path="Skill.d.ts" />
-/// <reference path="events/BeforeRender.d.ts" />
-/// <reference path="events/FakeXpDrop.d.ts" />
-/// <reference path="events/GameTick.d.ts" />
-/// <reference path="events/PostClientTick.d.ts" />
-/// <reference path="events/ScriptCallbackEvent.d.ts" />
-/// <reference path="widgets/ComponentID.d.ts" />
-/// <reference path="widgets/WidgetItem.d.ts" />
-/// <reference path="worldmap/WorldMapRenderer.d.ts" />
-/// <reference path="events/ChatMessage.d.ts" />
-/// <reference path="MessageNode.d.ts" />
-/// <reference path="VarPlayer.d.ts" />
-/// <reference path="Varbits.d.ts" />
-/// <reference path="ScriptID.d.ts" />
-/// <reference path="VarClientStr.d.ts" />
-/// <reference path="events/CommandExecuted.d.ts" />
-/// <reference path="Config.d.ts" />
-/// <reference path="events/AccountHashChanged.d.ts" />
-/// <reference path="events/PlayerChanged.d.ts" />
-/// <reference path="events/WorldChanged.d.ts" />
-/// <reference path="Config> T getConfig(Class<T> clazz).d.ts" />
-/// <reference path="Config> void setDefaultConfiguration(T proxy.d.ts" />
-/// <reference path="boolean override).d.ts" />
-/// <reference path="Enum>) type.d.ts" />
-/// <reference path="str);.d.ts" />
-/// <reference path="Serializer<?>> serializerClass = configSerializer.value();.d.ts" />
-/// <reference path="Serializer<?>> value();.d.ts" />
-/// <reference path="Keybind.d.ts" />
-/// <reference path="WorldType.d.ts" />
-/// <reference path="Plugin>[] builtinExternals = null;.d.ts" />
-/// <reference path="Plugin> pluginClass : builtinExternals).d.ts" />
-/// <reference path="Plugin> plugin).d.ts" />
-/// <reference path="Plugin>... plugins).d.ts" />
-/// <reference path="URLClassLoader implements ReflectUtil.PrivateLookupableClassLoader.d.ts" />
-/// <reference path="ManifestLite.d.ts" />
-/// <reference path="DisplayData.d.ts" />
-/// <reference path="ChatInput.d.ts" />
-/// <reference path="NPC.d.ts" />
-/// <reference path="EnumComposition.d.ts" />
-/// <reference path="EnumID.d.ts" />
-/// <reference path="FriendsChatRank.d.ts" />
-/// <reference path="IndexedSprite.d.ts" />
-/// <reference path="clan/ClanTitle.d.ts" />
-/// <reference path="NullObjectID.d.ts" />
-/// <reference path="NullObjectID/NULL_25337.d.ts" />
-/// <reference path="NullObjectID/NULL_26371.d.ts" />
-/// <reference path="NullObjectID/NULL_26375.d.ts" />
-/// <reference path="NullObjectID/NULL_26561.d.ts" />
-/// <reference path="NullObjectID/NULL_26562.d.ts" />
-/// <reference path="NullObjectID/NULL_26884.d.ts" />
-/// <reference path="NullObjectID/NULL_26886.d.ts" />
-/// <reference path="NullObjectID/NULL_29868.d.ts" />
-/// <reference path="NullObjectID/NULL_29869.d.ts" />
-/// <reference path="NullObjectID/NULL_29870.d.ts" />
-/// <reference path="NullObjectID/NULL_31823.d.ts" />
-/// <reference path="NullObjectID/NULL_31849.d.ts" />
-/// <reference path="NullObjectID/NULL_31852.d.ts" />
-/// <reference path="NullObjectID/NULL_33327.d.ts" />
-/// <reference path="NullObjectID/NULL_33328.d.ts" />
-/// <reference path="NullObjectID/NULL_39541.d.ts" />
-/// <reference path="NullObjectID/NULL_39542.d.ts" />
-/// <reference path="NullObjectID/NULL_40960.d.ts" />
-/// <reference path="NullObjectID/NULL_40962.d.ts" />
-/// <reference path="NullObjectID/NULL_43840.d.ts" />
-/// <reference path="NullObjectID/NULL_47325.d.ts" />
-/// <reference path="ObjectID/*.d.ts" />
-/// <reference path="TileObject.d.ts" />
-/// <reference path="ItemID.d.ts" />
-/// <reference path="NpcID/*.d.ts" />
-/// <reference path="Constants/CLIENT_DEFAULT_ZOOM.d.ts" />
-/// <reference path="ItemComposition.d.ts" />
-/// <reference path="ItemID/*.d.ts" />
-/// <reference path="SpritePixels.d.ts" />
-/// <reference path="AnimationID.d.ts" />
-/// <reference path="NPCComposition.d.ts" />
-/// <reference path="NpcID.d.ts" />
-/// <reference path="Tile.d.ts" />
-/// <reference path="TileItem.d.ts" />
-/// <reference path="coords/WorldArea.d.ts" />
-/// <reference path="events/AnimationChanged.d.ts" />
-/// <reference path="events/ItemDespawned.d.ts" />
-/// <reference path="events/ItemSpawned.d.ts" />
-/// <reference path="events/NpcChanged.d.ts" />
-/// <reference path="events/NpcDespawned.d.ts" />
-/// <reference path="events/PlayerDespawned.d.ts" />
-/// <reference path="SpriteID.d.ts" />
-/// <reference path="Actor.d.ts" />
-/// <reference path="ParamID.d.ts" />
-/// <reference path="java.awt.event.KeyListener.d.ts" />
-/// <reference path="MenuEntry.d.ts" />
+/// <reference path="Client.d.ts" />
 /// <reference path="MenuAction.d.ts" />
+/// <reference path="MenuEntry.d.ts" />
 /// <reference path="events/MenuEntryAdded.d.ts" />
 /// <reference path="events/PlayerMenuOptionsChanged.d.ts" />
+/// <reference path="WidgetMenuOption.d.ts" />
 /*
  * Copyright (c) 2017, Robin <robin.weymans@gmail.com>
  * All rights reserved.
@@ -155,28 +32,42 @@
  */
 declare namespace net.runelite.client.menus {
 export class MenuManager
+{
 	/*
 	 * The index needs to be between 4 and 7,
 	 */
+Client client;
 	//Maps the indexes that are being used to the menu option.
 	//Used to manage custom non-player menu options
+MenuManager(Client client, EventBus eventBus) 
 	/**
 	 * Adds a CustomMenuOption to the list of managed menu options.
 	 *
 	 * @param customMenuOption The custom menu to add
 	 * @param callback callback to be called when the menu is clicked
 	 */
+	addManagedCustomMenu(customMenuOption: WidgetMenuOption, callback: Consumer<MenuEntry>): void;
 	/**
 	 * Removes a CustomMenuOption from the list of managed menu options.
 	 *
 	 * @param customMenuOption The custom menu to add
 	 */
+	removeManagedCustomMenu(customMenuOption: WidgetMenuOption): void;
+	private static menuContainsCustomMenu(menuEntries: MenuEntry[], customMenuOption: WidgetMenuOption): boolean;
+	onMenuEntryAdded(event: net.runelite.api.events.MenuEntryAdded): void;
 		// Menu entries are sorted with higher-index entries appearing toward the top of the minimenu, so insert older
 		// managed menu entries at higher indices and work backward for newer entries so newly-added entries appear at
 		// the bottom
 			// Exit if we've inserted the managed menu entries already
+	addPlayerMenuItem(menuText: string): void;
+	removePlayerMenuItem(menuText: string): void;
+	onPlayerMenuOptionsChanged(event: net.runelite.api.events.PlayerMenuOptionsChanged): void;
 		// find new index for this option
+	private addPlayerMenuItem(playerOptionIndex: number, menuText: string): void;
+	private removePlayerMenuItem(playerOptionIndex: number): void;
 	/**
 	 * Find the next empty player menu slot index
 	 */
-},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},}
+	private findEmptyPlayerMenuIndex(): number;
+}
+}

@@ -1,54 +1,19 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
 /// <reference path="../../../java/index.d.ts" />
 /// <reference path="../../../jagex/index.d.ts" />
-/// <reference path="annotations/Component.d.ts" />
-/// <reference path="annotations/Interface.d.ts" />
-/// <reference path="annotations/VarCInt.d.ts" />
-/// <reference path="annotations/VarCStr.d.ts" />
-/// <reference path="annotations/Varbit.d.ts" />
-/// <reference path="annotations/Varp.d.ts" />
-/// <reference path="annotations/VisibleForDevtools.d.ts" />
-/// <reference path="clan/ClanChannel.d.ts" />
-/// <reference path="clan/ClanID.d.ts" />
-/// <reference path="clan/ClanSettings.d.ts" />
-/// <reference path="coords/LocalPoint.d.ts" />
-/// <reference path="coords/WorldPoint.d.ts" />
-/// <reference path="dbtable/DBRowConfig.d.ts" />
-/// <reference path="hooks/DrawCallbacks.d.ts" />
-/// <reference path="vars/AccountType.d.ts" />
-/// <reference path="widgets/ItemQuantityMode.d.ts" />
-/// <reference path="widgets/Widget.d.ts" />
-/// <reference path="widgets/WidgetConfig.d.ts" />
-/// <reference path="widgets/WidgetInfo.d.ts" />
-/// <reference path="widgets/WidgetModalMode.d.ts" />
-/// <reference path="worldmap/MapElementConfig.d.ts" />
-/// <reference path="worldmap/WorldMap.d.ts" />
-/// <reference path="GameEngine.d.ts" />
-/// <reference path="MainBufferProvider.d.ts" />
-/// <reference path="Renderable.d.ts" />
-/// <reference path="Skill.d.ts" />
-/// <reference path="events/BeforeRender.d.ts" />
-/// <reference path="events/FakeXpDrop.d.ts" />
-/// <reference path="events/GameTick.d.ts" />
-/// <reference path="events/PostClientTick.d.ts" />
-/// <reference path="events/ScriptCallbackEvent.d.ts" />
-/// <reference path="widgets/ComponentID.d.ts" />
-/// <reference path="widgets/WidgetItem.d.ts" />
-/// <reference path="worldmap/WorldMapRenderer.d.ts" />
-/// <reference path="events/ChatMessage.d.ts" />
+/// <reference path="ChatMessageType.d.ts" />
+/// <reference path="Client.d.ts" />
 /// <reference path="MessageNode.d.ts" />
+/// <reference path="Player.d.ts" />
 /// <reference path="VarPlayer.d.ts" />
 /// <reference path="Varbits.d.ts" />
+/// <reference path="annotations/Varp.d.ts" />
+/// <reference path="events/ScriptCallbackEvent.d.ts" />
+/// <reference path="ConfigChanged.d.ts" />
+/// <reference path="ProfileChanged.d.ts" />
+/// <reference path="Color.d.ts" />
+/// <reference path="ChatColor.d.ts" />
+/// <reference path="ChatMessageType....d.ts" />
+/// <reference path="QueuedMessage.d.ts" />
 /*
  * Copyright (c) 2017, Tomas Slusny <slusnucky@gmail.com>
  * All rights reserved.
@@ -75,13 +40,25 @@
  */
 declare namespace net.runelite.client.chat {
 export class ChatMessageManager
+{
+Client client;
+ChatColorConfig chatColorConfig;
+ClientThread clientThread;
+ChatMessageManager( Client client, ChatColorConfig chatColorConfig, ClientThread clientThread, EventBus eventBus) 
+	onConfigChanged(event: ConfigChanged): void;
+	onProfileChanged(profileChanged: ProfileChanged): void;
+	colorChatMessage(): void;
 			// username recoloring for MODPRIVATECHAT, PRIVATECHAT and PRIVATECHATOUT
 			// ChatMessageTypes is handled in the script callback event
 			// Replace </col> tags in the message with the new color so embedded </col> won't reset the color
+	onScriptCallbackEvent(scriptCallbackEvent: net.runelite.api.events.ScriptCallbackEvent): void;
+	private static getDefaultColor(type: ChatMessageType, transparent: boolean): Color;
 	// get the variable holding the chat color from the settings, from script4484
+	private static getSettingsColor(type: ChatMessageType, transparent: boolean): number;
 	/**
 	 * Load all configured colors
 	 */
+	private loadColors(): void;
 		// Apply defaults
 		//region opaque clanchat
 		//endregion
@@ -90,7 +67,11 @@ export class ChatMessageManager
 		//endregion
 		//region transparent clanchat
 		//endregion
+	private cacheColor(chatColor: ChatColor, types: ChatMessageType...): void;
 			// color is excluded from equals/hashCode on ChatColor
+	queue(message: QueuedMessage): void;
+	process(): void;
+	private add(message: QueuedMessage): void;
 		// Do not send message if the player is on tutorial island
 		// this updates chat cycle
 		// Update the message with RuneLite additions
@@ -101,6 +82,8 @@ export class ChatMessageManager
 	 * @param messageNode message node
 	 */
 /** @deprecated */
+	update(messageNode: MessageNode): void;
+	formatRuneLiteMessage(runeLiteFormatMessage: string, type: ChatMessageType, pmbox: boolean): string;
 					// The default ChatColors for private have the chatbox text color, not the split chat color,
 					// and the split chat color is set by widget color, so just use </col>. The in-game
 					// private chat color doesn't apply to split chat either so using that here also is incorrect.
@@ -109,4 +92,5 @@ export class ChatMessageManager
 					// colorChatMessage()
 						// Apply configured color from game settings, if set
 				// Replace custom formatting with actual colors
-},},},},},},},},},},},},},},},},},},},},},},},}
+}
+}

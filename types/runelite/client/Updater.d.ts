@@ -1,14 +1,5 @@
 /// <reference path="../../java/index.d.ts" />
 /// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
 /*
  * Copyright (c) 2022, Adam <Adam@sigterm.info>
  * All rights reserved.
@@ -35,10 +26,20 @@
  */
 declare namespace net.runelite.client {
 export class Updater
+{
 	// Props can be overwritten by rtconfig, which is unsigned, and so is not safe for this
+OkHttpClient okHttpClient;
+RuntimeConfig runtimeConfig;
+ConfigManager configManager;
+boolean noupdate;
+Updater( OkHttpClient okHttpClient, RuntimeConfig runtimeConfig, ConfigManager configManager,  boolean noupdate ) 
+	update(): void;
+	tryUpdate(): void;
 				// logback logs are in local time, so use that to match it
 		// the installer kills running RuneLite processes, so check that there are no others running
 		// check if rollout allows this update
 		// from here and below the update will be attempted. update settings early so a failed
 		// download counts as an attempt.
-},},},},},},},},},},}
+	private static installRollout(): number;
+}
+}

@@ -1,10 +1,15 @@
 /// <reference path="../../java/index.d.ts" />
 /// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
 /// <reference path="ChatMessageType.d.ts" />
+/// <reference path="Client.d.ts" />
 /// <reference path="Constants.d.ts" />
+/// <reference path="GameState.d.ts" />
 /// <reference path="Player.d.ts" />
+/// <reference path="TrayIcon.MessageType.d.ts" />
+/// <reference path="Notification.d.ts" />
+/// <reference path="Graphics2D.d.ts" />
+/// <reference path="Process.d.ts" />
+/// <reference path="synchronized void.d.ts" />
 /*
  * Copyright (c) 2016-2017, Adam <Adam@sigterm.info>
  * All rights reserved.
@@ -31,18 +36,52 @@
  */
 declare namespace net.runelite.client {
 export class Notifier
+{
+enum NativeCustomOff
+.addEscape('"', "'") 
+.build(); 
 	// Notifier properties
+Client client;
+RuneLiteConfig runeLiteConfig;
+ClientUI clientUI;
+ScheduledExecutorService executorService;
+ChatMessageManager chatMessageManager;
+EventBus eventBus;
+String appName;
+Path notifyIconPath;
+boolean terminalNotifierAvailable;
+Instant flashStart;
+FlashNotification flashNotification;
+Color flashColor;
+long mouseLastPressedMillis;
+Notifier( ClientUI clientUI, Client client, RuneLiteConfig runeliteConfig, ScheduledExecutorService executorService, ChatMessageManager chatMessageManager, EventBus eventBus,  String appName ) 
 		// Check if we are running in the launcher because terminal-notifier notifications don't work
 		// if the group/sender are unknown to it.
+	private defaultNotification(trayMessageType: TrayIcon.MessageType): Notification;
 		// Create a new notification just using the RuneLite notification settings
+	notify(message: string): void;
+	notify(message: string, type: TrayIcon.MessageType): void;
+	notify(notification: Notification, message: string): void;
 		// Non-overriden notifications use the default notification settings.
+	private buildTitle(): string;
+	processFlash(graphics: Graphics2D): void;
 					// Any interaction with the client since the notification started will cancel it after the minimum duration
 			// For solid colour, fall through every time.
+	private sendNotification(notification: Notification, title: string, message: string): void;
+	private sendTrayNotification(notification: Notification, title: string, message: string): void;
+	private sendLinuxNotification(notification: Notification, title: string, message: string): void;
 			// fall back to tray notification
+	private sendMacNotification(title: string, message: string): void;
+	private static sendCommand(commands: Array<string>): Process;
+	private isTerminalNotifierAvailable(): boolean;
 			// The PATH seen by Cocoa apps does not resemble that seen by the shell, so we defer to the latter.
+	private static toUrgency(type: TrayIcon.MessageType): string;
+	private playCustomSound(notification: Notification): synchronized void;
 		// converts user controlled linear volume ranging 1-100 to exponential decibel gains
 		// Using loop instead of start + setFramePosition prevents the clip
 		// from not being played sometimes, presumably a race condition in the
 		// underlying line driver
+	private tryLoadNotification(): boolean;
 		// Otherwise load from the classpath
-},},}
+}
+}

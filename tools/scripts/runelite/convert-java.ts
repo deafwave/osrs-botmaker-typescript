@@ -1,23 +1,42 @@
 /* eslint-disable unicorn/switch-case-braces */
 import { convertMethodSignature, convertType } from './utils';
 
-const customTypes = new Set<string>();
+let customTypes = new Set<string>();
 let accumulatingMethodSignature = false;
 let accumulatingMethodCurliesDepth = 0;
 let methodSignature = '';
 let constructorParts: string[] = [];
-const fileEndings: string[] = [];
-const annotations = {
+let fileEndings: string[] = [];
+let annotations = {
 	nullable: false,
 	magicConstant: false,
 	override: false,
 };
-const prefixKeywords = {
+let prefixKeywords = {
 	private: false,
 	static: false,
 	readonly: false,
 };
 
+/** TODO: Make this shit a class so we don't taint global instance */
+const resetVariables = () => {
+	customTypes = new Set<string>();
+	accumulatingMethodSignature = false;
+	accumulatingMethodCurliesDepth = 0;
+	methodSignature = '';
+	constructorParts = [];
+	fileEndings = [];
+	annotations = {
+		nullable: false,
+		magicConstant: false,
+		override: false,
+	};
+	prefixKeywords = {
+		private: false,
+		static: false,
+		readonly: false,
+	};
+};
 /** Transfer comments 1:1 */
 const handleComments = (line: string) => {
 	const result = {
@@ -220,6 +239,8 @@ const processLine = (line: string) => {
 	line = handlePrefixKeywords(line);
 
 	// Curly Handling
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-call
+	// line = line.replaceAll('{}', '');
 	if (line.trim().includes('{')) {
 		accumulatingMethodCurliesDepth += 1;
 	}
@@ -227,6 +248,7 @@ const processLine = (line: string) => {
 		if (line.includes('}')) {
 			accumulatingMethodCurliesDepth -= 1;
 		}
+		// console.log(`REMOVE: ${line}`);
 		return '';
 	}
 
@@ -324,6 +346,7 @@ const processLine = (line: string) => {
 	return line;
 };
 export function convertJava(input: string, filePath: string): string {
+	resetVariables();
 	const depth = filePath.split('\\').length - 2;
 	customTypes.add(`${'../'.repeat(depth)}java/index`);
 	customTypes.add(`${'../'.repeat(depth)}jagex/index`);

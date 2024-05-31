@@ -23,10 +23,10 @@ function createDTSFiles(dirPath: any) {
 						return;
 					}
 
-					if (file.name !== 'Text.java') {
-						// TEMP SKIP ALL BUT ONE
-						return;
-					}
+					// if (file.name !== 'Notifier.java') {
+					// 	// TEMP SKIP ALL BUT ONE
+					// 	return;
+					// }
 					const tsInterface = convertJava(data, filePath);
 					writeToFile(filePath, dirPath, tsInterface);
 				});
@@ -60,5 +60,4 @@ function writeToFile(filePath: any, dirPath: any, tsContent: any) {
 }
 
 // Usage
-createDTSFiles('types/runelite/api');
 createDTSFiles('types/runelite/client');

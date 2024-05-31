@@ -1,164 +1,6 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
 /// <reference path="../../../java/index.d.ts" />
 /// <reference path="../../../jagex/index.d.ts" />
-/// <reference path="annotations/Component.d.ts" />
-/// <reference path="annotations/Interface.d.ts" />
-/// <reference path="annotations/VarCInt.d.ts" />
-/// <reference path="annotations/VarCStr.d.ts" />
-/// <reference path="annotations/Varbit.d.ts" />
-/// <reference path="annotations/Varp.d.ts" />
-/// <reference path="annotations/VisibleForDevtools.d.ts" />
-/// <reference path="clan/ClanChannel.d.ts" />
-/// <reference path="clan/ClanID.d.ts" />
-/// <reference path="clan/ClanSettings.d.ts" />
-/// <reference path="coords/LocalPoint.d.ts" />
-/// <reference path="coords/WorldPoint.d.ts" />
-/// <reference path="dbtable/DBRowConfig.d.ts" />
-/// <reference path="hooks/DrawCallbacks.d.ts" />
-/// <reference path="vars/AccountType.d.ts" />
-/// <reference path="widgets/ItemQuantityMode.d.ts" />
-/// <reference path="widgets/Widget.d.ts" />
-/// <reference path="widgets/WidgetConfig.d.ts" />
-/// <reference path="widgets/WidgetInfo.d.ts" />
-/// <reference path="widgets/WidgetModalMode.d.ts" />
-/// <reference path="worldmap/MapElementConfig.d.ts" />
-/// <reference path="worldmap/WorldMap.d.ts" />
-/// <reference path="GameEngine.d.ts" />
-/// <reference path="MainBufferProvider.d.ts" />
-/// <reference path="Renderable.d.ts" />
-/// <reference path="Skill.d.ts" />
-/// <reference path="events/BeforeRender.d.ts" />
-/// <reference path="events/FakeXpDrop.d.ts" />
-/// <reference path="events/GameTick.d.ts" />
-/// <reference path="events/PostClientTick.d.ts" />
-/// <reference path="events/ScriptCallbackEvent.d.ts" />
-/// <reference path="widgets/ComponentID.d.ts" />
-/// <reference path="widgets/WidgetItem.d.ts" />
-/// <reference path="worldmap/WorldMapRenderer.d.ts" />
-/// <reference path="events/ChatMessage.d.ts" />
-/// <reference path="MessageNode.d.ts" />
-/// <reference path="VarPlayer.d.ts" />
-/// <reference path="Varbits.d.ts" />
-/// <reference path="ScriptID.d.ts" />
-/// <reference path="VarClientStr.d.ts" />
-/// <reference path="events/CommandExecuted.d.ts" />
-/// <reference path="Config.d.ts" />
-/// <reference path="events/AccountHashChanged.d.ts" />
-/// <reference path="events/PlayerChanged.d.ts" />
-/// <reference path="events/WorldChanged.d.ts" />
-/// <reference path="Config> T getConfig(Class<T> clazz).d.ts" />
-/// <reference path="Config> void setDefaultConfiguration(T proxy.d.ts" />
-/// <reference path="boolean override).d.ts" />
-/// <reference path="Enum>) type.d.ts" />
-/// <reference path="str);.d.ts" />
-/// <reference path="Serializer<?>> serializerClass = configSerializer.value();.d.ts" />
-/// <reference path="Serializer<?>> value();.d.ts" />
-/// <reference path="Keybind.d.ts" />
-/// <reference path="WorldType.d.ts" />
-/// <reference path="Plugin>[] builtinExternals = null;.d.ts" />
-/// <reference path="Plugin> pluginClass : builtinExternals).d.ts" />
-/// <reference path="Plugin> plugin).d.ts" />
-/// <reference path="Plugin>... plugins).d.ts" />
-/// <reference path="URLClassLoader implements ReflectUtil.PrivateLookupableClassLoader.d.ts" />
-/// <reference path="ManifestLite.d.ts" />
-/// <reference path="DisplayData.d.ts" />
-/// <reference path="ChatInput.d.ts" />
-/// <reference path="NPC.d.ts" />
-/// <reference path="EnumComposition.d.ts" />
-/// <reference path="EnumID.d.ts" />
-/// <reference path="FriendsChatRank.d.ts" />
-/// <reference path="IndexedSprite.d.ts" />
-/// <reference path="clan/ClanTitle.d.ts" />
-/// <reference path="NullObjectID.d.ts" />
-/// <reference path="NullObjectID/NULL_25337.d.ts" />
-/// <reference path="NullObjectID/NULL_26371.d.ts" />
-/// <reference path="NullObjectID/NULL_26375.d.ts" />
-/// <reference path="NullObjectID/NULL_26561.d.ts" />
-/// <reference path="NullObjectID/NULL_26562.d.ts" />
-/// <reference path="NullObjectID/NULL_26884.d.ts" />
-/// <reference path="NullObjectID/NULL_26886.d.ts" />
-/// <reference path="NullObjectID/NULL_29868.d.ts" />
-/// <reference path="NullObjectID/NULL_29869.d.ts" />
-/// <reference path="NullObjectID/NULL_29870.d.ts" />
-/// <reference path="NullObjectID/NULL_31823.d.ts" />
-/// <reference path="NullObjectID/NULL_31849.d.ts" />
-/// <reference path="NullObjectID/NULL_31852.d.ts" />
-/// <reference path="NullObjectID/NULL_33327.d.ts" />
-/// <reference path="NullObjectID/NULL_33328.d.ts" />
-/// <reference path="NullObjectID/NULL_39541.d.ts" />
-/// <reference path="NullObjectID/NULL_39542.d.ts" />
-/// <reference path="NullObjectID/NULL_40960.d.ts" />
-/// <reference path="NullObjectID/NULL_40962.d.ts" />
-/// <reference path="NullObjectID/NULL_43840.d.ts" />
-/// <reference path="NullObjectID/NULL_47325.d.ts" />
-/// <reference path="ObjectID/*.d.ts" />
-/// <reference path="TileObject.d.ts" />
-/// <reference path="ItemID.d.ts" />
-/// <reference path="NpcID/*.d.ts" />
-/// <reference path="Constants/CLIENT_DEFAULT_ZOOM.d.ts" />
-/// <reference path="ItemComposition.d.ts" />
-/// <reference path="ItemID/*.d.ts" />
-/// <reference path="SpritePixels.d.ts" />
-/// <reference path="AnimationID.d.ts" />
-/// <reference path="NPCComposition.d.ts" />
-/// <reference path="NpcID.d.ts" />
-/// <reference path="Tile.d.ts" />
-/// <reference path="TileItem.d.ts" />
-/// <reference path="coords/WorldArea.d.ts" />
-/// <reference path="events/AnimationChanged.d.ts" />
-/// <reference path="events/ItemDespawned.d.ts" />
-/// <reference path="events/ItemSpawned.d.ts" />
-/// <reference path="events/NpcChanged.d.ts" />
-/// <reference path="events/NpcDespawned.d.ts" />
-/// <reference path="events/PlayerDespawned.d.ts" />
-/// <reference path="SpriteID.d.ts" />
-/// <reference path="Actor.d.ts" />
-/// <reference path="ParamID.d.ts" />
-/// <reference path="java.awt.event.KeyListener.d.ts" />
-/// <reference path="MenuEntry.d.ts" />
-/// <reference path="MenuAction.d.ts" />
-/// <reference path="events/MenuEntryAdded.d.ts" />
-/// <reference path="events/PlayerMenuOptionsChanged.d.ts" />
-/// <reference path="CacheLoader<HiscoreManager.HiscoreKey.d.ts" />
-/// <reference path="HiscoreResult>.d.ts" />
-/// <reference path="WebsocketMessage>> MESSAGES;.d.ts" />
-/// <reference path="WebsocketMessage>> messages = new ArrayList<>();.d.ts" />
-/// <reference path="WebsocketMessage>> messages).d.ts" />
-/// <reference path="WebsocketMessage> message : MESSAGES).d.ts" />
-/// <reference path="WebsocketMessage> message : messages).d.ts" />
-/// <reference path="PartyMessage> void send(T message).d.ts" />
-/// <reference path="WebSocketListener implements AutoCloseable.d.ts" />
-/// <reference path="WebsocketMessage>> messages = new HashSet<>();.d.ts" />
-/// <reference path="WebsocketMessage> message).d.ts" />
-/// <reference path="Certificate> certificates = certificateFactory.generateCertificates(in);.d.ts" />
-/// <reference path="RuntimeException.d.ts" />
-/// <reference path="FilterInputStream.d.ts" />
-/// <reference path=".d.ts" />
-/// <reference path="URLClassLoader.d.ts" />
-/// <reference path="Plugin> value();.d.ts" />
-/// <reference path="Exception.d.ts" />
-/// <reference path="Plugin>> graph = GraphBuilder.d.ts" />
-/// <reference path="Plugin> pluginClazz : graph.nodes()).d.ts" />
-/// <reference path="Plugin>> sortedPlugins = topologicalSort(graph);.d.ts" />
-/// <reference path="Plugin> pluginClazz : sortedPlugins).d.ts" />
-/// <reference path="JPanel.d.ts" />
-/// <reference path="JFrame.d.ts" />
-/// <reference path="GridLayout.d.ts" />
-/// <reference path="PluginPanel.d.ts" />
-/// <reference path="JDialog.d.ts" />
-/// <reference path="JPanel implements Activatable.d.ts" />
-/// <reference path="JFrame implements ActionListener.d.ts" />
-/// <reference path="BufferedImage.d.ts" />
+/// <reference path="Color.d.ts" />
 /*
  * Copyright (c) 2018, Jordan Atwood <jordan.atwood423@gmail.com>
  * All rights reserved.
@@ -185,12 +27,14 @@
  */
 declare namespace net.runelite.client.util {
 export class ColorUtil
+{
 	/**
 	 * Creates a color tag from the given color.
 	 *
 	 * @param color The Color to create a tag from.
 	 * @return      A string of the color tag for the given color.
 	 */
+	private static colorTag(color: Color): string;
 	/**
 	 * Prepends the given str with an opening color tag of the given color.
 	 *
@@ -198,6 +42,7 @@ export class ColorUtil
 	 * @param color The color to be used in the color tag.
 	 * @return      The passed str with a prepended color tag.
 	 */
+	static prependColorTag(str: string, color: Color): string;
 	/**
 	 * Wraps the given str with a color tag of the given color.
 	 *
@@ -205,12 +50,14 @@ export class ColorUtil
 	 * @param color The color to be used in the color tag.
 	 * @return      The passed str wrapped with opening and closing color tags.
 	 */
+	static wrapWithColorTag(str: string, color: Color): string;
 	/**
 	 * Converts a given color to it's hexadecimal equivalent.
 	 *
 	 * @param color Color to get hexadecimal string from.
 	 * @return      Hexadecimal string representing the given color, in the form "#abcdef".
 	 */
+	static toHexColor(color: Color): string;
 	/**
 	 * Linearly interpolates between colors a and b by t.
 	 *
@@ -219,18 +66,21 @@ export class ColorUtil
 	 * @param t factor
 	 * @return  interpolated color
 	 */
+	static colorLerp(a: Color, b: Color, t: number): Color;
 	/**
 	 * Gets the RGB hex color code of the passed color.
 	 *
 	 * @param color The color to get a hex code from.
 	 * @return      A lower-cased string of the RGB hex code of color.
 	 */
+	static colorToHexCode(color: Color): string;
 	/**
 	 * Gets the ARGB hex color code of the passed color.
 	 *
 	 * @param color The color to get a hex code from.
 	 * @return      A lower-cased string of the ARGB hex code of color.
 	 */
+	static colorToAlphaHexCode(color: Color): string;
 	/**
 	 * Gets the same RGB color with the specified alpha value.
 	 *
@@ -238,39 +88,47 @@ export class ColorUtil
 	 * @param alpha The alpha value to use (0-255).
 	 * @return      A Color with the given RGB and alpha.
 	 */
+	static colorWithAlpha(color: Color, alpha: number): Color;
 	/**
 	 * Determines if the passed hex string is an alpha hex color.
 	 *
 	 * @param hex The hex to test.
 	 * @return    boolean
 	 */
+	static isAlphaHex(hex: string): boolean;
 	/**
 	 * Determines if the passed hex string is a hex color.
 	 *
 	 * @param hex The hex to test.
 	 * @return    boolean
 	 */
+	static isHex(hex: string): boolean;
 	/**
 	 * Limits an int to the rgba value range (0-255)
 	 *
 	 * @param value The value for the r, g, b, or a.
 	 * @return      An int between 0 - 255.
 	 */
+	static constrainValue(value: number): number;
 	/**
 	 * Gets the Color from the passed int string.
 	 *
 	 * @param string The int to get a Color object from.
 	 * @return       A Color of the int of color.
 	 */
+	static fromString(string: string): Color;
 	/**
 	 * Gets the Color from the passed hex string.
 	 *
 	 * @param hex The hex to get a Color object from.
 	 * @return    A Color of the hex code of color.
 	 */
+	static fromHex(hex: string): Color;
 	/**
 	 * Creates color from passed object hash code
 	 * @param object object with hashCode
 	 * @return color
 	 */
-},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},}
+	static fromObject(object: Record<string, any>): Color;
+}
+}

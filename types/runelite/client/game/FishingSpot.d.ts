@@ -1,110 +1,8 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
 /// <reference path="../../../java/index.d.ts" />
 /// <reference path="../../../jagex/index.d.ts" />
-/// <reference path="annotations/Component.d.ts" />
-/// <reference path="annotations/Interface.d.ts" />
-/// <reference path="annotations/VarCInt.d.ts" />
-/// <reference path="annotations/VarCStr.d.ts" />
-/// <reference path="annotations/Varbit.d.ts" />
-/// <reference path="annotations/Varp.d.ts" />
-/// <reference path="annotations/VisibleForDevtools.d.ts" />
-/// <reference path="clan/ClanChannel.d.ts" />
-/// <reference path="clan/ClanID.d.ts" />
-/// <reference path="clan/ClanSettings.d.ts" />
-/// <reference path="coords/LocalPoint.d.ts" />
-/// <reference path="coords/WorldPoint.d.ts" />
-/// <reference path="dbtable/DBRowConfig.d.ts" />
-/// <reference path="hooks/DrawCallbacks.d.ts" />
-/// <reference path="vars/AccountType.d.ts" />
-/// <reference path="widgets/ItemQuantityMode.d.ts" />
-/// <reference path="widgets/Widget.d.ts" />
-/// <reference path="widgets/WidgetConfig.d.ts" />
-/// <reference path="widgets/WidgetInfo.d.ts" />
-/// <reference path="widgets/WidgetModalMode.d.ts" />
-/// <reference path="worldmap/MapElementConfig.d.ts" />
-/// <reference path="worldmap/WorldMap.d.ts" />
-/// <reference path="GameEngine.d.ts" />
-/// <reference path="MainBufferProvider.d.ts" />
-/// <reference path="Renderable.d.ts" />
-/// <reference path="Skill.d.ts" />
-/// <reference path="events/BeforeRender.d.ts" />
-/// <reference path="events/FakeXpDrop.d.ts" />
-/// <reference path="events/GameTick.d.ts" />
-/// <reference path="events/PostClientTick.d.ts" />
-/// <reference path="events/ScriptCallbackEvent.d.ts" />
-/// <reference path="widgets/ComponentID.d.ts" />
-/// <reference path="widgets/WidgetItem.d.ts" />
-/// <reference path="worldmap/WorldMapRenderer.d.ts" />
-/// <reference path="events/ChatMessage.d.ts" />
-/// <reference path="MessageNode.d.ts" />
-/// <reference path="VarPlayer.d.ts" />
-/// <reference path="Varbits.d.ts" />
-/// <reference path="ScriptID.d.ts" />
-/// <reference path="VarClientStr.d.ts" />
-/// <reference path="events/CommandExecuted.d.ts" />
-/// <reference path="Config.d.ts" />
-/// <reference path="events/AccountHashChanged.d.ts" />
-/// <reference path="events/PlayerChanged.d.ts" />
-/// <reference path="events/WorldChanged.d.ts" />
-/// <reference path="Config> T getConfig(Class<T> clazz).d.ts" />
-/// <reference path="Config> void setDefaultConfiguration(T proxy.d.ts" />
-/// <reference path="boolean override).d.ts" />
-/// <reference path="Enum>) type.d.ts" />
-/// <reference path="str);.d.ts" />
-/// <reference path="Serializer<?>> serializerClass = configSerializer.value();.d.ts" />
-/// <reference path="Serializer<?>> value();.d.ts" />
-/// <reference path="Keybind.d.ts" />
-/// <reference path="WorldType.d.ts" />
-/// <reference path="Plugin>[] builtinExternals = null;.d.ts" />
-/// <reference path="Plugin> pluginClass : builtinExternals).d.ts" />
-/// <reference path="Plugin> plugin).d.ts" />
-/// <reference path="Plugin>... plugins).d.ts" />
-/// <reference path="URLClassLoader implements ReflectUtil.PrivateLookupableClassLoader.d.ts" />
-/// <reference path="ManifestLite.d.ts" />
-/// <reference path="DisplayData.d.ts" />
-/// <reference path="ChatInput.d.ts" />
-/// <reference path="NPC.d.ts" />
-/// <reference path="EnumComposition.d.ts" />
-/// <reference path="EnumID.d.ts" />
-/// <reference path="FriendsChatRank.d.ts" />
-/// <reference path="IndexedSprite.d.ts" />
-/// <reference path="clan/ClanTitle.d.ts" />
-/// <reference path="NullObjectID.d.ts" />
-/// <reference path="NullObjectID/NULL_25337.d.ts" />
-/// <reference path="NullObjectID/NULL_26371.d.ts" />
-/// <reference path="NullObjectID/NULL_26375.d.ts" />
-/// <reference path="NullObjectID/NULL_26561.d.ts" />
-/// <reference path="NullObjectID/NULL_26562.d.ts" />
-/// <reference path="NullObjectID/NULL_26884.d.ts" />
-/// <reference path="NullObjectID/NULL_26886.d.ts" />
-/// <reference path="NullObjectID/NULL_29868.d.ts" />
-/// <reference path="NullObjectID/NULL_29869.d.ts" />
-/// <reference path="NullObjectID/NULL_29870.d.ts" />
-/// <reference path="NullObjectID/NULL_31823.d.ts" />
-/// <reference path="NullObjectID/NULL_31849.d.ts" />
-/// <reference path="NullObjectID/NULL_31852.d.ts" />
-/// <reference path="NullObjectID/NULL_33327.d.ts" />
-/// <reference path="NullObjectID/NULL_33328.d.ts" />
-/// <reference path="NullObjectID/NULL_39541.d.ts" />
-/// <reference path="NullObjectID/NULL_39542.d.ts" />
-/// <reference path="NullObjectID/NULL_40960.d.ts" />
-/// <reference path="NullObjectID/NULL_40962.d.ts" />
-/// <reference path="NullObjectID/NULL_43840.d.ts" />
-/// <reference path="NullObjectID/NULL_47325.d.ts" />
-/// <reference path="ObjectID/*.d.ts" />
-/// <reference path="TileObject.d.ts" />
 /// <reference path="ItemID.d.ts" />
 /// <reference path="NpcID/*.d.ts" />
+/// <reference path="FishingSpot.d.ts" />
 /*
  * Copyright (c) 2017, Seth <Sethtroll3@gmail.com>
  * All rights reserved.
@@ -131,4 +29,9 @@
  */
 declare namespace net.runelite.client.game {
 enum FishingSpot
-},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},}
+{
+SHRIMP("Shrimp, Anchovies, Sardine, Herring", "Anchovies", ItemID.RAW_SHRIMPS, FISHING_SPOT_1514, FISHING_SPOT_1517, FISHING_SPOT_1518, FISHING_SPOT_1521, FISHING_SPOT_1523, FISHING_SPOT_1524, FISHING_SPOT_1525, FISHING_SPOT_1528, FISHING_SPOT_1530, FISHING_SPOT_1544, FISHING_SPOT_3913, FISHING_SPOT_7155, FISHING_SPOT_7459, FISHING_SPOT_7462, FISHING_SPOT_7467, FISHING_SPOT_7469, FISHING_SPOT_7947, FISHING_SPOT_10513, FISHING_SPOT_12778 ), LOBSTER("Lobster, Swordfish, Tuna", "Lobster", ItemID.RAW_LOBSTER, FISHING_SPOT_1510, FISHING_SPOT_1519, FISHING_SPOT_1522, FISHING_SPOT_2146, // f2p wilderness FISHING_SPOT_3914, FISHING_SPOT_5820, FISHING_SPOT_7199, FISHING_SPOT_7460, FISHING_SPOT_7465, FISHING_SPOT_7470, FISHING_SPOT_7946, FISHING_SPOT_9173, FISHING_SPOT_9174, FISHING_SPOT_10515, FISHING_SPOT_10635, FISHING_SPOT_12777 ), SHARK("Shark, Bass", "Shark", ItemID.RAW_SHARK, FISHING_SPOT_1511, FISHING_SPOT_1520, FISHING_SPOT_3419, FISHING_SPOT_3915, FISHING_SPOT_4476, FISHING_SPOT_4477, FISHING_SPOT_5233, FISHING_SPOT_5234, FISHING_SPOT_5821, FISHING_SPOT_7200, FISHING_SPOT_7461, FISHING_SPOT_7466, FISHING_SPOT_8525, FISHING_SPOT_8526, FISHING_SPOT_8527, FISHING_SPOT_9171, FISHING_SPOT_9172, FISHING_SPOT_10514, FISHING_SPOT_12775, FISHING_SPOT_12776 ), MONKFISH("Monkfish", ItemID.RAW_MONKFISH, FISHING_SPOT_4316 ), SALMON("Salmon, Trout, Pike", "Salmon", ItemID.RAW_SALMON, ROD_FISHING_SPOT, ROD_FISHING_SPOT_1506, ROD_FISHING_SPOT_1507, ROD_FISHING_SPOT_1508, ROD_FISHING_SPOT_1509, ROD_FISHING_SPOT_1513, ROD_FISHING_SPOT_1515, ROD_FISHING_SPOT_1516, ROD_FISHING_SPOT_1526, ROD_FISHING_SPOT_1527, ROD_FISHING_SPOT_3417, ROD_FISHING_SPOT_3418, ROD_FISHING_SPOT_7463, ROD_FISHING_SPOT_7464, ROD_FISHING_SPOT_7468, ROD_FISHING_SPOT_8524, ROD_FISHING_SPOT_12774 ), LAVA_EEL("Lava eel", ItemID.LAVA_EEL, FISHING_SPOT_4928, FISHING_SPOT_6784 ), BARB_FISH("Sturgeon, Salmon, Trout", ItemID.LEAPING_STURGEON, FISHING_SPOT_1542, FISHING_SPOT_7323 ), ANGLERFISH("Anglerfish", ItemID.RAW_ANGLERFISH, ROD_FISHING_SPOT_6825 ), MINNOW("Minnow", ItemID.MINNOW, FISHING_SPOT_7730, FISHING_SPOT_7731, FISHING_SPOT_7732, FISHING_SPOT_7733 ), HARPOONFISH("Harpoonfish", ItemID.RAW_HARPOONFISH, FISHING_SPOT_10565, FISHING_SPOT_10568, FISHING_SPOT_10569 ), INFERNAL_EEL("Infernal Eel", ItemID.INFERNAL_EEL, ROD_FISHING_SPOT_7676 ), KARAMBWAN("Karambwan", ItemID.RAW_KARAMBWAN, FISHING_SPOT_4712, FISHING_SPOT_4713 ), KARAMBWANJI("Karambwanji, Shrimp", "Karambwanji", ItemID.RAW_KARAMBWANJI, FISHING_SPOT_4710 ), SACRED_EEL("Sacred eel", ItemID.SACRED_EEL, FISHING_SPOT_6488 ), CAVE_EEL("Frog spawn, Cave eel", ItemID.RAW_CAVE_EEL, FISHING_SPOT_1497, FISHING_SPOT_1498, FISHING_SPOT_1499, FISHING_SPOT_1500 ), SLIMY_EEL("Slimy eel", ItemID.RAW_SLIMY_EEL, FISHING_SPOT_2653, FISHING_SPOT_2654, FISHING_SPOT_2655 ), DARK_CRAB("Dark Crab", ItemID.RAW_DARK_CRAB, FISHING_SPOT_1535, FISHING_SPOT_1536 ), COMMON_TENCH("Common tench, Bluegill, Greater siren, Mottled eel", "Greater siren", ItemID.COMMON_TENCH, FISHING_SPOT_8523 ), CAMDOZAAL_TETRA("Guppy, Cavefish, Tetra, Catfish, Barronite shards, Barronite handle", "Tetra", ItemID.TETRA, FISHING_SPOT_10686 ), CAMDOZAAL_CAVE_EEL("Slimy eel, Cave eel", "Cave eel", ItemID.CAVE_EEL, FISHING_SPOT_10653 ), TUTORIAL_SHRIMP("Shrimp", ItemID.RAW_SHRIMPS, FISHING_SPOT_3317 ), ETCETERIA_LOBSTER("Lobster", "Lobster (Approval only)", ItemID.RAW_LOBSTER, FISHING_SPOT_3657 ), QUEST_RUM_DEAL("Sluglings", "Rum deal (Quest)", ItemID.SLUGLINGS, FISHING_SPOT ), QUEST_TAI_BWO_WANNAI_TRIO("Karambwan", "Tai Bwo Wannai Trio (Quest)", ItemID.RAW_KARAMBWAN, FISHING_SPOT_4714 ), QUEST_FISHING_CONTEST("Giant carp", "Fishing Contest (Quest)", ItemID.GIANT_CARP, FISHING_SPOT_4079, FISHING_SPOT_4080, FISHING_SPOT_4081, FISHING_SPOT_4082 ), CIVITAS_ILLA_FORTIS_PARK("House Keys", "House Keys", ItemID.HOUSE_KEYS, FISHING_SPOT_13329 ), ;  Map<Integer, FishingSpot> SPOTS;  String name; String worldMapTooltip; int fishSpriteId; int[] ids;    FishingSpot(String spot, int fishSpriteId, int... ids) 
+FishingSpot(String spot, String worldMapTooltip, int fishSpriteId, int... ids) 
+	static findSpot(id: number): FishingSpot;
+}
+}

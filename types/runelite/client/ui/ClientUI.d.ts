@@ -1,158 +1,26 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
 /// <reference path="../../../java/index.d.ts" />
 /// <reference path="../../../jagex/index.d.ts" />
-/// <reference path="annotations/Component.d.ts" />
-/// <reference path="annotations/Interface.d.ts" />
-/// <reference path="annotations/VarCInt.d.ts" />
-/// <reference path="annotations/VarCStr.d.ts" />
-/// <reference path="annotations/Varbit.d.ts" />
-/// <reference path="annotations/Varp.d.ts" />
-/// <reference path="annotations/VisibleForDevtools.d.ts" />
-/// <reference path="clan/ClanChannel.d.ts" />
-/// <reference path="clan/ClanID.d.ts" />
-/// <reference path="clan/ClanSettings.d.ts" />
-/// <reference path="coords/LocalPoint.d.ts" />
-/// <reference path="coords/WorldPoint.d.ts" />
-/// <reference path="dbtable/DBRowConfig.d.ts" />
-/// <reference path="hooks/DrawCallbacks.d.ts" />
-/// <reference path="vars/AccountType.d.ts" />
-/// <reference path="widgets/ItemQuantityMode.d.ts" />
-/// <reference path="widgets/Widget.d.ts" />
-/// <reference path="widgets/WidgetConfig.d.ts" />
-/// <reference path="widgets/WidgetInfo.d.ts" />
-/// <reference path="widgets/WidgetModalMode.d.ts" />
-/// <reference path="worldmap/MapElementConfig.d.ts" />
-/// <reference path="worldmap/WorldMap.d.ts" />
-/// <reference path="GameEngine.d.ts" />
-/// <reference path="MainBufferProvider.d.ts" />
-/// <reference path="Renderable.d.ts" />
-/// <reference path="Skill.d.ts" />
-/// <reference path="events/BeforeRender.d.ts" />
-/// <reference path="events/FakeXpDrop.d.ts" />
-/// <reference path="events/GameTick.d.ts" />
-/// <reference path="events/PostClientTick.d.ts" />
-/// <reference path="events/ScriptCallbackEvent.d.ts" />
+/// <reference path="Client.d.ts" />
+/// <reference path="Constants.d.ts" />
+/// <reference path="GameState.d.ts" />
+/// <reference path="Player.d.ts" />
+/// <reference path="events/GameStateChanged.d.ts" />
 /// <reference path="widgets/ComponentID.d.ts" />
-/// <reference path="widgets/WidgetItem.d.ts" />
-/// <reference path="worldmap/WorldMapRenderer.d.ts" />
-/// <reference path="events/ChatMessage.d.ts" />
-/// <reference path="MessageNode.d.ts" />
-/// <reference path="VarPlayer.d.ts" />
-/// <reference path="Varbits.d.ts" />
-/// <reference path="ScriptID.d.ts" />
-/// <reference path="VarClientStr.d.ts" />
-/// <reference path="events/CommandExecuted.d.ts" />
-/// <reference path="Config.d.ts" />
-/// <reference path="events/AccountHashChanged.d.ts" />
-/// <reference path="events/PlayerChanged.d.ts" />
-/// <reference path="events/WorldChanged.d.ts" />
-/// <reference path="Config> T getConfig(Class<T> clazz).d.ts" />
-/// <reference path="Config> void setDefaultConfiguration(T proxy.d.ts" />
-/// <reference path="boolean override).d.ts" />
-/// <reference path="Enum>) type.d.ts" />
-/// <reference path="str);.d.ts" />
-/// <reference path="Serializer<?>> serializerClass = configSerializer.value();.d.ts" />
-/// <reference path="Serializer<?>> value();.d.ts" />
-/// <reference path="Keybind.d.ts" />
-/// <reference path="WorldType.d.ts" />
-/// <reference path="Plugin>[] builtinExternals = null;.d.ts" />
-/// <reference path="Plugin> pluginClass : builtinExternals).d.ts" />
-/// <reference path="Plugin> plugin).d.ts" />
-/// <reference path="Plugin>... plugins).d.ts" />
-/// <reference path="URLClassLoader implements ReflectUtil.PrivateLookupableClassLoader.d.ts" />
-/// <reference path="ManifestLite.d.ts" />
-/// <reference path="DisplayData.d.ts" />
-/// <reference path="ChatInput.d.ts" />
-/// <reference path="NPC.d.ts" />
-/// <reference path="EnumComposition.d.ts" />
-/// <reference path="EnumID.d.ts" />
-/// <reference path="FriendsChatRank.d.ts" />
-/// <reference path="IndexedSprite.d.ts" />
-/// <reference path="clan/ClanTitle.d.ts" />
-/// <reference path="NullObjectID.d.ts" />
-/// <reference path="NullObjectID/NULL_25337.d.ts" />
-/// <reference path="NullObjectID/NULL_26371.d.ts" />
-/// <reference path="NullObjectID/NULL_26375.d.ts" />
-/// <reference path="NullObjectID/NULL_26561.d.ts" />
-/// <reference path="NullObjectID/NULL_26562.d.ts" />
-/// <reference path="NullObjectID/NULL_26884.d.ts" />
-/// <reference path="NullObjectID/NULL_26886.d.ts" />
-/// <reference path="NullObjectID/NULL_29868.d.ts" />
-/// <reference path="NullObjectID/NULL_29869.d.ts" />
-/// <reference path="NullObjectID/NULL_29870.d.ts" />
-/// <reference path="NullObjectID/NULL_31823.d.ts" />
-/// <reference path="NullObjectID/NULL_31849.d.ts" />
-/// <reference path="NullObjectID/NULL_31852.d.ts" />
-/// <reference path="NullObjectID/NULL_33327.d.ts" />
-/// <reference path="NullObjectID/NULL_33328.d.ts" />
-/// <reference path="NullObjectID/NULL_39541.d.ts" />
-/// <reference path="NullObjectID/NULL_39542.d.ts" />
-/// <reference path="NullObjectID/NULL_40960.d.ts" />
-/// <reference path="NullObjectID/NULL_40962.d.ts" />
-/// <reference path="NullObjectID/NULL_43840.d.ts" />
-/// <reference path="NullObjectID/NULL_47325.d.ts" />
-/// <reference path="ObjectID/*.d.ts" />
-/// <reference path="TileObject.d.ts" />
-/// <reference path="ItemID.d.ts" />
-/// <reference path="NpcID/*.d.ts" />
-/// <reference path="Constants/CLIENT_DEFAULT_ZOOM.d.ts" />
-/// <reference path="ItemComposition.d.ts" />
-/// <reference path="ItemID/*.d.ts" />
-/// <reference path="SpritePixels.d.ts" />
-/// <reference path="AnimationID.d.ts" />
-/// <reference path="NPCComposition.d.ts" />
-/// <reference path="NpcID.d.ts" />
-/// <reference path="Tile.d.ts" />
-/// <reference path="TileItem.d.ts" />
-/// <reference path="coords/WorldArea.d.ts" />
-/// <reference path="events/AnimationChanged.d.ts" />
-/// <reference path="events/ItemDespawned.d.ts" />
-/// <reference path="events/ItemSpawned.d.ts" />
-/// <reference path="events/NpcChanged.d.ts" />
-/// <reference path="events/NpcDespawned.d.ts" />
-/// <reference path="events/PlayerDespawned.d.ts" />
-/// <reference path="SpriteID.d.ts" />
-/// <reference path="Actor.d.ts" />
-/// <reference path="ParamID.d.ts" />
-/// <reference path="java.awt.event.KeyListener.d.ts" />
-/// <reference path="MenuEntry.d.ts" />
-/// <reference path="MenuAction.d.ts" />
-/// <reference path="events/MenuEntryAdded.d.ts" />
-/// <reference path="events/PlayerMenuOptionsChanged.d.ts" />
-/// <reference path="CacheLoader<HiscoreManager.HiscoreKey.d.ts" />
-/// <reference path="HiscoreResult>.d.ts" />
-/// <reference path="WebsocketMessage>> MESSAGES;.d.ts" />
-/// <reference path="WebsocketMessage>> messages = new ArrayList<>();.d.ts" />
-/// <reference path="WebsocketMessage>> messages).d.ts" />
-/// <reference path="WebsocketMessage> message : MESSAGES).d.ts" />
-/// <reference path="WebsocketMessage> message : messages).d.ts" />
-/// <reference path="PartyMessage> void send(T message).d.ts" />
-/// <reference path="WebSocketListener implements AutoCloseable.d.ts" />
-/// <reference path="WebsocketMessage>> messages = new HashSet<>();.d.ts" />
-/// <reference path="WebsocketMessage> message).d.ts" />
-/// <reference path="Certificate> certificates = certificateFactory.generateCertificates(in);.d.ts" />
-/// <reference path="RuntimeException.d.ts" />
-/// <reference path="FilterInputStream.d.ts" />
-/// <reference path=".d.ts" />
-/// <reference path="URLClassLoader.d.ts" />
-/// <reference path="Plugin> value();.d.ts" />
-/// <reference path="Exception.d.ts" />
-/// <reference path="Plugin>> graph = GraphBuilder.d.ts" />
-/// <reference path="Plugin> pluginClazz : graph.nodes()).d.ts" />
-/// <reference path="Plugin>> sortedPlugins = topologicalSort(graph);.d.ts" />
-/// <reference path="Plugin> pluginClazz : sortedPlugins).d.ts" />
-/// <reference path="JPanel.d.ts" />
-/// <reference path="JFrame.d.ts" />
+/// <reference path="widgets/Widget.d.ts" />
+/// <reference path="ConfigChanged.d.ts" />
+/// <reference path="NavigationButton.d.ts" />
+/// <reference path="KeyEvent.d.ts" />
+/// <reference path="Rectangle.d.ts" />
+/// <reference path="GraphicsConfiguration.d.ts" />
+/// <reference path="Graphics.d.ts" />
+/// <reference path="Cursor.d.ts" />
+/// <reference path="BufferedImage.d.ts" />
+/// <reference path="Point.d.ts" />
+/// <reference path="Insets.d.ts" />
+/// <reference path="Graphics2D.d.ts" />
+/// <reference path="Image.d.ts" />
+/// <reference path="Frame.d.ts" />
+/// <reference path="TrayIcon.d.ts" />
 /*
  * Copyright (c) 2016-2017, Adam <Adam@sigterm.info>
  * All rights reserved.
@@ -179,7 +47,38 @@
  */
 declare namespace net.runelite.client.ui {
 export class ClientUI
+{
+TrayIcon trayIcon;
+RuneLiteConfig config;
+MouseManager mouseManager;
+Applet client;
+ConfigManager configManager;
+Provider<ClientThread> clientThreadProvider;
+EventBus eventBus;
+boolean safeMode;
+String title;
+BufferedImage sidebarOpenIcon;
+BufferedImage sidebarCloseIcon;
+JTabbedPane sidebar;
+NavigationButton selectedTab;
+ClientToolbarPanel toolbarPanel;
+boolean withTitleBar;
+ContainableFrame frame;
+JPanel content;
+ClientPanel clientPanel;
+JButton sidebarNavBtn;
+Dimension lastClientSize;
+Cursor defaultCursor;
+String lastNormalBounds;
+Timer normalBoundsTimer;
+List<KeyListener> keyListeners;
+export class HistoryEntry
+ClientUI( RuneLiteConfig config, MouseManager mouseManager, Applet client, ConfigManager configManager, Provider<ClientThread> clientThreadProvider, EventBus eventBus,  boolean safeMode,  String title ) 
+	private onConfigChanged(event: ConfigChanged): void;
+	addNavigation(navBtn: NavigationButton): void;
 		// insertTab changes the selected index when the first tab is inserted, avoid this
+	removeNavigation(navBtn: NavigationButton): void;
+	private onGameStateChanged(event: net.runelite.api.events.GameStateChanged): void;
 		// Keep scheduling event until we get our name
 	/**
 	 * Initialize UI.
@@ -200,6 +99,8 @@ export class ClientUI
 						// FlatLaf explicitly checks this property when checking for custom window decorations on Linux
 			// Update config
 			// Close sidebar if the config closed state is set
+	private init(): void;
+	show(): void;
 			// Layout frame
 			// Create tray icon (needs to be created after frame is packed)
 			// Move frame around (needs to be done after frame is packed)
@@ -213,6 +114,11 @@ export class ClientUI
 			// On macos setResizable needs to be called after setVisible
 			// this must run after the native window border is installed on the window
 		// Show out of date dialog if needed
+	private dispatchWindowKeyEvent(ev: KeyEvent): boolean;
+	private logGraphicsEnvironment(): void;
+	private findDisplayFromBounds(bounds: Rectangle): GraphicsConfiguration;
+	private showWarningOnExit(): boolean;
+	private shutdownClient(): void;
 				// The client can call System.exit when it's done shutting down
 				// if it doesn't though, we want to exit anyway, so race it
 					// it will continue rendering for about 4 seconds before attempting shutdown if its vanilla
@@ -221,78 +127,108 @@ export class ClientUI
 	 *
 	 * @param graphics the graphics
 	 */
+	paint(graphics: Graphics): void;
 	/**
 	 * Gets component width.
 	 *
 	 * @return the width
 	 */
+	getWidth(): number;
 	/**
 	 * Gets component height.
 	 *
 	 * @return the height
 	 */
+	getHeight(): number;
 	/**
 	 * Returns true if this component has focus.
 	 *
 	 * @return true if component has focus
 	 */
+	isFocused(): boolean;
 	/**
 	 * Request focus on this component and then on client component
 	 */
+	requestFocus(): void;
 				// On OSX Component::requestFocus has no visible effect, so we use our OSX-specific
 				// requestUserAttention()
 	/**
 	 * Attempt to forcibly bring the client frame to front
 	 */
+	forceFocus(): void;
 	/**
 	 * Request user attention to the window (flash the taskbar)
 	 */
+	flashTaskbar(): void;
 	/**
 	 * Returns current cursor set on game container
 	 * @return awt cursor
 	 */
+	getCurrentCursor(): Cursor;
 	/**
 	 * Returns current custom cursor or default system cursor if cursor is not set
 	 * @return awt cursor
 	 */
+	getDefaultCursor(): Cursor;
 	/**
 	 * Changes cursor for client window. Requires ${@link ClientUI#init()} to be called first.
 	 * FIXME: This is working properly only on Windows, Linux and Mac are displaying cursor incorrectly
 	 * @param image cursor image
 	 * @param name  cursor name
 	 */
+	setCursor(image: BufferedImage, name: string): void;
 	/**
 	 * Changes cursor for client window. Requires ${@link ClientUI#init()} to be called first.
 	 * @param cursor awt cursor
 	 */
+	setCursor(cursor: Cursor): void;
 	/**
 	 * Resets client window cursor to default one.
 	 * @see ClientUI#setCursor(BufferedImage, String)
 	 */
+	resetCursor(): void;
 	/**
 	 * Get offset of game canvas in game window
 	 *
 	 * @return game canvas offset
 	 */
+	getCanvasOffset(): Point;
+	getInsets(): Insets;
 	/**
 	 * Paint UI related overlays to target graphics
 	 * @param graphics target graphics
 	 */
+	paintOverlays(graphics: Graphics2D): void;
 		// Offset sidebar button if resizable mode logout is visible
 		// Update button dimensions
+	getGraphicsConfiguration(): GraphicsConfiguration;
+	openPanel(navBtn: NavigationButton, showSidebar: boolean): void;
+	private toggleSidebar(): void;
+	private toggleSidebar(open: boolean, pushHistory: boolean): void;
+	private togglePluginPanel(): void;
+	private pushHistory(): void;
 		// we keep multiple history entries so you can open a panel, close it, open another, *remove* it, then resume the first open panel
 			// Try to always keep a panel in the history
+	private giveClientFocus(): void;
+	private updateFrameConfig(updateResizable: boolean): void;
+	private applyGameSize(force: boolean): void;
 		// The upper bounds are defined by the applet's max size
 		// The lower bounds are defined by the client's fixed size
+	private windowBoundsChanged(): void;
 		// Sometimes when maximizing windowMoved can be delivered before extendedState is updated, so defer
 		// actually saving for some ms to reduce the likelyhood of this
+	private setLastNormalBounds(): void;
+	private saveClientBoundsConfig(): void;
 			// leave the previous bounds there, so when the client starts maximized it
 			// can restore to the restored size from the previous run
+	private restoreClientBoundsConfig(): boolean;
 				// null mode means legacy exact frame bounds
+	private static setupDefaults(): void;
 		// Force heavy-weight popups/tooltips.
 		// Prevents them from being obscured by the game applet.
 		// Do not fill in background on repaint. Reduces flickering when
 		// the applet is resized.
+	private static createTrayIcon(icon: Image, title: string, frame: Frame): TrayIcon | null;
 		// Bring to front when tray icon is clicked
 					// On macOS, frame.setVisible(true) only restores focus when the visibility was previously false.
 					// The frame's visibility is not set to false when the window loses focus, so we set it manually.
@@ -301,6 +237,7 @@ export class ClientUI
 					// However, this native method is not called with activateIgnoringOtherApps:YES,
 					// so any other active window will prevent our window from being brought to the front.
 					// To work around this, we use our macOS-specific requestForeground().
+export class Layout implements LayoutManager2
 						// the sidebar always is given it's pref width exactly
 			// must adjust content height since the client height is derived from the content height
 			// adjust sidebar height first, as changing it's height can make it's min width change too
@@ -310,4 +247,5 @@ export class ClientUI
 						// synchronously layout the frame and it's root pane so we don't get re-layouted
 						// with the root pane's old size before it gets layouted automatically. This can
 						// call us recursively if we calculate size wrong, so don't do that.
-},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},}
+}
+}

@@ -1,11 +1,9 @@
 /// <reference path="../../java/index.d.ts" />
 /// <reference path="../../jagex/index.d.ts" />
 /// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
 /// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
 /// <reference path="File> valueType().d.ts" />
+/// <reference path="OkHttpClient.d.ts" />
 /*
  * Copyright (c) 2016-2017, Adam <Adam@sigterm.info>
  * All rights reserved.
@@ -32,6 +30,23 @@
  */
 declare namespace net.runelite.client {
 export class RuneLite
+{
+Injector injector;
+PluginManager pluginManager;
+ExternalPluginManager externalPluginManager;
+EventBus eventBus;
+ConfigManager configManager;
+SessionManager sessionManager;
+DiscordService discordService;
+ClientSessionManager clientSessionManager;
+ClientUI clientUI;
+OverlayManager overlayManager;
+Provider<TooltipOverlay> tooltipOverlay;
+Provider<WorldMapOverlay> worldMapOverlay;
+Applet applet;
+Client client;
+RuntimeConfig runtimeConfig;
+TelemetryClient telemetryClient;
 			// This includes arguments from _JAVA_OPTIONS, which are parsed after command line flags and applied to
 			// the global VM args
 		// Load RuneLite or Vanilla client
@@ -52,10 +67,15 @@ export class RuneLite
 		// Register event listeners
 			// Add core overlays
 		// Start plugins
+	private static main(args: string[]): void | null;
+export class ConfigFileConverter implements ValueConverter<File>
+	private static buildHttpClient(insecureSkipTlsVerification: boolean): OkHttpClient;
 			// Setup cache
 				// This has to be a network interceptor so it gets hit before the cache tries to store stuff
 					// if the request 404'd we don't want to cache it because its probably temporary
+	private static copyJagexCache(): void;
 		// Recursively copy path https://stackoverflow.com/a/50418060
+	private setupSystemProps(): void;
 	// region trust manager
 		// javax.net.ssl.trustStoreType controls which keystore implementation the TrustStoreManager uses
 		// restore old value
@@ -68,4 +88,4 @@ export class RuneLite
 							// accept if any of the trust managers accept the certificate
 		// the insecure trust manager trusts everything
 	// endregion
-},},},}
+}

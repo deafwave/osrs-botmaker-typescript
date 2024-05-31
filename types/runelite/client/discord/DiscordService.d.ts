@@ -1,70 +1,7 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
 /// <reference path="../../../java/index.d.ts" />
 /// <reference path="../../../jagex/index.d.ts" />
-/// <reference path="annotations/Component.d.ts" />
-/// <reference path="annotations/Interface.d.ts" />
-/// <reference path="annotations/VarCInt.d.ts" />
-/// <reference path="annotations/VarCStr.d.ts" />
-/// <reference path="annotations/Varbit.d.ts" />
-/// <reference path="annotations/Varp.d.ts" />
-/// <reference path="annotations/VisibleForDevtools.d.ts" />
-/// <reference path="clan/ClanChannel.d.ts" />
-/// <reference path="clan/ClanID.d.ts" />
-/// <reference path="clan/ClanSettings.d.ts" />
-/// <reference path="coords/LocalPoint.d.ts" />
-/// <reference path="coords/WorldPoint.d.ts" />
-/// <reference path="dbtable/DBRowConfig.d.ts" />
-/// <reference path="hooks/DrawCallbacks.d.ts" />
-/// <reference path="vars/AccountType.d.ts" />
-/// <reference path="widgets/ItemQuantityMode.d.ts" />
-/// <reference path="widgets/Widget.d.ts" />
-/// <reference path="widgets/WidgetConfig.d.ts" />
-/// <reference path="widgets/WidgetInfo.d.ts" />
-/// <reference path="widgets/WidgetModalMode.d.ts" />
-/// <reference path="worldmap/MapElementConfig.d.ts" />
-/// <reference path="worldmap/WorldMap.d.ts" />
-/// <reference path="GameEngine.d.ts" />
-/// <reference path="MainBufferProvider.d.ts" />
-/// <reference path="Renderable.d.ts" />
-/// <reference path="Skill.d.ts" />
-/// <reference path="events/BeforeRender.d.ts" />
-/// <reference path="events/FakeXpDrop.d.ts" />
-/// <reference path="events/GameTick.d.ts" />
-/// <reference path="events/PostClientTick.d.ts" />
-/// <reference path="events/ScriptCallbackEvent.d.ts" />
-/// <reference path="widgets/ComponentID.d.ts" />
-/// <reference path="widgets/WidgetItem.d.ts" />
-/// <reference path="worldmap/WorldMapRenderer.d.ts" />
-/// <reference path="events/ChatMessage.d.ts" />
-/// <reference path="MessageNode.d.ts" />
-/// <reference path="VarPlayer.d.ts" />
-/// <reference path="Varbits.d.ts" />
-/// <reference path="ScriptID.d.ts" />
-/// <reference path="VarClientStr.d.ts" />
-/// <reference path="events/CommandExecuted.d.ts" />
-/// <reference path="Config.d.ts" />
-/// <reference path="events/AccountHashChanged.d.ts" />
-/// <reference path="events/PlayerChanged.d.ts" />
-/// <reference path="events/WorldChanged.d.ts" />
-/// <reference path="Config> T getConfig(Class<T> clazz).d.ts" />
-/// <reference path="Config> void setDefaultConfiguration(T proxy.d.ts" />
-/// <reference path="boolean override).d.ts" />
-/// <reference path="Enum>) type.d.ts" />
-/// <reference path="str);.d.ts" />
-/// <reference path="Serializer<?>> serializerClass = configSerializer.value();.d.ts" />
-/// <reference path="Serializer<?>> value();.d.ts" />
-/// <reference path="Keybind.d.ts" />
-/// <reference path="WorldType.d.ts" />
+/// <reference path="DiscordPresence.d.ts" />
+/// <reference path="DiscordUser.d.ts" />
 /*
  * Copyright (c) 2018, Tomas Slusny <slusnucky@gmail.com>
  * All rights reserved.
@@ -91,16 +28,26 @@
  */
 declare namespace net.runelite.client.discord {
 export class DiscordService implements AutoCloseable
+{
+EventBus eventBus;
+ScheduledExecutorService executorService;
+String discordAppId;
+DiscordRPC discordRPC;
 	// Hold a reference to the event handlers to prevent the garbage collector from deleting them
+DiscordEventHandlers discordEventHandlers;
+DiscordUser currentUser;
+DiscordService( EventBus eventBus, ScheduledExecutorService executorService,  boolean enable,  String discordAppId ) 
 	/**
 	 * Initializes the Discord service, sets up the event handlers and starts worker thread that will poll discord
 	 * events every 2 seconds.
 	 * Before closing the application it is recommended to call {@link #close()}
 	 */
+	init(): void;
 	/**
 	 * Shuts the RPC connection down.
 	 * If not currently connected, this does nothing.
 	 */
+	close(): void;
 	/**
 	 * Updates the currently set presence of the logged in user.
 	 * <br>Note that the client only updates its presence every <b>15 seconds</b>
@@ -108,9 +55,11 @@ export class DiscordService implements AutoCloseable
 	 *
 	 * @param discordPresence The new presence to use
 	 */
+	updatePresence(discordPresence: DiscordPresence): void;
 	/**
 	 * Clears the currently set presence.
 	 */
+	clearPresence(): void;
 	/**
 	 * Responds to the given user with the specified reply type.
 	 *
@@ -120,4 +69,12 @@ export class DiscordService implements AutoCloseable
 	 * @see DiscordRPC#DISCORD_REPLY_YES
 	 * @see DiscordRPC#DISCORD_REPLY_IGNORE
 	 */
-},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},}
+	respondToRequest(userId: string, reply: number): void;
+	private ready(user: DiscordUser): void;
+	private disconnected(errorCode: number, message: string): void;
+	private errored(errorCode: number, message: string): void;
+	private joinGame(joinSecret: string): void;
+	private spectateGame(spectateSecret: string): void;
+	private joinRequest(user: DiscordUser): void;
+}
+}

@@ -1,58 +1,8 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
 /// <reference path="../../../java/index.d.ts" />
 /// <reference path="../../../jagex/index.d.ts" />
-/// <reference path="annotations/Component.d.ts" />
-/// <reference path="annotations/Interface.d.ts" />
-/// <reference path="annotations/VarCInt.d.ts" />
-/// <reference path="annotations/VarCStr.d.ts" />
-/// <reference path="annotations/Varbit.d.ts" />
-/// <reference path="annotations/Varp.d.ts" />
-/// <reference path="annotations/VisibleForDevtools.d.ts" />
-/// <reference path="clan/ClanChannel.d.ts" />
-/// <reference path="clan/ClanID.d.ts" />
-/// <reference path="clan/ClanSettings.d.ts" />
-/// <reference path="coords/LocalPoint.d.ts" />
-/// <reference path="coords/WorldPoint.d.ts" />
-/// <reference path="dbtable/DBRowConfig.d.ts" />
-/// <reference path="hooks/DrawCallbacks.d.ts" />
-/// <reference path="vars/AccountType.d.ts" />
-/// <reference path="widgets/ItemQuantityMode.d.ts" />
-/// <reference path="widgets/Widget.d.ts" />
-/// <reference path="widgets/WidgetConfig.d.ts" />
-/// <reference path="widgets/WidgetInfo.d.ts" />
-/// <reference path="widgets/WidgetModalMode.d.ts" />
-/// <reference path="worldmap/MapElementConfig.d.ts" />
-/// <reference path="worldmap/WorldMap.d.ts" />
-/// <reference path="GameEngine.d.ts" />
-/// <reference path="MainBufferProvider.d.ts" />
-/// <reference path="Renderable.d.ts" />
-/// <reference path="Skill.d.ts" />
-/// <reference path="events/BeforeRender.d.ts" />
-/// <reference path="events/FakeXpDrop.d.ts" />
-/// <reference path="events/GameTick.d.ts" />
-/// <reference path="events/PostClientTick.d.ts" />
-/// <reference path="events/ScriptCallbackEvent.d.ts" />
-/// <reference path="widgets/ComponentID.d.ts" />
-/// <reference path="widgets/WidgetItem.d.ts" />
-/// <reference path="worldmap/WorldMapRenderer.d.ts" />
-/// <reference path="events/ChatMessage.d.ts" />
-/// <reference path="MessageNode.d.ts" />
-/// <reference path="VarPlayer.d.ts" />
-/// <reference path="Varbits.d.ts" />
-/// <reference path="ScriptID.d.ts" />
-/// <reference path="VarClientStr.d.ts" />
-/// <reference path="events/CommandExecuted.d.ts" />
 /// <reference path="Config.d.ts" />
+/// <reference path="Color.d.ts" />
+/// <reference path="default Color.d.ts" />
 /*
  * Copyright (c) 2018, Hydrox6 <ikada@protonmail.ch>
  * All rights reserved.
@@ -79,12 +29,176 @@
  */
 declare namespace net.runelite.client.config {
 export interface ChatColorConfig extends Config
+{
+( ) 
+( ) 
+( ) 
+	opaquePublicChat(): Color;
+( ) 
+	opaquePublicChatHighlight(): default Color;
+( ) 
+	opaquePrivateMessageSent(): Color;
+( ) 
+	opaquePrivateMessageSentHighlight(): default Color;
+( ) 
+	opaquePrivateMessageReceived(): Color;
+( ) 
+	opaquePrivateMessageReceivedHighlight(): default Color;
 	//region opaque friends chat
+( ) 
+	opaqueFriendsChatInfo(): Color;
+( ) 
+	opaqueFriendsChatInfoHighlight(): default Color;
+( ) 
+	opaqueFriendsChatMessage(): Color;
+( ) 
+	opaqueFriendsChatMessageHighlight(): default Color;
 	//endregion
 	//region opaque clan chat
+( ) 
+	opaqueClanChatInfo(): Color;
+( ) 
+	opaqueClanChatInfoHighlight(): default Color;
+( ) 
+	opaqueClanChatMessage(): Color;
+( ) 
+	opaqueClanChatMessageHighlight(): default Color;
+( ) 
+	opaqueClanChatGuestInfo(): Color;
+( ) 
+	opaqueClanChatGuestInfoHighlight(): default Color;
+( ) 
+	opaqueClanChatGuestMessage(): Color;
+( ) 
+	opaqueClanChatGuestMessageHighlight(): default Color;
 	//endregion
+( ) 
+	opaqueAutochatMessage(): Color;
+( ) 
+	opaqueAutochatMessageHighlight(): Color;
+( ) 
+	opaqueTradeChatMessage(): Color;
+( ) 
+	opaqueTradeChatMessageHighlight(): Color;
+( ) 
+	opaqueServerMessage(): Color;
+( ) 
+	opaqueServerMessageHighlight(): Color;
+( ) 
+	opaqueGameMessage(): Color;
+( ) 
+	opaqueGameMessageHighlight(): default Color;
+( ) 
+	opaqueExamine(): Color;
+( ) 
+	opaqueExamineHighlight(): default Color;
+( ) 
+	opaqueFiltered(): Color;
+( ) 
+	opaqueFilteredHighlight(): Color;
+( ) 
+	opaqueUsername(): Color;
+( ) 
+	opaquePrivateUsernames(): Color;
+( ) 
+	opaqueFriendsChatChannelName(): Color;
+( ) 
+	opaqueClanChannelName(): Color;
+( ) 
+	opaqueClanGuestChatChannelName(): Color;
+( ) 
+	opaqueFriendsChatUsernames(): Color;
+( ) 
+	opaqueClanChatUsernames(): Color;
+( ) 
+	opaqueClanChatGuestUsernames(): Color;
+( ) 
+	opaquePublicFriendUsernames(): Color;
+( ) 
+	opaquePlayerUsername(): Color;
+( ) 
+	transparentPublicChat(): Color;
+( ) 
+	transparentPublicChatHighlight(): default Color;
+( ) 
+	transparentPrivateMessageSent(): Color;
+( ) 
+	transparentPrivateMessageSentHighlight(): default Color;
+( ) 
+	transparentPrivateMessageReceived(): Color;
+( ) 
+	transparentPrivateMessageReceivedHighlight(): default Color;
 	//region transparent friends chat
+( ) 
+	transparentFriendsChatInfo(): Color;
+( ) 
+	transparentFriendsChatInfoHighlight(): default Color;
+( ) 
+	transparentFriendsChatMessage(): Color;
+( ) 
+	transparentFriendsChatMessageHighlight(): default Color;
 	//endregion
 	//region transparent clan chat
+( ) 
+	transparentClanChatInfo(): Color;
+( ) 
+	transparentClanChatInfoHighlight(): default Color;
+( ) 
+	transparentClanChatMessage(): Color;
+( ) 
+	transparentClanChatMessageHighlight(): default Color;
+( ) 
+	transparentClanChatGuestInfo(): Color;
+( ) 
+	transparentClanChatGuestInfoHighlight(): default Color;
+( ) 
+	transparentClanChatGuestMessage(): Color;
+( ) 
+	transparentClanChatGuestMessageHighlight(): default Color;
 	//endregion
-},},},},},},},},},},},},},},},},},},},},},},},},},},},},}
+( ) 
+	transparentAutochatMessage(): Color;
+( ) 
+	transparentAutochatMessageHighlight(): Color;
+( ) 
+	transparentTradeChatMessage(): Color;
+( ) 
+	transparentTradeChatMessageHighlight(): Color;
+( ) 
+	transparentServerMessage(): Color;
+( ) 
+	transparentServerMessageHighlight(): Color;
+( ) 
+	transparentGameMessage(): Color;
+( ) 
+	transparentGameMessageHighlight(): default Color;
+( ) 
+	transparentExamine(): Color;
+( ) 
+	transparentExamineHighlight(): default Color;
+( ) 
+	transparentFiltered(): Color;
+( ) 
+	transparentFilteredHighlight(): Color;
+( ) 
+	transparentUsername(): Color;
+( ) 
+	transparentPrivateUsernames(): Color;
+( ) 
+	transparentFriendsChatChannelName(): Color;
+( ) 
+	transparentClanChannelName(): Color;
+( ) 
+	transparentClanChannelGuestName(): Color;
+( ) 
+	transparentFriendsChatUsernames(): Color;
+( ) 
+	transparentClanChatUsernames(): Color;
+( ) 
+	transparentClanChatGuestUsernames(): Color;
+( ) 
+	transparentPublicFriendUsernames(): Color;
+( ) 
+	transparentPlayerUsername(): Color;
+}
+}

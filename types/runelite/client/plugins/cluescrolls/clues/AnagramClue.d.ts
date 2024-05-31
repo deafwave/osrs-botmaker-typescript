@@ -1,617 +1,15 @@
-/// <reference path="../../java/index.d.ts" />
-/// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
-/// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
-/// <reference path="events/GameStateChanged.d.ts" />
-/// <reference path="../../../java/index.d.ts" />
-/// <reference path="../../../jagex/index.d.ts" />
-/// <reference path="annotations/Component.d.ts" />
-/// <reference path="annotations/Interface.d.ts" />
-/// <reference path="annotations/VarCInt.d.ts" />
-/// <reference path="annotations/VarCStr.d.ts" />
-/// <reference path="annotations/Varbit.d.ts" />
-/// <reference path="annotations/Varp.d.ts" />
-/// <reference path="annotations/VisibleForDevtools.d.ts" />
-/// <reference path="clan/ClanChannel.d.ts" />
-/// <reference path="clan/ClanID.d.ts" />
-/// <reference path="clan/ClanSettings.d.ts" />
-/// <reference path="coords/LocalPoint.d.ts" />
-/// <reference path="coords/WorldPoint.d.ts" />
-/// <reference path="dbtable/DBRowConfig.d.ts" />
-/// <reference path="hooks/DrawCallbacks.d.ts" />
-/// <reference path="vars/AccountType.d.ts" />
-/// <reference path="widgets/ItemQuantityMode.d.ts" />
-/// <reference path="widgets/Widget.d.ts" />
-/// <reference path="widgets/WidgetConfig.d.ts" />
-/// <reference path="widgets/WidgetInfo.d.ts" />
-/// <reference path="widgets/WidgetModalMode.d.ts" />
-/// <reference path="worldmap/MapElementConfig.d.ts" />
-/// <reference path="worldmap/WorldMap.d.ts" />
-/// <reference path="GameEngine.d.ts" />
-/// <reference path="MainBufferProvider.d.ts" />
-/// <reference path="Renderable.d.ts" />
-/// <reference path="Skill.d.ts" />
-/// <reference path="events/BeforeRender.d.ts" />
-/// <reference path="events/FakeXpDrop.d.ts" />
-/// <reference path="events/GameTick.d.ts" />
-/// <reference path="events/PostClientTick.d.ts" />
-/// <reference path="events/ScriptCallbackEvent.d.ts" />
-/// <reference path="widgets/ComponentID.d.ts" />
-/// <reference path="widgets/WidgetItem.d.ts" />
-/// <reference path="worldmap/WorldMapRenderer.d.ts" />
-/// <reference path="events/ChatMessage.d.ts" />
-/// <reference path="MessageNode.d.ts" />
-/// <reference path="VarPlayer.d.ts" />
-/// <reference path="Varbits.d.ts" />
-/// <reference path="ScriptID.d.ts" />
-/// <reference path="VarClientStr.d.ts" />
-/// <reference path="events/CommandExecuted.d.ts" />
-/// <reference path="Config.d.ts" />
-/// <reference path="events/AccountHashChanged.d.ts" />
-/// <reference path="events/PlayerChanged.d.ts" />
-/// <reference path="events/WorldChanged.d.ts" />
-/// <reference path="Config> T getConfig(Class<T> clazz).d.ts" />
-/// <reference path="Config> void setDefaultConfiguration(T proxy.d.ts" />
-/// <reference path="boolean override).d.ts" />
-/// <reference path="Enum>) type.d.ts" />
-/// <reference path="str);.d.ts" />
-/// <reference path="Serializer<?>> serializerClass = configSerializer.value();.d.ts" />
-/// <reference path="Serializer<?>> value();.d.ts" />
-/// <reference path="Keybind.d.ts" />
-/// <reference path="WorldType.d.ts" />
-/// <reference path="Plugin>[] builtinExternals = null;.d.ts" />
-/// <reference path="Plugin> pluginClass : builtinExternals).d.ts" />
-/// <reference path="Plugin> plugin).d.ts" />
-/// <reference path="Plugin>... plugins).d.ts" />
-/// <reference path="URLClassLoader implements ReflectUtil.PrivateLookupableClassLoader.d.ts" />
-/// <reference path="ManifestLite.d.ts" />
-/// <reference path="DisplayData.d.ts" />
-/// <reference path="ChatInput.d.ts" />
-/// <reference path="NPC.d.ts" />
-/// <reference path="EnumComposition.d.ts" />
-/// <reference path="EnumID.d.ts" />
-/// <reference path="FriendsChatRank.d.ts" />
-/// <reference path="IndexedSprite.d.ts" />
-/// <reference path="clan/ClanTitle.d.ts" />
-/// <reference path="NullObjectID.d.ts" />
-/// <reference path="NullObjectID/NULL_25337.d.ts" />
-/// <reference path="NullObjectID/NULL_26371.d.ts" />
-/// <reference path="NullObjectID/NULL_26375.d.ts" />
-/// <reference path="NullObjectID/NULL_26561.d.ts" />
-/// <reference path="NullObjectID/NULL_26562.d.ts" />
-/// <reference path="NullObjectID/NULL_26884.d.ts" />
-/// <reference path="NullObjectID/NULL_26886.d.ts" />
-/// <reference path="NullObjectID/NULL_29868.d.ts" />
-/// <reference path="NullObjectID/NULL_29869.d.ts" />
-/// <reference path="NullObjectID/NULL_29870.d.ts" />
-/// <reference path="NullObjectID/NULL_31823.d.ts" />
-/// <reference path="NullObjectID/NULL_31849.d.ts" />
-/// <reference path="NullObjectID/NULL_31852.d.ts" />
-/// <reference path="NullObjectID/NULL_33327.d.ts" />
-/// <reference path="NullObjectID/NULL_33328.d.ts" />
-/// <reference path="NullObjectID/NULL_39541.d.ts" />
-/// <reference path="NullObjectID/NULL_39542.d.ts" />
-/// <reference path="NullObjectID/NULL_40960.d.ts" />
-/// <reference path="NullObjectID/NULL_40962.d.ts" />
-/// <reference path="NullObjectID/NULL_43840.d.ts" />
-/// <reference path="NullObjectID/NULL_47325.d.ts" />
-/// <reference path="ObjectID/*.d.ts" />
-/// <reference path="TileObject.d.ts" />
-/// <reference path="ItemID.d.ts" />
-/// <reference path="NpcID/*.d.ts" />
-/// <reference path="Constants/CLIENT_DEFAULT_ZOOM.d.ts" />
-/// <reference path="ItemComposition.d.ts" />
-/// <reference path="ItemID/*.d.ts" />
-/// <reference path="SpritePixels.d.ts" />
-/// <reference path="AnimationID.d.ts" />
-/// <reference path="NPCComposition.d.ts" />
-/// <reference path="NpcID.d.ts" />
-/// <reference path="Tile.d.ts" />
-/// <reference path="TileItem.d.ts" />
-/// <reference path="coords/WorldArea.d.ts" />
-/// <reference path="events/AnimationChanged.d.ts" />
-/// <reference path="events/ItemDespawned.d.ts" />
-/// <reference path="events/ItemSpawned.d.ts" />
-/// <reference path="events/NpcChanged.d.ts" />
-/// <reference path="events/NpcDespawned.d.ts" />
-/// <reference path="events/PlayerDespawned.d.ts" />
-/// <reference path="SpriteID.d.ts" />
-/// <reference path="Actor.d.ts" />
-/// <reference path="ParamID.d.ts" />
-/// <reference path="java.awt.event.KeyListener.d.ts" />
-/// <reference path="MenuEntry.d.ts" />
-/// <reference path="MenuAction.d.ts" />
-/// <reference path="events/MenuEntryAdded.d.ts" />
-/// <reference path="events/PlayerMenuOptionsChanged.d.ts" />
-/// <reference path="CacheLoader<HiscoreManager.HiscoreKey.d.ts" />
-/// <reference path="HiscoreResult>.d.ts" />
-/// <reference path="WebsocketMessage>> MESSAGES;.d.ts" />
-/// <reference path="WebsocketMessage>> messages = new ArrayList<>();.d.ts" />
-/// <reference path="WebsocketMessage>> messages).d.ts" />
-/// <reference path="WebsocketMessage> message : MESSAGES).d.ts" />
-/// <reference path="WebsocketMessage> message : messages).d.ts" />
-/// <reference path="PartyMessage> void send(T message).d.ts" />
-/// <reference path="WebSocketListener implements AutoCloseable.d.ts" />
-/// <reference path="WebsocketMessage>> messages = new HashSet<>();.d.ts" />
-/// <reference path="WebsocketMessage> message).d.ts" />
-/// <reference path="Certificate> certificates = certificateFactory.generateCertificates(in);.d.ts" />
-/// <reference path="RuntimeException.d.ts" />
-/// <reference path="FilterInputStream.d.ts" />
-/// <reference path=".d.ts" />
-/// <reference path="URLClassLoader.d.ts" />
-/// <reference path="Plugin> value();.d.ts" />
-/// <reference path="Exception.d.ts" />
-/// <reference path="Plugin>> graph = GraphBuilder.d.ts" />
-/// <reference path="Plugin> pluginClazz : graph.nodes()).d.ts" />
-/// <reference path="Plugin>> sortedPlugins = topologicalSort(graph);.d.ts" />
-/// <reference path="Plugin> pluginClazz : sortedPlugins).d.ts" />
-/// <reference path="JPanel.d.ts" />
-/// <reference path="JFrame.d.ts" />
-/// <reference path="GridLayout.d.ts" />
-/// <reference path="PluginPanel.d.ts" />
-/// <reference path="JDialog.d.ts" />
-/// <reference path="JPanel implements Activatable.d.ts" />
-/// <reference path="JFrame implements ActionListener.d.ts" />
-/// <reference path="BufferedImage.d.ts" />
-/// <reference path="TurboFilter.d.ts" />
-/// <reference path="EventBus.d.ts" />
-/// <reference path="Callable<T>> tasks) throws InterruptedException.d.ts" />
-/// <reference path="Callable<T>> tasks.d.ts" />
-/// <reference path="long timeout.d.ts" />
-/// <reference path="TimeUnit unit) throws InterruptedException.d.ts" />
-/// <reference path="ExecutionException.d.ts" />
-/// <reference path="TimeoutException.d.ts" />
-/// <reference path="DecorativeObject.d.ts" />
-/// <reference path="GameObject.d.ts" />
-/// <reference path="GroundObject.d.ts" />
-/// <reference path="ItemContainer.d.ts" />
-/// <reference path="ItemLayer.d.ts" />
-/// <reference path="Node.d.ts" />
-/// <reference path="Scene.d.ts" />
-/// <reference path="WallObject.d.ts" />
-/// <reference path="events/DecorativeObjectSpawned.d.ts" />
-/// <reference path="events/GameObjectSpawned.d.ts" />
-/// <reference path="events/GroundObjectSpawned.d.ts" />
-/// <reference path="events/ItemContainerChanged.d.ts" />
-/// <reference path="events/NpcSpawned.d.ts" />
-/// <reference path="events/PlayerSpawned.d.ts" />
-/// <reference path="events/WallObjectSpawned.d.ts" />
-/// <reference path="com.google.protobuf.GeneratedMessageLite.d.ts" />
-/// <reference path="com.google.protobuf.GeneratedMessageLite<.d.ts" />
-/// <reference path="Join.Builder>.d.ts" />
-/// <reference path="Part.Builder>.d.ts" />
-/// <reference path="Data.Builder>.d.ts" />
-/// <reference path="C2S.Builder>.d.ts" />
-/// <reference path="UserJoin.Builder>.d.ts" />
-/// <reference path="UserPart.Builder>.d.ts" />
-/// <reference path="PartyData.Builder>.d.ts" />
-/// <reference path="S2C.Builder>.d.ts" />
-/// <reference path="CharMatcher.d.ts" />
-/// <reference path="PopupFactory.d.ts" />
-/// <reference path="FullScreenAdapter.d.ts" />
-/// <reference path="Temporal> R addTo(R temporal.d.ts" />
-/// <reference path="long amount).d.ts" />
-/// <reference path="Annotation>.d.ts" />
-/// <reference path="Annotation> m = (Map) declaredAnnotations.get(object);.d.ts" />
-/// <reference path="Annotation>emptyMap()).d.ts" />
-/// <reference path="T> type.d.ts" />
-/// <reference path="String label) {.d.ts" />
-/// <reference path="T> type) {.d.ts" />
-/// <reference path="T.d.ts" />
-/// <reference path="StdCallLibrary.d.ts" />
-/// <reference path="widgets/InterfaceID.d.ts" />
-/// <reference path="HitsplatID.d.ts" />
-/// <reference path="VarClientInt.d.ts" />
-/// <reference path="SimplePolygon.d.ts" />
-/// <reference path="Point.d.ts" />
-/// <reference path="geometry/SimplePolygon.d.ts" />
-/// <reference path="../../../../java/index.d.ts" />
-/// <reference path="../../../../jagex/index.d.ts" />
-/// <reference path="widgets/JavaScriptCallback.d.ts" />
-/// <reference path="widgets/WidgetPositionMode.d.ts" />
-/// <reference path="widgets/WidgetSizeMode.d.ts" />
-/// <reference path="widgets/WidgetTextAlignment.d.ts" />
-/// <reference path="widgets/WidgetType.d.ts" />
-/// <reference path="ChatboxTextInput.d.ts" />
-/// <reference path="events/ScriptPreFired.d.ts" />
-/// <reference path="vars/InputType.d.ts" />
-/// <reference path="FontID.d.ts" />
-/// <reference path="ChatboxInput implements KeyListener.d.ts" />
-/// <reference path="FontTypeFace.d.ts" />
-/// <reference path="MouseListener.d.ts" />
-/// <reference path="Overlay.d.ts" />
-/// <reference path="Perspective.d.ts" />
-/// <reference path="PartyMessage.d.ts" />
-/// <reference path="PartyMemberMessage.d.ts" />
-/// <reference path="WebsocketMessage.d.ts" />
-/// <reference path="Plugin.d.ts" />
-/// <reference path="events/WidgetLoaded.d.ts" />
-/// <reference path="Quest.d.ts" />
-/// <reference path="QuestState.d.ts" />
-/// <reference path="Timer.d.ts" />
-/// <reference path="ItemID/AGILITY_ARENA_TICKET.d.ts" />
-/// <reference path="NullNpcID.d.ts" />
-/// <reference path="Skill/AGILITY.d.ts" />
-/// <reference path="events/DecorativeObjectDespawned.d.ts" />
-/// <reference path="events/GameObjectDespawned.d.ts" />
-/// <reference path="events/GroundObjectDespawned.d.ts" />
-/// <reference path="events/StatChanged.d.ts" />
-/// <reference path="events/WallObjectDespawned.d.ts" />
-/// <reference path="MenuAction/RUNELITE_OVERLAY.d.ts" />
-/// <reference path="MenuAction/RUNELITE_OVERLAY_CONFIG.d.ts" />
-/// <reference path="OverlayPanel.d.ts" />
-/// <reference path="NullObjectID/*.d.ts" />
-/// <reference path="Counter.d.ts" />
-/// <reference path="events/FocusChanged.d.ts" />
-/// <reference path="events/ScriptPostFired.d.ts" />
-/// <reference path="Plugin implements KeyListener.d.ts" />
-/// <reference path="EquipmentInventorySlot.d.ts" />
-/// <reference path="InventoryID.d.ts" />
-/// <reference path="Item.d.ts" />
-/// <reference path="StructComposition.d.ts" />
-/// <reference path="events/VarbitChanged.d.ts" />
-/// <reference path="events/MenuShouldLeftClick.d.ts" />
-/// <reference path="events/GrandExchangeSearched.d.ts" />
-/// <reference path="events/WidgetClosed.d.ts" />
-/// <reference path="NullObjectID/NULL_9092.d.ts" />
-/// <reference path="ObjectID/CONVEYOR_BELT.d.ts" />
-/// <reference path="Varbits/BLAST_FURNACE_COFFER.d.ts" />
-/// <reference path="ObjectID.d.ts" />
-/// <reference path="InfoBox.d.ts" />
-/// <reference path="Prayer.d.ts" />
-/// <reference path="SettingID.d.ts" />
-/// <reference path="events/ClientTick.d.ts" />
-/// <reference path="ChatLineBuffer.d.ts" />
-/// <reference path="ChatPlayer.d.ts" />
-/// <reference path="FriendsChatManager.d.ts" />
-/// <reference path="FriendsChatMember.d.ts" />
-/// <reference path="Ignore.d.ts" />
-/// <reference path="NameableContainer.d.ts" />
-/// <reference path="clan/ClanChannelMember.d.ts" />
-/// <reference path="clan/ClanRank.d.ts" />
-/// <reference path="events/ClanMemberJoined.d.ts" />
-/// <reference path="events/ClanMemberLeft.d.ts" />
-/// <reference path="events/FriendsChatChanged.d.ts" />
-/// <reference path="events/FriendsChatMemberJoined.d.ts" />
-/// <reference path="events/FriendsChatMemberLeft.d.ts" />
-/// <reference path="events/VarClientStrChanged.d.ts" />
-/// <reference path="Perspective/LOCAL_TILE_SIZE.d.ts" />
-/// <reference path="ItemID/CANNONBALL.d.ts" />
-/// <reference path="ChatMessageType/ENGINE.d.ts" />
-/// <reference path="ChatMessageType/GAMEMESSAGE.d.ts" />
-/// <reference path="ChatMessageType/ITEM_EXAMINE.d.ts" />
-/// <reference path="ChatMessageType/MODCHAT.d.ts" />
-/// <reference path="ChatMessageType/NPC_EXAMINE.d.ts" />
-/// <reference path="ChatMessageType/OBJECT_EXAMINE.d.ts" />
-/// <reference path="ChatMessageType/PUBLICCHAT.d.ts" />
-/// <reference path="ChatMessageType/SPAM.d.ts" />
-/// <reference path="events/OverheadTextChanged.d.ts" />
-/// <reference path="LinkedHashMap<Integer.d.ts" />
-/// <reference path="String>.d.ts" />
-/// <reference path="Experience.d.ts" />
-/// <reference path="IconID.d.ts" />
-/// <reference path="events/MenuOptionClicked.d.ts" />
-/// <reference path="widgets/WidgetUtil.d.ts" />
-/// <reference path="AnimationID/COOKING_FIRE.d.ts" />
-/// <reference path="AnimationID/COOKING_RANGE.d.ts" />
-/// <reference path="GraphicID.d.ts" />
-/// <reference path="events/GraphicChanged.d.ts" />
-/// <reference path="Enum> type = (Class<?.d.ts" />
-/// <reference path="Keybind>) cid.getType());.d.ts" />
-/// <reference path="Enum> set = configManager.getConfiguration(cd.getGroup().value().d.ts" />
-/// <reference path="null,.d.ts" />
-/// <reference path="Enum<T>> JComboBox<Enum<T>> combobox(Class<T> clazz.d.ts" />
-/// <reference path="T value).d.ts" />
-/// <reference path="JButton.d.ts" />
-/// <reference path="JPanel implements SearchablePlugin.d.ts" />
-/// <reference path="JLabel.d.ts" />
-/// <reference path="Plugin> clazz = p.getClass();.d.ts" />
-/// <reference path="JToggleButton.d.ts" />
-/// <reference path="SearchablePlugin> List<T> search(Collection<T> searchablePlugins.d.ts" />
-/// <reference path="String query).d.ts" />
-/// <reference path="PluginPanel> panelProvider.d.ts" />
-/// <reference path="String image.d.ts" />
-/// <reference path="String tooltip).d.ts" />
-/// <reference path="JFormattedTextField.AbstractFormatter.d.ts" />
-/// <reference path="JFormattedTextField.AbstractFormatterFactory.d.ts" />
-/// <reference path="Shape> implements Shape.d.ts" />
-/// <reference path="events/HitsplatApplied.d.ts" />
-/// <reference path="events/InteractingChanged.d.ts" />
-/// <reference path="ObjectComposition.d.ts" />
-/// <reference path="WorldMapPoint.d.ts" />
-/// <reference path="Animation.d.ts" />
-/// <reference path="DynamicObject.d.ts" />
-/// <reference path="GraphicsObject.d.ts" />
-/// <reference path="Projectile.d.ts" />
-/// <reference path="JPanel implements Scrollable.d.ts" />
-/// <reference path="VarbitComposition.d.ts" />
-/// <reference path="kit/KitType.d.ts" />
-/// <reference path="DevToolsFrame.d.ts" />
-/// <reference path="DefaultMutableTreeNode.d.ts" />
-/// <reference path="Constants/CHUNK_SIZE.d.ts" />
-/// <reference path="Constants/SCENE_SIZE.d.ts" />
-/// <reference path="CollisionDataFlag.d.ts" />
-/// <reference path="IndexDataBase.d.ts" />
-/// <reference path="events/VarClientIntChanged.d.ts" />
-/// <reference path="WidgetNode.d.ts" />
-/// <reference path="AbstractTableModel.d.ts" />
-/// <reference path="events/AreaSoundEffectPlayed.d.ts" />
-/// <reference path="events/SoundEffectPlayed.d.ts" />
-/// <reference path="Hitsplat.d.ts" />
-/// <reference path="ScriptEvent.d.ts" />
-/// <reference path="SoundEffectID.d.ts" />
-/// <reference path="Friend.d.ts" />
-/// <reference path="Nameable.d.ts" />
-/// <reference path="events/NameableNameChanged.d.ts" />
-/// <reference path="events/RemovedFriend.d.ts" />
-/// <reference path="PendingLogin.d.ts" />
-/// <reference path="BufferProvider.d.ts" />
-/// <reference path="IntProjection.d.ts" />
-/// <reference path="Model.d.ts" />
-/// <reference path="Projection.d.ts" />
-/// <reference path="SceneTileModel.d.ts" />
-/// <reference path="SceneTilePaint.d.ts" />
-/// <reference path="Texture.d.ts" />
-/// <reference path="TextureProvider.d.ts" />
-/// <reference path="Plugin implements DrawCallbacks.d.ts" />
-/// <reference path="KeyCode.d.ts" />
-/// <reference path="HotkeyListener.d.ts" />
-/// <reference path="MouseAdapter.d.ts" />
-/// <reference path="TileItem/OWNERSHIP_GROUP.d.ts" />
-/// <reference path="TileItem/OWNERSHIP_NONE.d.ts" />
-/// <reference path="TileItem/OWNERSHIP_OTHER.d.ts" />
-/// <reference path="TileItem/OWNERSHIP_SELF.d.ts" />
-/// <reference path="events/ItemQuantityChanged.d.ts" />
-/// <reference path="JagexColor.d.ts" />
-/// <reference path="ModelData.d.ts" />
-/// <reference path="RuneLiteObject.d.ts" />
-/// <reference path="CacheLoader<NamedQuantity.d.ts" />
-/// <reference path="Boolean>.d.ts" />
-/// <reference path="MouseAdapter implements KeyListener.d.ts" />
-/// <reference path="GrandExchangeOffer.d.ts" />
-/// <reference path="GrandExchangeOfferState/BOUGHT.d.ts" />
-/// <reference path="GrandExchangeOfferState/BUYING.d.ts" />
-/// <reference path="GrandExchangeOfferState/CANCELLED_BUY.d.ts" />
-/// <reference path="GrandExchangeOfferState/CANCELLED_SELL.d.ts" />
-/// <reference path="GrandExchangeOfferState/EMPTY.d.ts" />
-/// <reference path="GrandExchangeOfferState.d.ts" />
-/// <reference path="events/GrandExchangeOfferChanged.d.ts" />
-/// <reference path="AnimationID/*.d.ts" />
-/// <reference path="coords/Angle.d.ts" />
-/// <reference path="coords/Direction.d.ts" />
-/// <reference path="ObjectID/DRIFTWOOD_30523.d.ts" />
-/// <reference path="ObjectID/MUSHROOM_30520.d.ts" />
-/// <reference path="ObjectID/ROCK_30519.d.ts" />
-/// <reference path="ObjectID/ROCK_30521.d.ts" />
-/// <reference path="ObjectID/ROCK_30522.d.ts" />
-/// <reference path="clan/ClanMember.d.ts" />
-/// <reference path="JEditorPane.d.ts" />
-/// <reference path="SpriteID/WINDOW_CLOSE_BUTTON_RED_X.d.ts" />
-/// <reference path="SpriteID/WINDOW_CLOSE_BUTTON_RED_X_HOVERED.d.ts" />
-/// <reference path="MouseWheelListener.d.ts" />
-/// <reference path="InventoryID/EQUIPMENT.d.ts" />
-/// <reference path="InventoryID/INVENTORY.d.ts" />
-/// <reference path="events/MenuOpened.d.ts" />
-/// <reference path="WidgetItemOverlay.d.ts" />
-/// <reference path="HealthBar.d.ts" />
-/// <reference path="events/BeforeMenuRender.d.ts" />
-/// <reference path="events/PostHealthBar.d.ts" />
-/// <reference path="SpriteID/*.d.ts" />
-/// <reference path="ItemID/TEAK_CHEST.d.ts" />
-/// <reference path="Perspective/getCanvasTilePoly.d.ts" />
-/// <reference path="StatBoost.d.ts" />
-/// <reference path="FoodBase.d.ts" />
-/// <reference path="SimpleIterator.d.ts" />
-/// <reference path="SingleEffect.d.ts" />
-/// <reference path="StatChange.d.ts" />
-/// <reference path="SoundEffectVolume.d.ts" />
-/// <reference path="Preferences.d.ts" />
-/// <reference path="events/PostMenuSort.d.ts" />
-/// <reference path="Comparable<? super T>> void sortedInsert(List<T> list.d.ts" />
-/// <reference path="T value) // NOPMD: UnusedPrivateMethod: false positive.d.ts" />
-/// <reference path="HintArrowType.d.ts" />
-/// <reference path="AnimationID/MINING_3A_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_ADAMANT_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_BLACK_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_BRONZE_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_3A.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_ADAMANT.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_BLACK.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_BRONZE.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_CRYSTAL.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_DRAGON.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_DRAGON_OR.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_DRAGON_OR_TRAILBLAZER.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_DRAGON_UPGRADED.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_GILDED.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_INFERNAL.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_IRON.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_MITHRIL.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_RUNE.d.ts" />
-/// <reference path="AnimationID/MINING_CRASHEDSTAR_STEEL.d.ts" />
-/// <reference path="AnimationID/MINING_CRYSTAL_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_DRAGON_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_DRAGON_PICKAXE_OR.d.ts" />
-/// <reference path="AnimationID/MINING_DRAGON_PICKAXE_OR_TRAILBLAZER.d.ts" />
-/// <reference path="AnimationID/MINING_DRAGON_PICKAXE_UPGRADED.d.ts" />
-/// <reference path="AnimationID/MINING_GILDED_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_INFERNAL_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_IRON_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_MITHRIL_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_3A.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_ADAMANT.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_BLACK.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_BRONZE.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_CRYSTAL.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_DRAGON.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_DRAGON_OR.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_DRAGON_OR_TRAILBLAZER.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_DRAGON_UPGRADED.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_GILDED.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_INFERNAL.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_IRON.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_MITHRIL.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_RUNE.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_STEEL.d.ts" />
-/// <reference path="AnimationID/MINING_MOTHERLODE_TRAILBLAZER.d.ts" />
-/// <reference path="AnimationID/MINING_RUNE_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_STEEL_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_TRAILBLAZER_PICKAXE.d.ts" />
-/// <reference path="AnimationID/MINING_TRAILBLAZER_PICKAXE_2.d.ts" />
-/// <reference path="AnimationID/MINING_TRAILBLAZER_PICKAXE_3.d.ts" />
-/// <reference path="ItemID/ADAMANT_PICKAXE.d.ts" />
-/// <reference path="ItemID/BLACK_PICKAXE.d.ts" />
-/// <reference path="ItemID/BRONZE_PICKAXE.d.ts" />
-/// <reference path="ItemID/CRYSTAL_PICKAXE.d.ts" />
-/// <reference path="ItemID/DRAGON_PICKAXE.d.ts" />
-/// <reference path="ItemID/DRAGON_PICKAXE_OR.d.ts" />
-/// <reference path="ItemID/DRAGON_PICKAXE_OR_25376.d.ts" />
-/// <reference path="ItemID/DRAGON_PICKAXE_12797.d.ts" />
-/// <reference path="ItemID/GILDED_PICKAXE.d.ts" />
-/// <reference path="ItemID/INFERNAL_PICKAXE.d.ts" />
-/// <reference path="ItemID/IRON_PICKAXE.d.ts" />
-/// <reference path="ItemID/MITHRIL_PICKAXE.d.ts" />
-/// <reference path="ItemID/RUNE_PICKAXE.d.ts" />
-/// <reference path="ItemID/STEEL_PICKAXE.d.ts" />
-/// <reference path="ItemID/_3RD_AGE_PICKAXE.d.ts" />
-/// <reference path="ItemID/INFERNAL_PICKAXE_OR.d.ts" />
-/// <reference path="ObjectID/BROKEN_STRUT.d.ts" />
-/// <reference path="ObjectID/ORE_VEIN.d.ts" />
-/// <reference path="ObjectID/ORE_VEIN_26662.d.ts" />
-/// <reference path="ObjectID/ORE_VEIN_26663.d.ts" />
-/// <reference path="ObjectID/ORE_VEIN_26664.d.ts" />
-/// <reference path="ObjectID/ROCKFALL.d.ts" />
-/// <reference path="ObjectID/ROCKFALL_26680.d.ts" />
-/// <reference path="StructID.d.ts" />
-/// <reference path="events/AmbientSoundEffectCreated.d.ts" />
-/// <reference path="events/PostStructComposition.d.ts" />
-/// <reference path="events/VolumeChanged.d.ts" />
-/// <reference path="Slider.d.ts" />
-/// <reference path="events/GraphicsObjectCreated.d.ts" />
-/// <reference path="geometry/Geometry.d.ts" />
-/// <reference path="FriendsChatRank/UNRANKED.d.ts" />
-/// <reference path="MenuAction/ITEM_USE_ON_PLAYER.d.ts" />
-/// <reference path="MenuAction/PLAYER_EIGHTH_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_FIFTH_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_FIRST_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_FOURTH_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_SECOND_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_SEVENTH_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_SIXTH_OPTION.d.ts" />
-/// <reference path="MenuAction/PLAYER_THIRD_OPTION.d.ts" />
-/// <reference path="MenuAction/RUNELITE_PLAYER.d.ts" />
-/// <reference path="MenuAction/WALK.d.ts" />
-/// <reference path="MenuAction/WIDGET_TARGET_ON_PLAYER.d.ts" />
-/// <reference path="events/DraggingWidgetChanged.d.ts" />
-/// <reference path="widgets/WidgetConfig/DRAG.d.ts" />
-/// <reference path="widgets/WidgetConfig/DRAG_ON.d.ts" />
-/// <reference path="SpriteID/MINIMAP_DESTINATION_FLAG.d.ts" />
-/// <reference path="dbtable/DBTableID.d.ts" />
-/// <reference path="InstanceTemplates.d.ts" />
-/// <reference path="Perspective/SCENE_SIZE.d.ts" />
-/// <reference path="SpriteID/TAB_QUESTS_BROWN_RAIDING_PARTY.d.ts" />
-/// <reference path="ItemID/AIR_RUNE.d.ts" />
-/// <reference path="ItemID/BLOOD_RUNE.d.ts" />
-/// <reference path="ItemID/BODY_RUNE.d.ts" />
-/// <reference path="ItemID/CHAOS_RUNE.d.ts" />
-/// <reference path="ItemID/COSMIC_RUNE.d.ts" />
-/// <reference path="ItemID/DEATH_RUNE.d.ts" />
-/// <reference path="ItemID/EARTH_RUNE.d.ts" />
-/// <reference path="ItemID/FIRE_RUNE.d.ts" />
-/// <reference path="ItemID/LAW_RUNE.d.ts" />
-/// <reference path="ItemID/MIND_RUNE.d.ts" />
-/// <reference path="ItemID/NATURE_RUNE.d.ts" />
-/// <reference path="ItemID/SOUL_RUNE.d.ts" />
-/// <reference path="ItemID/WATER_RUNE.d.ts" />
-/// <reference path="Constants/ROOF_FLAG_BETWEEN.d.ts" />
-/// <reference path="Constants/ROOF_FLAG_DESTINATION.d.ts" />
-/// <reference path="Constants/ROOF_FLAG_HOVERED.d.ts" />
-/// <reference path="Constants/ROOF_FLAG_POSITION.d.ts" />
-/// <reference path="events/ActorDeath.d.ts" />
-/// <reference path="NullItemID.d.ts" />
-/// <reference path="AnimationID/SMITHING_CANNONBALL.d.ts" />
-/// <reference path="AnimationID/SMITHING_SMELTING.d.ts" />
-/// <reference path="events/ClanChannelChanged.d.ts" />
-/// <reference path="events/ResizeableChanged.d.ts" />
-/// <reference path="ItemID/FIRE_CAPE.d.ts" />
-/// <reference path="ItemID/INFERNAL_CAPE.d.ts" />
-/// <reference path="VarPlayer/LAST_HOME_TELEPORT.d.ts" />
-/// <reference path="VarPlayer/LAST_MINIGAME_TELEPORT.d.ts" />
-/// <reference path="TabContentPanel.d.ts" />
-/// <reference path="Plugin implements TwitchListener.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_3A.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_ADAMANT.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_BLACK.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_BRONZE.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_CRYSTAL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_CRYSTAL_INACTIVE.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_DRAGON.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_IRON.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_MITHRIL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_RUNE.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_2H_STEEL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_3A_AXE.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_ADAMANT.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_BLACK.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_BRONZE.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_CRYSTAL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_DRAGON.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_DRAGON_OR.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_GILDED.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_INFERNAL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_IRON.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_MITHRIL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_RUNE.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_STEEL.d.ts" />
-/// <reference path="AnimationID/WOODCUTTING_TRAILBLAZER.d.ts" />
-/// <reference path="AnimationID/CONSTRUCTION.d.ts" />
-/// <reference path="AnimationID/CONSTRUCTION_IMCANDO.d.ts" />
-/// <reference path="AnimationID/FIREMAKING.d.ts" />
-/// <reference path="AnimationID/FLETCHING_BOW_CUTTING.d.ts" />
-/// <reference path="AnimationID/IDLE.d.ts" />
-/// <reference path="AnimationID/LOOKING_INTO.d.ts" />
-/// <reference path="ItemID/BRUMA_KINDLING.d.ts" />
-/// <reference path="ItemID/BRUMA_ROOT.d.ts" />
-/// <reference path="events/WorldListLoad.d.ts" />
-/// <reference path="worldmap/WorldMapIcon.d.ts" />
-/// <reference path="worldmap/WorldMapRegion.d.ts" />
-/// <reference path="ScriptID/XPDROPS_SETDROPSIZE.d.ts" />
-/// <reference path="ScriptID/XPDROP_DISABLED.d.ts" />
-/// <reference path="GraphicID/GRAPHICS_OBJECT_ROCKFALL.d.ts" />
-/// <reference path="GraphicID/ZALCANO_PROJECTILE_FIREBALL.d.ts" />
-/// <reference path="HitsplatID/DAMAGE_MAX_ME.d.ts" />
-/// <reference path="HitsplatID/DAMAGE_MAX_ME_ORANGE.d.ts" />
-/// <reference path="HitsplatID/DAMAGE_ME.d.ts" />
-/// <reference path="HitsplatID/DAMAGE_ME_ORANGE.d.ts" />
-/// <reference path="NpcID/ZALCANO.d.ts" />
-/// <reference path="events/ProjectileMoved.d.ts" />
-/// <reference path="JLayeredPane.d.ts" />
-/// <reference path="BoxLayout.d.ts" />
-/// <reference path="DefaultListCellRenderer.d.ts" />
-/// <reference path="DimmableJPanel.d.ts" />
-/// <reference path="FlatButtonUI.d.ts" />
-/// <reference path="FlatCheckBoxUI.d.ts" />
-/// <reference path="FlatDarkLaf.d.ts" />
-/// <reference path="FlatScrollBarUI.d.ts" />
-/// <reference path="FlatRadioButtonUI.d.ts" />
-/// <reference path="FlatToggleButtonUI.d.ts" />
-/// <reference path="FlatRootPaneUI.d.ts" />
-/// <reference path="FlatTabbedPaneUI.d.ts" />
-/// <reference path="FlatTabbedPaneLayout.d.ts" />
-/// <reference path="WidgetOverlay.d.ts" />
 /// <reference path="../../../../../java/index.d.ts" />
 /// <reference path="../../../../../jagex/index.d.ts" />
-/// <reference path="GenericDiaryRequirement.d.ts" />
-/// <reference path="MapClue implements LocationClueScroll.d.ts" />
-/// <reference path="ClueScroll implements LocationClueScroll.d.ts" />
+/// <reference path="NPC.d.ts" />
+/// <reference path="ObjectID.d.ts" />
+/// <reference path="TileObject.d.ts" />
+/// <reference path="coords/WorldPoint.d.ts" />
 /// <reference path="ClueScroll implements NpcClueScroll.d.ts" />
 /// <reference path="ObjectClueScroll.d.ts" />
+/// <reference path="ClueScrollPlugin.d.ts" />
+/// <reference path="PanelComponent.d.ts" />
+/// <reference path="Graphics2D.d.ts" />
+/// <reference path="AnagramClue.d.ts" />
 /*
  * Copyright (c) 2018, Lotto <https://github.com/devLotto>
  * All rights reserved.
@@ -638,6 +36,644 @@
  */
 declare namespace net.runelite.client.plugins.cluescrolls.clues {
 export class AnagramClue extends ClueScroll implements NpcClueScroll, ObjectClueScroll
+{
+AnagramClue.builder() 
+.text("A BAKER") 
+.npc("Baraek") 
+.location(new WorldPoint(3217, 3434, 0)) 
+.area("Varrock square") 
+.question("How many stalls are there in Varrock Square?") 
+.answer("5") 
+.build(), AnagramClue.builder() 
+.text("A BASIC ANTI POT") 
+.npc("Captain Tobias") 
+.location(new WorldPoint(3026, 3216, 0)) 
+.area("Port Sarim") 
+.question("How many ships are there docked at Port Sarim currently?") 
+.answer("6") 
+.build(), AnagramClue.builder() 
+.text("A ELF KNOWS") 
+.npc("Snowflake") 
+.location(new WorldPoint(2872, 3934, 0)) 
+.area("Weiss") 
+.build(), AnagramClue.builder() 
+.text("A HEART") 
+.npc("Aretha") 
+.location(new WorldPoint(1814, 3851, 0)) 
+.area("Soul altar") 
+.answer("2") 
+.build(), AnagramClue.builder() 
+.text("AHA JAR") 
+.npc("Jaraah") 
+.location(new WorldPoint(3359, 3276, 0)) 
+.area("PvP Arena hospital") 
+.build(), AnagramClue.builder() 
+.text("ARC O LINE") 
+.npc("Caroline") 
+.location(new WorldPoint(2715, 3302, 0)) 
+.area("North Witchaven next to the row boat") 
+.question("How many fishermen are there on the fishing platform?") 
+.answer("11") 
+.build(), AnagramClue.builder() 
+.text("ARE COL") 
+.npc("Oracle") 
+.location(new WorldPoint(3013, 3501, 0)) 
+.area("Ice Mountain West of Edgeville") 
+.question("If x is 15 and y is 3 what is 3x + y?") 
+.answer("48") 
+.build(), AnagramClue.builder() 
+.text("ARMCHAIR THE PELT") 
+.npc("Charlie the Tramp") 
+.location(new WorldPoint(3209, 3392, 0)) 
+.area("South entrance of Varrock") 
+.question("How many coins would I have if I have 0 coins and attempt to buy 10 loaves of bread for 3 coins each?") 
+.answer("0") 
+.build(), AnagramClue.builder() 
+.text("AT HERG") 
+.npc("Regath") 
+.location(new WorldPoint(1719, 3723, 0)) 
+.area("General Store, Arceuus, Zeah") 
+.question("What is -5 to the power of 2?") 
+.answer("25") 
+.build(), AnagramClue.builder() 
+.text("A BAS") 
+.npc("Saba") 
+.location(new WorldPoint(2858, 3577, 0)) 
+.area("Death Plateau") 
+.build(), AnagramClue.builder() 
+.text("AREA CHEF TREK") 
+.npc("Father Aereck") 
+.location(new WorldPoint(3243, 3208, 0)) 
+.area("Lumbridge Church") 
+.question("How many gravestones are in the church graveyard?") 
+.answer("19 or 20") 
+.build(), AnagramClue.builder() 
+.text("BAIL TRIMS") 
+.npc("Brimstail") 
+.location(new WorldPoint(2402, 3419, 0)) 
+.area("West of Stronghold Slayer Cave") 
+.build(), AnagramClue.builder() 
+.text("BAKER CLIMB") 
+.npc("Brambickle") 
+.location(new WorldPoint(2783, 3861, 0)) 
+.area("Trollweiss mountain") 
+.build(), AnagramClue.builder() 
+.text("BLUE GRIM GUIDED") 
+.npc("Lumbridge Guide") 
+.location(new WorldPoint(3238, 3220, 0)) 
+.area("Lumbridge") 
+.build(), AnagramClue.builder() 
+.text("BY LOOK") 
+.npc("Bolkoy") 
+.location(new WorldPoint(2526, 3162, 0)) 
+.area("Tree Gnome Village general store") 
+.question("How many flowers are there in the clearing below this platform?") 
+.answer("13") 
+.build(), AnagramClue.builder() 
+.text("CALAMARI MADE MUD") 
+.npc("Madame Caldarium") 
+.location(new WorldPoint(2553, 2868, 0)) 
+.area("Corsair Cove") 
+.question("What is 3(5-3)?") 
+.answer("6") 
+.build(), AnagramClue.builder() 
+.text("CAR IF ICES") 
+.npc("Sacrifice") 
+.location(new WorldPoint(2209, 3056, 0)) 
+.area("Zul-Andra") 
+.build(), AnagramClue.builder() 
+.text("CAREER IN MOON") 
+.npc("Oneiromancer") 
+.location(new WorldPoint(2150, 3866, 0)) 
+.area("Astral altar") 
+.question("How many Suqah inhabit Lunar isle?") 
+.answer("25") 
+.build(), AnagramClue.builder() 
+.text("CLASH ION") 
+.npc("Nicholas") 
+.location(new WorldPoint(1841, 3803, 0)) 
+.area("North of Port Piscarilius fishing shop") 
+.question("How many windows are in Tynan's shop?") 
+.answer("4") 
+.build(), AnagramClue.builder() 
+.text("C ON GAME HOC") 
+.npc("Gnome Coach") 
+.location(new WorldPoint(2395, 3486, 0)) 
+.area("Gnome Ball course") 
+.question("How many gnomes on the Gnome ball field have red patches on their uniforms?") 
+.answer("6") 
+.build(), AnagramClue.builder() 
+.text("COOL NERD") 
+.npc("Old crone") 
+.location(new WorldPoint(3462, 3557, 0)) 
+.area("East of the Slayer Tower") 
+.question("What is the combined combat level of each species that live in Slayer tower?") 
+.answer("619") 
+.build(), AnagramClue.builder() 
+.text("COPPER ORE CRYPTS") 
+.npc("Prospector Percy") 
+.location(new WorldPoint(3061, 3377, 0)) 
+.area("Motherlode Mine") 
+.question("During a party, everyone shook hands with everybody else. There were 66 handshakes. How many people were at the party?") 
+.answer("12") 
+.build(), AnagramClue.builder() 
+.text("DARN DRAKE") 
+.npc("Daer Krand") 
+.location(new WorldPoint(3728, 3302, 0)) 
+.area("Sisterhood Sanctuary (Slepe Dungeon, northeast of Nightmare Arena)") 
+.build(), AnagramClue.builder() 
+.text("DED WAR") 
+.npc("Edward") 
+.location(new WorldPoint(3284, 3943, 0)) 
+.area("Inside Rogue's Castle") 
+.build(), AnagramClue.builder() 
+.text("DEKAGRAM") 
+.npc("Dark Mage") 
+.location(new WorldPoint(3039, 4834, 0)) 
+.area("Centre of the Abyss") 
+.question("How many rifts are found here in the abyss?") 
+.answer("13") 
+.build(), AnagramClue.builder() 
+.text("DO SAY MORE") 
+.npc("Doomsayer") 
+.location(new WorldPoint(3230, 3230, 0)) 
+.area("East of Lumbridge Castle") 
+.question("What is 40 divided by 1/2 plus 15?") 
+.answer("95") 
+.build(), AnagramClue.builder() 
+.text("DIM THARN") 
+.npc("Mandrith") 
+.location(new WorldPoint(3182, 3946, 0)) 
+.area("Wilderness Resource Area") 
+.build(), AnagramClue.builder() 
+.text("DR HITMAN") 
+.npc("Mandrith") 
+.location(new WorldPoint(3182, 3946, 0)) 
+.area("Wilderness Resource Area") 
+.question("How many scorpions live under the pit?") 
+.answer("28") 
+.build(), AnagramClue.builder() 
+.text("DR WARDEN FUNK") 
+.npc("Drunken Dwarf") 
+.location(new WorldPoint(2913, 10221, 0)) 
+.area("East Side of Keldagrim") 
+.build(), AnagramClue.builder() 
+.text("DRAGONS LAMENT") 
+.npc("Strange Old Man") 
+.location(new WorldPoint(3564, 3288, 0)) 
+.area("Barrows") 
+.question("One pipe fills a barrel in 1 hour while another pipe can fill the same barrel in 2 hours. How many minutes will it take to fill the tank if both pipes are used?") 
+.answer("40") 
+.build(), AnagramClue.builder() 
+.text("DT RUN B") 
+.npc("Brundt the Chieftain") 
+.location(new WorldPoint(2658, 3670, 0)) 
+.area("Rellekka, main hall") 
+.question("How many people are waiting for the next bard to perform?") 
+.answer("4") 
+.build(), AnagramClue.builder() 
+.text("DUO PLUG") 
+.npc("Dugopul") 
+.location(new WorldPoint(2803, 2744, 0)) 
+.area("Graveyard on Ape Atoll") 
+.build(), AnagramClue.builder() 
+.text("EEK ZERO OP") 
+.npc("Zoo keeper") 
+.location(new WorldPoint(2613, 3269, 0)) 
+.area("Ardougne Zoo") 
+.question("How many animals in total are there in the zoo?") 
+.answer("40") 
+.build(), AnagramClue.builder() 
+.text("EL OW") 
+.npc("Lowe") 
+.location(new WorldPoint(3233, 3423, 0)) 
+.area("Varrock archery store") 
+.build(), AnagramClue.builder() 
+.text("FORLUN") 
+.npc("Runolf") 
+.location(new WorldPoint(2512, 10256, 0)) 
+.area("Miscellania & Etceteria Dungeon") 
+.build(), AnagramClue.builder() 
+.text("GOBLIN KERN") 
+.npc("King Bolren") 
+.location(new WorldPoint(2541, 3170, 0)) 
+.area("Tree Gnome Village") 
+.build(), AnagramClue.builder() 
+.text("GOT A BOY") 
+.npc("Gabooty") 
+.location(new WorldPoint(2790, 3066, 0)) 
+.area("Centre of Tai Bwo Wannai") 
+.question("How many buildings are in the village?") 
+.answer("11") 
+.build(), AnagramClue.builder() 
+.text("GOBLETS ODD TOES") 
+.npc("Otto Godblessed") 
+.location(new WorldPoint(2501, 3487, 0)) 
+.area("Otto's Grotto") 
+.question("How many types of dragon are there beneath the whirlpool's cavern?") 
+.answer("2") 
+.build(), AnagramClue.builder() 
+.text("HALT US") 
+.npc("Luthas") 
+.location(new WorldPoint(2938, 3152, 0)) 
+.area("Banana plantation, Karamja") 
+.build(), AnagramClue.builder() 
+.text("HEORIC") 
+.npc("Eohric") 
+.location(new WorldPoint(2897, 3565, 0)) 
+.area("Top floor of Burthorpe Castle") 
+.question("King Arthur and Merlin sit down at the Round Table with 8 knights. How many degrees does each get?") 
+.answer("36") 
+.build(), AnagramClue.builder() 
+.text("HIS PHOR") 
+.npc("Horphis") 
+.location(new WorldPoint(1639, 3812, 0)) 
+.area("Arceuus Library, Zeah") 
+.question("On a scale of 1-10, how helpful is Logosia?") 
+.answer("1") 
+.build(), AnagramClue.builder() 
+.text("I AM SIR") 
+.npc("Marisi") 
+.location(new WorldPoint(1737, 3557, 0)) 
+.area("Allotment patch, South of Hosidius chapel") 
+.question("How many cities form the Kingdom of Great Kourend?") 
+.answer("5") 
+.build(), AnagramClue.builder() 
+.text("ICY FE") 
+.npc("Fycie") 
+.location(new WorldPoint(2630, 2997, 0)) 
+.area("East Feldip Hills") 
+.build(), AnagramClue.builder() 
+.text("I DOOM ICON INN") 
+.npc("Dominic Onion") 
+.location(new WorldPoint(2609, 3116, 0)) 
+.area("Nightmare Zone") 
+.question("How many reward points does a herb box cost?") 
+.answer("9,500") 
+.build(), AnagramClue.builder() 
+.text("I EVEN") 
+.npc("Nieve") 
+.location(new WorldPoint(2432, 3422, 0)) 
+.area("The slayer master in Gnome Stronghold") 
+.question("How many farming patches are there in Gnome stronghold?") 
+.answer("2") 
+.build(), AnagramClue.builder() 
+.text("IM N ZEZIM") 
+.npc("Immenizz") 
+.location(new WorldPoint(2592, 4324, 0)) 
+.area("The Imp inside Puro-Puro") 
+.build(), AnagramClue.builder() 
+.text("KAY SIR") 
+.npc("Sir Kay") 
+.location(new WorldPoint(2760, 3496, 0)) 
+.area("The courtyard in Camelot Castle") 
+.question("How many fountains are there within the grounds of Camelot castle?") 
+.answer("6") 
+.build(), AnagramClue.builder() 
+.text("LEAKEY") 
+.npc("Kaylee") 
+.location(new WorldPoint(2957, 3370, 0)) 
+.area("Rising Sun Inn in Falador") 
+.question("How many chairs are there in the Rising Sun?") 
+.answer("18") 
+.build(), AnagramClue.builder() 
+.text("LARK IN DOG") 
+.npc("King Roald") 
+.location(new WorldPoint(3220, 3476, 0)) 
+.area("Ground floor of Varrock castle") 
+.question("How many bookcases are there in the palace library?") 
+.answer("24") 
+.build(), AnagramClue.builder() 
+.text("LOW LAG") 
+.npc("Gallow") 
+.location(new WorldPoint(1805, 3566, 0)) 
+.area("Vinery southeast of Hosidius") 
+.question("How many vine patches can you find in this vinery?") 
+.answer("12") 
+.build(), AnagramClue.builder() 
+.text("LADDER MEMO GUV") 
+.npc("Guard Vemmeldo") 
+.location(new WorldPoint(2447, 3418, 1)) 
+.area("Gnome Stronghold Bank") 
+.question("How many magic trees can you find inside the Gnome Stronghold?") 
+.answer("3") 
+.build(), AnagramClue.builder() 
+.text("MAL IN TAU") 
+.npc("Luminata") 
+.location(new WorldPoint(3508, 3237, 0)) 
+.area("Near Burgh de Rott entrance") 
+.build(), AnagramClue.builder() 
+.text("MACHETE CLAM") 
+.npc("Cam the Camel") 
+.location(new WorldPoint(3300, 3231, 0)) 
+.area("Outside PvP Arena") 
+.question("How many items can carry water in Gielinor?") 
+.answer("6") 
+.build(), AnagramClue.builder() 
+.text("ME IF") 
+.npc("Femi") 
+.location(new WorldPoint(2461, 3382, 0)) 
+.area("Gates of Tree Gnome Stronghold") 
+.build(), AnagramClue.builder() 
+.text("MOLD LA RAN") 
+.npc("Old Man Ral") 
+.location(new WorldPoint(3602, 3209, 0)) 
+.area("Meiyerditch") 
+.build(), AnagramClue.builder() 
+.text("MOTHERBOARD") 
+.npc("Brother Omad") 
+.location(new WorldPoint(2606, 3211, 0)) 
+.area("Monastery south of Ardougne") 
+.question("What is the next number? 12, 13, 15, 17, 111, 113, 117, 119, 123....?") 
+.answer("129") 
+.build(), AnagramClue.builder() 
+.text("MUS KIL READER") 
+.npc("Radimus Erkle") 
+.location(new WorldPoint(2726, 3368, 0)) 
+.area("Legends' Guild") 
+.build(), AnagramClue.builder() 
+.text("MY MANGLE LAL") 
+.npc("Lammy Langle") 
+.location(new WorldPoint(1688, 3540, 0)) 
+.area("Hosidius spirit tree patch") 
+.build(), AnagramClue.builder() 
+.text("NO OWNER") 
+.npc("Oronwen") 
+.location(new WorldPoint(2326, 3178, 0)) 
+.area("Lletya Seamstress shop in Lletya") 
+.question("What is the minimum amount of quest points required to reach Lletya?") 
+.answer("20") 
+.build(), AnagramClue.builder() 
+.text("NOD MED") 
+.npc("Edmond") 
+.location(new WorldPoint(2566, 3332, 0)) 
+.area("Behind the most NW house in East Ardougne") 
+.question("How many pigeon cages are there around the back of Jerico's house?") 
+.answer("3") 
+.build(), AnagramClue.builder() 
+.text("O BIRDZ A ZANY EN PC") 
+.npc("Cap'n Izzy No-Beard") 
+.location(new WorldPoint(2807, 3191, 0)) 
+.area("Brimhaven Agility Arena") 
+.question("How many Banana Trees are there in the plantation?") 
+.answer("33") 
+.build(), AnagramClue.builder() 
+.text("OK CO") 
+.npc("Cook") 
+.location(new WorldPoint(3207, 3214, 0)) 
+.area("Ground floor of Lumbridge Castle") 
+.question("How many cannons does Lumbridge Castle have?") 
+.answer("9") 
+.build(), AnagramClue.builder() 
+.text("OUR OWN NEEDS") 
+.npc("Nurse Wooned") 
+.location(new WorldPoint(1511, 3619, 0)) 
+.area("Shayzien Infirmary") 
+.question("How many wounded soldiers are there in the camp?") 
+.answer("16") 
+.build(), AnagramClue.builder() 
+.text("PACINNG A TAIE") 
+.npc("Captain Ginea") 
+.location(new WorldPoint(1504, 3632, 0)) 
+.area("Tent east of Shayzien Encampment war tent") 
+.question("1 soldier can deal with 6 lizardmen. How many soldiers do we need for an army of 678 lizardmen?") 
+.answer("113") 
+.build(), AnagramClue.builder() 
+.text("PEAK REFLEX") 
+.npc("Flax keeper") 
+.location(new WorldPoint(2744, 3444, 0)) 
+.area("Flax field south of Seers Village") 
+.question("If I have 1014 flax, and I spin a third of them into bowstring, how many flax do I have left?") 
+.answer("676") 
+.build(), AnagramClue.builder() 
+.text("PEATY PERT") 
+.npc("Party Pete") 
+.location(new WorldPoint(3047, 3376, 0)) 
+.area("Falador Party Room") 
+.build(), AnagramClue.builder() 
+.text("QUIT HORRIBLE TYRANT") 
+.npc("Brother Tranquility") 
+.location(new WorldPoint(3681, 2963, 0)) 
+.area("Mos Le'Harmless or Harmony Island") 
+.question("If I have 49 bottles of rum to share between 7 pirates, how many would each pirate get?") 
+.answer("7") 
+.build(), AnagramClue.builder() 
+.text("QUE SIR") 
+.npc("Squire") 
+.location(new WorldPoint(2975, 3343, 0)) 
+.area("Falador Castle Courtyard") 
+.question("White Knights of Falador are stronger than the Black Knights of the Kinshra. 2 White Knights can handle 3 Kinshra. How many White Knights would we need against an army of 981 Kinshra?") 
+.answer("654") 
+.build(), AnagramClue.builder() 
+.text("R AK MI") 
+.npc("Karim") 
+.location(new WorldPoint(3273, 3181, 0)) 
+.area("Al Kharid Kebab shop") 
+.question("I have 16 kebabs, I eat one myself and then share the rest equally between 3 friends. How many do they have each?") 
+.answer("5") 
+.build(), AnagramClue.builder() 
+.text("RAT MAT WITHIN") 
+.npc("Martin Thwait") 
+.location(new WorldPoint(2906, 3537, 0)) 
+.area("Rogues' Den") 
+.question("How many natural fires burn in Rogue's Den?") 
+.answer("2") 
+.build(), AnagramClue.builder() 
+.text("RATAI") 
+.npc("Taria") 
+.location(new WorldPoint(2940, 3223, 0)) 
+.area("Rimmington bush patch") 
+.question("How many buildings are there in Rimmington?") 
+.answer("7") 
+.build(), AnagramClue.builder() 
+.text("R SLICER") 
+.npc("Clerris") 
+.location(new WorldPoint(1761, 3850, 0)) 
+.area("Arceuus mine, Zeah") 
+.question("If I have 1,000 blood runes, and cast 131 ice barrage spells, how many blood runes do I have left?") 
+.answer("738") 
+.build(), AnagramClue.builder() 
+.text("RIP MAUL") 
+.npc("Primula") 
+.location(new WorldPoint(2454, 2853, 1)) 
+.area("Myth's Guild, first floor") 
+.build(), AnagramClue.builder() 
+.text("SAND NUT") 
+.npc("Dunstan") 
+.location(new WorldPoint(2919, 3574, 0)) 
+.area("Anvil in north east Burthorpe") 
+.question("How much smithing experience does one receive for smelting a blurite bar?") 
+.answer("8") 
+.build(), AnagramClue.builder() 
+.text("SLAM DUSTER GRAIL") 
+.npc("Guildmaster Lars") 
+.location(new WorldPoint(1649, 3498, 0)) 
+.area("Woodcutting guild, Zeah") 
+.build(), AnagramClue.builder() 
+.text("SLIDE WOMAN") 
+.npc("Wise Old Man") 
+.location(new WorldPoint(3088, 3253, 0)) 
+.area("Draynor Village") 
+.question("How many bookcases are in the Wise Old Man's house?") 
+.answer("28") 
+.build(), AnagramClue.builder() 
+.text("SNAKES SO I SAIL") 
+.npc("Lisse Isaakson") 
+.location(new WorldPoint(2351, 3801, 0)) 
+.area("Neitiznot") 
+.question("How many arctic logs are required to make a large fremennik round shield?") 
+.answer("2") 
+.build(), AnagramClue.builder() 
+.text("TAMED ROCKS") 
+.npc("Dockmaster") 
+.location(new WorldPoint(1822, 3739, 0)) 
+.area("Port Piscarilius, NE of General store") 
+.question("What is the cube root of 125?") 
+.answer("5") 
+.build(), AnagramClue.builder() 
+.text("TEN WIGS ON") 
+.npc("Wingstone") 
+.location(new WorldPoint(3389, 2877, 0)) 
+.area("Between Nardah & Agility Pyramid") 
+.build(), AnagramClue.builder() 
+.text("THICKNO") 
+.npc("Hickton") 
+.location(new WorldPoint(2822, 3442, 0)) 
+.area("Catherby fletching shop") 
+.question("How many ranges are there in Catherby?") 
+.answer("2") 
+.build(), AnagramClue.builder() 
+.text("TWENTY CURE IRON") 
+.npc("New Recruit Tony") 
+.location(new WorldPoint(1503, 3553, 0)) 
+.area("Shayzien Graveyard") 
+.build(), AnagramClue.builder() 
+.text("UNLEASH NIGHT MIST") 
+.npc("Sigli the Huntsman") 
+.location(new WorldPoint(2660, 3654, 0)) 
+.area("Rellekka") 
+.question("What is the combined slayer requirement of every monster in the slayer cave?") 
+.answer("302") 
+.build(), AnagramClue.builder() 
+.text("VESTE") 
+.npc("Steve") 
+.location(new WorldPoint(2432, 3423, 0)) 
+.area("Upstairs Wyvern Area or Stronghold Slayer Cave") 
+.question("How many farming patches are there in Gnome stronghold?") 
+.answer("2") 
+.build(), AnagramClue.builder() 
+.text("VEIL VEDA") 
+.npc("Evil Dave") 
+.location(new WorldPoint(3079, 9892, 0)) 
+.area("Doris' basement, Edgeville") 
+.question("What is 333 multiplied by 2?") 
+.answer("666") 
+.build(), AnagramClue.builder() 
+.text("WOO AN EGG KIWI") 
+.npc("Awowogei") 
+.objectId(ObjectID.AWOWOGEI) 
+.location(new WorldPoint(2802, 2765, 0)) 
+.area("Ape Atoll") 
+.question("If I have 303 bananas, and share them between 31 friends evenly, only handing out full bananas. How many will I have left over?") 
+.answer("24") 
+.build(), AnagramClue.builder() 
+.text("MAJORS LAVA BADS AIR") 
+.npc("Ambassador Alvijar") 
+.location(new WorldPoint(2736, 5351, 1)) 
+.area("Dorgesh-Kaan, NE Middle Level") 
+.question("Double the miles before the initial Dorgeshuun veteran.") 
+.answer("2505") 
+.build(), AnagramClue.builder() 
+.text("AN EARL") 
+.npc("Ranael") 
+.location(new WorldPoint(3315, 3163, 0)) 
+.area("Al Kharid skirt shop") 
+.build(), AnagramClue.builder() 
+.text("CARPET AHOY") 
+.npc("Apothecary") 
+.location(new WorldPoint(3195, 3404, 0)) 
+.area("Southwest Varrock") 
+.build(), AnagramClue.builder() 
+.text("CHAR GAME DISORDER") 
+.npc("Archmage Sedridor") 
+.location(new WorldPoint(3102, 9570, 0)) 
+.area("Wizards' Tower basement") 
+.build(), AnagramClue.builder() 
+.text("I CORD") 
+.npc("Doric") 
+.location(new WorldPoint(2951, 3450, 0)) 
+.area("North of Falador") 
+.build(), AnagramClue.builder() 
+.text("IN BAR") 
+.npc("Brian") 
+.location(new WorldPoint(3026, 3246, 0)) 
+.area("Port Sarim battleaxe shop") 
+.build(), AnagramClue.builder() 
+.text("RAIN COVE") 
+.npc("Veronica") 
+.location(new WorldPoint(3110, 3330, 0)) 
+.area("Outside Draynor Manor") 
+.build(), AnagramClue.builder() 
+.text("RUG DETER") 
+.npc("Gertrude") 
+.location(new WorldPoint(3151, 3412, 0)) 
+.area("West of Varrock, south of the Cooks' Guild") 
+.build(), AnagramClue.builder() 
+.text("SIR SHARE RED") 
+.npc("Hairdresser") 
+.location(new WorldPoint(2944, 3381, 0)) 
+.area("Western Falador") 
+.build(), AnagramClue.builder() 
+.text("TAUNT ROOF") 
+.npc("Fortunato") 
+.location(new WorldPoint(3080, 3250, 0)) 
+.area("Draynor Village Market") 
+.build(), AnagramClue.builder() 
+.text("HICK JET") 
+.npc("Jethick") 
+.location(new WorldPoint(2541, 3305, 0)) 
+.area("West Ardougne") 
+.question("How many graves are there in the city graveyard?") 
+.answer("38") 
+.build(), AnagramClue.builder() 
+.text("RUE GO") 
+.npc("Goreu") 
+.location(new WorldPoint(2335, 3162, 0)) 
+.area("Lletya") 
+.build(), AnagramClue.builder() 
+.text("BRUCIE CATNAP") 
+.npc("Captain Bruce") 
+.location(new WorldPoint(1529, 3567, 0)) 
+.area("East of Shayzien Graveyard") 
+.build(), AnagramClue.builder() 
+.text("UESNKRL NRIEDDO") 
+.npc("Drunken soldier") 
+.location(new WorldPoint(1551, 3565, 0)) 
+.area("Shayzien pub") 
+.question("If 13 Shayzien Soldiers kill 46 Lizardmen each in a day, how many Lizardmen have they killed in total in a single day?") 
+.answer("598") 
+.build(), AnagramClue.builder() 
+.text("LAME T") 
+.npc("Metla") 
+.location(new WorldPoint(1742, 2977, 0)) 
+.area("Stonecutter Outpost") 
+.build() 
+);
+String text;
+String npc;
+WorldPoint location;
+String area;
+String question;
+String answer;
+.Default
+	private getLocation(plugin: ClueScrollPlugin): net.runelite.api.coords.WorldPoint | null;
+	makeOverlayHint(panelComponent: PanelComponent, plugin: ClueScrollPlugin): void;
+	makeWorldOverlayHint(graphics: Graphics2D, plugin: ClueScrollPlugin): void;
 		// Mark NPC
 		// Mark game object
-},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},},}
+	static forText(text: string): AnagramClue;
+	getNpcs(plugin: ClueScrollPlugin): string[];
+	getObjectIds(): number[];
+	getConfigKeys(): number[];
+}
+}

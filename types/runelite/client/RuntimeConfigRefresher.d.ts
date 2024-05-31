@@ -1,14 +1,9 @@
 /// <reference path="../../java/index.d.ts" />
 /// <reference path="../../jagex/index.d.ts" />
-/// <reference path="Client.d.ts" />
 /// <reference path="GameState.d.ts" />
-/// <reference path="ChatMessageType.d.ts" />
-/// <reference path="Constants.d.ts" />
-/// <reference path="Player.d.ts" />
-/// <reference path="File> valueType().d.ts" />
-/// <reference path="hooks/Callbacks.d.ts" />
-/// <reference path="AbstractModule.d.ts" />
 /// <reference path="events/GameStateChanged.d.ts" />
+/// <reference path="Instant.d.ts" />
+/// <reference path="RuntimeConfig.d.ts" />
 /*
  * Copyright (c) 2024, Hexagon <hexagon@fking.work>
  * All rights reserved.
@@ -35,4 +30,12 @@
  */
 declare namespace net.runelite.client {
 export class RuntimeConfigRefresher
-},},},},},},},},}
+{
+RuntimeConfig managedRuntimeConfig;
+RuntimeConfigLoader configLoader;
+RuntimeConfigRefresher( RuntimeConfig managedRuntimeConfig, RuntimeConfigLoader configLoader, EventBus eventBus ) 
+	onGameStateChanged(event: net.runelite.api.events.GameStateChanged): void;
+	private nextRefreshTime(): Instant;
+	private refreshConfig(runtimeConfig: RuntimeConfig): void;
+}
+}
