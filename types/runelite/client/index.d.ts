@@ -7,7 +7,6 @@ declare namespace net.runelite.client {
 	export const eventbus;
 	export const events;
 	export const externalplugins;
-	export const game;
 	export const hiscore;
 	export const input;
 	export const menus;
@@ -15,8 +14,6 @@ declare namespace net.runelite.client {
 	export const plugins;
 	export const rs;
 	export const task;
-	export const ui;
-	export const util;
 	class ClassPreloader {
 		[key: string]: any;
 	}
@@ -24,9 +21,6 @@ declare namespace net.runelite.client {
 		[key: string]: any;
 	}
 	class Notifier {
-		[key: string]: any;
-	}
-	class RuneLite {
 		[key: string]: any;
 	}
 	class RuneLiteModule {

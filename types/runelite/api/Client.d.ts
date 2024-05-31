@@ -1,3 +1,4 @@
+/// <reference path="../../java/index.d.ts" />
 /// <reference path="../../jagex/OAuthApi.d.ts" />
 /// <reference path="GameEngine.d.ts" />
 /// <reference path="ChatLineBuffer.d.ts" />
@@ -10,7 +11,6 @@
 /// <reference path="MessageNode.d.ts" />
 /// <reference path="GameState.d.ts" />
 /// <reference path="vars/AccountType.d.ts" />
-/// <reference path="../../java/index.d.ts" />
 /// <reference path="Point.d.ts" />
 /// <reference path="Scene.d.ts" />
 /// <reference path="ItemComposition.d.ts" />
@@ -247,7 +247,7 @@ declare namespace net.runelite.api {
 
 		getAccountType(): net.runelite.api.vars.AccountType;
 
-		getCanvas(): Canvas;
+		getCanvas(): java.awt.Canvas;
 
 		/**
 		 * Gets the current FPS (frames per second).
