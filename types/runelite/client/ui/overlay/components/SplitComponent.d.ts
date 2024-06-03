@@ -14,9 +14,6 @@ declare namespace net.runelite.client.ui.overlay.components {
 
 
     export class SplitComponent {
-
-        static builder(): SplitComponentBuilder;
-        
         builder(): SplitComponentBuilder;
         setFirst(first: LayoutableRenderableEntity): void;
         setGap(gap: net.runelite.api.Point): void;
