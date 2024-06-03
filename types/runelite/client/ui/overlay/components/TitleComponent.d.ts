@@ -15,13 +15,13 @@ declare namespace net.runelite.client.ui.overlay.components {
 
 	export class TitleComponent {
 		builder(): TitleComponentBuilder;
-		bounds(bounds: Rectangle): TitleComponentBuilder;
+		getBounds(): Rectangle;
 		build(): TitleComponent;
-		color(color: Color): TitleComponentBuilder;
-		preferredLocation(
+		setColor(color: Color): void;
+		setPreferredLocation(
 			preferredLocation: net.runelite.api.Point,
-		): TitleComponentBuilder;
-		preferredSize(preferredSize: Dimension): TitleComponentBuilder;
-		text(text: string): TitleComponentBuilder;
+		): void;
+		setPreferredSize(preferredSize: Dimension): void;
+		setText(text: string): void;
 	}
 }
