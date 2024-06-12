@@ -30,6 +30,6 @@
 		".prettierrc": true,
 		"pnpm-lock.yaml": true,
 		"rollup": true,
-		// "rollup.config.js": true
+		"rollup.config.js": true
 	}
 }
