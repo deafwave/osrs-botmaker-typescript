@@ -1,0 +1,27 @@
+{
+	"compileOnSave": false,
+	"extends": ["@tsconfig/node20/tsconfig"],
+	"compilerOptions": {
+		"rootDir": ".",
+		"sourceMap": false,
+		"declaration": false,
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"lib": ["ESNext"],
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"baseUrl": ".",
+		"checkJs": false,
+		"allowJs": false,
+		"resolveJsonModule": true,
+		"target": "ESNext",
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"outDir": "./dist",
+		"types": [],
+		"plugins": []
+	},
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules", "tmp"]
+}
