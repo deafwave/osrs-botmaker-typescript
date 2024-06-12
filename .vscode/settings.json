@@ -9,5 +9,27 @@
 	"editor.formatOnSaveMode": "file", // required to format on save
 	// "files.autoSave": "onFocusChange", // optional but recommended
 	"eslint.quiet": true,
-	"eslint.experimental.useFlatConfig": true
+	"eslint.experimental.useFlatConfig": true,
+
+	"javascript.preferences.importModuleSpecifier": "relative",
+	"typescript.preferences.importModuleSpecifier": "relative",
+	"typescript.preferences.importModuleSpecifierEnding": "js",
+	"javascript.preferences.importModuleSpecifierEnding": "js",
+
+	// VSCode Explorer - Ignore Folders
+	"files.exclude": {
+		"**/node_modules": true,
+		"**/.git": true,
+		// "**/.vscode": true,
+		".gitignore": true,
+		".editorconfig": true,
+		".gitattributes": true,
+		".npmrc": true,
+		".nvmrc": true,
+		".prettierignore": true,
+		".prettierrc": true,
+		"pnpm-lock.yaml": true,
+		"rollup": true,
+		"rollup.config.js": true
+	}
 }

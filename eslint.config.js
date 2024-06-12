@@ -1,9 +1,6 @@
-import nxEslintPlugin from '@nx/eslint-plugin';
 import { configs } from 'eslint-plugin-unicorn';
 import eslintPluginImport from 'eslint-plugin-import';
 import eslintjs from '@eslint/js';
-import jsoncParser from 'jsonc-eslint-parser';
-import jestConfigs from 'eslint-plugin-jest';
 import { configs as __configs } from 'typescript-eslint';
 
 export default [
@@ -13,47 +10,14 @@ export default [
 	// eslintPluginImport.configs.typescript,
 	...__configs.recommendedTypeChecked,
 	{
-		files: [
-			'**/*.spec.ts',
-			'**/*.spec.tsx',
-			'**/*.spec.js',
-			'**/*.spec.jsx',
-		],
-		...jestConfigs.configs['flat/recommended'],
-		rules: {
-			...jestConfigs.configs['flat/recommended'].rules,
-			'jest/prefer-expect-assertions': 'off',
-		},
-	},
-	{
 		plugins: {
-			'@nx': nxEslintPlugin,
 			import: eslintPluginImport,
-		},
-	},
-	{
-		files: ['*.json', '*.json5'],
-		languageOptions: {
-			parser: jsoncParser,
 		},
 	},
 	{
 		files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
 		rules: {
 			'@typescript-eslint/explicit-module-boundary-types': ['warn'],
-			'@nx/enforce-module-boundaries': [
-				'error',
-				{
-					enforceBuildableLibDependency: true,
-					allow: [],
-					depConstraints: [
-						{
-							sourceTag: '*',
-							onlyDependOnLibsWithTags: ['*'],
-						},
-					],
-				},
-			],
 			'@typescript-eslint/no-unused-vars': [
 				'error',
 				{
@@ -62,6 +26,10 @@ export default [
 				},
 			],
 			'@typescript-eslint/no-explicit-any': 'warn',
+			'unicorn/numeric-separators-style': 'off',
+			'unicorn/prefer-spread': 'off',
+			'unicorn/no-null': 'off',
+			'unicorn/no-array-for-each': 'off', // TODO: Force array for each
 		},
 	},
 	{
@@ -69,7 +37,7 @@ export default [
 			ecmaVersion: 'latest',
 			parserOptions: {
 				tsconfigRootDir: './',
-				project: ['tsconfig.*?.json'],
+				project: true,
 				sourceType: 'module',
 				ecmaVersion: 'latest',
 			},
@@ -91,14 +59,15 @@ export default [
 			'eslint.config.js',
 			'project.json',
 			'package.json',
-			'jest.config.cjs',
 			'**/rollup.cjs',
-			'**/jest.config.cjs',
 			'**/tsconfig.json',
 			'**/tsconfig.*.json',
 			'**/rollup.cjs',
-			'**/tools/customRollup/src',
-			'**/*.js'
+			'**/*.js',
+			'scripts',
+			'**/*.cjs',
+
+			'**/*.d.ts',
 		],
 	},
 ];

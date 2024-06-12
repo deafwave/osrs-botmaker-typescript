@@ -31,17 +31,12 @@ jobs:
                   cache: 'pnpm'
             # TODO: Remove ignore scripts once https://github.com/nrwl/nx/issues/21823 is solved
             - run: pnpm install --frozen-lockfile --ignore-scripts
-            - uses: nrwl/nx-set-shas@v4
 
-            # may be needed for CI running on a PR
-            # - run: git branch --track main origin/main
+            - run: pnpm lint
 
-            # - run: pnpm exec nx-cloud record -- nx format:check
-            - run: pnpm exec nx affected -t lint test build
+            - run: pnpm build
 
-            # Build all until we have a better release system
-            - run: pnpm exec nx run-many -t build
             - uses: actions/upload-artifact@v4
               with:
                   name: botmaker-scripts
-                  path: dist/**/*.esm.js
+                  path: dist/*.js
