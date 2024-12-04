@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@deafwave/osrs-botmaker-types':
-    specifier: ^0.2.13
-    version: 0.2.13
+    specifier: ^0.3.1
+    version: 0.3.1
 
 devDependencies:
   '@babel/preset-env':
@@ -1425,8 +1425,8 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@deafwave/osrs-botmaker-types@0.2.13:
-    resolution: {integrity: sha512-L4ufuM6gPikXs9dOp//upwvcy9RZ9LcvEWRrw01wGk4BMejGsgWA1zyNcOKmH1r8KDMVu6Rx21ABX01ERL0o7g==}
+  /@deafwave/osrs-botmaker-types@0.3.1:
+    resolution: {integrity: sha512-sqIzvnKjH+SBlX8Gg2HNHmW/ZbaD9M7dMpIJRgKc0kQd47MrKYEUr+GzSPLq3CoRjvaWcrHlCwTm7eEX5SM96w==}
     dev: false
 
   /@esbuild/aix-ppc64@0.20.2:
