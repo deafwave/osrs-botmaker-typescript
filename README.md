@@ -10,7 +10,7 @@ Created by [Chandler 'Deafwave' Ferry](https://github.com/ChandlerFerry) to ease
 - BTC: `bc1qetcfw0pj4t3harm8glx8p0jkyeayhcu60emzzc`
 
 ## Contribute
-There are several outlined improvements in [Github Issues](https://github.com/ChandlerFerry/osrs-botmaker-typescript/issues).
+There are several outlined improvements in [Github Issues](https://github.com/deafwave/osrs-botmaker-typescript/issues).
 
 Take one on, submit a [Pull Request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)!
 
@@ -19,7 +19,7 @@ Take one on, submit a [Pull Request](https://docs.github.com/en/pull-requests/co
 - [pnpm](https://pnpm.io/installation)
 - [node & npm](https://nodejs.org/en)
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-1. [Create a Private Fork](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository#mirroring-a-repository) OR `git clone https://github.com/ChandlerFerry/osrs-botmaker-typescript`
+1. [Create a Private Fork](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository#mirroring-a-repository) OR `git clone https://github.com/deafwave/osrs-botmaker-typescript`
 2. `cd osrs-botmaker-typescript`
 3. `pnpm i`
 4. Install VSCode Extensions (ESLint, TypeScript, Prettier, Prettier-ESLint)
@@ -63,7 +63,7 @@ Create `.ts` files and place your `.js` code in them and leverage ESLint disable
 Resolve the errors & add typings over time.
 
 ## How do I view build artifacts in the CI/CD pipeline?
-1. Open your repositories [Github Actions](https://github.com/ChandlerFerry/osrs-botmaker-typescript/actions)
+1. Open your repositories [Github Actions](https://github.com/deafwave/osrs-botmaker-typescript/actions)
 2. Click on the latest workflow run
 3. If the workflow run failed, diagnose why and fix it!
 4. Once you have a successful workflow run, click `botmaker-scripts` in the Arifacts section
