@@ -20,7 +20,8 @@ Take one on, submit a [Pull Request](https://docs.github.com/en/pull-requests/co
 - [node & npm](https://nodejs.org/en)
 - [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 1. [Create a Private Fork](https://docs.github.com/en/repositories/creating-and-managing-repositories/duplicating-a-repository#mirroring-a-repository) OR `git clone https://github.com/ChandlerFerry/osrs-botmaker-typescript`
-2. `pnpm i`
+2. `cd osrs-botmaker-typescript`
+3. `pnpm i`
 4. Install VSCode Extensions (ESLint, TypeScript, Prettier, Prettier-ESLint)
 
 ### Build
