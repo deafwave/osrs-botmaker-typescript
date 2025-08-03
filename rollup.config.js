@@ -10,6 +10,11 @@ import npcIdMap from './rollup/NpcID.cjs';
 import enumIdMap from './rollup/EnumID.cjs';
 import collisionDataFlagMap from './rollup/CollisionDataFlag.cjs';
 import paramIdMap from './rollup/ParamID.cjs';
+import componentIdMap from './rollup/ComponentID.cjs';
+import interfaceIdMap from './rollup/InterfaceID.cjs';
+import itemIdMap from './rollup/ItemID.cjs';
+import spriteIdMap from './rollup/SpriteID.cjs';
+import objectIdMap from './rollup/ObjectID.cjs';
 
 let osPath = path.posix;
 if (os.platform === 'win32') {
@@ -20,27 +25,54 @@ function soxBugFixes() {
 	return {
 		name: 'sox-bugfix', // name of the plugin
 		renderChunk(code, _chunk, _options) {
-			const modifiedNpcIds = code.replaceAll(
-				/net\.runelite\.api\.NpcID\.(.*?)([ ),;\]])/g,
-				(_, p1, p2) => `${npcIdMap[p1]}${p2}`,
-			);
+			const replacements = [
+				{
+					regex: /net\.runelite\.api\.NpcID\.(.*?)([ ),;\]\n])/g,
+					map: npcIdMap,
+				},
+				{
+					regex: /net\.runelite\.api\.EnumID\.(.*?)([ ),;\]\n])/g,
+					map: enumIdMap,
+				},
+				{
+					regex: /net\.runelite\.api\.ItemID\.(.*?)([ ),;\]\n])/g,
+					map: itemIdMap,
+				},
+				{
+					regex: /net\.runelite\.api\.SpriteID\.(.*?)([ ),;\]\n])/g,
+					map: spriteIdMap,
+				},
+				{
+					regex: /net\.runelite\.api\.CollisionDataFlag\.(.*?)([ ),;\]\n])/g,
+					map: collisionDataFlagMap,
+				},
+				{
+					regex: /net\.runelite\.api\.ParamID\.(.*?)([ ),;\]\n])/g,
+					map: paramIdMap,
+				},
+				{
+					regex: /net\.runelite\.api\.widgets\.ComponentID\.(.*?)([ ),;\]\n])/g,
+					map: componentIdMap,
+				},
+				{
+					regex: /net\.runelite\.api\.widgets\.InterfaceID\.(.*?)([ ),;\]\n])/g,
+					map: interfaceIdMap,
+				},
+				{
+					regex: /net\.runelite\.api\.ObjectID\.(.*?)([ ),;\]\n])/g,
+					map: objectIdMap,
+				},
+			];
 
-			const modifiedEnumIds = modifiedNpcIds.replaceAll(
-				/net\.runelite\.api\.EnumID\.(.*?)([ ),;\]])/g,
-				(_, p1, p2) => `${enumIdMap[p1]}${p2}`,
-			);
-
-			const modifiedCollisionDataFlags = modifiedEnumIds.replaceAll(
-				/net\.runelite\.api\.CollisionDataFlag\.(.*?)([ ),;\]])/g,
-				(_, p1, p2) => `${collisionDataFlagMap[p1]}${p2}`,
-			);
-
-			const modifiedParamIds = modifiedCollisionDataFlags.replaceAll(
-				/net\.runelite\.api\.ParamID\.(.*?)([ ),;\]])/g,
-				(_, p1, p2) => `${paramIdMap[p1]}${p2}`,
-			);
+			let modifiedCode = code;
+			for (const { regex, map } of replacements) {
+				modifiedCode = modifiedCode.replaceAll(
+					regex,
+					(_, p1, p2) => `${map[p1]}${p2}`,
+				);
+			}
 			return {
-				code: modifiedParamIds,
+				code: modifiedCode,
 				map: null,
 			};
 		},
@@ -61,6 +93,26 @@ function removeExports() {
 	};
 }
 
+function removeHalfTreeshaken() {
+	return {
+		name: 'remove-half-treeshaken', // name of the plugin
+		renderChunk(code, _chunk, _options) {
+			const linesToRemove = code
+				.split('\n')
+				.filter(
+					(line) =>
+						!line.startsWith('[') &&
+						!line.startsWith('net.runelite.'),
+				);
+			const modifiedCode = linesToRemove.join('\n');
+			return {
+				code: modifiedCode,
+				map: null, // or provide a source map if necessary
+			};
+		},
+	};
+}
+
 /**
  * @type {import('rollup').RollupOptions}
  */
@@ -72,7 +124,7 @@ export default glob.sync(osPath.join('src', '*', 'index.ts')).map((file) => {
 				'dist',
 				`${path.basename(path.dirname(file))}.js`,
 			),
-			plugins: [removeExports()],
+			plugins: [removeExports(), removeHalfTreeshaken()],
 		},
 		plugins: [
 			nodeResolve(),
