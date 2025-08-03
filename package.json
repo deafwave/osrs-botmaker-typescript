@@ -6,8 +6,8 @@
 		"url": "https://github.com/ChandlerFerry"
 	},
 	"description": "Typescript Development environment for Sox's Botmaker",
-	"engines" : { 
-		"node" : ">=20.0.0"
+	"engines": {
+		"node": ">=20.0.0"
 	},
 	"license": "Apache-2.0",
 	"private": true,
@@ -15,10 +15,9 @@
 	"contributors": [],
 	"scripts": {
 		"lint": "eslint . --quiet",
-		"build": "pnpm updateapi && rollup -c rollup.config.js",
+		"build": "rollup -c rollup.config.js",
 		"compile": "pnpm build",
-		"watch": "pnpm updateapi && rollup --watch -c rollup.config.js",
-		"updateapi": "pnpm update --latest @deafwave/*"
+		"watch": "rollup --watch -c rollup.config.js"
 	},
 	"devDependencies": {
 		"@babel/preset-env": "^7.24.6",
@@ -53,6 +52,6 @@
 		"typescript-eslint": "^7.1.1"
 	},
 	"dependencies": {
-		"@deafwave/osrs-botmaker-types": "^0.3.1"
+		"@deafwave/osrs-botmaker-types": "^0.3.8"
 	}
 }
