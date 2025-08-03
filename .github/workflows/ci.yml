@@ -1,39 +1,45 @@
-name: CI
-
+name: Build on Main
 on:
     push:
-        branches:
-            - main
-    pull_request:
+        branches: [main]
 
 permissions:
-    actions: read
-    contents: read
+    contents: write
+    packages: read
+
+concurrency:
+    group: ${{ github.repository }}-${{ github.event.ref }}
+    cancel-in-progress: true
 
 jobs:
-    main:
+    build_publish:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
+            - name: ⬇️ Checkout repo
+              uses: actions/checkout@v4
 
-            # Connect your workspace on nx.app and uncomment this to enable task distribution.
-            # The "--stop-agents-after" is optional, but allows idle agents to shut down once the "build" targets have been requested
-            # - run: pnpm exec nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="build"
+            - name: Setup PNPM
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 10
 
-            - uses: pnpm/action-setup@v3
+            - name: Setup Node
+              uses: actions/setup-node@v4
               with:
-                  version: 8
-            - uses: actions/setup-node@v4
-              with:
-                  node-version: 20
+                  node-version: '20.x'
                   cache: 'pnpm'
-            # TODO: Remove ignore scripts once https://github.com/nrwl/nx/issues/21823 is solved
+
+            - name: ⏫ Bumping version
+              id: bumping-version
+              uses: jpb06/bump-package@latest
+              with:
+                  major-keywords: BREAKING CHANGE
+                  minor-keywords: feat,minor
+                  patch-keywords: fix,chore
+
             - run: pnpm install --frozen-lockfile --ignore-scripts
 
             - run: pnpm lint
-
             - run: pnpm build
 
             - uses: actions/upload-artifact@v4
