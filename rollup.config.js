@@ -5,78 +5,11 @@ import typescript from '@rollup/plugin-typescript';
 import { glob } from 'glob';
 import path from 'node:path';
 import os from 'node:os';
-
-import npcIdMap from './rollup/NpcID.cjs';
-import enumIdMap from './rollup/EnumID.cjs';
-import collisionDataFlagMap from './rollup/CollisionDataFlag.cjs';
-import paramIdMap from './rollup/ParamID.cjs';
-import componentIdMap from './rollup/ComponentID.cjs';
-import interfaceIdMap from './rollup/InterfaceID.cjs';
-import itemIdMap from './rollup/ItemID.cjs';
-import spriteIdMap from './rollup/SpriteID.cjs';
-import objectIdMap from './rollup/ObjectID.cjs';
+import { _zRhinoRuneliteRollupBugFixes } from '@deafwave/osrs-botmaker-types'
 
 let osPath = path.posix;
 if (os.platform === 'win32') {
 	osPath = path.win32;
-}
-
-function soxBugFixes() {
-	return {
-		name: 'sox-bugfix', // name of the plugin
-		renderChunk(code, _chunk, _options) {
-			const replacements = [
-				{
-					regex: /net\.runelite\.api\.NpcID\.(.*?)([ ),;\]\n])/g,
-					map: npcIdMap,
-				},
-				{
-					regex: /net\.runelite\.api\.EnumID\.(.*?)([ ),;\]\n])/g,
-					map: enumIdMap,
-				},
-				{
-					regex: /net\.runelite\.api\.ItemID\.(.*?)([ ),;\]\n])/g,
-					map: itemIdMap,
-				},
-				{
-					regex: /net\.runelite\.api\.SpriteID\.(.*?)([ ),;\]\n])/g,
-					map: spriteIdMap,
-				},
-				{
-					regex: /net\.runelite\.api\.CollisionDataFlag\.(.*?)([ ),;\]\n])/g,
-					map: collisionDataFlagMap,
-				},
-				{
-					regex: /net\.runelite\.api\.ParamID\.(.*?)([ ),;\]\n])/g,
-					map: paramIdMap,
-				},
-				{
-					regex: /net\.runelite\.api\.widgets\.ComponentID\.(.*?)([ ),;\]\n])/g,
-					map: componentIdMap,
-				},
-				{
-					regex: /net\.runelite\.api\.widgets\.InterfaceID\.(.*?)([ ),;\]\n])/g,
-					map: interfaceIdMap,
-				},
-				{
-					regex: /net\.runelite\.api\.ObjectID\.(.*?)([ ),;\]\n])/g,
-					map: objectIdMap,
-				},
-			];
-
-			let modifiedCode = code;
-			for (const { regex, map } of replacements) {
-				modifiedCode = modifiedCode.replaceAll(
-					regex,
-					(_, p1, p2) => `${map[p1]}${p2}`,
-				);
-			}
-			return {
-				code: modifiedCode,
-				map: null,
-			};
-		},
-	};
 }
 
 function removeExports() {
@@ -135,7 +68,7 @@ export default glob.sync(osPath.join('src', '*', 'index.ts')).map((file) => {
 				include: '**',
 			}),
 			typescript(),
-			soxBugFixes(),
+			_zRhinoRuneliteRollupBugFixes(),
 			babel({
 				babelHelpers: 'bundled',
 				extensions: ['.js', '.ts'],
