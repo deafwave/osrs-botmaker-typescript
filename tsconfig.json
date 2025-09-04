@@ -13,7 +13,7 @@
 		"skipDefaultLibCheck": true,
 		"baseUrl": ".",
 		"checkJs": false,
-		"allowJs": false,
+		"allowJs": true,
 		"resolveJsonModule": true,
 		"target": "ESNext",
 		"module": "NodeNext",
