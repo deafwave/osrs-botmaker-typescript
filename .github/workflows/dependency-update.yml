@@ -37,7 +37,7 @@ jobs:
               uses: EndBug/add-and-commit@v9
               id: commit
               with:
-                message: "chore: update RuneLite TypeScript definitions"
+                message: "chore: update Deafwave dependencies"
                 author_name: github-actions[bot]
                 author_email: github-actions[bot]@users.noreply.github.com
                 add: '.'
