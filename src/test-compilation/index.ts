@@ -1,4 +1,6 @@
 /// <reference types="@deafwave/osrs-botmaker-types" />
+import { globalScriptVariables } from './global-script-variables/global-script-variables.js';
+import { createUi } from './ui/create-ui.js';
 import { exampleJavaScriptFunction } from './without-typescript.js';
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
@@ -15,9 +17,16 @@ import { exampleJavaScriptFunction } from './without-typescript.js';
 export function onStart(): void {
 	bot.printGameMessage('Executed JS onStart Method');
 	exampleJavaScriptFunction();
+	createUi();
 }
 
 export function onGameTick(): void {
+	if (!globalScriptVariables.uiCompleted) {
+		return;
+	}
+	bot.printGameMessage(
+		`UI Completed! We are now executing within the game tick loop`,
+	);
 	//bot.printGameMessage('Executed JS onGameTick Method');
 }
 
