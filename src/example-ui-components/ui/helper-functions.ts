@@ -452,7 +452,7 @@ export function createPanel(
 		};
 	},
 	padding?: { top: number; left: number; bottom: number; right: number }, // Padding for the panel
-	border?: javax.swing.Border,
+	border?: javax.swing.border.Border,
 ): javax.swing.JPanel {
 	const panel: javax.swing.JPanel = new javax.swing.JPanel();
 	// Set the layout for the panel (default to FlowLayout if not provided)
