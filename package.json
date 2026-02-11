@@ -52,6 +52,7 @@
 		"typescript-eslint": "^7.1.1"
 	},
 	"dependencies": {
+		"@deafwave/osrs-botmaker-config-manager": "^0.2.7",
 		"@deafwave/osrs-botmaker-types": "^0.7.34"
 	}
 }
