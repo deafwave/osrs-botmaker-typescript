@@ -10,10 +10,10 @@ importers:
     dependencies:
       '@deafwave/osrs-botmaker-config-manager':
         specifier: ^0.2.9
-        version: 0.2.9(@deafwave/osrs-botmaker-types@0.8.26)
+        version: 0.2.9(@deafwave/osrs-botmaker-types@0.8.27)
       '@deafwave/osrs-botmaker-types':
-        specifier: ^0.8.26
-        version: 0.8.26
+        specifier: ^0.8.27
+        version: 0.8.27
     devDependencies:
       '@babel/preset-env':
         specifier: ^7.24.6
@@ -667,8 +667,8 @@ packages:
     peerDependencies:
       '@deafwave/osrs-botmaker-types': ^0.8.4
 
-  '@deafwave/osrs-botmaker-types@0.8.26':
-    resolution: {integrity: sha512-+s0XsXIP1CJslhMK5UmprajqfhR6MLGKk2zJ5Z2TKWRZKG8opWzNJwhYZk7VLXdeDNytoYq5Hx/5l5EICsN8dA==}
+  '@deafwave/osrs-botmaker-types@0.8.27':
+    resolution: {integrity: sha512-MEFLuU0rpGIj7au6dy8UdPh/amF5Pbv3Cmw8/dCTFOImZJg3HUuWS/kCr+FDrxbwHLICgUvd4ceLnDHwgnnX5w==}
 
   '@emnapi/core@1.4.5':
     resolution: {integrity: sha512-XsLw1dEOpkSX/WucdqUhPWP7hDxSvZiY+fsUC14h+FtQ2Ifni4znbBt8punRX+Uj2JG/uDb8nEHVKvrVlvdZ5Q==}
@@ -3539,11 +3539,11 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@deafwave/osrs-botmaker-config-manager@0.2.9(@deafwave/osrs-botmaker-types@0.8.26)':
+  '@deafwave/osrs-botmaker-config-manager@0.2.9(@deafwave/osrs-botmaker-types@0.8.27)':
     dependencies:
-      '@deafwave/osrs-botmaker-types': 0.8.26
+      '@deafwave/osrs-botmaker-types': 0.8.27
 
-  '@deafwave/osrs-botmaker-types@0.8.26': {}
+  '@deafwave/osrs-botmaker-types@0.8.27': {}
 
   '@emnapi/core@1.4.5':
     dependencies:
